@@ -1,5 +1,7 @@
 # Transmitter interface and WDM parallel port driver
 
+![Interface.doc](https://blacksphere2.github.io/screenshots/ss99.jpg)
+
 * Txintpar is based on Walter Oney's ConvertWDM sample
 * Txintpar2 is based on the NT DDK's PARSIMP sample
 * Txintpar3 is based on the Win2000 DDK's PARCLASS sample (a bus driver)
