@@ -1,6 +1,6 @@
 # WDM_interface
 
-Transmitter interface and WDM parallel port driver
+Transmitter interface and [WDM](https://en.wikipedia.org/wiki/Windows_Driver_Model) parallel port driver
 
 ![Interface](https://blacksphere2.github.io/images/int2.jpg)
 
