@@ -1,4 +1,6 @@
-# Transmitter interface and WDM parallel port driver
+# WDM_interface
+
+Transmitter interface and WDM parallel port driver
 
 ![Interface.doc](https://blacksphere2.github.io/screenshots/ss99.jpg)
 
