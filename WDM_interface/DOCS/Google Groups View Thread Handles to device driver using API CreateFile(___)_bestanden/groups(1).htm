@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0123)http://groups.google.com/groups?hl=en&frame=right&th=701f708e3f85fda&seekm=b547997.0110211752.6adc0e86%40posting.google.com -->
+<HTML><HEAD><TITLE>Google Groups: View Thread</TITLE>
+<META content="text/html; charset=ISO-8859-1" http-equiv=content-type>
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff onload=window.focus();>
+<TABLE bgColor=#ffcc33 border=0 cellPadding=2 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><FONT face=arial,sans-serif>All messages from 
+      thread</FONT></TD></TR></TBODY></TABLE><A name=link1></A><A name=s></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 1 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:boylesg%40tabcorp.com.au+" 
+      target=_top>Greg Boyles</A> (<A 
+      href="mailto:boylesg@tabcorp.com.au">boylesg@tabcorp.com.au</A>)<BR>Subject: 
+      Handles to device driver using API CreateFile(...) <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=b547997.0110211752.6adc0e86%40posting.google.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 2001-10-21 18:52:40 PST 
+      <BR></FONT></TD></TR></TBODY></TABLE><PRE>I am working with a device driver written using Numega Driver Studio.
+I am trying to obtain a handle to the driver from an application using
+the API function CreateFile(...). I have also created a 'symbolic
+link' inside the driver, recompiled it, installed it and restarted the
+PC before attempting to obtain the handle in the app.
+
+Nothing seems to work - CreateFile(...) always retruns an invalid
+handle.
+What am I doing wrong?</PRE><A name=link2></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 2 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:malyutin%40acuid.com+" 
+      target=_top>Sergei Malyutin</A> (<A 
+      href="mailto:malyutin@acuid.com">malyutin@acuid.com</A>)<BR>Subject: Re: 
+      Handles to device driver using API CreateFile(...) <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=1003737596.641243%40telecom.lek.ru" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 2001-10-22 00:59:57 PST 
+      <BR></FONT></TD></TR></TBODY></TABLE><PRE>"Greg Boyles" &lt;boylesg@tabcorp.com.au&gt; wrote in message
+<A href="http://groups.google.com/groups?selm=b547997.0110211752.6adc0e86%40posting.google.com" target=_top>news:b547997.0110211752.6adc0e86@posting.google.com</A>...
+<FONT color=#660066>&gt; I am working with a device driver written using Numega Driver Studio.
+&gt; I am trying to obtain a handle to the driver from an application using
+&gt; the API function CreateFile(...). I have also created a 'symbolic
+&gt; link' inside the driver, recompiled it, installed it and restarted the
+&gt; PC before attempting to obtain the handle in the app.
+&gt;
+&gt; Nothing seems to work - CreateFile(...) always retruns an invalid
+&gt; handle.
+&gt; What am I doing wrong?</FONT>
+
+You have to obtain a handle to a DEVICE created by a driver, not to a
+driver.
+In your driver you have to call IoCreateDevice() passing the Unicode name of
+your device as "\\Device\\YourDevice", where "YourDevice" is the name of the
+device you want to create.
+Then you have to call IoCreateSymbolic Link() passing the name of device as
+"\\DosDevices\\YourDevice". You can check whether the required device is
+created using a utility, say, OBJDIR.EXE from the DDK.
+If the required name exists, try to access it from the application. If the
+invalid handle returns, use GetLastError() call to determine the reason.
+
+Best wishes,
+Sergei =</PRE>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><IMG alt="" height=3 
+      src="groups(1)_bestanden/cleardot.gif"></TD></TR></TBODY></TABLE><BR>
+<CENTER><FONT size=-1>©2001 Google</FONT></CENTER></BODY></HTML>

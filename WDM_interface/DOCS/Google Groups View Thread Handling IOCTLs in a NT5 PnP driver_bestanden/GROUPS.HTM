@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0215)http://groups.google.com/groups?hl=en&frame=left&th=a0c0acd20f635bd9&prev=/groups%3Fq%3DSetupDiGetDeviceInterfaceDetail%2Bgroup:*nt.kernel-mode*%26hl%3Den%26start%3D10%26sa%3DN&seekm=35A0FE07.F690ECD9%40oneysoft.com -->
+<HTML><HEAD>
+<META content="text/html; charset=ISO-8859-1" http-equiv=content-type>
+<STYLE>.m {
+	FONT-WEIGHT: normal
+}
+.a {
+	FONT-WEIGHT: normal
+}
+.sm {
+	COLOR: #ff6633; FONT-WEIGHT: bold
+}
+.sa {
+	FONT-WEIGHT: bold
+}
+</STYLE>
+
+<SCRIPT>var cm;var mm;function t(n) {  if (document.all) {    document.all['m'+cm].className="m";    document.all['a'+cm].className="a";  }  var startm = 1+10*Math.floor((cm-1)/10);  var endm = 10*Math.ceil(cm/10);  if (endm > mm) endm = mm;  for (var i = startm; i<=endm; i++) {     document["i"+i].src = "/images/blanktri.gif";};  sel(n);  return true;}function tone(n) {  document["i"+n].src = "/images/tri.gif";  if (document.all) {    document.all['m'+n].className="sm";    document.all['a'+n].className="sa";  }  cm = n;  return true;}function widen() {  sel(cm);  return true;}function sel(n){  if (document.all) {    document.all['m'+n].className="sm";    document.all['a'+n].className="sa";  }  var startm = 1+10*Math.floor((n-1)/10);  var endm = 10*Math.ceil(n/10);  if (endm > mm) endm = mm;  for (var i = startm; i<=endm; i++) {     document["i"+i].src = "/images/bartri.gif";};  document["i"+n].src = "/images/tri.gif";  cm = n;  return true;}</SCRIPT>
+
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff onload=mm=3;sel(2) onresize=sel(cm);>
+<CENTER><A href="http://groups.google.com/groups" target=_top><IMG border=0 
+height=59 src="groups_bestanden/threadview_logo.gif" width=143></A></CENTER>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><IMG alt="" border=0 height=1 
+      src="groups_bestanden/cleardot.gif"></TD></TR></TBODY></TABLE>
+<TABLE bgColor=#fff7d7 border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#fff7d7><FONT face=arial,sans-serif size=-1>Subject: 
+      <BR>&nbsp;<B>Handling IOCTLs in a NT5 PnP driver</B>
+      <P>Newsgroup:<BR>&nbsp;<A class=u 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A></FONT></P></TD></TR></TBODY></TABLE>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><IMG alt="" height=1 
+      src="groups_bestanden/cleardot.gif"></TD></TR></TBODY></TABLE>
+<TABLE border=0 cellPadding=4 cellSpacing=0>
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif size=-2><A 
+      href="http://groups.google.com/groups?q=SetupDiGetDeviceInterfaceDetail+group:*nt.kernel-mode*&amp;hl=en&amp;start=10&amp;sa=N" 
+      target=_top><IMG alt="" border=0 height=11 
+      src="groups_bestanden/frame_back.gif" width=12>Back</A>&nbsp;<A 
+      href="http://groups.google.com/groups?hl=en&amp;th=a0c0acd20f635bd9&amp;seekm=6ol1u8%24tf%241%40newnews.metronet.com&amp;frame=off" 
+      target=_top><IMG alt="" border=0 height=11 
+      src="groups_bestanden/frame_remove.gif" width=12>No frame</A>&nbsp;<A 
+      href="http://groups.google.com/groups?hl=en&amp;threadm=6ol1u8%24tf%241%40newnews.metronet.com&amp;scoring=d&amp;prev=/groups%3Fq%3DSetupDiGetDeviceInterfaceDetail%2Bgroup:*nt.kernel-mode*%26hl%3Den%26start%3D10%26sa%3DN" 
+      target=_top><IMG alt="" border=0 height=11 
+      src="groups_bestanden/frame_remove.gif" width=12>Sort by 
+  date</A></FONT></TD></TR></TBODY></TABLE>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><IMG alt="" height=1 
+      src="groups_bestanden/cleardot.gif"></TD></TR></TBODY></TABLE>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD noWrap><FONT face=arial,sans-serif size=-1><BR><IMG alt="" height=10 
+      name=i1 src="groups_bestanden/blanktri.gif" width=8><FONT 
+      face=arial,sans-serif><TT></TT><A class=plain 
+      href="http://groups.google.com/groups?hl=en&amp;frame=right&amp;th=a0c0acd20f635bd9&amp;seekm=35A0FE07.F690ECD9%40oneysoft.com#link1" 
+      id=m1 onclick=t(1) target=right>1&nbsp;<SPAN class=a id=a1>Jesper 
+      Holm</A>&nbsp;<FONT size=-2>06 Jul 1998</FONT></SPAN> </FONT><BR><A 
+      name=s></A><IMG alt="" height=10 name=i2 
+      src="groups_bestanden/blanktri.gif" width=8><FONT 
+      face=arial,sans-serif><TT>\-</TT><A class=plain 
+      href="http://groups.google.com/groups?hl=en&amp;frame=right&amp;th=a0c0acd20f635bd9&amp;seekm=35A0FE07.F690ECD9%40oneysoft.com#link2" 
+      id=m2 onclick=t(2) target=right>2&nbsp;<SPAN class=a id=a2>Walter 
+      Oney</A>&nbsp;<FONT size=-2>06 Jul 1998</FONT></SPAN> </FONT><BR><IMG 
+      alt="" height=10 name=i3 src="groups_bestanden/blanktri.gif" width=8><FONT 
+      face=arial,sans-serif><TT>&nbsp;&nbsp;\-</TT><A class=plain 
+      href="http://groups.google.com/groups?hl=en&amp;frame=right&amp;th=a0c0acd20f635bd9&amp;seekm=35A0FE07.F690ECD9%40oneysoft.com#link3" 
+      id=m3 onclick=t(3) target=right>3&nbsp;<SPAN class=a id=a3>Neill 
+      Bell</A>&nbsp;<FONT size=-2>16 Jul 1998</FONT></SPAN> 
+  </FONT></FONT></TD></TR></TBODY></TABLE>
+<P>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><IMG alt="" height=1 
+      src="groups_bestanden/cleardot.gif"></TD></TR></TBODY></TABLE></P></BODY></HTML>

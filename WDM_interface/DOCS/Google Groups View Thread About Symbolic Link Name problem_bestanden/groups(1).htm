@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0116)http://groups.google.com/groups?hl=en&frame=right&th=148061314b79fd13&seekm=8ep229%24m2b%241%40newsfeed.unitel.co.kr -->
+<HTML><HEAD><TITLE>Google Groups: View Thread</TITLE>
+<META content="text/html; charset=ISO-8859-1" http-equiv=content-type>
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff onload=window.focus();>
+<TABLE bgColor=#ffcc33 border=0 cellPadding=2 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><FONT face=arial,sans-serif>All messages from 
+      thread</FONT></TD></TR></TBODY></TABLE><A name=link1></A><A name=s></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 1 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:sjhong%40halla.sec.samsung.co.kr+" 
+      target=_top>Hong, Sang-Jin</A> (<A 
+      href="mailto:sjhong@halla.sec.samsung.co.kr">sjhong@halla.sec.samsung.co.kr</A>)<BR>Subject: 
+      About Symbolic Link Name problem <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A>, <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.vxd" 
+      target=_top>comp.os.ms-windows.programmer.vxd</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=8ep229%24m2b%241%40newsfeed.unitel.co.kr" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 2000/05/03 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>hi.....
+
+I have some problems about my USB client driver.
+I registered Symbolic Link name using the following GUID.
+
+DEFINE_GUID(GUID_MY_DRIVER,
+0x79bc59d2, 0x3e7b, 0x11d3, 0x8d, 0x7b, 0x0, 0x0, 0xf0, 0xff, 0x89, 0x70);
+
+I used IoRegisterDeviceInterface function in the AddDevice dispatch routine,
+and I installed my driver well.
+
+the registry key("HKEY_LOCAL_MACHINE\Enum\Usb\VID_xxxx&amp;yyyy\INST_0) has
+string value, this string value's name is SymbolicName.
+The symbolicName is
+"\DosDevices\0000000000000011\a5dcbf10-65530-11d2-901f-00c04fb951ed".
+This key has the difference GUID from GUID_MY_DRIVER.
+
+Though my test application tried to open the driver usging GUID_MY_DRIVER,
+the application could not open the driver.
+I think the registry's symbolicName has wrong value.
+I don't konw where the driver has problem.
+
+If anybody has good idea, Please let me know.............
+
+Thanks.
+Hong.</PRE><A name=link2></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 2 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:waltoney%40oneysoft.com+" 
+      target=_top>Walter Oney</A> (<A 
+      href="mailto:waltoney@oneysoft.com">waltoney@oneysoft.com</A>)<BR>Subject: 
+      Re: About Symbolic Link Name problem <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A>, <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.vxd" 
+      target=_top>comp.os.ms-windows.programmer.vxd</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=39100E77.6E106892%40oneysoft.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 2000/05/03 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>"Hong, Sang-Jin" wrote:
+<FONT color=#660066>&gt; Though my test application tried to open the driver usging GUID_MY_DRIVER,
+&gt; the application could not open the driver.</FONT>
+
+Did you also call IoSetDeviceInterfaceState to TRUE when you
+successfully processed IRP_MN_START_DEVICE?
+
+--
+Walter Oney
+<A href="http://www.oneysoft.com/" target=_top>http://www.oneysoft.com/</A></PRE>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><IMG alt="" height=3 
+      src="groups(1)_bestanden/cleardot.gif"></TD></TR></TBODY></TABLE><BR>
+<CENTER><FONT size=-1>©2001 Google</FONT></CENTER></BODY></HTML>

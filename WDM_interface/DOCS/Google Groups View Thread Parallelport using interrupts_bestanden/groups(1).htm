@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0100)http://groups.google.com/groups?frame=right&th=5f3bfe13710ccf74&seekm=661b1l%24g5d%241%40news.fhg.de -->
+<HTML><HEAD><TITLE>Google Groups: View Thread</TITLE>
+<META content="text/html; charset=ISO-8859-1" http-equiv=content-type>
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff onload=window.focus();>
+<TABLE bgColor=#ffcc33 border=0 cellPadding=2 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><FONT face=arial,sans-serif>All messages from 
+      thread</FONT></TD></TR></TBODY></TABLE><A name=link1></A><A name=s></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 1 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?q=author:winkler%40eas.iis.fhg.de+" 
+      target=_top>Frank Winkler</A> (<A 
+      href="mailto:winkler@eas.iis.fhg.de">winkler@eas.iis.fhg.de</A>)<BR>Subject: 
+      Parallelport using interrupts <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?selm=661b1l%24g5d%241%40news.fhg.de" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1997/12/02 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Hi folks,
+
+once again a "simple" Problem: I found in the ddk-examples
+comm/parsimp, where interrupts can be "used". Does anybody
+know, where I can find an example, which uses this driver ?
+
+TNX, 
+Frank.</PRE><A name=link2></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 2 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?q=author:paulsan%40microsoft.com+" 
+      target=_top>Paul Sanders</A> (<A 
+      href="mailto:paulsan@microsoft.com">paulsan@microsoft.com</A>)<BR>Subject: 
+      Re: Parallelport using interrupts <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?selm=661iir%24emn%40news.microsoft.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1997/12/02 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>A printer.
+
+The parallel driver is one of the few drivers that operates in polled mode
+when it is capable of operating in interrupting mode.  At first glance this
+seems counter productive.  The reason is that many printers cause interrupts
+in a somewhat non-standard fashion.  This made it a real pain to write a
+good consistent interrupt handler for the parallel driver.  As I recall the
+straw that broke the camel's back was that every time one of the principal
+archtitects of Windows NT tried to print, his mouse became very jerky until
+the print job was completed.  There were so many interrupts and DPC's being
+generated that USER could not move the mouse.  Thus, the polled version of
+parallel (which is installed by default).
+
+-Paul
+
+Tony, did I get this all right???  :-)
+
+Frank Winkler wrote in message &lt;661b1l$g5d$1@news.fhg.de&gt;...
+<FONT color=#660066>&gt;Hi folks,
+&gt;
+&gt;once again a "simple" Problem: I found in the ddk-examples
+&gt;comm/parsimp, where interrupts can be "used". Does anybody
+&gt;know, where I can find an example, which uses this driver ?
+&gt;
+&gt;TNX,
+&gt;Frank.
+&gt;
+&gt;
+&gt;
+&gt;
+&gt;</FONT></PRE><A name=link3></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 3 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?q=author:tony%40ercolano.com+" 
+      target=_top>Anthony V. Ercolano</A> (<A 
+      href="mailto:tony@ercolano.com">tony@ercolano.com</A>)<BR>Subject: Re: 
+      Parallelport using interrupts <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?selm=348e5fd9.238331312%40news.alt.net" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1997/12/05 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>I'm not really sure what Frank was looking for, so I let somebody else
+answer.
+
+As for the rest:
+The performance "degradation" that was experienced with original NT
+3.1 beta driver wasn't the primary reason why it was rewritten to be
+exclusively polling.  Some work was done to the interrupt processing
+to implement throttling that would have made it "better".  Note though
+the interrupt driven driver had GREAT performance as far as benchmarks
+are concerned.  I AM NOT JOKING.  The rest of the system may have been
+slowed down but DO NOT underestimate the need to perform well against
+brain dead benchmarks.
+
+The primary reason the driver was "rewritten" was that it was becoming
+painfully clear that an interrupt driven parallel driver would cause a
+*small* (about 1 percent) to simply LOCK up for no good debuggable
+cause.  I lay this down to the fact that the VAST majority of PC's
+simply had (have?) NEVER been tested by their manufactures with an
+interrupting parallel port.  Note that win 3.1 and win95 didn't have
+an interrupt driven parallel driver, nor did their implementors think
+it wise to produce one for much the same reasoning.
+
+"Paul Sanders" &lt;paulsan@microsoft.com&gt; wrote:
+
+<FONT color=#660066>&gt;A printer.
+&gt;
+&gt;The parallel driver is one of the few drivers that operates in polled mode
+&gt;when it is capable of operating in interrupting mode.  At first glance this
+&gt;seems counter productive.  The reason is that many printers cause interrupts
+&gt;in a somewhat non-standard fashion.  This made it a real pain to write a
+&gt;good consistent interrupt handler for the parallel driver.  As I recall the
+&gt;straw that broke the camel's back was that every time one of the principal
+&gt;archtitects of Windows NT tried to print, his mouse became very jerky until
+&gt;the print job was completed.  There were so many interrupts and DPC's being
+&gt;generated that USER could not move the mouse.  Thus, the polled version of
+&gt;parallel (which is installed by default).
+&gt;
+&gt;-Paul
+&gt;
+&gt;Tony, did I get this all right???  :-)
+&gt;
+&gt;Frank Winkler wrote in message &lt;661b1l$g5d$1@news.fhg.de&gt;...</FONT>
+<FONT color=#007777>&gt;&gt;Hi folks,
+&gt;&gt;
+&gt;&gt;once again a "simple" Problem: I found in the ddk-examples
+&gt;&gt;comm/parsimp, where interrupts can be "used". Does anybody
+&gt;&gt;know, where I can find an example, which uses this driver ?
+&gt;&gt;
+&gt;&gt;TNX,
+&gt;&gt;Frank.
+&gt;&gt;
+&gt;&gt;
+&gt;&gt;
+&gt;&gt;
+&gt;&gt;</FONT>
+<FONT color=#660066>&gt;</FONT></PRE>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><IMG alt="" height=3 
+      src="groups(1)_bestanden/cleardot.gif"></TD></TR></TBODY></TABLE><BR>
+<CENTER><FONT size=-1>©2002 Google</FONT></CENTER></BODY></HTML>

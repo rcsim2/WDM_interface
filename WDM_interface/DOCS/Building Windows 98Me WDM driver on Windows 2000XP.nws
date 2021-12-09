@@ -1,0 +1,42 @@
+Path: zonnet-reader-1!zonnet-feed!news-feed1.eu.concert.net!newsfeed.gamma.ru!Gamma.RU!nycmny1-snh1.gtei.net!chcgil2-snh1.gtei.net!news.gtei.net!wn1feed!wn2feed!worldnet.att.net!204.127.198.203!attbi_feed3!attbi.com!rwcrnsc54.POSTED!not-for-mail
+Message-ID: <3C34B9EC.D3E33A7E@attbi.com>
+From: "Michael R. Preston" <mpreston42@attbi.com>
+X-Mailer: Mozilla 4.73 [en] (Win98; U)
+X-Accept-Language: en
+MIME-Version: 1.0
+Newsgroups: comp.os.ms-windows.programmer.nt.kernel-mode,comp.os.ms-windows.programmer.drivers
+Subject: Building Windows 98/Me WDM driver on Windows 2000/XP
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+Lines: 23
+NNTP-Posting-Host: 12.230.0.28
+X-Complaints-To: abuse@attbi.com
+X-Trace: rwcrnsc54 1010088428 12.230.0.28 (Thu, 03 Jan 2002 20:07:08 GMT)
+NNTP-Posting-Date: Thu, 03 Jan 2002 20:07:08 GMT
+Organization: AT&T Broadband
+Date: Thu, 03 Jan 2002 20:07:08 GMT
+Xref: zonnet-feed comp.os.ms-windows.programmer.nt.kernel-mode:25351
+
+Hi.  I know this is probably an old question, but I couldn't find
+the answer anywhere on the lists.  I am building a WDM audio
+device driver, which requires separate binaries for Windows 98/Me
+and Windows 2000/XP.  I am using the Windows 2000 DDK.  I can build
+the Windows 98/Me driver on Windows 98, and I can build the
+Windows 2000/XP driver on Windows 2000.  However, I want to build
+the Windows 98/Me driver on Windows 2000 so I can build both
+versions on the same system.  How would I do this?  I've scoured
+the MSDN website and MSDN library, and the only thing I've come up
+with is the 'winmebld' batch file, which doesn't seem to work.  If
+anyone has some info on this, it would be greatly appreciated.
+
+Thanks,
+Mike Preston
+-- 
+=============================================================
+|  Mike Preston  |  (360)647-1123  |  mpreston42@attbi.com  |
+=============================================================
+|  The man who follows the crowd will usually get no        |
+|  further than the crowd.  The man who walks alone is      |
+|  likely to find himself in places no one has ever been.   |
+|                  -- Alan Ashley-Pitt                      |
+=============================================================

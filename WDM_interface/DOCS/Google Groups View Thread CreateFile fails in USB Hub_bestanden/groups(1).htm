@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0125)http://groups.google.com/groups?hl=en&frame=right&th=80c880b955a8e0e3&seekm=bdd3dfe3.0112030143.795b3b64%40posting.google.com -->
+<HTML><HEAD><TITLE>Google Groups: View Thread</TITLE>
+<META content="text/html; charset=ISO-8859-1" http-equiv=content-type>
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff onload=window.focus();>
+<TABLE bgColor=#ffcc33 border=0 cellPadding=2 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><FONT face=arial,sans-serif>All messages from 
+      thread</FONT></TD></TR></TBODY></TABLE><A name=link1></A><A name=s></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 1 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:yueweng%40yahoo.com+" 
+      target=_top>yueweng</A> (<A 
+      href="mailto:yueweng@yahoo.com">yueweng@yahoo.com</A>)<BR>Subject: 
+      CreateFile fails in USB Hub <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A>, <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer" 
+      target=_top>comp.os.ms-windows.programmer</A>, <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.win32" 
+      target=_top>comp.os.ms-windows.programmer.win32</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=bdd3dfe3.0112030143.795b3b64%40posting.google.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 2001-12-03 01:43:16 PST 
+      <BR></FONT></TD></TR></TBODY></TABLE><PRE>Dear all, 
+I met a strange problem and wish to get help you guys.  I try to
+connect to a usb smart card reader using the code below.  It works
+well when the usb reader connect to the computer directly.  However,
+when I connected it through a usb hub, CreateFile() fails with "File
+Not Found".  What is the different between connecting directly and
+connected through a hub?  I check the first parameter of CreateFile,
+it seems ok.
+
+
+
+HANDLE IO_GetDriverHandle( GUID* pGuid, DWORD instance)
+{
+	HANDLE hReturn;
+	DWORD dwError;
+	DWORD ReqLen;
+	HDEVINFO info;
+	SP_INTERFACE_DEVICE_DATA ifdata;
+	PSP_INTERFACE_DEVICE_DETAIL_DATA ifDetail;
+	char temp[256];
+	// Get handle to relevant device information set
+	info = SetupDiGetClassDevs(pGuid, NULL, NULL, DIGCF_INTERFACEDEVICE);
+	if(info == INVALID_HANDLE_VALUE)
+	{
+		MessageBox(NULL, "No HDEVINFO available for this GUID", NULL,
+MB_OK);
+		return NULL;
+<FONT color=#660066>	}</FONT>
+
+	// Get interface data for the requested instance
+	ifdata.cbSize = sizeof(ifdata);
+	if(FALSE == SetupDiEnumDeviceInterfaces(info, NULL, pGuid, instance,
+&amp;ifdata))
+	{
+		MessageBox(NULL, "No SP_INTERFACE_DEVICE_DATA available for this
+GUID instance", NULL, MB_OK);
+		
+		if (ERROR_NO_MORE_ITEMS == GetLastError())
+			printf("No MORE SP_INTERFACE_DEVICE_DATA available\n");
+		SetupDiDestroyDeviceInfoList(info);
+		return NULL;
+<FONT color=#660066>	}</FONT>
+
+	// Get size of symbolic link name
+	SetupDiGetDeviceInterfaceDetail(info, &amp;ifdata, NULL, 0, &amp;ReqLen,
+NULL);
+	ifDetail = (PSP_INTERFACE_DEVICE_DETAIL_DATA)( malloc(ReqLen));
+	if( ifDetail==NULL)
+	{
+		MessageBox(NULL, "No enough memory", NULL, MB_OK);
+		SetupDiDestroyDeviceInfoList(info);
+		return NULL;
+<FONT color=#660066>	}</FONT>
+
+	// Get symbolic link name
+	ifDetail-&gt;cbSize = sizeof(SP_INTERFACE_DEVICE_DETAIL_DATA);
+	if( !SetupDiGetDeviceInterfaceDetail(info, &amp;ifdata, ifDetail, ReqLen,
+NULL, NULL))
+	{
+		MessageBox(NULL, "SetupDiGetDeviceInterfaceDetail fails", NULL,
+MB_OK);
+		SetupDiDestroyDeviceInfoList(info);
+		free( ifDetail);
+		return NULL;
+<FONT color=#660066>	}</FONT>
+
+	// Open file
+	
+	sprintf(temp, "Symbolic link is %s\n",ifDetail-&gt;DevicePath);
+	MessageBox(NULL, temp, NULL, MB_OK);
+	hReturn = CreateFile( ifDetail-&gt;DevicePath, 
+			GENERIC_READ | GENERIC_WRITE,
+			FILE_SHARE_READ | FILE_SHARE_WRITE,
+			NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+	if( hReturn == INVALID_HANDLE_VALUE) 
+	{	
+		dwError = GetLastError();
+		sprintf(temp, "CreateFile fail, Error code=%x\n", dwError);
+		MessageBox(NULL, temp, NULL, MB_OK);
+		
+		hReturn = NULL;
+<FONT color=#660066>	}</FONT>
+	
+	free( ifDetail);
+	SetupDiDestroyDeviceInfoList(info);
+	return hReturn;
+<FONT color=#660066>}</FONT>
+
+Thanks,
+YueWeng</PRE>
+<P><FONT face=arial,sans-serif><I><A 
+href="http://posting.google.com/post?cmd=post&amp;enc=ISO-8859-1&amp;msg=bdd3dfe3.0112030143.795b3b64%40posting.google.com&amp;gs=/groups%3Fhl%3Den%26frame%3Dright%26th%3D80c880b955a8e0e3%26seekm%3Dbdd3dfe3.0112030143.795b3b64%2540posting.google.com" 
+target=_top>Post a follow-up to this message</A></I></FONT></P>
+<P><FONT face=arial,sans-serif><I>(This is the only article in this 
+thread)</I></FONT>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><IMG alt="" height=3 
+      src="groups(1)_bestanden/cleardot.gif"></TD></TR></TBODY></TABLE><BR>
+<CENTER><FONT size=-1>©2001 Google</FONT></CENTER></BODY></HTML>

@@ -1,0 +1,90 @@
+BODY {
+	FONT: 12px/18px Verdana, Arial, Geneva, sans-serif; MARGIN-LEFT: 0%; MARGIN-RIGHT: 0%
+}
+#npi {
+	TEXT-INDENT: 0px
+}
+#pi {
+	TEXT-INDENT: 2em
+}
+#ralign {
+	TEXT-ALIGN: right
+}
+#calign {
+	TEXT-ALIGN: center
+}
+#jalign {
+	TEXT-ALIGN: justify
+}
+#c1 {
+	BACKGROUND-COLOR: #cccccc
+}
+#c2 {
+	BACKGROUND-COLOR: #eeeeee
+}
+DIV.head {
+	MARGIN: 0px 5px; TEXT-ALIGN: left; TEXT-INDENT: 0px
+}
+DIV.body {
+	MARGIN: 0px 30px; TEXT-ALIGN: left; TEXT-INDENT: 0px
+}
+DIV.td {
+	MARGIN: 20px 30px; TEXT-ALIGN: left; TEXT-INDENT: 0px
+}
+DIV.tdmap {
+	MARGIN: 30px; TEXT-ALIGN: left; TEXT-INDENT: 0px
+}
+A:link {
+	COLOR: #990000; FONT-WEIGHT: bold
+}
+A:visited {
+	COLOR: #666666; FONT-WEIGHT: normal
+}
+A:active {
+	COLOR: #ffffcc; FONT-WEIGHT: normal
+}
+OL {
+	FONT: 12px/18px Verdana, Arial, Geneva, sans-serif; MARGIN-BOTTOM: 5px; MARGIN-TOP: 5px
+}
+UL {
+	FONT: 12px/18px Verdana, Arial, Geneva, sans-serif; MARGIN-BOTTOM: 5px; MARGIN-TOP: 5px
+}
+LI {
+	MARGIN-BOTTOM: 5px; MARGIN-TOP: 5px
+}
+DL {
+	FONT: 12px/18px Verdana, Arial, Geneva, sans-serif; MARGIN-BOTTOM: 5px; MARGIN-TOP: 5px
+}
+DT {
+	FONT: 12px/18px Verdana, Arial, Geneva, sans-serif; MARGIN-BOTTOM: 5px; MARGIN-TOP: 5px
+}
+CODE {
+	FONT: 12px/18px "Lucida Console", "Courier New"
+}
+P.quote {
+	FONT: italic 12px/18px Verdana, Arial, Geneva, sans-serif; MARGIN: 8px 20px; TEXT-INDENT: 0px
+}
+P {
+	COLOR: #333333; FONT: 12px/18px Verdana, Arial, Geneva, sans-serif; MARGIN-BOTTOM: 8px; MARGIN-TOP: 8px; TEXT-INDENT: 1.5em
+}
+P.first {
+	COLOR: #333333; FONT: 12px/18px Verdana, Arial, Geneva, sans-serif; MARGIN-BOTTOM: 8px; MARGIN-TOP: -10px; TEXT-INDENT: 0px
+}
+P.bottomnav {
+	FONT: 16px/16px Verdana, Arial, Geneva, sans-serif; MARGIN-BOTTOM: 2em; MARGIN-TOP: 1em; TEXT-ALIGN: center; TEXT-INDENT: 0px
+}
+H1 {
+	BORDER-BOTTOM: 0px; BORDER-TOP: 0px; COLOR: #000000; FONT: bold 16px/18px Verdana, Arial, Geneva, sans-serif; MARGIN-BOTTOM: 0px; MARGIN-LEFT: 0px; MARGIN-TOP: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; TEXT-INDENT: -30px
+}
+H2 {
+	BORDER-BOTTOM: medium none; BORDER-TOP: 0px; COLOR: #000000; FONT: bold 14px/18px Verdana, Arial, Geneva, sans-serif; MARGIN-BOTTOM: -20px; MARGIN-LEFT: 0px; MARGIN-TOP: -10px; PADDING-TOP: 0px; TEXT-INDENT: -30px
+}
+H3 {
+	BORDER-BOTTOM: medium none; BORDER-TOP: medium none; COLOR: #000000; FONT: bold 12px/18px Verdana, Arial, Geneva, sans-serif; MARGIN-BOTTOM: -20px; MARGIN-LEFT: 0px; MARGIN-TOP: -10px
+}
+H4 {
+	BORDER-BOTTOM: medium none; BORDER-TOP: medium none; COLOR: #000000; FONT: bold 12px/18px Verdana, Arial, Geneva, sans-serif; MARGIN-BOTTOM: -20px; MARGIN-LEFT: 0px; MARGIN-TOP: -10px
+}
+H5 {
+	COLOR: #333333; FONT: bold 8pt/12px Verdana, Arial, Geneva, sans-serif; MARGIN-LEFT: 0px; MARGIN-TOP: 10px; TEXT-ALIGN: center
+}

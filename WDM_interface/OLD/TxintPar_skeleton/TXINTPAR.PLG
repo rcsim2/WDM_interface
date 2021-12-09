@@ -1,0 +1,35 @@
+--------------------Configuration: TxintPar - Win32 Debug--------------------
+Begining build with project "G:\WDM interface\Txintpar\TxintPar.dsp", at root.
+Active configuration is Win32 (x86) Application (based on Win32 (x86) Application)
+
+Project's tools are:
+			"32-bit C/C++ Compiler for 80x86" with flags "/nologo /Gz /MLd /W3 /Z7 /Oi /Gy /I "G:\NTDDK\inc" /FI"G:\NTDDK\inc\warning.h" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D _X86_=1 /D i386=1 /D "STD_CALL" /D CONDITION_HANDLING=1 /D NT_UP=1 /D NT_INST=0 /D WIN32=100 /D _NT1X_=100 /D WINNT=1 /D _WIN32_WINNT=0x0500 /D _WIN32_IE=0x0400 /D WIN32_LEAN_AND_MEAN=1 /D DBG=1 /D DEVL=1 /D FPO=0 /D "NDEBUG" /D _DLL=1 /D "DRIVER" /D "_IDWBUILD" /D "RDRDBG" /D "SRVDBG" /FR"Debug/" /Fp"Debug/TxintPar.pch" /Yu"stddcls.h" /Fo"Debug/" /Fd"Debug/" /FD /Zel -cbstring /QIfdiv- /QI0f /GF /QIf /c "
+			"OLE Type Library Maker" with flags "/nologo /D "_DEBUG" /mktyplib203 /win32 "
+			"Win32 Resource Compiler" with flags "/l 0x409 /fo"Debug/version.res" /d "_DEBUG" "
+			"Browser Database Maker" with flags "/nologo /o"Debug/TxintPar.bsc" "
+			"COFF Linker for 80x86" with flags "int64.lib wdm.lib /nologo /base:"0x10000" /version:4.0 /entry:"DriverEntry@8" /subsystem:windows /pdb:none /map:"TxintPar.map" /debug /debugtype:both /machine:I386 /nodefaultlib /out:"debug\TxintPar.sys" /libpath:"G:\NTDDK\libchk\i386" -MERGE:_PAGE=PAGE -MERGE:_TEXT=.text -MERGE:.rdata=.text -SECTION:INIT,d -OPT:REF -FORCE:MULTIPLE -RELEASE -FULLBUILD -IGNORE:4001,4037,4039,4065,4070,4078,4087,4089,4096 -osversion:4.00 -optidata -driver -align:0x20 -subsystem:native,4.00 -debug:notmapped,FULL "
+			"Custom Build" with flags ""
+			"<Component 0xa>" with flags ""
+
+Creating temp file "C:\WINDOWS\TEMP\RSP6265.TMP" with contents </nologo /Gz /MLd /W3 /Z7 /Oi /Gy /I "G:\NTDDK\inc" /FI"G:\NTDDK\inc\warning.h" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D _X86_=1 /D i386=1 /D "STD_CALL" /D CONDITION_HANDLING=1 /D NT_UP=1 /D NT_INST=0 /D WIN32=100 /D _NT1X_=100 /D WINNT=1 /D _WIN32_WINNT=0x0500 /D _WIN32_IE=0x0400 /D WIN32_LEAN_AND_MEAN=1 /D DBG=1 /D DEVL=1 /D FPO=0 /D "NDEBUG" /D _DLL=1 /D "DRIVER" /D "_IDWBUILD" /D "RDRDBG" /D "SRVDBG" /FR"Debug/" /Fp"Debug/TxintPar.pch" /Yu"stddcls.h" /Fo"Debug/" /Fd"Debug/" /FD /Zel -cbstring /QIfdiv- /QI0f /GF /QIf /c 
+"G:\WDM interface\Txintpar\PnP.cpp"
+>
+Creating command line "cl.exe @C:\WINDOWS\TEMP\RSP6265.TMP" 
+Creating temp file "C:\WINDOWS\TEMP\RSP6266.TMP" with contents <int64.lib wdm.lib /nologo /base:"0x10000" /version:4.0 /entry:"DriverEntry@8" /subsystem:windows /pdb:none /map:"TxintPar.map" /debug /debugtype:both /machine:I386 /nodefaultlib /out:"debug\TxintPar.sys" /libpath:"G:\NTDDK\libchk\i386" -MERGE:_PAGE=PAGE -MERGE:_TEXT=.text -MERGE:.rdata=.text -SECTION:INIT,d -OPT:REF -FORCE:MULTIPLE -RELEASE -FULLBUILD -IGNORE:4001,4037,4039,4065,4070,4078,4087,4089,4096 -osversion:4.00 -optidata -driver -align:0x20 -subsystem:native,4.00 -debug:notmapped,FULL 
+".\Debug\DriverEntry.obj"
+".\Debug\Power.obj"
+".\Debug\ReadWrite.obj"
+".\Debug\stddcls.obj"
+".\Debug\Wmi.obj"
+".\Debug\version.res"
+".\Debug\PnP.obj">
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSP6266.TMP" 
+Compiling...
+PnP.cpp
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/TxintPar.bsc"  ".\Debug\stddcls.sbr" ".\Debug\DriverEntry.sbr" ".\Debug\Power.sbr" ".\Debug\ReadWrite.sbr" ".\Debug\Wmi.sbr" ".\Debug\PnP.sbr"" 
+Creating browse info file...
+
+
+
+TxintPar.sys - 0 error(s), 0 warning(s)

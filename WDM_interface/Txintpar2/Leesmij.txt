@@ -1,0 +1,6 @@
+* MC is de NT Message compiler
+* LNK1106 Linker error wordt veroorzaakt door linken met oude VC++ linker, gebruik de linker
+die met de W2K DDK wordt meegeleverd. Ga in VC++ naar Tools|Options|Directories|Executables
+en geef daar de NTDDK\bin dir op en zet 'm op de eerste plaats
+* buildchk.log geeft de rc cl en link options
+* RC opties zijn fucky

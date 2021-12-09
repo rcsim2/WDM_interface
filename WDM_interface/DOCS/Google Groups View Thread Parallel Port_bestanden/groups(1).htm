@@ -1,0 +1,468 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0115)http://groups.google.com/groups?hl=en&frame=right&th=d3146c71df16dd48&seekm=3387e357.240330489%40news.tstonramp.com -->
+<HTML><HEAD><TITLE>Google Groups: View Thread</TITLE>
+<META content="text/html; charset=ISO-8859-1" http-equiv=content-type>
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff onload=window.focus();>
+<TABLE bgColor=#ffcc33 border=0 cellPadding=2 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><FONT face=arial,sans-serif>Messages 1-10 from 
+      thread</FONT></TD></TR></TBODY></TABLE><FONT face=arial,sans-serif><A 
+href="http://groups.google.com/groups?hl=en&amp;frame=right&amp;th=d3146c71df16dd48&amp;seekm=7p22rg%24br2%241%40ns.mtu.ru#link11" 
+onclick=window.parent.frames[0].t(11)>Next 2</A><BR><FONT size=-1>Jump to [ <A 
+href="http://groups.google.com/groups?hl=en&amp;frame=right&amp;th=d3146c71df16dd48&amp;seekm=9c3i0b%24huj%241%40nh.pace.co.uk#link12" 
+onclick=window.parent.frames[0].t(12)>End of thread</A> ]</FONT></FONT><BR><A 
+name=link1></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 1 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:flannan.lo%40dreo.dnd.ca+" 
+      target=_top>Flannan Lo</A> (<A 
+      href="mailto:flannan.lo@dreo.dnd.ca">flannan.lo@dreo.dnd.ca</A>)<BR>Subject: 
+      Parallel Port <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.networks" 
+      target=_top>comp.os.ms-windows.programmer.networks</A>, <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A>, <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.ole" 
+      target=_top>comp.os.ms-windows.programmer.ole</A>, <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.vxd" 
+      target=_top>comp.os.ms-windows.programmer.vxd</A>, <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.win32" 
+      target=_top>comp.os.ms-windows.programmer.win32</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=338353B9.328C%40dreo.dnd.ca" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1997/05/21 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>I have a custom external hardware device which has in the past been
+controlled by software in a DOS environment. I must now do so by
+software run in an NT environment. The hardware device on the parallel
+port is controlled via asynchronous handshaking in a custom manner,
+therefore, I need to access the control, status, and data registers of
+the parallel port. Also, I need to do the equivalent handshaking so that
+I do not have to change any hardware or firmware on our custom device. I
+want to know if Windows NT has the equivalent of, or access to the
+equivalent of, the old data, control, and status registers of a parallel
+port. 
+
+I am currently studying the MSDN NT DDK and the software samples that go
+with it. Of specific interest are the PARPORT.C and the PARSIMP.C files.
+As I look through the code I do not see any evidence of a handshaking
+capability with the parallel port. Is it possible? If so, how can this
+be done? Is there any sample code out there? Anything that uses the *.c
+drivers mentioned above?
+
+Thanks in advance.</PRE><A name=link2></A><A name=s></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 2 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:axlinej%40ms1.aes.com.nospam+" 
+      target=_top>John</A> (<A 
+      href="mailto:axlinej@ms1.aes.com.nospam">axlinej@ms1.aes.com.nospam</A>)<BR>Subject: 
+      Re: Parallel Port <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=3387e357.240330489%40news.tstonramp.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1997/05/21 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>I needed to do something like what you describe and used the intpar
+example as my starting point. It's an interrupt-driven non-layered
+driver that you substitute for parport. It has a lot of printer stuff
+in it that you probably end up throwing away, but under it all is all
+the stuff you need to take interrupts and talk to the i/o registers.</PRE><A 
+name=link3></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 3 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:scottc%40zeno.com+" 
+      target=_top>Scott Chicoine</A> (<A 
+      href="mailto:scottc@zeno.com">scottc@zeno.com</A>)<BR>Subject: Re: 
+      Parallel Port <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=01bc6baa%246c712ce0%2405466bc7%40scottc" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1997/05/28 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Sounds to me like you need your own parallel "class" driver.  My
+recommendation would be to study the PARCLASS source from the DDK.  It's
+the code for the standard parallel class driver used for common
+Centronics-style output to printers and is the driver used by the system
+whenever you CreateFile() on LPTx.  
+
+PARPORT itself is only a contention handler, and is not intended to be
+replaced, nor should there be a need to replace it.  Parallel class drivers
+cooperate for ownership of the port hardware through PARPORT.  PARCLASS and
+PARSIMP show how this negotiation for port ownership is performed.  Once a
+class driver owns the port, it can perform whatever operations on the
+hardware it needs to.
+
+The code for PARCLASS is somewhat convoluted, but don't get discouraged.  A
+lot of code in there is specific to printer handshaking and timing issues
+and can pulled out if you use it as a basis for your own driver.
+
+Hope this helps.</PRE><A name=link4></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 4 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:paulsan%40microsoft.com+" 
+      target=_top>Paul Sanders</A> (<A 
+      href="mailto:paulsan@microsoft.com">paulsan@microsoft.com</A>)<BR>Subject: 
+      Re: Parallel Port <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.networks" 
+      target=_top>comp.os.ms-windows.programmer.networks</A>, <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A>, <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.ole" 
+      target=_top>comp.os.ms-windows.programmer.ole</A>, <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.vxd" 
+      target=_top>comp.os.ms-windows.programmer.vxd</A>, <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.win32" 
+      target=_top>comp.os.ms-windows.programmer.win32</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=01bc66d3%24119b8a30%248fa8369d%40paulsan90" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1997/05/22 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Is your 'external hardware device' a dongle?  If so, are you going to run
+your old DOS code or write new Win32 code.  If you are using the old DOS
+code, then under NT 4.0 with service pack 2 or greater Microsoft added
+dongle support in the form of parvdm.sys.  In other words, just run your
+DOS code.  If you are writing Win32 code then go to the next paragraph.
+
+Will you be sharing the parallel port with a printer and your device??  If
+not, disable all of the parallel port drivers (parport.sys, parclass.sys)
+and take exclusive ownership of the port.  At this point, use
+\ddk\src\general\portio as your boilerplate.
+
+If you must share with a printer, then you must write a parallel class
+driver in order to do this.  I don't know about the handshaking so you
+might have to tweak the driver in order to enable this.  I don't know if
+anything more than a simple tweak is required.
+
+-Paul
+
+Flannan Lo &lt;flannan.lo@dreo.dnd.ca&gt; wrote in article
+&lt;338353B9.328C@dreo.dnd.ca&gt;...
+<FONT color=#660066>&gt; I have a custom external hardware device which has in the past been
+&gt; controlled by software in a DOS environment. I must now do so by
+&gt; software run in an NT environment. The hardware device on the parallel
+&gt; port is controlled via asynchronous handshaking in a custom manner,
+&gt; therefore, I need to access the control, status, and data registers of
+&gt; the parallel port. Also, I need to do the equivalent handshaking so that
+&gt; I do not have to change any hardware or firmware on our custom device. I
+&gt; want to know if Windows NT has the equivalent of, or access to the
+&gt; equivalent of, the old data, control, and status registers of a parallel
+&gt; port. 
+&gt; 
+&gt; I am currently studying the MSDN NT DDK and the software samples that go
+&gt; with it. Of specific interest are the PARPORT.C and the PARSIMP.C files.
+&gt; As I look through the code I do not see any evidence of a handshaking
+&gt; capability with the parallel port. Is it possible? If so, how can this
+&gt; be done? Is there any sample code out there? Anything that uses the *.c
+&gt; drivers mentioned above?
+&gt; 
+&gt; Thanks in advance.
+&gt;  </FONT></PRE><A name=link5></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 5 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:franz.huber%40r.iplan.heitec.net+" 
+      target=_top>Franz Huber</A> (<A 
+      href="mailto:franz.huber@r.iplan.heitec.net">franz.huber@r.iplan.heitec.net</A>)<BR>Subject: 
+      Parallel Port <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=36ACADC3.FBEB2E59%40r.iplan.heitec.net" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/01/25 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Hi all,
+
+I've got a problem:
+i'm working on an application that's using the par-port on WinNT.
+i open the port via CreateFile("LPT...",...) ...
+with DeviceIoControl(Handle,...) i'm able to get the status
+of the port ... except the Error-line is active (thats the trouble)
+
+Any hints?
+
+best regards
+
+franz</PRE><A name=link6></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 6 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:conny%40informatik.uni-leipzig.de+" 
+      target=_top>conny@informatik.uni-leipzig.de</A> (<A 
+      href="mailto:conny@informatik.uni-leipzig.de">conny@informatik.uni-leipzig.de</A>)<BR>Subject: 
+      parallel port <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=37B409E3.86CA2884%40informatik.uni-leipzig.de" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/08/13 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>hi there,
+
+'cause we have to write a driver for the parport under nt, we're still
+looking for information about accessing the single pins on this
+interface.
+does anyone has ideas, ... (apart the global documentations in the ddk,
+sdk, ...) how we could handle this problem ?
+
+additional hints for this topic are welcome too ...  (-;
+
+
+thanx a lot,
+
+cerio jens</PRE><A name=link7></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 7 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:ast%40halcyon.com+" 
+      target=_top>ast@halcyon.com</A> (<A 
+      href="mailto:ast@halcyon.com">ast@halcyon.com</A>)<BR>Subject: Re: 
+      parallel port <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=7p1k99%24b3f%242%40brokaw.wa.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/08/13 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Have a look at the book _Parallel Port Complete_ by Jan Axelson at
+<A href="http://www.lvr.com/parprtib.htm" target=_top>http://www.lvr.com/parprtib.htm</A>.  It has lots of info about how to access
+the parallel port under Win32.
+
+HTH
+
+conny@informatik.uni-leipzig.de wrote:
+<FONT color=#660066>: hi there,
+: 
+: 'cause we have to write a driver for the parport under nt, we're still
+: looking for information about accessing the single pins on this
+: interface.
+: does anyone has ideas, ... (apart the global documentations in the ddk,
+: sdk, ...) how we could handle this problem ?
+: 
+: additional hints for this topic are welcome too ...  (-;
+: 
+: 
+: thanx a lot,
+: 
+: cerio jens
+:  </FONT>
+<FONT color=#007777>-- 
+--
+/*  Andrew  */
+WWW: <A href="http://www.halcyon.com/ast" target=_top>http://www.halcyon.com/ast</A>         
+Email: ast@halcyon.com  (remove nospam from reply address)
+
+
+
+</FONT></PRE><A name=link8></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 8 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:jeremie.bruns%40lecroy.com+" 
+      target=_top>Jeremie Bruns</A> (<A 
+      href="mailto:jeremie.bruns@lecroy.com">jeremie.bruns@lecroy.com</A>)<BR>Subject: 
+      parallel port <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=7p1plu%24nmo%40nnrp2.farm.idt.net" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/08/13 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Hi,
+
+does anyone know how (or if it is at all possible) to remove the parallel
+port driver in windows 2000 rc1? I want to use my own device driver to
+communicate to a custom device through the parallel port. I could disable
+the it when I wrote my driver in NT4 but in windows 2k, I just can't
+uninstall the driver. I deleted entries in the registry (for parport and
+parallel) and also the sys files, but no luck...
+
+thanks.
+
+Jeremy</PRE><A name=link9></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 9 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:maxim__s%40mtu-net.ru+" 
+      target=_top>Maxim S. Shatskih</A> (<A 
+      href="mailto:maxim__s@mtu-net.ru">maxim__s@mtu-net.ru</A>)<BR>Subject: Re: 
+      parallel port <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=7p21la%248ls%241%40ns.mtu.ru" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/08/14 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>What about disabling the parallel port in a Device Manager by the means of
+PnP?
+
+Jeremie Bruns &lt;jeremie.bruns@lecroy.com&gt; wrote in message
+<A href="http://groups.google.com/groups?selm=7p1plu%24nmo%40nnrp2.farm.idt.net" target=_top>news:7p1plu$nmo@nnrp2.farm.idt.net</A>...
+<FONT color=#660066>&gt; Hi,
+&gt;
+&gt; does anyone know how (or if it is at all possible) to remove the parallel
+&gt; port driver in windows 2000 rc1? I want to use my own device driver to
+&gt; communicate to a custom device through the parallel port. I could disable
+&gt; the it when I wrote my driver in NT4 but in windows 2k, I just can't
+&gt; uninstall the driver. I deleted entries in the registry (for parport and
+&gt; parallel) and also the sys files, but no luck...
+&gt;
+&gt; thanks.
+&gt;
+&gt; Jeremy
+&gt;
+&gt;</FONT></PRE><A name=link10></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 10 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:jeremie.bruns%40lecroy.com+" 
+      target=_top>Jeremie Bruns</A> (<A 
+      href="mailto:jeremie.bruns@lecroy.com">jeremie.bruns@lecroy.com</A>)<BR>Subject: 
+      Re: parallel port <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=7p22du%24pkf%40nnrp2.farm.idt.net" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/08/13 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>No, none of that worked. Disabling the parallel port driver isn't helpful
+cause the resources are still assigned (and thus not available for my driver
+to use), and removing (or uninstalling) kinda works. However, I have to
+reboot to install my driver, and when the computer reboot, the parallel port
+driver finds a way of installing itself before my driver does.
+
+Thanks anyway. Any other suggestions?
+
+
+Maxim S. Shatskih &lt;maxim__s@mtu-net.ru&gt; wrote in message
+<A href="http://groups.google.com/groups?selm=7p21la%248ls%241%40ns.mtu.ru" target=_top>news:7p21la$8ls$1@ns.mtu.ru</A>...
+<FONT color=#660066>&gt; What about disabling the parallel port in a Device Manager by the means of
+&gt; PnP?
+&gt;
+&gt; Jeremie Bruns &lt;jeremie.bruns@lecroy.com&gt; wrote in message
+&gt; <A href="http://groups.google.com/groups?selm=7p1plu%24nmo%40nnrp2.farm.idt.net" target=_top>news:7p1plu$nmo@nnrp2.farm.idt.net</A>...</FONT>
+<FONT color=#007777>&gt; &gt; Hi,
+&gt; &gt;
+&gt; &gt; does anyone know how (or if it is at all possible) to remove the parallel
+&gt; &gt; port driver in windows 2000 rc1? I want to use my own device driver to
+&gt; &gt; communicate to a custom device through the parallel port. I could disable
+&gt; &gt; the it when I wrote my driver in NT4 but in windows 2k, I just can't
+&gt; &gt; uninstall the driver. I deleted entries in the registry (for parport and
+&gt; &gt; parallel) and also the sys files, but no luck...
+&gt; &gt;
+&gt; &gt; thanks.
+&gt; &gt;
+&gt; &gt; Jeremy
+&gt; &gt;
+&gt; &gt;</FONT>
+<FONT color=#660066>&gt;
+&gt;</FONT></PRE>
+<HR SIZE=1>
+<FONT face=arial,sans-serif><A 
+href="http://groups.google.com/groups?hl=en&amp;frame=right&amp;th=d3146c71df16dd48&amp;seekm=7p22rg%24br2%241%40ns.mtu.ru#link11" 
+onclick=window.parent.frames[0].t(11)>Next 2</A><BR><FONT size=-1>Jump to [ <A 
+href="http://groups.google.com/groups?hl=en&amp;frame=right&amp;th=d3146c71df16dd48&amp;seekm=9c3i0b%24huj%241%40nh.pace.co.uk#link12" 
+onclick=window.parent.frames[0].t(12)>End of thread</A> ]</FONT></FONT><BR>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><IMG alt="" height=3 
+      src="groups(1)_bestanden/cleardot.gif"></TD></TR></TBODY></TABLE><BR>
+<CENTER><FONT size=-1>©2002 Google</FONT></CENTER></BODY></HTML>

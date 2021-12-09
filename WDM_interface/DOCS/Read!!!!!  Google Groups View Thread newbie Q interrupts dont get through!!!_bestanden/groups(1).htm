@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0136)http://groups.google.com/groups?hl=en&frame=right&th=e4c64b737d3ec5aa&seekm=3a7869f562f0685c8a87fea2d6b1a5f7.29727%40mygate.mailgate.org -->
+<HTML><HEAD><TITLE>Google Groups: View Thread</TITLE>
+<META content="text/html; charset=ISO-8859-1" http-equiv=content-type>
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff onload=window.focus();>
+<TABLE bgColor=#ffcc33 border=0 cellPadding=2 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><FONT face=arial,sans-serif>All messages from 
+      thread</FONT></TD></TR></TBODY></TABLE><A name=link1></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 1 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:aseem%40neurobehavioralsystems.com+" 
+      target=_top>A.M.</A> (<A 
+      href="mailto:aseem@neurobehavioralsystems.com">aseem@neurobehavioralsystems.com</A>)<BR>Subject: 
+      newbie Q: interrupts dont get through!!! <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=a9f9d224.0110071127.3efc3541%40posting.google.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 2001-10-07 12:27:12 PST 
+      <BR></FONT></TD></TR></TBODY></TABLE><PRE>Hi all,
+
+I just started writing kernel mode drivers, and started with the
+simplest one. I have written one for the parallel port, to be able to
+read to it, write to it and handle interrupts. I believe I have fairly
+stable code since it has not crashed my system as yet (Win 2k - SP2).
+I am using the Driver monitor that comes along with Cant's "Writing
+WDM..." to get debug messages out.
+
+The problem is I can read to it and write to it, however I cannot seem
+to send in interrupts. I have done the usual stuff like setting the
+parport entry in the registry to 3 and setting my driver's registry
+entry to 2. The driver loads up, initializes and everything, it just
+does not handle interrupts. I even tried this with code that came
+along with the Cant book - "PHDIo.dsw", and I still get the same
+thing: the driver works fine but the interrupts dont get through.
+
+Is there something I missed that the minions of the Evil Empire put in
+and did not document regarding the DDK or somr other trick to make it
+work. Any help would be appreciated.
+
+Thanks,
+AM</PRE><A name=link2></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 2 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:timr%40probo.com+" 
+      target=_top>Tim Roberts</A> (<A 
+      href="mailto:timr@probo.com">timr@probo.com</A>)<BR>Subject: Re: newbie Q: 
+      interrupts dont get through!!! <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=2v25st024sgfre9b2e04094aq7s9m8fgfd%404ax.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 2001-10-08 22:28:58 PST 
+      <BR></FONT></TD></TR></TBODY></TABLE><PRE>aseem@neurobehavioralsystems.com (A.M.) wrote:
+<FONT color=#660066>&gt;
+&gt;I just started writing kernel mode drivers, and started with the
+&gt;simplest one. ...
+&gt;
+&gt;The problem is I can read to it and write to it, however I cannot seem
+&gt;to send in interrupts. I have done the usual stuff like setting the
+&gt;parport entry in the registry to 3 and setting my driver's registry
+&gt;entry to 2. The driver loads up, initializes and everything, it just
+&gt;does not handle interrupts. I even tried this with code that came
+&gt;along with the Cant book - "PHDIo.dsw", and I still get the same
+&gt;thing: the driver works fine but the interrupts dont get through.</FONT>
+
+How are you attaching to the interrupt?  You might post your initialization
+code for us to look over.
+--
+- Tim Roberts, timr@probo.com
+  Providenza &amp; Boekelheide, Inc.</PRE><A name=link3></A><A name=s></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 3 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:saekisam%40hotmail.com+" 
+      target=_top>Sam Saeki</A> (<A 
+      href="mailto:saekisam@hotmail.com">saekisam@hotmail.com</A>)<BR>Subject: 
+      Re: newbie Q: interrupts dont get through!!! <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=3a7869f562f0685c8a87fea2d6b1a5f7.29727%40mygate.mailgate.org" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 2001-10-09 10:56:47 PST 
+      <BR></FONT></TD></TR></TBODY></TABLE><PRE>Hi, 
+
+Are you certain that you have properly removed the MS parallel port
+driver from your system? The interrupt is probably being used by 
+that driver.
+
+The reason I ask is that under Win2k, removing the parallel port driver
+is a non-obvious task. If you go to the Device Manager and remove the
+parallel port, it will seem to be removed, and will come back after a 
+few seconds. If you remove it and quickly reboot, it will still come back. 
+
+This because of the PnP in Windows 2000. (This will not happen in NT4.)
+
+(And if you just disable the parallel port, the resources are still allocated
+to it.)
+
+How to remove the parallel port driver?
+
+Do this:
+
+In the directory \winnt\inf, rename the file MSPorts.inf.
+
+Then, remove the Parallel port.  When PnP does a rescan, it will not have the
+.inf file and will not know what to do with the device.
+
+Now, you can use the parallel port for your own driver.
+
+I hope that helps.
+
+Sam
+
+
+-- 
+Posted from  [12.44.37.253] 
+via Mailgate.ORG Server - <A href="http://www.mailgate.org/" target=_top>http://www.mailgate.org/</A></PRE><A 
+name=link4></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 4 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:aseem%40neurobehavioralsystems.com+" 
+      target=_top>A.M.</A> (<A 
+      href="mailto:aseem@neurobehavioralsystems.com">aseem@neurobehavioralsystems.com</A>)<BR>Subject: 
+      Re: newbie Q: interrupts dont get through!!! <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=a9f9d224.0110120707.6d9c343c%40posting.google.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 2001-10-12 08:07:16 PST 
+      <BR></FONT></TD></TR></TBODY></TABLE><PRE>Hi,
+
+Tried that but didnt work. tried a lot of other things picked up from
+here that didnt work either. The problem is my program would like to
+load the driver on an as and when needed basis, so going through all
+of the standard procedures is really much help.
+
+However I finnaly got it from somewhere that I would have to change
+the startup field in the registry entry for my driver to 2 and the
+parport driver to 3 to make it work.... and viola!! it does.
+
+I just wish that the Evil Empire would publish this fact in the DDK or
+somewhere
+where it is visible for all us poor folks.
+
+Thanks all,
+AM
+
+
+"Sam Saeki" &lt;saekisam@hotmail.com&gt; wrote in message <A href="http://groups.google.com/groups?selm=3a7869f562f0685c8a87fea2d6b1a5f7.29727%40mygate.mailgate.org" target=_top>news:&lt;3a7869f562f0685c8a87fea2d6b1a5f7.29727@mygate.mailgate.org&gt;</A>...
+<FONT color=#660066>&gt; Hi, 
+&gt; 
+&gt; Are you certain that you have properly removed the MS parallel port
+&gt; driver from your system? The interrupt is probably being used by 
+&gt; that driver.
+&gt; 
+&gt; The reason I ask is that under Win2k, removing the parallel port driver
+&gt; is a non-obvious task. If you go to the Device Manager and remove the
+&gt; parallel port, it will seem to be removed, and will come back after a 
+&gt; few seconds. If you remove it and quickly reboot, it will still come back. 
+&gt; 
+&gt; This because of the PnP in Windows 2000. (This will not happen in NT4.)
+&gt; 
+&gt; (And if you just disable the parallel port, the resources are still allocated
+&gt; to it.)
+&gt; 
+&gt; How to remove the parallel port driver?
+&gt; 
+&gt; Do this:
+&gt; 
+&gt; In the directory \winnt\inf, rename the file MSPorts.inf.
+&gt; 
+&gt; Then, remove the Parallel port.  When PnP does a rescan, it will not have the
+&gt; .inf file and will not know what to do with the device.
+&gt; 
+&gt; Now, you can use the parallel port for your own driver.
+&gt; 
+&gt; I hope that helps.
+&gt; 
+&gt; Sam</FONT></PRE>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><IMG alt="" height=3 
+      src="groups(1)_bestanden/cleardot.gif"></TD></TR></TBODY></TABLE><BR>
+<CENTER><FONT size=-1>©2002 Google</FONT></CENTER></BODY></HTML>

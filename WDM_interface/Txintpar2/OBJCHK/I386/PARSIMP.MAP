@@ -1,0 +1,92 @@
+ parsimp
+
+ Timestamp is 3d9ec545 (Sat Oct 05 03:56:05 2002)
+
+ Preferred load address is 00010000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000c7cH .text                   CODE
+ 0002:00000000 00000094H .idata$5                DATA
+ 0002:00000098 00000068H .rdata                  DATA
+ 0003:00000000 0000000bH .data                   DATA
+ 0003:0000000b 00000000H .bss                    DATA
+ 0004:00000000 0000069aH INIT                    CODE
+ 0004:0000069c 00000028H .idata$2                CODE
+ 0004:000006c4 00000014H .idata$3                CODE
+ 0004:000006d8 00000094H .idata$4                CODE
+ 0004:0000076c 00000340H .idata$6                CODE
+ 0005:00000000 000000a0H .rsrc$01                DATA
+ 0005:000000a0 00000450H .rsrc$02                DATA
+
+  Address         Publics by Value              Rva+Base     Lib:Object
+
+ 0001:00000000       _ParLogError@48            000102c0 f   parsimp.obj
+ 0001:00000096       _ParAllocPortWithNext@4    00010356 f   parsimp.obj
+ 0001:000000f0       _ParSetTrue@4              000103b0 f   parsimp.obj
+ 0001:00000100       _ParDpcForIsr@16           000103c0 f   parsimp.obj
+ 0001:0000016f       _ParInterruptService@8     0001042f f   parsimp.obj
+ 0001:00000291       _ParDeferredPortCheck@4    00010551 f   parsimp.obj
+ 0001:000002c4       _ParSetFalse@4             00010584 f   parsimp.obj
+ 0001:000002d4       _ParCompleteRequest@4      00010594 f   parsimp.obj
+ 0001:0000030c       _ParCancel@8               000105cc f   parsimp.obj
+ 0001:0000035b       _ParCreateClose@8          0001061b f   parsimp.obj
+ 0001:000003bd       _ParReadCompletionRoutine@12 0001067d f   parsimp.obj
+ 0001:0000043c       _ParAllocPort@4            000106fc f   parsimp.obj
+ 0001:000004bc       _ParRead@8                 0001077c f   parsimp.obj
+ 0001:0000054f       _ParCleanup@8              0001080f f   parsimp.obj
+ 0001:000005f9       _ParUnload@4               000108b9 f   parsimp.obj
+ 0001:00000756       _ParDeviceControl@8        00010a16 f   parsimp.obj
+ 0001:00000874       _ParSetBit@12              00010b34 f   parsimp.obj
+ 0001:00000989       _ParSetValueKey@12         00010c49 f   parsimp.obj
+ 0001:00000b55       _MfSendPnpIrp@12           00010e15 f   parsimp.obj
+ 0001:00000c76       _DbgPrint                  00010f36 f   ntoskrnl:ntoskrnl.exe
+ 0002:00000000       __imp__KeGetCurrentIrql@0  00010f40     hal:HAL.dll
+ 0002:00000004       __imp__READ_PORT_UCHAR@4   00010f44     hal:HAL.dll
+ 0002:00000008       __imp__WRITE_PORT_UCHAR@8  00010f48     hal:HAL.dll
+ 0002:0000000c       __imp__KeQueryPerformanceCounter@4 00010f4c     hal:HAL.dll
+ 0002:00000010       \177HAL_NULL_THUNK_DATA    00010f50     hal:HAL.dll
+ 0002:00000014       __imp__ExAllocatePoolWithTag@12 00010f54     ntoskrnl:ntoskrnl.exe
+ 0002:00000018       __imp__IoCreateUnprotectedSymbolicLink@8 00010f58     ntoskrnl:ntoskrnl.exe
+ 0002:0000001c       __imp_@ObfDereferenceObject@4 00010f5c     ntoskrnl:ntoskrnl.exe
+ 0002:00000020       __imp__IoGetDeviceObjectPointer@16 00010f60     ntoskrnl:ntoskrnl.exe
+ 0002:00000024       __imp__IoCreateDevice@28   00010f64     ntoskrnl:ntoskrnl.exe
+ 0002:00000028       __imp__IoDeleteDevice@4    00010f68     ntoskrnl:ntoskrnl.exe
+ 0002:0000002c       __imp__KeInitializeDpc@12  00010f6c     ntoskrnl:ntoskrnl.exe
+ 0002:00000030       __imp__RtlIntegerToUnicodeString@12 00010f70     ntoskrnl:ntoskrnl.exe
+ 0002:00000034       __imp__RtlInitUnicodeString@8 00010f74     ntoskrnl:ntoskrnl.exe
+ 0002:00000038       __imp__KeWaitForSingleObject@20 00010f78     ntoskrnl:ntoskrnl.exe
+ 0002:0000003c       __imp_@IofCallDriver@8     00010f7c     ntoskrnl:ntoskrnl.exe
+ 0002:00000040       __imp__IoBuildDeviceIoControlRequest@36 00010f80     ntoskrnl:ntoskrnl.exe
+ 0002:00000044       __imp__RtlAppendUnicodeStringToString@8 00010f84     ntoskrnl:ntoskrnl.exe
+ 0002:00000048       __imp__IoWriteErrorLogEntry@4 00010f88     ntoskrnl:ntoskrnl.exe
+ 0002:0000004c       __imp_@InterlockedExchange@8 00010f8c     ntoskrnl:ntoskrnl.exe
+ 0002:00000050       __imp__IoReleaseCancelSpinLock@4 00010f90     ntoskrnl:ntoskrnl.exe
+ 0002:00000054       __imp__IoAcquireCancelSpinLock@4 00010f94     ntoskrnl:ntoskrnl.exe
+ 0002:00000058       __imp__KeSynchronizeExecution@12 00010f98     ntoskrnl:ntoskrnl.exe
+ 0002:0000005c       __imp_@IofCompleteRequest@8 00010f9c     ntoskrnl:ntoskrnl.exe
+ 0002:00000060       __imp__DbgPrint            00010fa0     ntoskrnl:ntoskrnl.exe
+ 0002:00000064       __imp__IoDeleteSymbolicLink@4 00010fa4     ntoskrnl:ntoskrnl.exe
+ 0002:00000068       __imp__ZwClose@4           00010fa8     ntoskrnl:ntoskrnl.exe
+ 0002:0000006c       __imp__ZwSetValueKey@24    00010fac     ntoskrnl:ntoskrnl.exe
+ 0002:00000070       __imp__IoOpenDeviceRegistryKey@16 00010fb0     ntoskrnl:ntoskrnl.exe
+ 0002:00000074       __imp__IoBuildSynchronousFsdRequest@28 00010fb4     ntoskrnl:ntoskrnl.exe
+ 0002:00000078       __imp__IoGetAttachedDeviceReference@4 00010fb8     ntoskrnl:ntoskrnl.exe
+ 0002:0000007c       __imp__ExFreePool@4        00010fbc     ntoskrnl:ntoskrnl.exe
+ 0002:00000080       __imp__IoAllocateErrorLogEntry@8 00010fc0     ntoskrnl:ntoskrnl.exe
+ 0002:00000084       __imp__KeInitializeEvent@12 00010fc4     ntoskrnl:ntoskrnl.exe
+ 0002:00000088       __imp__IoGetConfigurationInformation@0 00010fc8     ntoskrnl:ntoskrnl.exe
+ 0002:0000008c       __imp__RtlAssert@16        00010fcc     ntoskrnl:ntoskrnl.exe
+ 0002:00000090       \177ntoskrnl_NULL_THUNK_DATA 00010fd0     ntoskrnl:ntoskrnl.exe
+ 0004:00000000       _DriverEntry@8             00011060 f   parsimp.obj
+ 0004:00000068       _ParInitializeDeviceObject@8 000110c8 f   parsimp.obj
+ 0004:000002cc       _ParMakeNames@16           0001132c f   parsimp.obj
+ 0004:000004ae       _ParGetPortInfoFromPortDevice@4 0001150e f   parsimp.obj
+ 0004:000005b1       _ParInitializeInterruptObject@8 00011611 f   parsimp.obj
+ 0004:0000069c       __IMPORT_DESCRIPTOR_ntoskrnl 000116fc     ntoskrnl:ntoskrnl.exe
+ 0004:000006b0       __IMPORT_DESCRIPTOR_HAL    00011710     hal:HAL.dll
+ 0004:000006c4       __NULL_IMPORT_DESCRIPTOR   00011724     ntoskrnl:ntoskrnl.exe
+
+ entry point at        0004:00000000
+
+ Static symbols
+

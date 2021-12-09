@@ -1,0 +1,582 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0059)http://www.osr.com/ntinsider/1998/Converting/converting.htm -->
+<HTML><HEAD><TITLE>Converting NTV4 Drivers to WDM/NTV5</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content="C:\Program Files\Microsoft Office\Templates\Normal.dot" 
+name=Template></HEAD>
+<BODY><FONT size=5 height="315" width="228"><B>
+<P align=center>Converting Windows NT V4 Drivers to WDM/NT V5</P></B></FONT>
+<P align=center><I><FONT face=Symbol>Ó</FONT> 1998 OSR Open Systems Resources, 
+Inc.</I></P><B><FONT size=2>
+<P align=center>&nbsp;</P></FONT></B><FONT size=2>
+<P align=justify></FONT><FONT size=3>As time goes by, the picture of what device 
+drivers will be like in NT V5 has become clearer. While it will be "a while yet" 
+until we actually see the final release of NT V5, we at least have a Beta 
+release of the NT V5 DDK to play with. In this article, we’ll take a look at 
+what’s going to be necessary to convert NT V4 device drivers to the WDM/NT V5 
+standard.</FONT><FONT size=2></P></FONT><B><FONT size=2>
+<P align=justify></FONT><FONT size=4>Don’t Do Nothin’</FONT><FONT 
+size=2></P></FONT></B><FONT size=2>
+<P align=justify></FONT><FONT size=3>The first thing that’s important to 
+understand is that existing Windows NT V4 device drivers (what we typically 
+refer to as "standard kernel mode drivers") will continue to run unchanged on 
+Windows NT V5. So, while these "legacy" drivers won’t support either power 
+management or the new plug and play features, they will continue to work the way 
+they always did. </P>
+<P align=justify>While it might be heretical to say it, not converting your NT 
+V4 device driver (at least not in the immediate future) may actually be the best 
+strategy for many driver writers. This is most likely to be true if your 
+hardware runs in an environment where support of power management or plug and 
+play is unimportant. Since NT V5 drivers are not directly compatible with NT V4, 
+converting your driver to run under NTV5 while still having an NT V4-based 
+product means that you have two separate drivers to support. This is never a 
+pleasant thought.</FONT><FONT size=2></P></FONT><B><FONT size=2>
+<P align=justify></FONT><FONT size=4>Does NT V5 = WDM?</FONT><FONT 
+size=2></P></FONT></B><FONT size=2>
+<P align=justify></FONT><FONT size=3>However, let’s assume that you’ve got 
+customers who want to Beta test your hardware under NT V5, that adding power 
+management or plug and play is really valuable to you, or that you just can’t 
+wait to play with NT V5 and see what happens. That’s cool. Let me tell you what 
+has to change in your driver.</P>
+<P align=justify>There’s good news and there’s bad news about WDM/NT V5 drivers. 
+The really good news is that all those Windows NT systems internals and device 
+driver concepts you’ve spent so much time learning are still valid. NT (and WDM) 
+still implements a layered-driver architecture. In fact, there’s more layering 
+than ever. There’s also the (sort of) good news that fully WDM compatible 
+drivers will (or at least are supposed to) work on both NT V5 and Windows 
+9x.</P>
+<P align=justify>However, don’t make the assumption that WDM drivers and Windows 
+NT V5 drivers are exactly the same thing. They’re not. The WDM standard is a 
+subset of the Windows NT V5 kernel mode driver standard. A driver can be written 
+to be fully compliant with NT V5 standards, support plug and play and power 
+management, and still not support WDM – and therefore not be directly 
+transportable to Windows 9x. WDM drivers compile with the file WDM.H, which 
+includes a subset of definitions and features available in the wider NT-driver 
+world. NT V5 standard kernel mode drivers, on the other hand, still include 
+NTDDK.H and have access to all those features you’ve come to love.</P>
+<P align=justify>What’s the difference? WDM drivers utilize a port and 
+mini-driver concept similar to that used by SCSI Miniport drivers. WDM drivers 
+are typically smaller, and almost exclusively contain support for 
+device-specific features. These drivers are restricted to calling a sub-set of 
+the standard NT APIs. Much, like connecting to interrupts, is handled for these 
+drivers via their class drivers. While many of the familiar interfaces are 
+indeed available to true WDM drivers, many old favorites such as 
+<B>HalGetAdapter(...)</B>, <B>IoConnectInterrupt(...)</B>, and 
+<B>IoAssignResources(...)</B> are replaced by the ability to do things "the WDM 
+way". Other, less frequently used features, such as memory zones and 
+<B>ERESOURCES</B> are also not supported by WDM.</P>
+<P align=justify>On the other hand, NT V5 drivers include a set of new IRP_MJ 
+functions, new driver entry points, and new processing methods. However, most of 
+the old functions you’ve come to know and love are still present in the NT V5 
+kernel mode driver standard.</P>
+<P align=justify>Remember that earlier I said that there was both good news and 
+bad news? Well, the bad news is that since the NT V5 standard is a superset of 
+WDM, not every NT V5 kernel mode driver will easily become a WDM driver. And, 
+there are of course some things that you will need to update to allow your older 
+driver to take advantage of the neat new NT V5 features.</FONT><FONT 
+size=2></P></FONT><B><FONT size=2>
+<P align=justify></FONT><FONT size=4>Biting It Off</FONT><FONT 
+size=2></P></FONT></B><FONT size=2>
+<P align=justify></FONT><FONT size=3>So, let’s say you want to upgrade your 
+existing NT V4 standard kernel mode device driver to a full function NT V5 
+standard kernel mode driver – but not necessarily a WDM driver. This conversion 
+process is actually relatively straight forward.</FONT><FONT 
+size=2></P></FONT><I><B><FONT face=Arial size=2>
+<P align=justify></FONT><FONT face=Arial size=4>What’s Where</FONT><FONT 
+face=Arial size=2></P></FONT></B></I><FONT size=2>
+<P align=justify></FONT><FONT size=3>In NT V4, <B>DriverEntry(…)</B> was the 
+function in which we did everything necessary to initialize our driver and our 
+devices. In <B>DriverEntry(…)</B> we export our entry points via the Driver 
+Object. We also typically identify our device and create a Device Object for 
+each device found. This ordinarily means scanning the bus to find our device(s), 
+and calling <B>IoCreateDevice(…)</B>. Next, in an NT V4 driver, we reserve the 
+hardware resources to be used by our device. For PCI devices this typically 
+means calling <B>HalAssignSlotResources(…)</B> and <B>IoAssignResources(…)</B> 
+to get a <B>CM_RESOURCE_LIST</B> of the hardware resources that each of our 
+devices will use. These resources include ports, shared memory areas, IRQs, DMA 
+Channels, and whatever other hardware resources our device(s) require. We also 
+connect to interrupts from our device within <B>DriverEntry(…)</B>, and in 
+general do whatever is necessary to become ready to process requests on our 
+device.</P>
+<P align=justify>In NT V5, the functions previously performed in 
+<B>DriverEntry(…)</B> are separated out into three parts: </P>
+<OL>
+  <OL>
+    <LI>Things to do with initializing the driver itself – These things, like 
+    exporting our entry points, are still performed in <B>DriverEntry(…)</B>. 
+    <LI>Things to do with discovering the devices our driver needs to support – 
+    This step, including creating a Device Object, is now performed in the 
+    driver’s <B>AddDevice(…)</B> entry point. 
+    <LI>Things to do with device resources and device initialization – Things to 
+    do with the device hardware itself actually wait until we’re called with an 
+    <B>IRP_MJ_PNP</B> IRP with an <B>IRP_MN_START_DEVICE</B> minor function. In 
+    this function, we do stuff like connect to interrupts.</FONT><FONT size=2> 
+    </LI></OL></OL>
+<P align=justify>&nbsp;</P></FONT><I><B><FONT face=Arial size=2>
+<P align=justify></FONT><FONT face=Arial size=4>Driver Entry In NT 
+V5</FONT><FONT face=Arial size=2></P></FONT></B></I><FONT size=2>
+<P align=justify></FONT><FONT size=3>Just like in NT V4, our 
+<B>DriverEntry(…)</B> entry point is called in NT V5 at <B>IRQL 
+PASSIVE_LEVEL</B> in the context of the system process when our driver is first 
+loaded. <B>DriverEntry(…)</B> is called once per driver (that is to say, not 
+once for each device owned by the driver).</P><B>
+<P align=justify>DriverEntry(…)</B> in NT V5 is typically restricted to doing 
+things related to initializing the driver as a whole. This includes exporting 
+our entry points via the Driver Object. Two new important entry points that NT 
+V5 drivers will need to export are (1) an <B>AddDevice(...)</B> entry point, a 
+pointer to which is placed in 
+<B>DriverObject-&gt;DriverExtension-&gt;AddDevice</B>, and (2) the dispatch 
+entry point for processing <B>IRP_MJ_PNP</B> IRPs (a pointer to which must be 
+placed in <B>DriverObject-&gt;MajorFunction[IRP_MJ_PNP])</B>.</P>
+<P align=justify>While not normally required, before exiting 
+<B>DriverEntry(...)</B> you’ll have to save the Registry Path information if 
+you’ll need it later. You should really only need this if you call one of those 
+functions that requires it as a parameter (such as 
+<B>IoRegisterDriverReinitialization(...)</B>, 
+<B>HalAssignSlotResources(...)</B>, or <B>IoAssignResources(...)</B> ) or you 
+need to do some Registry lookups in your <B>AddDevice(...)</B> routine (see 
+below). Of course, good NT V5 drivers won’t typically call any of these routines 
+(with the possible exception of <B>IoRegisterDriverReinitialization(...)</B>). 
+If you do need to save the Registry Path, be sure to actually save the Registry 
+Path data itself, not just a pointer to the registry path. The I/O Manager 
+apparently deallocates the Registry Path immediately on return from its call to 
+<B>DriverEntry(...)</B>.</P>
+<P align=justify>While it doesn’t say so in the preliminary NT V5 documentation, 
+it is possible to still create Device Objects during <B>DriverEntry(...)</B>. 
+However, this is no longer typically done. In fact, the only Device Object you 
+might want to create in <B>DriverEntry(...)</B> in an NT V5 driver would be an 
+object for an over-all driver control type device. Perhaps this would be some 
+sort of operation, administration, or management device. If you <I>do</I><B> 
+</B>create any Device Objects in <B>DriverEntry(...)</B>, the 
+<B>DO_DEVICE_INITIALIZING</B> bit is still cleared as before NT V5.</P>
+<P align=justify>That’s really all there is to the "all new and improved" 
+version of <B>DriverEntry(...)</B>. What has traditionally been the longest 
+function in many NT standard kernel mode drivers is now rather short indeed! 
+Processing continues when the driver’s <B>AddDevice(...)</B> entry point is 
+called.</FONT><FONT size=2></P></FONT><I><B><FONT face=Arial size=2>
+<P align=justify></FONT><FONT face=Arial size=4>The AddDevice(...) 
+Routine</FONT><FONT face=Arial size=2></P></FONT></B></I><FONT size=2>
+<P align=justify></FONT><FONT size=3>At some point after you’ve returned from 
+<B>DriverEntry(...)</B>, any time a device that is your driver’s responsibility 
+is added to the system, the I/O Manager (or is it the Plug and Play Manager… oh, 
+what’s the difference anyway!) calls your driver’s <B>AddDevice(...)</B> entry 
+point. The prototype for this entry point is as follows:</P><B>
+<P align=justify>NTSTATUS XxxxAddDevice (</B>IN struct _DRIVER_OBJECT 
+*<I>DriverObject</I>,</P>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<P align=justify>IN struct _DEVICE_OBJECT 
+*<I>PhysicalDeviceObject</I><B>)</B>;</P></DIR></DIR></DIR></DIR>
+<P align=justify>The <B>DriverObject</B> parameter passed into this routine is 
+the same pointer passed into your <B>DriverEntry(...)</B> entry point. The 
+<B>PhysicalDeviceObject</B> parameter is a pointer to the physical Device Object 
+(PDO) that represents your device. This Device Object was created by the bus 
+driver when it scanned the bus to see what devices were physically connected to 
+the bus. The PDO is used as the point of communication between the bus driver, 
+Plug and Play Manager, and your driver to inform you of PnP events (such as 
+somebody disconnecting your device). See <I>Figure 1, Functional and Physical 
+Device Objects</I>.</FONT><FONT size=2></P>
+<P><IMG height=288 src="Converting NTV4 Drivers to WDM-NTV5_files/pdo_fdo.gif" 
+width=480></P><B>
+<P>Figure 1 -- Functional and Physical Device Objects</P></B>
+<P align=justify></FONT><FONT size=3>When you’re called at your 
+<B>AddDevice(…)</B> entry point here are two major activities for your driver to 
+undertake:</P>
+<OL>
+  <OL>
+    <LI>Create one or more Device Objects (and optionally Device Extensions) to 
+    represent your device. This is done in the traditional way by calling 
+    <B>IoCallDriver(...)</B>. Don’t forget that because you’re calling 
+    <B>IoCreateDevice(...)</B> outside of your <B>DriverEntry(...)</B> entry 
+    point, you need to manually clear the <B>DO_DEVICE_INITIALIZING</B> bit in 
+    <B>DeviceObject-&gt;Flags</B>. This is an important detail, since unless 
+    this bit is cleared other Device Objects cannot be attached to yours. If you 
+    forget to clear this bit, in the checked build the I/O Manager will remind 
+    you with a little message. If required, also create a symbolic link to point 
+    to your Device Object using <B>IoCreateSymbolicLink(...)</B>, just like in 
+    NT V4. 
+    <LI>Attach the newly created Device Object (or, indeed, Device Objects) to 
+    the physical device the bus driver has created to describe your device. This 
+    attach is done by calling <B>IoAttachDeviceToDeviceStack(...)</B>, passing 
+    in the pointer to your newly created Device Object and the Physical Device 
+    Object passed into your <B>AddDevice(...)</B> entry point. 
+    <B>IoAttachDeviceToDeviceStack(...)</B> returns a pointer to the actual 
+    Device Object to which you attached. Be sure to save this away… you’re going 
+    to need it later. </LI></OL></OL>
+<P align=justify>Before leaving your <B>AddDevice(...)</B> entry point, you 
+should perform any per-device initialization that can be performed <I>without 
+touching your hardware</I>. This might include checking the Registry (if you 
+saved the path away earlier!) for device-specific information or anything else 
+you can dream up. But, to emphasize the point I’ll say it again, <I>no 
+references to your hardware</I> are permitted in this function. You still 
+haven’t been given your hardware resources. Your driver has only been informed 
+that a device owned by your driver has been found. That comes in the next 
+step.</P>
+<P align=justify>Also, note that since you now have a Device Object it is 
+entirely possible for users to issue I/O requests to that Device Object. Since 
+you’re not allowed to touch your hardware yet, it would be a serious mistake to 
+just go ahead and try to process any requests that you receive. Proper NT V5 
+etiquette requires that you keep track of the fact that this device has been 
+created but not yet started (i.e. you’ve received an <B>AddDevice(…)</B> call 
+for this device, but not an <B>IRP_MN_START_DEVICE</B> request, more about which 
+later) and queue any IRPs that you receive for later processing on your device. 
+The preliminary NT V5 documentation suggests keeping a flag in the Device 
+Extension for this purpose… This sure seems like a good idea to me.</P>
+<P align=justify>Leave <B>AddDevice(...)</B> with <B>STATUS_SUCCESS</B> if you 
+were successful in your work in this routine. Returning an error status results 
+in the load sequence for your driver being aborted.</FONT><FONT 
+size=2></P></FONT><I><B><FONT face=Arial size=2>
+<P align=justify></FONT><FONT face=Arial size=4>Dispatch IRP_MJ_PNP</FONT><FONT 
+face=Arial size=2></P></FONT></B></I><FONT size=2>
+<P align=justify></FONT><FONT size=3>Here’s where things get really 
+"interesting". Now, don’t shoot me, OK? I’m only the messenger.</P>
+<P align=justify>When one of the previously added devices is to be started, the 
+Plug and Play Manager will call your driver with an IRP containing an 
+<B>IRP_MJ_PNP</B> major function code and an <B>IRP_MN_START_DEVICE</B> minor 
+function code<B>. IRP_MJ_PNP</B> is used to identify IRPs that are queued to 
+your driver as a result of plug and play events. There are seven minor function 
+codes that uniquely identify the type of plug and play request to the driver. In 
+WDM/NT V5, device drivers sit atop a driver stack that may include an underlying 
+bus driver. This leads to two issues in a driver handling PNP requests:</P>
+<OL>
+  <OL>
+    <LI>All <B>IRP_MJ_PNP </B>IRPs must be passed by your device driver to the 
+    underlying bus driver. This is vital for correct system operation. 
+    <LI>Some PNP IRPs must be processed (successfully) by the underlying bus 
+    driver before they can be processed by your device driver. On the other 
+    hand, some PNP IRPs need to be processed (successfully) by your driver 
+    before being passed on to the underlying bus driver. </LI></OL></OL>
+<P align=justify>It is your driver’s task to determine who processes each 
+particular PNP IRP first (you or the underlying bus driver, depending on the IRP 
+minor function code), and then (typically) to pass the IRP to the underlying 
+driver in the normal way by calling <B>IoCallDriver(...)</B>. The Device Object 
+used as the target for the <B>IoCallDriverCall(...)</B> is the 
+<B>PDEVICE_OBJECT</B> returned when the driver called 
+<B>IoAttachDeviceToDeviceStack(...)</B> in its <B>AddDevice(...)</B> entry 
+point. Fortunately, it’s pretty easy to figure out from the documentation who is 
+supposed to handle which IRP_MN functions when. We’ve summarized this in the 
+following table:</FONT><FONT size=2></P>
+<P>&nbsp;</P></FONT>
+<TABLE borderColor=#000000 cellSpacing=2 cellPadding=7 width=433 border=1>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width="63%" bgColor=#808080><FONT color=#ffffff 
+      size=2><B>IRP_MN_ Function Code</B></FONT></TD>
+    <TD vAlign=top width="37%" bgColor=#808080><FONT color=#ffffff 
+      size=2><B>Who Processes It First?</B></FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="63%"><FONT size=2>IRP_MN_START_DEVICE</FONT></TD>
+    <TD vAlign=top width="37%"><FONT size=2>Bus driver</FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="63%"><FONT size=2>IRP_MN_STOP_DEVICE</FONT></TD>
+    <TD vAlign=top width="37%"><FONT size=2>Device driver</FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="63%"><FONT size=2>IRP_MN_QUERY_STOP_DEVICE</FONT></TD>
+    <TD vAlign=top width="37%"><FONT size=2>Device driver</FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="63%"><FONT 
+size=2>IRP_MN_CANCEL_STOP_DEVICE</FONT></TD>
+    <TD vAlign=top width="37%"><FONT size=2>Bus driver</FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="63%"><FONT 
+    size=2>IRP_MN_QUERY_REMOVE_DEVICE</FONT></TD>
+    <TD vAlign=top width="37%"><FONT size=2>Device driver</FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="63%"><FONT size=2>IRP_MN_REMOVE_DEVICE</FONT></TD>
+    <TD vAlign=top width="37%"><FONT size=2>Device driver</FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="63%"><FONT 
+    size=2>IRP_MN_CANCEL_REMOVE_DEVICE</FONT></TD>
+    <TD vAlign=top width="37%"><FONT size=2>Bus driver</FONT></TD></TR>
+  <TR>
+    <TD vAlign=top width="63%"><FONT 
+size=2>IRP_MN_QUERY_CAPABILITIES</FONT></TD>
+    <TD vAlign=top width="37%"><FONT size=2>Bus 
+driver</FONT></TD></TR></TBODY></TABLE><FONT size=2>
+<P align=justify></FONT><FONT size=3>When we say the device driver processes a 
+request "first", we mean that on receipt the device driver examines the request. 
+If the request can be accommodated, the device driver does what is necessary to 
+carry out the request. When the device driver has completed processing the 
+request successfully, it sends the request to the underlying bus driver. If the 
+request cannot be accommodated, the device driver completes the request in the 
+ordinary way with an appropriate error status. In this case, the IRP does not 
+need to be passed to the underlying bus driver.</P>
+<P align=justify>Passing an IRP on to another driver given a pointer to the 
+target driver’s Device Object is done the same way in NT V5 as it was done in NT 
+V4. The only difference is that in NT V5 we now have a handy macro to use to 
+make things a bit easier. To pass a request to an underlying driver, you simply 
+copy the current I/O Stack Location to the next I/O Stack Location, register a 
+completion routine if you want one, and pass the IRP to the next driver using 
+<B>IoCallDriver(...)</B>. For the case where the device driver processes the 
+<B>IRP_MJ_PNP</B> IRP first, a completion routine is not normally required, 
+since if the PnP operation of which you’ve approved is not acceptable to the 
+underlying bus driver, you’ll later get a PNP IRP telling you to cancel the 
+operation. Thus, the code for this case would be as simple as the 
+following:</FONT><FONT size=2></P>
+<DIR>
+<DIR>
+<P>//<BR>// Invoke the handy stack copy macro, new to NT 
+V5.<BR>//<BR>IoCopyCurrentIrpStackLocationToNext(Irp);<BR>//<BR>// Send the 
+request to the bus driver and 
+return<BR>//<BR>return(IoCallDriver(DeviceExtension-&gt;PdoPointer, 
+Irp));</P></DIR></DIR>
+<P align=justify></FONT><FONT size=3>Hardly anything to worry about, right?</P>
+<P align=justify>Unfortunately, when the bus driver processes the request first, 
+things are a bit more tricky. And, to indicate that your device can be started, 
+you receive an <B>IRP_MN_START_DEVICE</B> IRP that needs to be processed by the 
+bus driver first. On receiving such a request, the device driver passes it to 
+the bus driver without itself doing any processing of the request.</P>
+<P align=justify>Again, just like in NT V4, the way a driver passes a request to 
+an underlying driver and is later notified about completion of the request is by 
+setting a completion routine in the IRP prior to passing the IRP to the 
+underlying driver. The I/O Manager will call the completion routine when the 
+underlying driver(s) have completed the request. Only when the completion 
+routine has been called may the IRP actually be processed by the device driver. 
+Unfortunately, recall that completion routines may be called at<B> IRQL &gt;= 
+DISPATCH_LEVEL</B>. This makes completion processing more complex than you might 
+like.</P>
+<P align=justify>While there are many ways to actually code-up the solution to 
+this problem, we agree with the preliminary DDK that the best solution is to 
+wait on an event in the device driver’s Dispatch Routine. When the completion 
+routine is called, it signals the event, thus awakening the Dispatch Routine 
+code, where the IRP is processed to completion. The completion routine re-claims 
+"ownership" of the IRP by returning <B>STATUS_MORE_PROCESSING_REQUIRED</B> to 
+the I/O Manager.<BR></FONT><FONT size=2></P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">// 
+the new macro supplied with NT V5 strictly for this purpose</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">//</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">IoCopyCurrentIrpStackLocationToNext 
+(Irp);</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">//</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">// 
+Set a completion routine for this IRP. Have it called regardless</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">// 
+of the IRP's completion status. The context passed into the</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">// 
+completion routine is a pointer to the event to signal.</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">//</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">IoSetCompletionRoutine 
+(Irp,</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">OsrPnpCompRoutine,</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">&amp;pnpEvent,</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">TRUE,</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">TRUE,</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">TRUE);</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">//</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">// 
+Initialize an event which will be signaled from the</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">// 
+completion routine.</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">// 
+</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">KeInitializeEvent(&amp;pnpEvent, 
+</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">NotificationEvent, 
+</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">FALSE);</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">status 
+= IoCallDriver(devExt-&gt;NextDriverObject, Irp);</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">//</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">// 
+Wait on the event to be signaled by the completion routine. </P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">// 
+The completion routine will "re-claim" the IRP so we may</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">// 
+continue to process it below.</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">//</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">KeWaitForSingleObject(&amp;pnpEvent,</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">Executive,</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">KernelMode,</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">FALSE,</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">NULL);</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">//</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">// 
+After the completion routine wakes us, get the ultimate</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">// 
+status of the operation from the IRP.</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">//</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">status 
+= Irp-&gt;IoStatus.Status;</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">if 
+(NT_SUCCESS (status)) {</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">//</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">// 
+Since the bus driver was happy, we can FINALLY try to</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">// 
+process the IRP.</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">//</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">status 
+= OsrProcessPnPIrp(Irp);</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">}</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">//</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">// 
+Since the completion routine ALWAYS reclaims the IRP by</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">// 
+returning STATUS_MORE_PROCESSING_REQUIRED, we need to</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">// 
+actually complete the IRP here.</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">//</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">Irp-&gt;IoStatus.Status 
+= status;</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">Irp-&gt;IoStatus.Information 
+= 0;</P>
+<P 
+style="FONT-WEIGHT: normal; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: normal; FONT-STYLE: normal; LETTER-SPACING: normal; TEXT-ALIGN: left; FONT-VARIANT: normal">IoCompleteRequest 
+(Irp, IO_NO_INCREMENT);</P>
+<P align=justify>Not hard, right? As previously described, this code not only 
+passes the IRP to the underlying driver, it also creates an event and waits for 
+that event to be signaled. The event is set to signaled from the driver’s 
+completion routine, shown below:</P>
+<P>NTSTATUS</P>
+<P>OsrPnpCompRoutine(IN PDEVICE_OBJECT DeviceObject,</P>
+<P>IN PIRP Irp,</P>
+<P>IN PVOID Context)</P>
+<P>{</P>
+<P>PKEVENT event = (PKEVENT)Context;</P>
+<P>//</P>
+<P>// IF this request pended, make sure we mark it as</P>
+<P>// having done so in the current IRP stack location</P>
+<P>//</P>
+<P>if (Irp-&gt;PendingReturned) {</P>
+<P>IoMarkIrpPending( Irp );</P>
+<P>}</P>
+<P>//</P>
+<P>// Set the event on which the Dispatch Routine is waiting</P>
+<P>//</P>
+<P>KeSetEvent(event, 0, FALSE);</P>
+<P>//</P>
+<P>// Re-claim IRP to that the Dispatch Routine can continue</P>
+<P>// to process it.</P>
+<P>//</P>
+<P>// N.B. Dispatch Routine must re-call IoCompleteRequest</P>
+<P>//</P>
+<P>return STATUS_MORE_PROCESSING_REQUIRED; </P>
+<P>}</P>
+<P align=justify></FONT><FONT size=3>Admittedly, this is a pretty simple 
+completion routine. But it does handle all the basics. One step that might not 
+be intuitively obvious to those driver writers who haven’t had a lot of 
+experience passing IRPs around and setting completion routines is the need to 
+call <B>IoMarkIrpPending(...)</B> in the completion routine if 
+<B>Irp-&gt;PendingReturned</B> is set. Trust me on this one, boys and girls, 
+this is absolutely required. And, no, you couldn’t do it in the Dispatch Routine 
+code, either. If you’d like an explanation of this, please refer to the article 
+on how I/O completion works in NT published in the May 1997 issue of <I>The NT 
+Insider</I> (which is available on OSR’s web site, of course).</P>
+<P align=justify>As recommended in the preliminary DDK documentation, the above 
+approach is probably the best method for handling IRPs that need to be processed 
+by the bus driver first. Since it is possible that your completion routine could 
+be called at elevated IRQL, we wait in the Dispatch Routine instead of trying to 
+process the request in the actual completion routine. When the completion 
+routine is called, the IRP is re-claimed by the device driver (by returning 
+<B>STATUS_MORE_PROCESSING_REQUIRED</B>). The completion routine then wakes the 
+Dispatch Routine by setting the event. Any necessary processing is then 
+performed by the device driver in the context of the Dispatch Routine. The 
+device driver then completes the IRP, calling <B>IoCompleteRequest(...)</B>, 
+with an appropriate status.</FONT><FONT size=2></P>
+<P align=justify>&nbsp;</P></FONT><I><B><FONT face=Arial size=2>
+<P align=justify></FONT><FONT face=Arial size=4>Processing 
+IRP_MN_START_DEVICE</FONT><FONT face=Arial size=2></P></FONT></B></I><FONT 
+size=2>
+<P align=justify></FONT><FONT size=3>Given the general process for handling 
+<B>IRP_MJ_PNP</B> requests, let’s discuss how you specifically process 
+<B>IRP_MN_START_DEVICE</B> requests.</P>
+<P align=justify>As we stated previously, when the Plug and Play Manager wants 
+you to start your device, it sends you an <B>IRP_MJ_PNP </B>IRP with an 
+<B>IRP_MN_START_DEVICE</B> minor function. The device to be started is, 
+obviously, the one represented by the Device Object pointer we receive in our 
+Dispatch PNP routine.</P>
+<P align=justify>Recall that <B>IRP_MN_PNP</B> IRPs are one of those that must 
+be processed by the bus driver before being processed by the device driver. 
+Thus, on receiving one of these IRPs, the device driver simply passes it on down 
+to the bus driver, and waits for its completion routine to be called. Assume we 
+use the design shown above, where we wait in the Dispatch Routine on an event to 
+be signaled by the Completion Routine. In this case, we wake back up in our 
+Dispatch Routine, and proceed to process the <B>IRP_MN_START_DEVICE</B> 
+request.</P>
+<P align=justify>How do we process this request? Recall that up to this point, 
+we still have neither identified nor reserved the hardware resources required by 
+our device. Providing us a list of these resources is the main purpose of the 
+<B>IRP_MN_START_DEVICE</B> IRP.</P>
+<P align=justify>Contained in the current I/O Stack Location of the 
+<B>IRP_MN_START_DEVICE</B> IRP are two parameters of specific interest: 
+<B>Parameters.StartDevice.AllocatedResources</B> (which is a pointer to a 
+<B>CM_RESOURCE_LIST</B> that describes the device’s resources), and 
+<B>Parameters.StartDevice.AllocatedResourcesTranslated</B> (which is a pointer 
+to a <B>CM_RESOURCE_LIST</B> which contains the translated values for the 
+device’s resources). These parameters are the resources that the PnP Manager, 
+the I/O Manager, and the HAL have agreed on and allocated for your device’s use. 
+In NT V4 for a PCI device (for example), the untranslated resources are those 
+that would have been returned by <B>HalAssignSlotResources(...)</B>. The 
+Translated version of these resources are equivalent to the output from 
+<B>HalTranslateBusAddress(...)</B> and <B>HalGetInterruptVector(...)</B>.</P>
+<P align=justify>Given the <B>CM_RESOURCE_LIST</B>, the driver may access, 
+initialize, and program its device just as in NT V4. And, just like in NT V4, if 
+a resource is in memory space the driver will need to call 
+<B>MmMapIoSpace(...)</B> to assign kernel virtual addresses to it. And, of 
+course, the driver will need to connect to interrupt by calling 
+<B>IoConnectInterrupt(...)</B> just as it did in NT V4.</P></FONT><FONT 
+size=4><B>
+<P align=justify>Summing It All Up</P></B></FONT><FONT size=3>
+<P align=justify>Of course, there’s more we could talk about: How devices get 
+stopped, removed, and the like. But Dan gets mad if these articles are too long, 
+and this should be enough to at least get you started. We’ll be talking more 
+about the emerging NT V5 driver standard, WDM, and how to make your x86 
+architecture drivers binary compatible between Windows 9x and NT V5 in a future 
+issue. </FONT><FONT size=2></P>
+<P>&nbsp;</P>
+<P></FONT><A href="http://www.osr.com/ntinsider_1998.shtml">NT Insider 1998 
+On-line Articles</A><FONT size=2></P></FONT></BODY></HTML>

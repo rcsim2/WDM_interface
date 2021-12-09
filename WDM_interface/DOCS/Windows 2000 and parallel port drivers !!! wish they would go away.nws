@@ -1,0 +1,48 @@
+Path: zonnet-reader-1!zonnet-feed!news-feed1.eu.concert.net!newsfeed.direct.ca!look.ca!nntp.abs.net!feeder.qis.net!sn-xit-02!supernews.com!postnews1.google.com!not-for-mail
+From: aseem@neurobehavioralsystems.com (A.M.)
+Newsgroups: comp.os.ms-windows.programmer.nt.kernel-mode
+Subject: Windows 2000 and parallel port drivers !!! wish they would go away
+Date: 11 Jan 2002 19:50:58 -0800
+Organization: http://groups.google.com/
+Lines: 32
+Message-ID: <a9f9d224.0201111950.7737734d@posting.google.com>
+NNTP-Posting-Host: 66.121.5.66
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+X-Trace: posting.google.com 1010807459 4245 127.0.0.1 (12 Jan 2002 03:50:59 GMT)
+X-Complaints-To: groups-abuse@google.com
+NNTP-Posting-Date: 12 Jan 2002 03:50:59 GMT
+Xref: zonnet-feed comp.os.ms-windows.programmer.nt.kernel-mode:25645
+
+Hi All,
+
+My poor soul was commanded to write a driver for the parallel port for
+Win 2K. To start the quest I went looking for Cant's WDM .... and
+fortunately found it. Using the code for a kernel mode driver that he
+gives as an example, as a base I built my driver upon it, adding
+custom required IOCTLs, interrupt handlers and what nots. Eventually
+after lots of sleepless nights I got it to work.
+
+Then somebody ACTUALLY decided to use it in the real world, and like
+most MS thingies mine failed .... miserably. After long hours I found
+out that Win2K uses an additional set of register to set the port mode
+whereas, poor ol me had programmed it using the simple standard, just
+one port and three registers.
+
+Fortunately Cant had designed the driver entry to be customizable so
+that one could specify the port address and irq and register base
+address etc... In my crazed frame of mind during the programming days
+I had let it be and it seemed to be the way out. So I figured I could
+call CreateFile twice in the app with different parameters and the IO
+manager would create two instances of the device extension and all
+would live happily ever after.
+
+However I should have expected that like all other things Bill and
+posse would screw this up too. To put it simply it just doesnt work...
+Somehow my driver is unable to acquire control of the registers and
+hence unable to do the CreateFile.. It returns a null and I have to go
+look for answers all over again.
+
+Any help to get me out of this hellhole would be greatly appreciated.
+
+FriedBrainsRedEyesShakyFingersPerforatedIntestines-MSProgrammer=0;

@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0104)http://groups.google.com/groups?frame=right&th=243450390e8caeac&seekm=360A0A52.4CB322F%40siemens-scg.com -->
+<HTML><HEAD><TITLE>Google Groups: View Thread</TITLE>
+<META content="text/html; charset=ISO-8859-1" http-equiv=content-type>
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff onload=window.focus();>
+<TABLE bgColor=#ffcc33 border=0 cellPadding=2 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><FONT face=arial,sans-serif>All messages from 
+      thread</FONT></TD></TR></TBODY></TABLE><A name=link1></A><A name=s></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 1 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?q=author:thomas.reiners%40siemens-scg.com+" 
+      target=_top>Thomas Reiners</A> (<A 
+      href="mailto:thomas.reiners@siemens-scg.com">thomas.reiners@siemens-scg.com</A>)<BR>Subject: 
+      Linker Error 1106 <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?selm=360A0A52.4CB322F%40siemens-scg.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1998/09/24 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Hi !
+I'm developing a driver for WNT5.0 (B2 - also DDK for B2). I get after
+compiling my project the linker error LNK1106.
+Does anybody know what reason this could have (my disk is ok - and space
+is also available...)
+
+THX in advance,
+
+Thomas
+
+--</PRE><A name=link2></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 2 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?q=author:js20973%40ms5.hinet.net+" 
+      target=_top>js20973@ms5.hinet.net</A> (<A 
+      href="mailto:js20973@ms5.hinet.net">js20973@ms5.hinet.net</A>)<BR>Subject: 
+      Re: Linker Error 1106 <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?selm=6ueemj%24689%241%40nnrp1.dejanews.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1998/09/24 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>In article &lt;360A0A52.4CB322F@siemens-scg.com&gt;,
+  Thomas Reiners &lt;thomas.reiners@siemens-scg.com&gt; wrote:
+<FONT color=#660066>&gt; This is a multi-part message in MIME format.
+&gt; --------------D12F3644039EB38E33382059
+&gt; Content-Type: text/plain; charset=us-ascii
+&gt; Content-Transfer-Encoding: 7bit
+&gt;
+&gt; Hi !
+&gt; I'm developing a driver for WNT5.0 (B2 - also DDK for B2). I get after
+&gt; compiling my project the linker error LNK1106.
+&gt; Does anybody know what reason this could have (my disk is ok - and space
+&gt; is also available...)
+&gt;
+&gt; THX in advance,
+&gt; 
+&gt; Thomas
+&gt;
+&gt; --------------D12F3644039EB38E33382059</FONT>
+
+
+If you use VC++ 5.0 and build your driver in the IDE environment, you will
+get this error ! Use the LINKER in your NTDDK 5.0 , add the path
+$(DDKROOT)\bin in front of the old path where DDKROOT is the directory you
+install your NTDDK 5.0
+
+Jason Lin&amp;#137;
+
+-----== Posted via Deja News, The Leader in Internet Discussion ==-----
+<A href="http://www.dejanews.com/rg_mkgrp.xp" target=_top>http://www.dejanews.com/rg_mkgrp.xp</A>   Create Your Own Free Member Forum</PRE><A 
+name=link3></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 3 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?q=author:thomas.reiners%40siemens-scg.com+" 
+      target=_top>Thomas Reiners</A> (<A 
+      href="mailto:thomas.reiners@siemens-scg.com">thomas.reiners@siemens-scg.com</A>)<BR>Subject: 
+      Re: Linker Error 1106 <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?selm=360B5AF7.1026CD67%40siemens-scg.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1998/09/25 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Thank you ! It works ! Another info that me reached is to install the Service
+Pack 3 from the DevStudio ... But the upper way is faster of course !
+
+Thoma$
+
+js20973@ms5.hinet.net wrote:
+
+<FONT color=#660066>&gt; In article &lt;360A0A52.4CB322F@siemens-scg.com&gt;,
+&gt;   Thomas Reiners &lt;thomas.reiners@siemens-scg.com&gt; wrote:</FONT>
+<FONT color=#007777>&gt; &gt; This is a multi-part message in MIME format.
+&gt; &gt; --------------D12F3644039EB38E33382059
+&gt; &gt; Content-Type: text/plain; charset=us-ascii
+&gt; &gt; Content-Transfer-Encoding: 7bit
+&gt; &gt;
+&gt; &gt; Hi !
+&gt; &gt; I'm developing a driver for WNT5.0 (B2 - also DDK for B2). I get after
+&gt; &gt; compiling my project the linker error LNK1106.
+&gt; &gt; Does anybody know what reason this could have (my disk is ok - and space
+&gt; &gt; is also available...)
+&gt; &gt;
+&gt; &gt; THX in advance,
+&gt; &gt; 
+&gt; &gt; Thomas
+&gt; &gt;
+&gt; &gt; --------------D12F3644039EB38E33382059</FONT>
+<FONT color=#660066>&gt;
+&gt; If you use VC++ 5.0 and build your driver in the IDE environment, you will
+&gt; get this error ! Use the LINKER in your NTDDK 5.0 , add the path
+&gt; $(DDKROOT)\bin in front of the old path where DDKROOT is the directory you
+&gt; install your NTDDK 5.0
+&gt;
+&gt; Jason Lin&amp;#137;
+&gt;
+&gt; -----== Posted via Deja News, The Leader in Internet Discussion ==-----
+&gt; <A href="http://www.dejanews.com/rg_mkgrp.xp" target=_top>http://www.dejanews.com/rg_mkgrp.xp</A>   Create Your Own Free Member Forum</FONT>
+
+--</PRE>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><IMG alt="" height=3 
+      src="groups(1)_bestanden/cleardot.gif"></TD></TR></TBODY></TABLE><BR>
+<CENTER><FONT size=-1>©2002 Google</FONT></CENTER></BODY></HTML>

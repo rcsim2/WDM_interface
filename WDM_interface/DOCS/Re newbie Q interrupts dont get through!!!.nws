@@ -1,0 +1,55 @@
+Path: zonnet-reader-1!zonnet-feed!news-feed1.eu.concert.net!newsfeed.gamma.ru!Gamma.RU!news.mailgate.org!web2news!12.44.37.253!not-for-mail
+From: "Sam Saeki" <saekisam@hotmail.com>
+Newsgroups: comp.os.ms-windows.programmer.nt.kernel-mode
+Subject: Re: newbie Q: interrupts dont get through!!!
+Date: Tue, 9 Oct 2001 17:56:44 +0000 (UTC)
+Organization: Mailgate.ORG Server - http://www.Mailgate.ORG
+Lines: 35
+Message-ID: <3a7869f562f0685c8a87fea2d6b1a5f7.29727@mygate.mailgate.org>
+References: <a9f9d224.0110071127.3efc3541@posting.google.com>
+NNTP-Posting-Host: 12.44.37.253
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+X-Trace: news.mailgate.org 1002621761 2605 12.44.37.253 (Tue Oct  9 19:56:44 2001)
+X-Complaints-To: abuse@mailgate.org
+NNTP-Posting-Date: Tue, 9 Oct 2001 17:56:44 +0000 (UTC)
+Injector-Info: news.mailgate.org; posting-host=12.44.37.253; posting-account=29727; posting-date=1002621761
+User-Agent: Mailgate Web Server
+X-URL: http://www.Mailgate.ORG
+Xref: zonnet-feed comp.os.ms-windows.programmer.nt.kernel-mode:22719
+
+Hi, 
+
+Are you certain that you have properly removed the MS parallel port
+driver from your system? The interrupt is probably being used by 
+that driver.
+
+The reason I ask is that under Win2k, removing the parallel port driver
+is a non-obvious task. If you go to the Device Manager and remove the
+parallel port, it will seem to be removed, and will come back after a 
+few seconds. If you remove it and quickly reboot, it will still come back. 
+
+This because of the PnP in Windows 2000. (This will not happen in NT4.)
+
+(And if you just disable the parallel port, the resources are still allocated
+to it.)
+
+How to remove the parallel port driver?
+
+Do this:
+
+In the directory \winnt\inf, rename the file MSPorts.inf.
+
+Then, remove the Parallel port.  When PnP does a rescan, it will not have the
+.inf file and will not know what to do with the device.
+
+Now, you can use the parallel port for your own driver.
+
+I hope that helps.
+
+Sam
+
+
+-- 
+Posted from  [12.44.37.253] 
+via Mailgate.ORG Server - http://www.Mailgate.ORG

@@ -1,0 +1,45 @@
+Subject: Re: PCI interrupts in WDM (Win2000)
+Date: Thu, 03 May 2001 15:46:54 GMT
+From: "Timothy A. Johns" <tjohns@driverdev.com>
+Organization: Driver Development Corporation
+Newsgroups: comp.os.ms-windows.programmer.nt.kernel-mode,microsoft.public.win32.programmer.kernel
+
+Gordon,
+
+There's a LOT you're not allowed to do in interrupts, starting with calling
+anything that the DDK docs indicate is callable at <= DISPATCH_LEVEL.
+
+Accessing the config space at >DISPATCH_LEVEL (like in an ISR) is almost
+certainly incorrect.  What method are you using to access the config space?
+
+Also, you're looking for examples - what PCI interface device are you using?
+
+-Tim
+
+"Gordon Smith" <gordon.smith@NoSpamPlease.co.uk> wrote in message
+news:6aeXuXAsfX86Ewm+@octec.co.uk...
+>
+> I'm having a lot of trouble writing a WDM driver for a PCI card which
+> has a single block of memory and one interrupt.
+>
+> When I enable interrupts from the card to get through to the PCI bus the
+> PC crashes immediately.
+>
+> Is there anything that I'm allowed to do in interrupts (or anything I'm
+> not)?  Like where global variables have to reside?  Can I read/write to
+> the PCI config space?
+>
+> The sample code I have access to (DDK, DriverStudio) has very trivial
+> examples for PCI and they tell me nothing (much).
+>
+> Any help or pointers to help would be much appreciated.
+>
+> Cheers.
+> --
+> Gordon Smith
+> Octec Ltd
+>
+> e-mail: Change NoSpamPlease to octec
+>
+> Tel:+44 (0) 1344 465200
+> Fax:+44 (0) 1344 465201

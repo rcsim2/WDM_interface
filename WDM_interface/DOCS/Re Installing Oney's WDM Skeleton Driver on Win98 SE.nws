@@ -1,0 +1,41 @@
+From: Tim Roberts <timr@probo.com>
+Newsgroups: comp.os.ms-windows.programmer.nt.kernel-mode
+Subject: Re: Installing Oney's WDM Skeleton Driver on Win98 SE
+Date: Mon, 17 Dec 2001 23:15:54 -0800
+Message-ID: <35rt1ukl3kaimd1b45j9t3u5qfvc2t5948@4ax.com>
+References: <OlxT7.10739$sl6.34818@zonnet-reader-1>
+X-Newsreader: Forte Agent 1.8/32.548
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+Lines: 20
+X-Authenticated-User: timrprobocom
+X-Comments: This message was posted through Spamkiller.Newsfeeds.com
+X-Comments2: IMPORTANT: Newsfeeds.com does not condone, nor support,  spam or any illegal or copyrighted postings.
+X-Comments3: IMPORTANT: Under NO circumstances will postings containing illegal or copyrighted material through this service be tolerated!!
+X-Report: Please report illegal or inappropriate use to <abuse@newsfeeds.com> You may also use our online abuse reporting from: http://www.newsfeeds.com/abuseform.htm
+X-Abuse-Info: Please be sure to forward a copy of ALL headers, INCLUDING the body (DO NOT SEND ATTACHMENTS)
+Organization: Newsfeeds.com http://www.newsfeeds.com 73,000+ UNCENSORED Newsgroups.
+Path: zonnet-reader-1!zonnet-feed!news-feed1.eu.concert.net!news.algonet.se!algonet!news.maxwell.syr.edu!news-xfer.siscom.net!local-out2.newsfeeds.com!spamkiller.newsgroups.com
+Xref: zonnet-feed comp.os.ms-windows.programmer.nt.kernel-mode:24963
+
+"Rik G." <rgosens2@zonnet.nl> wrote:
+
+>When trying to install Oney's driver in Win98 SE, the New Hardware Wizard
+>says it cannot find the WdmSkel.sys file. Clicking Details reports error #f
+>(file cannot be found on source disk). Just clicking OK will then find the
+>file anyway.
+>
+>Why is it that WdmSkel.sys can not be found the first time round while it is
+>there in the root of the diskette or folder from which I'm installing?
+
+When the installer goes to install from an INF not in the Windows INF
+directories, it ALWAYS puts up the "show me the path" dialog.  As far as I
+know, it's an annoyance you have to live with.  Many companies use a
+co-installer to copy their INF files into the Windows INF directories in
+order to avoid this annoyance.
+
+BTW, if there is a magic way to eliminate this, I'd like to hear about it.
+--
+- Tim Roberts, timr@probo.com
+  Providenza & Boekelheide, Inc.

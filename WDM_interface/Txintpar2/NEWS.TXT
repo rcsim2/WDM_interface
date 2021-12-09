@@ -1,0 +1,19 @@
+comp.os.ms-windows.programmer.nt.kernel-mode,
+ microsoft.public.win32.programmer.kernel,
+ microsoft.public.development.device.drivers,
+
+
+Parsimp and Win2000
+
+Is there anyone who has managed to get the parsimp sample (from the NT4 DDK)
+to run on Win2000 with #define INTERRUPT_NEEDED 1 uncommented?
+
+I have enabled interrupts on the parallel port and I'm using Thesycon's UPPDEMO to make sure my device is generating interrupts. I then do a CreateFile() from a Win32 app and use Sysinternals Dbgview to check whether ParInterruptService() ever gets called. Which it does not.
+
+In Thesycon's UPPDEMO's History (in the ReadMe file), mention is made of a "Bug fix for interrupt handling on Windows 2000" and they are using different drivers for NT4 and Win2000. From this I surmise that Win2000 indeed handles parallel port interrupts differently than NT4 and that this probably causes the parsimp sample not to work on Win2000. Can anyone confirm this?
+
+Finally, does anyone know of parallel port driver which handles interrupts (like Thesycon's UPPDEMO) which is freeware and open source?
+
+Regards
+
+Rik G.

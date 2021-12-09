@@ -1,0 +1,74 @@
+Path: zonnet-reader-1!zonnet-feed!zonnet-reader-1.POSTED!not-for-mail
+From: "Rik G." <rgosens2@zonnet.nl>
+Newsgroups: comp.os.ms-windows.programmer.nt.kernel-mode
+Subject: Installing Oney's WDM Skeleton Driver on Win98 SE
+Lines: 58
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Newsreader: Microsoft Outlook Express 5.00.2615.200
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2615.200
+Message-ID: <OlxT7.10739$sl6.34818@zonnet-reader-1>
+Date: Tue, 18 Dec 2001 02:54:35 +0100
+NNTP-Posting-Host: 62.59.103.252
+X-Complaints-To: abuse@zonnet.nl
+X-Trace: zonnet-reader-1 1008640494 62.59.103.252 (Tue, 18 Dec 2001 02:54:54 MET)
+NNTP-Posting-Date: Tue, 18 Dec 2001 02:54:54 MET
+Xref: zonnet-feed comp.os.ms-windows.programmer.nt.kernel-mode:24958
+
+When trying to install Oney's driver in Win98 SE, the New Hardware Wizard
+says it cannot find the WdmSkel.sys file. Clicking Details reports error #f
+(file cannot be found on source disk). Just clicking OK will then find the
+file anyway.
+
+Why is it that WdmSkel.sys can not be found the first time round while it is
+there in the root of the diskette or folder from which I'm installing?
+
+Regards
+
+Rik
+
+.INF below (unchanged from the original):
+======================================
+[Version]
+Signature=$CHICAGO$
+Class=UNKNOWN
+Provider="Walter Oney Software"
+
+[Manufacturer]
+"Walter Oney Software"=WCO
+
+[DestinationDirs]
+DefaultDestDir=10,System32\Drivers
+
+[SourceDiskFiles]
+WdmSkel.sys=1
+
+[SourceDiskNames]
+1="Install disk",disk1
+
+[WCO]
+"WDM Skeleton Driver"=WdmSkelInstall,*WCO1234
+
+[WdmSkelInstall]
+AddReg=WdmSkel.AddReg
+CopyFiles=WdmSkel.CopyFiles
+
+[WdmSkel.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,WdmSkel.sys
+
+[WdmSkel.CopyFiles]
+WdmSkel.sys,,,2
+
+[WdmSkelInstall.NT]
+CopyFiles=WdmSkel.CopyFiles
+
+[WdmSkelInstall.NT.Services]
+AddService=WdmSkel,2,WdmSkelService
+
+[WdmSkelService]
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%10%\system32\drivers\WdmSkel.sys
+

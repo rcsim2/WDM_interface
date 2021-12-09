@@ -1,0 +1,64 @@
+--------------------Configuration: TxintUsb - Win32 Release--------------------
+Begining build with project "G:\WDM interface\Txintusb\TxintUsb.dsp", at root.
+Active configuration is Win32 (x86) Application (based on Win32 (x86) Application)
+
+Project's tools are:
+			"32-bit C/C++ Compiler for 80x86" with flags "/nologo /Gz /ML /W3 /O2 /I "G:\NTDDK\inc" /FI"G:\NTDDK\inc\warning.h" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D _X86_=1 /D i386=1 /D "STD_CALL" /D CONDITION_HANDLING=1 /D NT_UP=1 /D NT_INST=0 /D WIN32=100 /D _NT1X_=100 /D WINNT=1 /D _WIN32_WINNT=0x0500 /D _WIN32_IE=0x0400 /D WIN32_LEAN_AND_MEAN=1 /D DBG=1 /D DEVL=1 /D FPO=0 /D _DLL=1 /D "DRIVER" /D "_IDWBUILD" /FR"Release/" /Fp"Release/TxintUsb.pch" /Yu"stddcls.h" /Fo"Release/" /Fd"Release/" /FD /Zel -cbstring /QIfdiv- /QI0f /GF /Oxs /c "
+			"OLE Type Library Maker" with flags "/nologo /D "NDEBUG" /mktyplib203 /win32 "
+			"Win32 Resource Compiler" with flags "/l 0x409 /fo"Release/version.res" /d "NDEBUG" "
+			"Browser Database Maker" with flags "/nologo /o"Release/TxintUsb.bsc" "
+			"COFF Linker for 80x86" with flags "int64.lib wdm.lib /nologo /base:"0x10000" /version:4.0 /entry:"DriverEntry@8" /subsystem:windows /pdb:none /machine:I386 /nodefaultlib /out:"release\TxintUsb.sys" /libpath:"G:\NTDDK\libchk\i386" -MERGE:_PAGE=PAGE -MERGE:_TEXT=.text -MERGE:.rdata=.text -SECTION:INIT,d -OPT:REF -FORCE:MULTIPLE -RELEASE -FULLBUILD -IGNORE:4001,4037,4039,4065,4070,4078,4087,4089,4096 -osversion:4.00 -optidata -driver -align:0x20 -subsystem:native,4.00 -debug:notmapped,minimal "
+			"Custom Build" with flags ""
+			"<Component 0xa>" with flags ""
+
+Creating command line "rc.exe /l 0x809 /fo"Release/version.res" /i "G:\NTDDK\inc" /d "NDEBUG" "G:\WDM interface\Txintusb\version.rc"" 
+Creating temp file "C:\WINDOWS\TEMP\RSPA271.TMP" with contents <int64.lib wdm.lib /nologo /base:"0x10000" /version:4.0 /entry:"DriverEntry@8" /subsystem:windows /pdb:none /machine:I386 /nodefaultlib /out:"release\TxintUsb.sys" /libpath:"G:\NTDDK\libchk\i386" -MERGE:_PAGE=PAGE -MERGE:_TEXT=.text -MERGE:.rdata=.text -SECTION:INIT,d -OPT:REF -FORCE:MULTIPLE -RELEASE -FULLBUILD -IGNORE:4001,4037,4039,4065,4070,4078,4087,4089,4096 -osversion:4.00 -optidata -driver -align:0x20 -subsystem:native,4.00 -debug:notmapped,minimal 
+".\Release\DriverEntry.obj"
+".\Release\PlugPlay.obj"
+".\Release\Power.obj"
+".\Release\ReadWrite.obj"
+".\Release\stddcls.obj"
+".\Release\Wmi.obj"
+".\Release\version.res">
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSPA271.TMP" 
+Compiling resources...
+G:\WDM interface\Txintusb\version.rc(14) : warning RC4005: 'VER_COMPANYNAME_STR' : redefinition
+G:\WDM interface\Txintusb\version.rc(21) : warning RC4005: 'VER_PRODUCTNAME_STR' : redefinition
+G:\WDM interface\Txintusb\version.rc(22) : warning RC4005: 'VER_PRODUCTVERSION_STR' : redefinition
+Linking...
+
+
+
+TxintUsb.sys - 0 error(s), 3 warning(s)
+--------------------Configuration: TxintUsb - Win32 Debug--------------------
+Begining build with project "G:\WDM interface\Txintusb\TxintUsb.dsp", at root.
+Active configuration is Win32 (x86) Application (based on Win32 (x86) Application)
+
+Project's tools are:
+			"32-bit C/C++ Compiler for 80x86" with flags "/nologo /Gz /MLd /W3 /Z7 /Oi /Gy /I "G:\NTDDK\inc" /FI"G:\NTDDK\inc\warning.h" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D _X86_=1 /D i386=1 /D "STD_CALL" /D CONDITION_HANDLING=1 /D NT_UP=1 /D NT_INST=0 /D WIN32=100 /D _NT1X_=100 /D WINNT=1 /D _WIN32_WINNT=0x0500 /D _WIN32_IE=0x0400 /D WIN32_LEAN_AND_MEAN=1 /D DBG=1 /D DEVL=1 /D FPO=0 /D "NDEBUG" /D _DLL=1 /D "DRIVER" /D "_IDWBUILD" /D "RDRDBG" /D "SRVDBG" /FR"Debug/" /Fp"Debug/TxintUsb.pch" /Yu"stddcls.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /Zel -cbstring /QIfdiv- /QI0f /GF /QIf /c "
+			"OLE Type Library Maker" with flags "/nologo /D "_DEBUG" /mktyplib203 /win32 "
+			"Win32 Resource Compiler" with flags "/l 0x409 /fo"Debug/version.res" /d "_DEBUG" "
+			"Browser Database Maker" with flags "/nologo /o"Debug/TxintUsb.bsc" "
+			"COFF Linker for 80x86" with flags "int64.lib wdm.lib /nologo /base:"0x10000" /version:4.0 /entry:"DriverEntry@8" /subsystem:windows /pdb:none /map:"TxintUsb.map" /debug /debugtype:both /machine:I386 /nodefaultlib /out:"debug\TxintUsb.sys" /libpath:"G:\NTDDK\libchk\i386" -MERGE:_PAGE=PAGE -MERGE:_TEXT=.text -MERGE:.rdata=.text -SECTION:INIT,d -OPT:REF -FORCE:MULTIPLE -RELEASE -FULLBUILD -IGNORE:4001,4037,4039,4065,4070,4078,4087,4089,4096 -osversion:4.00 -optidata -driver -align:0x20 -subsystem:native,4.00 -debug:notmapped,FULL "
+			"Custom Build" with flags ""
+			"<Component 0xa>" with flags ""
+
+Creating command line "rc.exe /l 0x809 /fo"Debug/version.res" /i "G:\NTDDK\inc" /d "_DEBUG" "G:\WDM interface\Txintusb\version.rc"" 
+Creating temp file "C:\WINDOWS\TEMP\RSPA283.TMP" with contents <int64.lib wdm.lib /nologo /base:"0x10000" /version:4.0 /entry:"DriverEntry@8" /subsystem:windows /pdb:none /map:"TxintUsb.map" /debug /debugtype:both /machine:I386 /nodefaultlib /out:"debug\TxintUsb.sys" /libpath:"G:\NTDDK\libchk\i386" -MERGE:_PAGE=PAGE -MERGE:_TEXT=.text -MERGE:.rdata=.text -SECTION:INIT,d -OPT:REF -FORCE:MULTIPLE -RELEASE -FULLBUILD -IGNORE:4001,4037,4039,4065,4070,4078,4087,4089,4096 -osversion:4.00 -optidata -driver -align:0x20 -subsystem:native,4.00 -debug:notmapped,FULL 
+".\Debug\DriverEntry.obj"
+".\Debug\PlugPlay.obj"
+".\Debug\Power.obj"
+".\Debug\ReadWrite.obj"
+".\Debug\stddcls.obj"
+".\Debug\Wmi.obj"
+".\Debug\version.res">
+Creating command line "link.exe @C:\WINDOWS\TEMP\RSPA283.TMP" 
+Compiling resources...
+G:\WDM interface\Txintusb\version.rc(14) : warning RC4005: 'VER_COMPANYNAME_STR' : redefinition
+G:\WDM interface\Txintusb\version.rc(21) : warning RC4005: 'VER_PRODUCTNAME_STR' : redefinition
+G:\WDM interface\Txintusb\version.rc(22) : warning RC4005: 'VER_PRODUCTVERSION_STR' : redefinition
+Linking...
+
+
+
+TxintUsb.sys - 0 error(s), 3 warning(s)

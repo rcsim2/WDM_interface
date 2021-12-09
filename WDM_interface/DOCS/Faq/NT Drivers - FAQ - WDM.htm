@@ -1,0 +1,372 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0032)http://www.cmkrnl.com/faq02.html -->
+<HTML><HEAD><TITLE>NT Drivers - FAQ - WDM</TITLE>
+<META content="text/html; charset=iso-8859-1" http-equiv=Content-Type><!-------------------- BEGIN COPYING THE JAVASCRIPT SECTION HERE -------------------->
+<SCRIPT language=JavaScript>
+<!-- hide this script from non-javascript-enabled browsers
+if (document.images) {
+Iinternal_02_07 = new Image(68, 60);Iinternal_02_07.src = 'images/internal_title_01.gif';
+Iinternal_02_07o = new Image(68, 60);Iinternal_02_07o.src = 'images/internal_title_01_over.gif';
+Iinternal_03_02 = new Image(117, 25);Iinternal_03_02.src = 'images/internal_nav_up.gif';
+Iinternal_03_02o = new Image(117, 25);Iinternal_03_02o.src = 'images/internal_nav_up_over.gif';
+Iinternal_03_03 = new Image(116, 25);Iinternal_03_03.src = 'images/internal_nav_prev.gif';
+Iinternal_03_03o = new Image(116, 25);Iinternal_03_03o.src = 'images/internal_nav_prev_over.gif';
+Iinternal_03_04 = new Image(99, 25);Iinternal_03_04.src = 'images/internal_nav_next.gif';
+Iinternal_03_04o = new Image(99, 25);Iinternal_03_04o.src = 'images/internal_nav_next_over.gif';
+Iinternal_03_05 = new Image(100, 25);Iinternal_03_05.src = 'images/internal_nav_faq.gif';
+Iinternal_03_05o = new Image(100, 25);Iinternal_03_05o.src = 'images/internal_nav_faq_over.gif';
+Iinternal_03_06 = new Image(100, 25);Iinternal_03_06.src = 'images/internal_nav_map.gif';
+Iinternal_03_06o = new Image(100, 25);Iinternal_03_06o.src = 'images/internal_nav_map_over.gif';
+}
+function di(id,name){
+  if (document.images) {document.images[id].src=eval(name+".src"); }
+}
+
+// function that displays status bar message
+
+function dm(msgStr) {
+  document.returnValue = false;
+  if (document.images) { 
+     window.status = msgStr;
+     document.returnValue = true;
+  }
+}
+var showMsg = navigator.userAgent != "Mozilla/4.0 (compatible; MSIE 4.0; Mac_PowerPC)";
+function dmim(msgStr) {
+  document.returnValue = false;
+  if (showMsg) { 
+    window.status = msgStr;
+    document.returnValue = true;
+  }
+}
+
+// stop hiding -->
+</SCRIPT>
+<!------------------------- STOP COPYING THE JAVASCRIPT HERE ------------------------><LINK 
+href="NT Drivers - FAQ - WDM_bestanden/faqs.css" rel=STYLESHEET 
+title="Style Faq" type=text/css>
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY aLink=#ffffcc bgColor=#333333 link=#990000 text=#333333 vLink=#666666>
+<CENTER>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width=640>
+  <TBODY>
+  <TR align=left vAlign=top><!-- spacing row, 0 height. -->
+    <TD><A name=top><IMG border=0 height=1 
+      src="NT Drivers - FAQ - WDM_bestanden/internal_00.gif" width=18></A></TD>
+    <TD><IMG border=0 height=1 
+      src="NT Drivers - FAQ - WDM_bestanden/internal_00.gif" width=117></TD>
+    <TD><IMG border=0 height=1 
+      src="NT Drivers - FAQ - WDM_bestanden/internal_00.gif" width=116></TD>
+    <TD><IMG border=0 height=1 
+      src="NT Drivers - FAQ - WDM_bestanden/internal_00.gif" width=99></TD>
+    <TD><IMG border=0 height=1 
+      src="NT Drivers - FAQ - WDM_bestanden/internal_00.gif" width=100></TD>
+    <TD><IMG border=0 height=1 
+      src="NT Drivers - FAQ - WDM_bestanden/internal_00.gif" width=100></TD>
+    <TD><IMG border=0 height=1 
+      src="NT Drivers - FAQ - WDM_bestanden/internal_00.gif" width=68></TD>
+    <TD><IMG border=0 height=1 
+      src="NT Drivers - FAQ - WDM_bestanden/internal_00.gif" width=22></TD></TR>
+  <TR><!-- row 01 -->
+    <TD bgColor=#ffffff rowSpan=3><IMG border=0 height=427 
+      name=Ninternal_02_01 
+      src="NT Drivers - FAQ - WDM_bestanden/internal_02_01.gif" width=18></TD>
+    <TD colSpan=5><IMG border=0 height=60 name=Ninternal_02_02 
+      src="NT Drivers - FAQ - WDM_bestanden/internal_title_00.gif" width=532></TD>
+    <TD><A href="http://www.cmkrnl.com/index.html" 
+      onmouseout="di('Ninternal_02_07','Iinternal_02_07');dm(''); return true;" 
+      onmouseover="di('Ninternal_02_07','Iinternal_02_07o');dm('Return to Homepage'); return true;"><IMG 
+      border=0 height=60 name=Ninternal_02_07 
+      src="NT Drivers - FAQ - WDM_bestanden/internal_title_01.gif" 
+    width=68></A></TD>
+    <TD bgColor=#ffffff rowSpan=3><IMG border=0 height=427 
+      name=Ninternal_02_08 
+      src="NT Drivers - FAQ - WDM_bestanden/internal_02_08.gif" width=22></TD>
+    <TD><IMG border=0 height=60 
+      src="NT Drivers - FAQ - WDM_bestanden/internal_00.gif" width=1></TD></TR>
+  <TR><!-- row 02 -->
+    <TD><A href="http://www.cmkrnl.com/faq.html" 
+      onmouseout="di('Ninternal_03_02','Iinternal_03_02');return false;" 
+      onmouseover="di('Ninternal_03_02','Iinternal_03_02o');return false;"><IMG 
+      border=0 height=25 name=Ninternal_03_02 
+      src="NT Drivers - FAQ - WDM_bestanden/internal_nav_up.gif" 
+    width=117></A></TD>
+    <TD><A href="http://www.cmkrnl.com/faq01.html" 
+      onmouseout="di('Ninternal_03_03','Iinternal_03_03');return false;" 
+      onmouseover="di('Ninternal_03_03','Iinternal_03_03o');return false;"><IMG 
+      border=0 height=25 name=Ninternal_03_03 
+      src="NT Drivers - FAQ - WDM_bestanden/internal_nav_prev.gif" 
+    width=116></A></TD>
+    <TD><A href="http://www.cmkrnl.com/faq03.html" 
+      onmouseout="di('Ninternal_03_04','Iinternal_03_04');return false;" 
+      onmouseover="di('Ninternal_03_04','Iinternal_03_04o');return false;"><IMG 
+      border=0 height=25 name=Ninternal_03_04 
+      src="NT Drivers - FAQ - WDM_bestanden/internal_nav_next.gif" 
+    width=99></A></TD>
+    <TD><IMG border=0 height=25 name=Ninternal_03_05 
+      src="NT Drivers - FAQ - WDM_bestanden/internal_nav_faq_over.gif" 
+    width=100></TD>
+    <TD><A href="http://www.cmkrnl.com/map.html" 
+      onmouseout="di('Ninternal_03_06','Iinternal_03_06');return true;" 
+      onmouseover="di('Ninternal_03_06','Iinternal_03_06o');dm('Site Map'); return true;"><IMG 
+      border=0 height=25 name=Ninternal_03_06 
+      src="NT Drivers - FAQ - WDM_bestanden/internal_nav_map.gif" 
+    width=100></A></TD>
+    <TD><IMG border=0 height=25 name=Ninternal_03_07 
+      src="NT Drivers - FAQ - WDM_bestanden/internal_grayspace.gif" width=68></TD>
+    <TD><IMG border=0 height=25 
+      src="NT Drivers - FAQ - WDM_bestanden/internal_00.gif" width=1></TD></TR>
+  <TR><!-- row 03 -->
+    <TD align=left bgColor=#ffffff colSpan=6 vAlign=top>
+      <DIV class=body><BR>
+      <H1>2 Windows Driver Model (WDM)</H1>
+      <H2><A name=2.1>2.1</A> What's WDM? </H2>
+      <P class=first>WDM, formerly known as the "Windows Driver Model", and now 
+      known as the "Win32 Driver Model" (a confusing name, since it does not use 
+      Win32 APIs), essentially <I>is</I> the NT driver model but with a few 
+      things changed, a few things left out, and a large number of new IRP types 
+      and callable routines provided by the OS. Most of the new stuff is there 
+      to to support to support new (to NT) functionality such as plug and play 
+      and power management. It is implemented (with some differences) on both 
+      Windows 2000 and Windows 98. </P>
+      <H3><A name=2.1.1>2.1.1</A> Why did Microsoft implement WDM? </H3>
+      <P class=first>WDM is primarily an effort by Microsoft to encourage 
+      developers to write drivers for Windows NT by providing a common driver 
+      model that will work on both Windows NT Version 5 (now renamed "Windows 
+      2000") and Windows 98. </P>
+      <H3><A name=2.1.2>2.1.2</A> So, what's a "WDM Driver"? </H3>
+      <P class=first>Rigorously speaking, it's a driver written to the WDM 
+      interfaces and which is binary-compatible between Windows 98 and Windows 
+      2000. That is, if it's a "WDM driver," the same driver binary will run on 
+      both Windows 98 and Windows 2000, without recompiling or relinking. </P>
+      <P>However, it is certainly possible (and sometimes desirable) for drivers 
+      that use some of the new WDM interfaces to not be binary-compatible, nor 
+      even source-compatible, between the two OS's. In other words, simply using 
+      the WDM interfaces does not guarantee portability. Or to put it another 
+      way, plug and play and power management are parts of WDM, but an NT-only 
+      (hence "not WDM") driver can nevertheless use the plug and play and power 
+      management interfaces. The terminology is admittedly confusing. </P>
+      <H2><A name=2.2>2.2</A> WDM And Operating Systems </H2>
+      <H3><A name=2.2.1>2.2.1</A> How does Windows 2000 relate to NT Version 
+      4?</H3>
+      <P class=first>Windows 2000 is simply a new name for what otherwise would 
+      have been called Windows NT 5.0. In other words, it <I>is</I> the next 
+      release of Windows NT, and is built from the NT source code base. </P>
+      <H3><A name=2.2.2>2.2.2</A> How does Windows 98 relate to NT or to Windows 
+      2000?</H3>
+      <P class=first>Windows 98 is the current release of the non-NT Windows 
+      operating system that first shipped as Windows 95. It is built from a 
+      completely different source code base than NT. </P>
+      <P>Unless Microsoft changes their current plans, Windows 98 is the last 
+      product release from that line of development; all future "Windows" 
+      operating systems, desktop through datacenter, will be built from the NT 
+      source code base. (This of course excludes Windows CE. Also, this is not 
+      to say that there won't be service pack releases that will provide bug 
+      fixes and add minor functionality to Windows 98.) </P>
+      <H3><A name=2.2.3>2.2.3</A> So Windows 2000 is the next major upgrade step 
+      for Windows 95/98 users?</H3>
+      <P class=first>Yes. In other words, when both NT Version 4 and Windows 98 
+      users want to move to "the next version of Windows," they'll be moving to 
+      Windows 2000. </P>
+      <H3><A name=2.2.4>2.2.4</A> Are WDM drivers compatible with both Windows 
+      98 and Windows 2000?</H3>
+      <P class=first>If they're designed to be, yes. In fact, that's part of the 
+      definition: Rigorously speaking, a driver isn't a "WDM driver" unless it 
+      has one driver binary that will run on both OSs. </P>
+      <P>However, it is certainly possible to use some of the new WDM interfaces 
+      in a driver that won't run on one of the two systems. Although both 
+      Windows 98 and Windows 2000 implement WDM, there are some significant 
+      differences, enough that it is possible to write a driver that uses the 
+      WDM interfaces and nevertheless works on one OS and not the other. </P>
+      <H2><A name=2.3>2.3</A> Scope of WDM </H2>
+      <P class=first>Do I have to write a WDM driver? Do I want to? Can I avoid 
+      it? And so on... </P>
+      <H3><A name=2.3.1>2.3.1</A> So all new drivers that I write should be WDM 
+      drivers? </H3>
+      <P class=first>Not necessarily. Windows NT version 4 doesn't support the 
+      new WDM interfaces, so if your market includes NT4 users, you'll have to 
+      write an NT4 driver as well as a WDM driver. </P>
+      <P>In addition, some devices and drivers aren't supported by WDM. </P>
+      <H3><A name=2.3.2>2.3.2</A> What devices and/or driver types aren't 
+      supported by WDM? </H3>
+      <DL>
+        <DT>Display and printer drivers (GDI drivers) 
+        <DD>The WDM interfaces depend on IRPs, and display and printer drivers 
+        aren't IRP-based. OS-supplied code (such as that in 
+        <CODE>Win32K.Sys</CODE>) can handle the plug-and-play and power 
+        management aspects of these drivers. 
+        <DT>Video, SCSI, and NDIS netcard miniport drivers 
+        <DD>Although these miniport drivers execute as a result of IRPs, the 
+        existence and management of the IRPs are hidden from them by their 
+        corresponding port drivers. The port drivers also handle the 
+        plug-and-play and power management functions on behalf of these drivers. 
+
+        <DT>File system drivers (FSDs) 
+        <DD>The system interfaces used by FSDs in Windows 98 and NT are 
+        different enough that reconciling the 98 model into an NT-style IRP 
+        model would have involved moving most of the NT I/O subsystem into 
+        Windows 98. This could have been done, but would likely not have been 
+        worth the effort. These drivers do not directly access hardware, so they 
+        are not required to do much about the new plug-and-play and power 
+        management environments. Also, Microsoft probably believes that very few 
+        third parties are working on FSDs, so the goal of increasing third-party 
+        driver support for NT would not be much furthered by having common FSD 
+        models between the two systems. 
+        <DT>Third-party devices on ISA and EISA buses 
+        <DD>These devices are not enumerable by the new plug and play mechanism, 
+        in that they do not have a device vendor ID and product ID that can be 
+        read by the operating system and used to uniquely identify a device. 
+        They are therefore not supported by the WDM plug and play mechanism. 
+        They can still, however, be supported by VxD's on Windows 98, and by 
+        NT4-style drivers on Windows 2000 (and also of course on Windows NT 
+        Version 4), </DD></DL>
+      <P class=first>Finally, you might be writing a driver for a device 
+      category for which there is no "helper" support at all in Win2K, and which 
+      you don't need to support under Win98. In that case you can write a driver 
+      to the NT4 DDK interfaces and it will still work under Win2K. </P>
+      <H3><A name=2.3.3>2.3.3</A> That must mean that you can you still write a 
+      non-WDM driver for Windows 2000 or for Windows 98? </H3>
+      <P class=first>Sure. All the old driver interfaces are still there on both 
+      OSs. This also means that most VxDs written for Windows 95 still work on 
+      Windows 98, and most NT kernel mode drivers written for NT 4 (or even NT 
+      3.1) should still work on Windows 2000. In an NT4-style driver on Windows 
+      2000 it is also possible to use some of the WDM interfaces to enable, for 
+      example, power management for these devices. </P>
+      <H3><A name=2.3.4>2.3.4</A> What about forward compatibility of NT 4 
+      kernel drivers?</H3>
+      <P class=first>A kernel driver that was built for and works on NT 4.0 
+      should work fine, without recompiling or relinking, on Windows 2000---in 
+      fact I have some drivers that were running on NT 3.1 that work fine on 
+      Win2K Beta 2. </P>
+      <P>However, it of course cannot support any of the new functionality 
+      supported by the WDM interfaces, specifcally including power management. 
+      Nor can it work on Windows 98. This will preclude its passing MS's WHQL 
+      tests. </P>
+      <H3><A name=2.3.5>2.3.5</A> For what types of devices or drivers 
+      <I>must</I> you write a WDM driver? </H3>
+      <P class=first>These types: </P>
+      <UL>
+        <LI>Any device on a bus that wasn't supported upported by Windows NT 4. 
+        This includes USB and IEE1394 (FireWire). 
+        <LI>The NT SCSI port and class drivers have been rewritten to use WDM 
+        interfaces such as bus drivers and Functional and Physical Device 
+        Objects. Indeed, the SCSI port driver is now a bus driver. New SCSI 
+        class drivers for new types of SCSI devices therefore need to use the 
+        WDM interfaces. 
+        <LI>Many "traditional" or "legacy" drivers such as the keyboard, mouse, 
+        serial, and parallel port drivers have similarly been recast into the 
+        WDM environment. 
+        <LI>Any PCIbus or PCcard device that can be autodetected, and for which 
+        you want Windows 98/2000's plug-and-play support to work, must use the 
+        WDM interfaces. (On the other hand, if you can tolerate an NT4-style 
+        driver that does its own searching for PCIbus devices, this will still 
+        work under Windows 2000, but not under Windows 98.) 
+        <LI>There are new categories of multimedia "support" drivers that are 
+        part of WDM, such as audio and video streaming drivers. 
+        <LI>In addition, the presence of a single driver in the system that does 
+        not support the power management IRPs effectively disables power 
+        management for the entire system. Therefore, a driver that is to run on 
+        any system on which you expect power management to work has to at least 
+        use the WDM power management interfaces, though it may not be a "WDM 
+        driver" in all other respects. </LI></UL>
+      <H3><A name=2.3.6>2.3.6</A> What if I'm also targeting Windows 95? </H3>
+      <P class=first>Then you'll have to also write a VxD. </P>
+      <H2><A name=2.4>2.4</A> What specifically is new in WDM?</H2>
+      <P class=first>A WDM driver will look a lot like an NT driver, with a 
+      driver object, device objects, IRPs, dispatch routines, either an IRP 
+      queueing routine or a start IO routine, DPC routines, and so on. The 
+      following subsections discuss major changes and additions made by WDM to 
+      the NT4 driver model. </P>
+      <DL>
+        <DT>Driver loading and configuration 
+        <DD>A WDM driver is loaded not because of the presence of its 
+        servicename key in the registry, but rather because a lower-level bus 
+        driver finds the device on its bus and tells the "plug and play 
+        manager." The PnP manager then goes looking, first in the registry under 
+        <CODE>HKLM\System\CurrentControlSet\Enum</CODE>, and then in the 
+        <CODE>.PNF</CODE> files built from <CODE>.INF</CODE> files, for matching 
+        device identification (such as vendor and product ID for PCIbus 
+        devices). The registry entry or <CODE>.INF</CODE> file provides the name 
+        of the driver. 
+        <DT>DriverEntry routine 
+        <DD>The role of the WDM driver's DriverEntry routine is greatly 
+        diminished compared to the NT4 model. The WDM driver's DriverEntry 
+        routine only initializes the driver's driver object, including a new 
+        field, a pointer to an AddDevice routine, in the driver extension. 
+        <DT><CODE>AddDevice</CODE> routine 
+        <DD>The OS will call the driver's AddDevice routine once for each device 
+        found for which the driver's .INF file supplied a matching vendor and 
+        product ID. It is in the AddDevice routine that the driver creates the 
+        device object and associated data structures. 
+        <DT>Device names 
+        <DD>A WDM driver does not create a device name for the device objects it 
+        creates in its <CODE>AddDevice</CODE> routine; the role of the device 
+        name is replaced by "device interface classes". 
+        <DT>New categories of IRPs and callbacks to the OS 
+        <DD>WDM defines three new categories of IRPs and callbacks to the OS to 
+        support plug-and-play, power management (such as "suspend" mode on a 
+        laptop), and Windows Management and Instrumentation (WMI). Completely 
+        implementing these functions will requires fairly invasive changes to 
+        many of the driver's routines. 
+        <P>A WDM driver, for example, can be notified at almost any time that 
+        the OS wants it to stop accessing its hardware for a while (so that the 
+        OS can rebalance I/O resources such as I/O ports). The driver must 
+        comply by queueing all IRPs that come in until it is notified that it 
+        can continue accessing its hardware. At that time, it might have to take 
+        some additional steps to translate and map I/O bus addresses all over 
+        again for its device. </P>
+        <P>The path of a normal I/O request such as a read, write, or I/O 
+        control function won't change much when an NT 4 driver is converted to 
+        WDM. However, the IRP might have to be held on a queue for a while, or 
+        otherwise not processed for a while, or perhaps even given up on and 
+        completed with an error status, for reasons that are new with WDM. </P>
+        <DT>Support for "bus drivers" 
+        <DD>WDM defines a new concept called a "bus driver." The bus driver 
+        takes over the role of the HAL for supporting accesss to I/O ports and 
+        so on. Bus drivers included with Windows 2000 and Windows 98 support 
+        standard buses such as PCIbus, USB, IEEE1394, and SCSI. 
+        <P>A "bus" in WDM is now any device that another device is plugged into. 
+        This includes serial (mice and modems are plugged into the serial 
+        ports), parallel (printers, parallel-to-SCSI interfaces, scanners, and 
+        other units are attached to parallel ports), as well as obvious 
+        "external buses" such as SCSI and USB. </P>
+        <DT>Support for "function drivers" 
+        <DD>Function drivers are analagous to class drivers in the pre-WDM NT 
+        SCSI environment: They are layered atop bus drivers to implement the 
+        functionality of a class of I/O devices, such as all disks or all 
+        keyboards. They rely on the lower-level bus drivers to help them access 
+        their hardware. A function driver is responsible for creating functional 
+        device objects, which are in turn layered above the physical device 
+        objects created by its lower-level bus driver(s). 
+        <P>A function driver is the WDM driver whose role is most like that of 
+        an NT4 driver. It is the driver that implements the "end user" 
+        functionality of its particular hardware. Most WDM drivers written will 
+        be function drivers. For backplane buses, the bus driver isn't involved 
+        in the normal operation of the device or the function driver. For a 
+        protocol-based bus (USB, 1394, SCSI), the bus driver receives command 
+        packets (attached to IRPs) and marshalls the command packets to the 
+        devices on the bus. </P>
+        <DT>Support for both upper- and lower-layer "function filter drivers" 
+        <DD>In NT 4, a layered driver could only layer its device objects atop 
+        some other driver's devices. Under Win2K, filter device objects can be 
+        installed <I>under</I>, as well as on top of, functional device objects. 
+
+        <DT>New access methods for DMA support routines 
+        <DD>Many DMA support routines previously implemented in the HAL have now 
+        been moved to the bus drivers for their respective I/O buses. Instead of 
+        simply calling a routine such as IoMapTransfer, a WDM driver must obtain 
+        the address of the corresponding routine (in this case, generically 
+        called the MapTransfer function). It does this by calling 
+        IoGetDmaAdapter (which replaces HalGetAdapter) and looking in the 
+        DMA_OPERATIONS structure pointed to by the resulting DMA_ADAPTER 
+        structure. </DD></DL><BR>
+      <HR>
+
+      <P class=bottomnav><A href="http://www.cmkrnl.com/faq02.html#top">top of 
+      page</A> | <A href="http://www.cmkrnl.com/faq.html">up</A> | <A 
+      href="http://www.cmkrnl.com/faq01.html">previous</A> | <A 
+      href="http://www.cmkrnl.com/faq03.html">next</A> | <A 
+      href="http://www.cmkrnl.com/index.html">home</A> </P></DIV></TD>
+    <TD><IMG border=0 height=342 
+      src="NT Drivers - FAQ - WDM_bestanden/internal_00.gif" 
+  width=1></TD></TR></TBODY></TABLE></CENTER></BODY></HTML>

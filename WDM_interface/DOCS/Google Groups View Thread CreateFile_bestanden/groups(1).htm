@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0110)http://groups.google.com/groups?hl=en&frame=right&th=4efbdbd0ac67dc1&seekm=87es7n%24bgm%241%40bob.news.rcn.net -->
+<HTML><HEAD><TITLE>Google Groups: View Thread</TITLE>
+<META content="text/html; charset=ISO-8859-1" http-equiv=content-type>
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff onload=window.focus();>
+<TABLE bgColor=#ffcc33 border=0 cellPadding=2 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><FONT face=arial,sans-serif>All messages from 
+      thread</FONT></TD></TR></TBODY></TABLE><A name=link1></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 1 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:daniel.johansson%40contrec.se+" 
+      target=_top>Daniel Johansson</A> (<A 
+      href="mailto:daniel.johansson@contrec.se">daniel.johansson@contrec.se</A>)<BR>Subject: 
+      CreateFile <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=389B6E4C.C94E2349%40contrec.se" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 2000/02/04 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>I am trying to open the connection to my driver, called XX_DRIVER, by
+calling the CreateFile like this :
+
+
+CreateFile("\\\\.\\XX1",GENERIC_WRITE,0,NULL,OPEN_EXISTING,FILE_ATTRIBUTE_NORMAL,NULL);
+
+however it returns that file cannot be found. I can see that the driver
+is loaded into the system in the list with drivers (translate as units
+from the swedish version of control panel). I am a bit uncertain what
+name I should use as first parameter or is there anything else to keep
+in mind regarding this. Can anybody help ?
+
+Thanks in advance
+
+Daniel Johansson</PRE><A name=link2></A><A name=s></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 2 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:porter%40kultranet.com+" 
+      target=_top>dave porter</A> (<A 
+      href="mailto:porter@kultranet.com">porter@kultranet.com</A>)<BR>Subject: 
+      Re: CreateFile <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=87es7n%24bgm%241%40bob.news.rcn.net" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 2000/02/04 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>You need to understand the difference between
+the NT namespace and the Win32 namespace.
+
+Your driver exports a device named \Device\XX
+(where the name here is relative to the NT
+namespace)
+
+When you open a file named \\.\XX1 in Win32, it attempts
+to open \??\XX1 in the NT namespace -- i.e.,
+the dot is some crazy syntax to prevent a
+drive letter being added, and then Win32
+adds the directory name \?? to the front
+of the string.
+
+Unless someone has made a symbolic link
+\??\XX1 to \Device\XX, then the open will
+fail with a not-found error.
+
+You can use DefineDosDevice in Win32 to create
+such a link.
+
+dave
+--
+For email, please remove the 'k' from my address.
+Sorry. I don't like spam.
+
+
+Daniel Johansson &lt;daniel.johansson@contrec.se&gt; wrote in message
+<A href="http://groups.google.com/groups?selm=389B6E4C.C94E2349%40contrec.se" target=_top>news:389B6E4C.C94E2349@contrec.se</A>...
+<FONT color=#660066>&gt; I am trying to open the connection to my driver, called XX_DRIVER, by
+&gt; calling the CreateFile like this :
+&gt;
+&gt;
+&gt;</FONT>
+CreateFile("\\\\.\\XX1",GENERIC_WRITE,0,NULL,OPEN_EXISTING,FILE_ATTRIBUT
+E_NORMAL,NULL);
+<FONT color=#660066>&gt;
+&gt; however it returns that file cannot be found. I can see that the driver
+&gt; is loaded into the system in the list with drivers (translate as units
+&gt; from the swedish version of control panel). I am a bit uncertain what
+&gt; name I should use as first parameter or is there anything else to keep
+&gt; in mind regarding this. Can anybody help ?
+&gt;
+&gt; Thanks in advance
+&gt;
+&gt; Daniel Johansson
+&gt;</FONT></PRE>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><IMG alt="" height=3 
+      src="groups(1)_bestanden/cleardot.gif"></TD></TR></TBODY></TABLE><BR>
+<CENTER><FONT size=-1>©2001 Google</FONT></CENTER></BODY></HTML>

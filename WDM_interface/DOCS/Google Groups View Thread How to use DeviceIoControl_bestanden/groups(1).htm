@@ -1,0 +1,346 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0108)http://groups.google.com/groups?hl=en&frame=right&th=beddf711ca6c5a9e&seekm=36e7d7ca.307092%40208.225.249.37 -->
+<HTML><HEAD><TITLE>Google Groups: View Thread</TITLE>
+<META content="text/html; charset=ISO-8859-1" http-equiv=content-type>
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff onload=window.focus();>
+<TABLE bgColor=#ffcc33 border=0 cellPadding=2 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><FONT face=arial,sans-serif>All messages from 
+      thread</FONT></TD></TR></TBODY></TABLE><A name=link1></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 1 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:sl935ma%40unidui.uni-duisburg.de+" 
+      target=_top>Yuhong Ma</A> (<A 
+      href="mailto:sl935ma@unidui.uni-duisburg.de">sl935ma@unidui.uni-duisburg.de</A>)<BR>Subject: 
+      How to use "DeviceIoControl"? <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=36E4D73B.5E042BAA%40unidui.uni-duisburg.de" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/03/09 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Hi, everyone,
+can anyone tell me how to define the "IoControlCode" in the function
+"DeviceIoControl" ?
+Because I want to test a NIC Miniport driver, so I want to use the
+function, but in the standard IoControlCode of "DeviceIoControl", there
+is no support to the network card data transfer, what should I do?
+
+Any suggestion will be great for me, thanks in advance
+Yuhong</PRE><A name=link2></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 2 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:Virgil%40Nomadics.com+" 
+      target=_top>Virgil Smith</A> (<A 
+      href="mailto:Virgil@Nomadics.com">Virgil@Nomadics.com</A>)<BR>Subject: Re: 
+      How to use "DeviceIoControl"? <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=36e534db.504925%40208.225.249.37" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/03/09 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE><FONT color=#660066>&gt;Hi, everyone,
+&gt;can anyone tell me how to define the "IoControlCode" in the function
+&gt;"DeviceIoControl" ?
+&gt;Because I want to test a NIC Miniport driver, so I want to use the
+&gt;function, but in the standard IoControlCode of "DeviceIoControl", there
+&gt;is no support to the network card data transfer, what should I do?
+&gt;
+&gt;Any suggestion will be great for me, thanks in advance
+&gt;Yuhong</FONT>
+
+If you did not write the driver then you need to find documentation on
+it.
+
+If you did/are writing the driver then you just need to define some
+IOCTL codes, implement them in the driver, and call them from your
+test app.  IOCTL codes are defined using the CTL_CODE macro &lt;a copy of
+it for applications occurs in windows.h&gt;.  IOCTL codes are just DWORDs
+actually, but &lt;under NT&gt; it consists of several bit fields.  MS
+defines certain IOCTL codes and there meanings for standard device
+types and drivers for devices of those types should implement those,
+but it is extremely common for drivers to implement additional IOCTLs
+&lt;and drivers for non-standard devices define all of their own IOCTLs&gt;.
+
+Naturally, you need to know much more than this to implement a driver
+DeviceIoControl handler, but...
+
+Search your DDK documentation &lt;if you're writing the driver&gt; for more
+information on DeviceIoControl, IOCTL codes, request handling, buffer
+passing, etc.</PRE><A name=link3></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 3 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:wjsu%40my-dejanews.com+" 
+      target=_top>wjsu@my-dejanews.com</A> (<A 
+      href="mailto:wjsu@my-dejanews.com">wjsu@my-dejanews.com</A>)<BR>Subject: 
+      Re: How to use "DeviceIoControl"? <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=7c40fi%24g9%241%40nnrp1.dejanews.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/03/09 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Hi,
+   Go search (in Mircosoft??) and find an example called pcidump or dumppci,
+   you may know what you want by that example.
+
+Wayne
+
+
+
+In article &lt;36e534db.504925@208.225.249.37&gt;,
+  Virgil@Nomadics.com (Virgil Smith) wrote:
+<FONT color=#007777>&gt; &gt;Hi, everyone,
+&gt; &gt;can anyone tell me how to define the "IoControlCode" in the function
+&gt; &gt;"DeviceIoControl" ?
+&gt; &gt;Because I want to test a NIC Miniport driver, so I want to use the
+&gt; &gt;function, but in the standard IoControlCode of "DeviceIoControl", there
+&gt; &gt;is no support to the network card data transfer, what should I do?
+&gt; &gt;
+&gt; &gt;Any suggestion will be great for me, thanks in advance
+&gt; &gt;Yuhong</FONT>
+<FONT color=#660066>&gt;
+&gt; If you did not write the driver then you need to find documentation on
+&gt; it.
+&gt;
+&gt; If you did/are writing the driver then you just need to define some
+&gt; IOCTL codes, implement them in the driver, and call them from your
+&gt; test app.  IOCTL codes are defined using the CTL_CODE macro &lt;a copy of
+&gt; it for applications occurs in windows.h&gt;.  IOCTL codes are just DWORDs
+&gt; actually, but &lt;under NT&gt; it consists of several bit fields.  MS
+&gt; defines certain IOCTL codes and there meanings for standard device
+&gt; types and drivers for devices of those types should implement those,
+&gt; but it is extremely common for drivers to implement additional IOCTLs
+&gt; &lt;and drivers for non-standard devices define all of their own IOCTLs&gt;.
+&gt;
+&gt; Naturally, you need to know much more than this to implement a driver
+&gt; DeviceIoControl handler, but...
+&gt;
+&gt; Search your DDK documentation &lt;if you're writing the driver&gt; for more
+&gt; information on DeviceIoControl, IOCTL codes, request handling, buffer
+&gt; passing, etc.
+&gt;</FONT>
+
+-----------== Posted via Deja News, The Discussion Network ==----------
+<A href="http://www.dejanews.com/" target=_top>http://www.dejanews.com/</A>       Search, Read, Discuss, or Start Your Own</PRE><A 
+name=link4></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 4 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:sl935ma%40unidui.uni-duisburg.de+" 
+      target=_top>Yuhong Ma</A> (<A 
+      href="mailto:sl935ma@unidui.uni-duisburg.de">sl935ma@unidui.uni-duisburg.de</A>)<BR>Subject: 
+      Re: How to use "DeviceIoControl"? <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=36E62DAE.886776A4%40unidui.uni-duisburg.de" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/03/10 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Hi, friend,
+you touched the point I want to know: where is the marco for defining the
+controlcode CTL_CODE, I searched all the SDK and DDK documentations, but no
+progress, could you tell me some more about it?
+
+Best regards, Yuhong
+
+Virgil Smith wrote:
+
+<FONT color=#007777>&gt; &gt;Hi, everyone,
+&gt; &gt;can anyone tell me how to define the "IoControlCode" in the function
+&gt; &gt;"DeviceIoControl" ?
+&gt; &gt;Because I want to test a NIC Miniport driver, so I want to use the
+&gt; &gt;function, but in the standard IoControlCode of "DeviceIoControl", there
+&gt; &gt;is no support to the network card data transfer, what should I do?
+&gt; &gt;
+&gt; &gt;Any suggestion will be great for me, thanks in advance
+&gt; &gt;Yuhong</FONT>
+<FONT color=#660066>&gt;
+&gt; If you did not write the driver then you need to find documentation on
+&gt; it.
+&gt;
+&gt; If you did/are writing the driver then you just need to define some
+&gt; IOCTL codes, implement them in the driver, and call them from your
+&gt; test app.  IOCTL codes are defined using the CTL_CODE macro &lt;a copy of
+&gt; it for applications occurs in windows.h&gt;.  IOCTL codes are just DWORDs
+&gt; actually, but &lt;under NT&gt; it consists of several bit fields.  MS
+&gt; defines certain IOCTL codes and there meanings for standard device
+&gt; types and drivers for devices of those types should implement those,
+&gt; but it is extremely common for drivers to implement additional IOCTLs
+&gt; &lt;and drivers for non-standard devices define all of their own IOCTLs&gt;.
+&gt;
+&gt; Naturally, you need to know much more than this to implement a driver
+&gt; DeviceIoControl handler, but...
+&gt;
+&gt; Search your DDK documentation &lt;if you're writing the driver&gt; for more
+&gt; information on DeviceIoControl, IOCTL codes, request handling, buffer
+&gt; passing, etc.</FONT></PRE><A name=link5></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 5 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:tdivine%40pcausa.com+" 
+      target=_top>Thomas F. Divine</A> (<A 
+      href="mailto:tdivine@pcausa.com">tdivine@pcausa.com</A>)<BR>Subject: Re: 
+      How to use "DeviceIoControl"? <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=7c6aau%24fl0%241%40camel21.mindspring.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/03/10 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>The macro is defined in several places. For Win32 applications, it is
+defined in WINIOCTL.H.
+
+Understand that most of the control codes defined for Windows NT have no
+meaning on Windows 95. This means, for example, that the technique
+illustrated in the NT DDK MACADDR example does not work on Windows 9X.
+
+Regards,
+
+Thomas F. Divine
+
+PCAUSA - Toolkits &amp; Resources For Network Software Developers
+NDIS Protocol - TDI Client - Windows 95 Redirector
+&lt;<A href="http://www.pcausa.com/" target=_top>http://www.pcausa.com/</A>&gt;
+
+Yuhong Ma wrote in message &lt;36E62DAE.886776A4@unidui.uni-duisburg.de&gt;...
+<FONT color=#660066>&gt;Hi, friend,
+&gt;you touched the point I want to know: where is the marco for defining the
+&gt;controlcode CTL_CODE, I searched all the SDK and DDK documentations, but no
+&gt;progress, could you tell me some more about it?
+&gt;
+&gt;Best regards, Yuhong
+&gt;</FONT></PRE><A name=link6></A><A name=s></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 6 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:Virgil%40Nomadics.com+" 
+      target=_top>Virgil Smith</A> (<A 
+      href="mailto:Virgil@Nomadics.com">Virgil@Nomadics.com</A>)<BR>Subject: Re: 
+      How to use "DeviceIoControl"? <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=36e7d7ca.307092%40208.225.249.37" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/03/11 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>I think someone may have already answered this, but my news server's
+been weird lately and I just got this post, so...
+
+CTL_CODE is defined in WinIoctl.h &lt;for applications&gt;, its defined
+somewhere else for drivers &lt;probably nt.h, but I forget&gt;.  All
+CTL_CODE does is place each item in the appropriate bit field to
+define a 32-bit IOCTL code.  The bit fields describe the buffer
+passing mechanism to be used for the IOCTL, the necessary access
+rights, the device type, and a numeric value for distinguishing one
+IOCTL  from another &lt;with the same other bit fields&gt;.  The DDK
+documentation states that the numeric values 0x7FF and lower are
+reserved for standard IOCTLs to be defined by Microsoft.  Values of
+0x800 and higher are free to be used for vendor/driver specific
+IOCTLs.
+
+For driver writing you can get information on buffer passing
+mechanisms in the DDK documentation by searching for METHOD_BUFFERED,
+METHOD_NEITHER, METHOD_IN_DIRECT, and METHOD_OUT_DIRECT.  For
+application writing you should not have to worry about buffer passing
+mechanisms in general, but just what format is expected for data in
+the buffers for a particular IOCTL, and if you use overlapped io,
+don't do anything with the buffers passed to DeviceIoControl until
+that request has completed.
+
+BTW: 95 doesn't implement multiple buffer passing mechanisms or access
+restrictions so some driver writers ignore these bit fields under 9x,
+but if they define them properly when implementing them under 9x then
+porting to NT is more likely not to require application changes.
+
+<FONT color=#660066>&gt;Hi, friend,
+&gt;you touched the point I want to know: where is the marco for defining the
+&gt;controlcode CTL_CODE, I searched all the SDK and DDK documentations, but no
+&gt;progress, could you tell me some more about it?
+&gt;
+&gt;Best regards, Yuhong
+&gt;
+&gt;Virgil Smith wrote:
+&gt;</FONT>
+<FONT color=#990000>&gt;&gt; &gt;Hi, everyone,
+&gt;&gt; &gt;can anyone tell me how to define the "IoControlCode" in the function
+&gt;&gt; &gt;"DeviceIoControl" ?
+&gt;&gt; &gt;Because I want to test a NIC Miniport driver, so I want to use the
+&gt;&gt; &gt;function, but in the standard IoControlCode of "DeviceIoControl", there
+&gt;&gt; &gt;is no support to the network card data transfer, what should I do?
+&gt;&gt; &gt;
+&gt;&gt; &gt;Any suggestion will be great for me, thanks in advance
+&gt;&gt; &gt;Yuhong</FONT>
+<FONT color=#007777>&gt;&gt;
+&gt;&gt; If you did not write the driver then you need to find documentation on
+</FONT></PRE>
+<P><I><A 
+href="http://groups.google.com/groups?hl=en&amp;rnum=6&amp;selm=36e7d7ca.307092%40208.225.249.37" 
+target=_top>Read the rest of this message...</A> (21 more lines)</I>
+<P>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><IMG alt="" height=3 
+      src="groups(1)_bestanden/cleardot.gif"></TD></TR></TBODY></TABLE><BR>
+<CENTER><FONT size=-1>©2001 Google</FONT></CENTER></BODY></HTML>

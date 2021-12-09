@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0128)http://groups.google.com/groups?hl=en&frame=right&th=5248137ea75cf93c&seekm=xzV23.40636%24ny.3251983%40typhoon-sf.snfc21.pbi.net -->
+<HTML><HEAD><TITLE>Google Groups: View Thread</TITLE>
+<META content="text/html; charset=ISO-8859-1" http-equiv=content-type>
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff onload=window.focus();>
+<TABLE bgColor=#ffcc33 border=0 cellPadding=2 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><FONT face=arial,sans-serif>All messages from 
+      thread</FONT></TD></TR></TBODY></TABLE><A name=link1></A><A name=s></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 1 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:gregm%40northernembedded.com.nospam+" 
+      target=_top>Greg Miller</A> (<A 
+      href="mailto:gregm@northernembedded.com.nospam">gregm@northernembedded.com.nospam</A>)<BR>Subject: 
+      W2K Par Port Interrupts <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=xzV23.40636%24ny.3251983%40typhoon-sf.snfc21.pbi.net" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/05/26 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Before I invest a lot more time in trying to figure out this particular
+problem, I thought I'd make a post in hopes that someone else
+has already encountered (and solved?) it:
+
+On NT 4, once a driver has opened /Device/ParPort and issued
+an IOCTL_INTERNAL_PARALLEL_PORT_ALLOCATE to it,
+the driver can ask the ParPort driver to add an entry to it's
+interrupt call-chain, so that upon receipt of an interrupt, a callback
+is made.  This is done via an
+IOCTL_INTERNAL_PARALLEL_CONNECT_INTERRUPT.
+
+On W2K, however, I'm encountering a problem.  The
+IOCTL_INTERNAL_PARALLEL_CONNECT_INTERRUPT call is
+failing, sadly, with STATUS_UNSUCCESSFUL (detailed, eh?).
+Fortunately, the W2K DDK includes the source for the ParPort driver,
+and it's clear that the failure is due to a missing registry setting.
+[Although what the registry setting is actually for isn't explained.]
+Without this registry setting, all attempts to issue that IOCTL are
+failed.
+
+Ignoring the fact that I haven't a clue what that setting is for,
+even if I force the issue by setting the registry value ahead of
+time, the Ioctl fails then as well -- citing that it doesn't *have* an
+interrupt associated with the parallel port.  I'm unsure why, but
+suspect that the "resource filtering" code in pnp.c (in the parport
+driver) is responsible, as it appears to actively filter out
+parallel port resources with interrupts if at all possible (by default;
+there's another unexplained registry setting here that causes it
+to change that behavior).
+
+The W2K DDK isn't helpful; the parallel port section reads essentially
+same as 4.0, and lends no hints to the deprecated functionality.  The
+PNP section clearly doesn't have 'pragmatism' in mind, and not
+only doesn't shed any light on this problem, it's actually rather unclear
+on PNP in general.
+
+I'm getting the idea that either PNP isn't finding an interrupt associated
+with the parallel port, or is intentionally stripping that resource
+information out at startup.  Why, and how to change this behavior, are
+a mystery to me.
+
+Anyone else encounter anything similar?
+
+Thanks!
+
+ - Greg
+
+PS - To reply via email, you clearly need to remove the '.nospam'
+from my posting address . . .</PRE><A name=link2></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 2 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:pavela%40my-deja.com+" 
+      target=_top>Pavel A.</A> (<A 
+      href="mailto:pavela@my-deja.com">pavela@my-deja.com</A>)<BR>Subject: Re: 
+      W2K Par Port Interrupts <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=7ii4n3%24mas%241%40nnrp1.deja.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/05/27 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>"Greg Miller" &lt;gregm@northernembedded.com.nospam&gt; wrote:
+...
+<FONT color=#660066>&gt; I'm getting the idea that either PNP isn't finding an interrupt associated
+&gt; with the parallel port, or is intentionally stripping that resource
+&gt; information out at startup.  Why, and how to change this behavior, are
+&gt; a mystery to me.</FONT>
+
+Greg, which beta are you hacking?
+In 2031, parallel port has a property tab that instructs
+the driver to use or not to use interrupts.
+
+-- PA
+
+
+--== Sent via Deja.com <A href="http://www.deja.com/" target=_top>http://www.deja.com/</A> ==--
+---Share what you know. Learn what you don't.---</PRE><A name=link3></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 3 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:gregm%40northernembedded.com.nospam+" 
+      target=_top>Greg Miller</A> (<A 
+      href="mailto:gregm@northernembedded.com.nospam">gregm@northernembedded.com.nospam</A>)<BR>Subject: 
+      Re: W2K Par Port Interrupts <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=ux233.219%24kd5.29680%40typhoon-sf.snfc21.pbi.net" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/05/26 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Pavel A. &lt;pavela@my-deja.com&gt; wrote in message
+<A href="http://groups.google.com/groups?selm=7ii4n3%24mas%241%40nnrp1.deja.com" target=_top>news:7ii4n3$mas$1@nnrp1.deja.com</A>...
+<FONT color=#660066>&gt; "Greg Miller" &lt;gregm@northernembedded.com.nospam&gt; wrote:
+&gt; ...
+&gt; Greg, which beta are you hacking?
+&gt; In 2031, parallel port has a property tab that instructs
+&gt; the driver to use or not to use interrupts.
+&gt;
+&gt; -- PA</FONT>
+
+Ah.  Sure enough, that was indeed the problem.
+
+Thanks!
+
+ - Greg</PRE>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><IMG alt="" height=3 
+      src="groups(1)_bestanden/cleardot.gif"></TD></TR></TBODY></TABLE><BR>
+<CENTER><FONT size=-1>©2001 Google</FONT></CENTER></BODY></HTML>

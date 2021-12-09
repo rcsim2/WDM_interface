@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0108)http://groups.google.com/groups?hl=en&frame=right&th=a0c0acd20f635bd9&seekm=35A0FE07.F690ECD9%40oneysoft.com -->
+<HTML><HEAD><TITLE>Google Groups: View Thread</TITLE>
+<META content="text/html; charset=ISO-8859-1" http-equiv=content-type>
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff onload=window.focus();>
+<TABLE bgColor=#ffcc33 border=0 cellPadding=2 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><FONT face=arial,sans-serif>All messages from 
+      thread</FONT></TD></TR></TBODY></TABLE><A name=link1></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 1 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:jsho%40digianswer.dk+" 
+      target=_top>Jesper Holm</A> (<A 
+      href="mailto:jsho@digianswer.dk">jsho@digianswer.dk</A>)<BR>Subject: 
+      Handling IOCTLs in a NT5 PnP driver <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=35A0B2EB.F2FDEBB9%40digianswer.dk" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1998/07/06 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Hi there,
+
+I'm in the process of developing an NT5.0 PnP driver for a PCMCIA card
+but I have reached a point where I have some questions regarding how to
+handle IOCTLs. According to the documentation you should use
+IoRegisterDeviceInterface to make the driver accessible from an
+application (I have previously used IoCreateSymbolicLink but this is not
+recommended for PnP drivers as far as I can read).
+
+So... IoRegisterDeviceInterface is fine, but how do I open the driver in
+my application? I expect that I should be calling CreateFile but I don't
+know what to pass as the first parameter - any suggestions??
+
+Another thing. One of the parameters to IoRegisterDeviceInterface is a
+pointer to an "InterfaceClassGuid". How should I define this constant??
+Should I use an existing value (where do I find those?) or should I just
+make one (if so - how are the fields defined?).
+
+Thanks in advance,
+Jesper Holm</PRE><A name=link2></A><A name=s></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 2 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:waltoney%40oneysoft.com+" 
+      target=_top>Walter Oney</A> (<A 
+      href="mailto:waltoney@oneysoft.com">waltoney@oneysoft.com</A>)<BR>Subject: 
+      Re: Handling IOCTLs in a NT5 PnP driver <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=35A0FE07.F690ECD9%40oneysoft.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1998/07/06 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Jesper Holm wrote:
+<FONT color=#660066>&gt; According to the documentation you should use
+&gt; IoRegisterDeviceInterface to make the driver accessible from an
+&gt; application (I have previously used IoCreateSymbolicLink but this is not
+&gt; recommended for PnP drivers as far as I can read).</FONT>
+
+Some information about how to use device interfaces is in the MSJ
+articles I wrote last Nov/Dec (the US edition, that is). The basic
+purpose of the interface scheme is to provide a language-neutral way for
+applications to hook up to devices that support specific programming
+interfaces. I.e., you probably don't want a birthday application looking
+for the GIFT device in Germany. The scheme only makes sense for classes
+of device where there will be lots of applications and lots of hardware
+manufacturers.
+
+Here's a sketch of how to deal with this new thing:
+
+(1) Someone runs UUIDGEN to obtain a 128-bit GUID that identifies a
+particular software standard for using a class of device. This is the
+Interface Class GUID you asked about.
+
+(2) The driver calls IoRegisterDeviceInterface with the GUID.
+
+(3) An application uses API's from the setup toolkit to enumerate
+devices that support the interface GUID: SetupDiGetClassDevs,
+SetupDiEnumDeviceInterfaces, and SetupDiGetDeviceInterfaceDetail. The
+end result is a list of names you can pass to CreateFile in order to
+open a handle to a desired device.</PRE><A name=link3></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 3 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:neillb%40metronet.com+" 
+      target=_top>Neill Bell</A> (<A 
+      href="mailto:neillb@metronet.com">neillb@metronet.com</A>)<BR>Subject: Re: 
+      Handling IOCTLs in a NT5 PnP driver <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=6ol1u8%24tf%241%40newnews.metronet.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1998/07/16 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Walter Oney (waltoney@oneysoft.com) wrote:
+<FONT color=#660066>: Jesper Holm wrote:</FONT>
+<FONT color=#007777>: &gt; According to the documentation you should use
+: &gt; IoRegisterDeviceInterface to make the driver accessible from an
+: &gt; application (I have previously used IoCreateSymbolicLink but this is not
+: &gt; recommended for PnP drivers as far as I can read).</FONT>
+
+[snip]
+
+<FONT color=#660066>: (2) The driver calls IoRegisterDeviceInterface with the GUID.</FONT>
+
+[snip]
+
+Since IoRegisterDeviceInterface is an NT-only routine, do you have any
+ideas about how the same thing could be accomplished for binary-compatible
+NDIS 5.0 miniports?
+
+--
+========================================================================
+Neill Bell
+neillb@metronet.com</PRE>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><IMG alt="" height=3 
+      src="groups(1)_bestanden/cleardot.gif"></TD></TR></TBODY></TABLE><BR>
+<CENTER><FONT size=-1>©2001 Google</FONT></CENTER></BODY></HTML>

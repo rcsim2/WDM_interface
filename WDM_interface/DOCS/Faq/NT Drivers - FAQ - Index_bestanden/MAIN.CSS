@@ -1,0 +1,90 @@
+BODY {
+	FONT: 12px/18px Verdana, Arial, Geneva, sans-serif; MARGIN-LEFT: 0%; MARGIN-RIGHT: 0%
+}
+#npi {
+	TEXT-INDENT: 0px
+}
+#pi {
+	TEXT-INDENT: 2em
+}
+#ralign {
+	TEXT-ALIGN: right
+}
+#calign {
+	TEXT-ALIGN: center
+}
+#jalign {
+	TEXT-ALIGN: justify
+}
+#c1 {
+	BACKGROUND-COLOR: #cccccc
+}
+#c2 {
+	BACKGROUND-COLOR: #eeeeee
+}
+DIV.head {
+	MARGIN: 0px 5px; TEXT-ALIGN: left; TEXT-INDENT: 0px
+}
+DIV.body {
+	MARGIN: 0px 30px; TEXT-ALIGN: left; TEXT-INDENT: 0px
+}
+DIV.th {
+	MARGIN: 20px 15px 30px; TEXT-INDENT: 0px
+}
+DIV.td {
+	MARGIN: 20px 30px; TEXT-ALIGN: left; TEXT-INDENT: 0px
+}
+A:link {
+	COLOR: #990000; FONT-WEIGHT: bold
+}
+A:visited {
+	COLOR: #666666; FONT-WEIGHT: normal
+}
+A:active {
+	COLOR: #ffffcc; FONT-WEIGHT: normal
+}
+UL {
+	FONT: 12px/18px Verdana, Arial, Geneva, sans-serif
+}
+DL {
+	FONT: 12px/18px Verdana, Arial, Geneva, sans-serif
+}
+CODE {
+	FONT: 12px/18px "Lucida Console", "Courier New"
+}
+P {
+	COLOR: #333333; FONT: 12px/18px Verdana, Arial, Geneva, sans-serif; MARGIN-BOTTOM: 15px; MARGIN-TOP: 15px; TEXT-INDENT: 0px
+}
+P.first {
+	COLOR: #333333; FONT: 12px/18px Verdana, Arial, Geneva, sans-serif; MARGIN-BOTTOM: 15px; MARGIN-TOP: 15px; TEXT-INDENT: 0px
+}
+P.bottomnav {
+	FONT: 16px/16px Verdana, Arial, Geneva, sans-serif; MARGIN-BOTTOM: 2em; MARGIN-TOP: 1em; TEXT-ALIGN: center; TEXT-INDENT: 0px
+}
+P.th {
+	FONT: bold 12px/18px Verdana, Arial, Geneva, sans-serif; MARGIN: 20px 15px; TEXT-INDENT: 0px
+}
+P.td {
+	FONT: 12px/18px Verdana, Arial, Geneva, sans-serif; MARGIN: 20px 30px; TEXT-INDENT: 0px
+}
+P.tinyc {
+	COLOR: #000000; FONT: 10px/14px Verdana, Arial, Geneva, sans-serif; MARGIN-BOTTOM: 5px; MARGIN-TOP: 5px; TEXT-ALIGN: center; TEXT-INDENT: 0px
+}
+P.tiny {
+	COLOR: #000000; FONT: 10px/12px Verdana, Arial, Geneva, sans-serif; MARGIN-BOTTOM: 5px; MARGIN-TOP: 5px; TEXT-INDENT: 0px
+}
+H1 {
+	COLOR: #000000; FONT: bold 18px/20px Verdana, Arial, Geneva, sans-serif; MARGIN-BOTTOM: 10px; MARGIN-LEFT: 0px; MARGIN-TOP: 10px; TEXT-INDENT: -25px
+}
+H2 {
+	COLOR: #000000; FONT: bold 16px/18px Verdana, Arial, Geneva, sans-serif; MARGIN-BOTTOM: 10px; MARGIN-LEFT: 0px; MARGIN-TOP: 10px; TEXT-INDENT: -25px
+}
+H3 {
+	COLOR: #000000; FONT: bold 16px/18px Verdana, Arial, Geneva, sans-serif; MARGIN-BOTTOM: 0px; MARGIN-LEFT: 0px; MARGIN-TOP: 0px; TEXT-INDENT: 0px
+}
+H4 {
+	COLOR: #000000; FONT: bold 12px/18px Verdana, Arial, Geneva, sans-serif; MARGIN-BOTTOM: 0px; MARGIN-LEFT: 0px; MARGIN-TOP: 0px
+}
+H5 {
+	COLOR: #333333; FONT: bold 8pt/12px Verdana, Arial, Geneva, sans-serif; MARGIN-LEFT: 0px; MARGIN-TOP: 10px; TEXT-ALIGN: center
+}

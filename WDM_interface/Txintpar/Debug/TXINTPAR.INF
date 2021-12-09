@@ -1,0 +1,43 @@
+[Version]
+Signature=$CHICAGO$
+Class=Media
+ClassGuid={4d36e96c-e325-11ce-bfc1-08002be10318}
+Provider="Black Sphere Corp."
+
+[Manufacturer]
+"Black Sphere Corp."=BSC
+
+[DestinationDirs]
+DefaultDestDir=10,System32\Drivers
+
+[SourceDiskFiles]
+TxintPar.sys=1
+
+[SourceDiskNames]
+1="Install disk",disk1
+
+[BSC]
+"Blacksphere WDM Parallel Port Tx Interface"=TxintParInstall,*BSC1234
+
+[TxintParInstall]
+AddReg=TxintPar.AddReg
+CopyFiles=TxintPar.CopyFiles
+
+[TxintPar.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,TxintPar.sys
+
+[TxintPar.CopyFiles]
+TxintPar.sys,,,2
+
+[TxintParInstall.NT]
+CopyFiles=TxintPar.CopyFiles
+
+[TxintParInstall.NT.Services]
+AddService=TxintPar,2,TxintParService
+
+[TxintParService]
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%10%\system32\drivers\TxintPar.sys

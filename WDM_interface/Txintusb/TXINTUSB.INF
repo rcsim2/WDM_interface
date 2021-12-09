@@ -1,0 +1,43 @@
+[Version]
+Signature=$CHICAGO$
+Class=Media
+ClassGuid={4d36e96c-e325-11ce-bfc1-08002be10318}
+Provider="Black Sphere Corp."
+
+[Manufacturer]
+"Black Sphere Corp."=BSC
+
+[DestinationDirs]
+DefaultDestDir=10,System32\Drivers
+
+[SourceDiskFiles]
+TxintUsb.sys=1
+
+[SourceDiskNames]
+1="Install disk",disk1
+
+[BSC]
+"Blacksphere WDM Parallel Port Tx Interface"=TxintUsbInstall,*BSC1234
+
+[TxintUsbInstall]
+AddReg=TxintUsb.AddReg
+CopyFiles=TxintUsb.CopyFiles
+
+[TxintUsb.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,TxintUsb.sys
+
+[TxintUsb.CopyFiles]
+TxintUsb.sys,,,2
+
+[TxintUsbInstall.NT]
+CopyFiles=TxintUsb.CopyFiles
+
+[TxintUsbInstall.NT.Services]
+AddService=TxintUsb,2,TxintUsbService
+
+[TxintUsbService]
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%10%\system32\drivers\TxintUsb.sys

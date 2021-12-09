@@ -1,0 +1,390 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0109)http://groups.google.com/groups?hl=en&frame=right&th=9fe3c97f6fbd5c38&seekm=8a6g9b%246r3%241%40nnrp1.deja.com -->
+<HTML><HEAD><TITLE>Google Groups: View Thread</TITLE>
+<META content="text/html; charset=ISO-8859-1" http-equiv=content-type>
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff onload=window.focus();>
+<TABLE bgColor=#ffcc33 border=0 cellPadding=2 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><FONT face=arial,sans-serif>All messages from 
+      thread</FONT></TD></TR></TBODY></TABLE><A name=link1></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 1 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:jbart333%40my-deja.com+" 
+      target=_top>jbart333@my-deja.com</A> (<A 
+      href="mailto:jbart333@my-deja.com">jbart333@my-deja.com</A>)<BR>Subject: 
+      WDM: Walter, PCI, ISA, NuMega <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=8a6cg4%243nm%241%40nnrp1.deja.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 2000/03/08 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>First time driver writer here...any help would be
+greatly appreciated.  I really respect what you
+guys do after working on this.
+
+I'm writing a driver to support our PCI and ISA
+boards using NuMega's DriverWorks.  I created a
+project with their WDM Driver Wizard and got it
+working with our PCI board in no time.
+
+Now I'm trying to make the driver talk to our ISA
+board too.  I know it's not PNP so I am going
+down the wrong path?
+
+Can my driver support multiple DeviceObject
+types?  I'm getting some nasty crashes here.
+
+All I have to do is issue one IOCTL code and
+request system resources for this ISA device,
+which isn't software configurable, so I only need
+some I/O addresses.  The way DriverWorks is setup
+though, it seems like it will only work with PNP
+devices, derived from their KPnpDevice.  Can I
+fool it somehow or what?
+
+I've looked through Walter Oney's book and there
+is no mention of ISA anywhere, maybe because WDM
+rely on PNP?
+
+Thanks.
+
+
+Sent via Deja.com <A href="http://www.deja.com/" target=_top>http://www.deja.com/</A>
+Before you buy.</PRE><A name=link2></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 2 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:waltoney%40oneysoft.com+" 
+      target=_top>Walter Oney</A> (<A 
+      href="mailto:waltoney@oneysoft.com">waltoney@oneysoft.com</A>)<BR>Subject: 
+      Re: WDM: Walter, PCI, ISA, NuMega <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=38C6BC57.4044878E%40oneysoft.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 2000/03/08 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>jbart333@my-deja.com wrote:
+<FONT color=#660066>&gt; Now I'm trying to make the driver talk to our ISA
+&gt; board too.  I know it's not PNP so I am going
+&gt; down the wrong path?</FONT>
+
+Not at all. Just tell the PnP manager what the ISA card's resource
+alternatives are by means of a LogConfig section in your INF file.
+
+<FONT color=#660066>&gt; Can my driver support multiple DeviceObject
+&gt; types?  I'm getting some nasty crashes here.</FONT>
+
+If both ISA and PCI cards use the same style for DMA, the same width for
+ports and memory-mapped registers, and the same style of interrupt
+handling, the same driver should just work for both configurations.
+(Even with interrupts, if you just copy the code from my book, you won't
+care about differences between edge/level triggering or interrupt
+sharing -- the PnP Manager knows all and tells you in
+IRP_MN_START_DEVICE.)
+
+If some of these details are different, I advise you to avoid the
+temptation to conditionally compile one driver for either thing or (even
+worse) to put runtime decision making in. Such drivers are much harder
+to maintain because they accumulate dead code, unforseen special cases,
+etc. Just build two separate drivers and cut and paste code.
+
+<FONT color=#660066>&gt; I've looked through Walter Oney's book and there
+&gt; is no mention of ISA anywhere, maybe because WDM
+&gt; rely on PNP?</FONT>
+
+It's just that which bus you're on is no longer very important. Even
+when setting up DMA, you can call somebody else to find out what kind of
+bus you're dealing with. Check out PIOFAKE, for example, which is a
+driver for a (non-existent) legacy device that could, in principle, be
+on a PCI, ISA, EISA, or MCI bus or on a PCMCIA card. Absolutely nothing
+about that driver cares, which is one of the great advantages of PnP.
+
+--
+Walter Oney
+<A href="http://www.oneysoft.com/" target=_top>http://www.oneysoft.com/</A></PRE><A 
+name=link3></A><A name=s></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 3 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:billy_driverhound%40my-deja.com+" 
+      target=_top>billy_driverhound@my-deja.com</A> (<A 
+      href="mailto:billy_driverhound@my-deja.com">billy_driverhound@my-deja.com</A>)<BR>Subject: 
+      Re: WDM: Walter, PCI, ISA, NuMega <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=8a6g9b%246r3%241%40nnrp1.deja.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 2000/03/08 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>In article &lt;38C6BC57.4044878E@oneysoft.com&gt;,
+  Walter Oney &lt;waltoney@oneysoft.com&gt; wrote:
+<FONT color=#660066>&gt; jbart333@my-deja.com wrote:</FONT>
+<FONT color=#007777>&gt; &gt; Now I'm trying to make the driver talk to our ISA
+&gt; &gt; board too.  I know it's not PNP so I am going
+&gt; &gt; down the wrong path?</FONT>
+<FONT color=#660066>&gt;
+&gt; Not at all. Just tell the PnP manager what the ISA card's resource
+&gt; alternatives are by means of a LogConfig section in your INF file.
+&gt;
+&gt; Walter Oney
+&gt; <A href="http://www.oneysoft.com/" target=_top>http://www.oneysoft.com/</A>
+&gt;</FONT>
+
+You will need a FactDef section in your INF as well, or you will have
+problems with loading and/or reboots.
+
+Bill M.
+
+
+Sent via Deja.com <A href="http://www.deja.com/" target=_top>http://www.deja.com/</A>
+Before you buy.</PRE><A name=link4></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 4 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:jbart333%40my-deja.com+" 
+      target=_top>jbart333@my-deja.com</A> (<A 
+      href="mailto:jbart333@my-deja.com">jbart333@my-deja.com</A>)<BR>Subject: 
+      WDM: Walter, PCI, ISA, NuMega <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=8a6m0p%24b70%241%40nnrp1.deja.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 2000/03/08 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>I think my main problem is that AddDevice() isn't going to be called by
+the system because it won't know when one of our ISA boards is
+present.  AddDevice() gets called with a good PDO parameter, so all is
+well in the PCI case, but not so in the ISA case.
+
+How do I go about creating the new ISA Device?  Currently in DriverEntry
+() I look in a special registry key where we keep ISA boards and their
+base addresses that are put there by our install utility.  If the user
+adds a new ISA board, a new entry it put there.  So I know how many ISA
+devices I want to create and what the addresses are, but where to
+create the ISA devices is what's biting me.
+
+I then call AddDevice() myself for each ISA board we need.  I'm
+crashing somewhere in the OSKRNL now...
+
+Our ISA boards have jumper settings to select base I/O address, so it's
+a one shot deal, else they have to change the jumpers if there's a
+conflict.  There is no DMA, interrupts, etc. going on here.
+
+
+In article &lt;38C6BC57.4044878E@oneysoft.com&gt;,
+  Walter Oney &lt;waltoney@oneysoft.com&gt; wrote:
+<FONT color=#660066>&gt; jbart333@my-deja.com wrote:</FONT>
+<FONT color=#007777>&gt; &gt; Now I'm trying to make the driver talk to our ISA
+&gt; &gt; board too.  I know it's not PNP so I am going
+&gt; &gt; down the wrong path?</FONT>
+<FONT color=#660066>&gt;
+&gt; Not at all. Just tell the PnP manager what the ISA card's resource
+&gt; alternatives are by means of a LogConfig section in your INF file.
+&gt;</FONT>
+<FONT color=#007777>&gt; &gt; Can my driver support multiple DeviceObject
+&gt; &gt; types?  I'm getting some nasty crashes here.</FONT>
+<FONT color=#660066>&gt;
+&gt; If both ISA and PCI cards use the same style for DMA, the same width for
+&gt; ports and memory-mapped registers, and the same style of interrupt
+&gt; handling, the same driver should just work for both configurations.
+&gt; (Even with interrupts, if you just copy the code from my book, you won't
+&gt; care about differences between edge/level triggering or interrupt
+&gt; sharing -- the PnP Manager knows all and tells you in
+&gt; IRP_MN_START_DEVICE.)
+&gt;
+&gt; If some of these details are different, I advise you to avoid the
+&gt; temptation to conditionally compile one driver for either thing or (even
+&gt; worse) to put runtime decision making in. Such drivers are much harder
+&gt; to maintain because they accumulate dead code, unforseen special cases,
+</FONT></PRE>
+<P><I><A 
+href="http://groups.google.com/groups?hl=en&amp;rnum=4&amp;selm=8a6m0p%24b70%241%40nnrp1.deja.com" 
+target=_top>Read the rest of this message...</A> (24 more lines)</I>
+<P><A name=link5></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 5 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:waltoney%40oneysoft.com+" 
+      target=_top>Walter Oney</A> (<A 
+      href="mailto:waltoney@oneysoft.com">waltoney@oneysoft.com</A>)<BR>Subject: 
+      Re: WDM: Walter, PCI, ISA, NuMega <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=38C70B16.35C15325%40oneysoft.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 2000/03/08 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>jbart333@my-deja.com wrote:
+<FONT color=#660066>&gt; I think my main problem is that AddDevice() isn't going to be called by
+&gt; the system because it won't know when one of our ISA boards is
+&gt; present.  AddDevice() gets called with a good PDO parameter, so all is
+&gt; well in the PCI case, but not so in the ISA case.</FONT>
+
+When the user goes through the Add New Hardware wizard, registry entries
+are created for the so-called "root enumerator", which is responsible
+for "detecting" legacy hardware. The root enumerator creates the PDO and
+responds to IRP_MJ_PNP requests that cause the PnP manager to load your
+driver and call its AddDevice function.
+
+<FONT color=#660066>&gt; How do I go about creating the new ISA Device?  Currently in DriverEntry
+&gt; () I look in a special registry key where we keep ISA boards and their
+&gt; base addresses that are put there by our install utility.  If the user
+&gt; adds a new ISA board, a new entry it put there.  So I know how many ISA
+&gt; devices I want to create and what the addresses are, but where to
+&gt; create the ISA devices is what's biting me.
+&gt; I then call AddDevice() myself for each ISA board we need.  I'm
+&gt; crashing somewhere in the OSKRNL now...</FONT>
+
+Trust me! Just put the LogConfig in your INF and leave it up to the PnP
+Manager! You don't need any of this complication in your driver any
+more.
+
+Think about it: a lot of the hardware on your computer is "legacy" in
+the sense that it has no electronic way to announce its presence to the
+OS. Furthermore, Microsoft hasn't (yet) forbidden consumers from buying
+legacy devices. They *had* to provide an easy way for people to write
+drivers, and they did. You just have to start thinking passive (let the
+system tell you what to do) instead of active (find your hardware,
+configure it, tell the system what to do).
+
+<FONT color=#660066>&gt; Our ISA boards have jumper settings to select base I/O address, so it's
+&gt; a one shot deal, else they have to change the jumpers if there's a
+&gt; conflict.  There is no DMA, interrupts, etc. going on here.</FONT>
+
+Right. And the hardware wizard will assume that the user has to change
+those jumpers after installing the driver. That's why you get a dialog
+showing resource assignments (after resolving conflicts) and
+instructions to shut the system down to install the card. All your user
+has to do is install the driver, follow your instructions for setting
+the jumpers based on the assigned resources, and install the card.
+
+--
+Walter Oney
+<A href="http://www.oneysoft.com/" target=_top>http://www.oneysoft.com/</A></PRE><A 
+name=link6></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 6 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:jbart333%40my-deja.com+" 
+      target=_top>jbart333@my-deja.com</A> (<A 
+      href="mailto:jbart333@my-deja.com">jbart333@my-deja.com</A>)<BR>Subject: 
+      Re: WDM: Walter, PCI, ISA, NuMega <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=8abgdr%24rnf%241%40nnrp1.deja.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 2000/03/10 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Walter, Max:
+
+Thanks a lot...a little LogConfig goes a long way!  I added it, and my
+AddDevice() function gets called as expected after installing a new ISA
+board.
+
+Also in handling IRP_MN_START_DEVICE, I was able to follow Walter's
+example in Ch. 7 on extracting the information while going through the
+resource list.
+
+Boy is this MUCH easier than the road I was travelling...thanks again.
+
+I was considering attending Walter's WDM seminar either in Boston or
+one of the other ones later this summer.  I guess we'll see how much
+more WDM I think I'll be doing.
+
+jbart333
+
+
+Sent via Deja.com <A href="http://www.deja.com/" target=_top>http://www.deja.com/</A>
+Before you buy.</PRE><A name=link7></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 7 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:maxim%40storagecraft.com+" 
+      target=_top>Maxim S. Shatskih</A> (<A 
+      href="mailto:maxim@storagecraft.com">maxim@storagecraft.com</A>)<BR>Subject: 
+      Re: WDM: Walter, PCI, ISA, NuMega <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=8a6fdj%24162d%241%40gavrilo.mtu.ru" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 2000/03/09 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE><FONT color=#660066>&gt; If both ISA and PCI cards use the same style for DMA, the same width for</FONT>
+
+Is ISA slave DMA possible for a PCI hardware?
+
+    Max</PRE>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><IMG alt="" height=3 
+      src="groups(1)_bestanden/cleardot.gif"></TD></TR></TBODY></TABLE><BR>
+<CENTER><FONT size=-1>©2001 Google</FONT></CENTER></BODY></HTML>

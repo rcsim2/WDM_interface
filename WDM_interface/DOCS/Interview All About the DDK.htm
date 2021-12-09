@@ -1,0 +1,504 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0047)http://www.osr.com/ntinsider/2000/about_ddk.htm -->
+<HTML xmlns="http://www.w3.org/TR/REC-html40" xmlns:v = 
+"urn:schemas-microsoft-com:vml" xmlns:o = 
+"urn:schemas-microsoft-com:office:office" xmlns:w = 
+"urn:schemas-microsoft-com:office:word"><HEAD><TITLE>Interview: All About the DDK</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content=Word.Document name=ProgId>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content="Microsoft Word 9" name=Originator><LINK 
+href="./about_ddk_files/filelist.xml" rel=File-List><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Peter G. Viscarola</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Daniel D. Root</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>373</o:TotalTime>
+  <o:Created>2001-02-21T16:30:00Z</o:Created>
+  <o:LastSaved>2001-02-21T16:32:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>1387</o:Words>
+  <o:Characters>7906</o:Characters>
+  <o:Company>OSR Open Systems Resources, Inc.</o:Company>
+  <o:Lines>65</o:Lines>
+  <o:Paragraphs>15</o:Paragraphs>
+  <o:CharactersWithSpaces>9709</o:CharactersWithSpaces>
+  <o:Version>9.3821</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:ActiveWritingStyle Lang="EN-US" VendorID="64" DLLVersion="131077"
+   NLCheck="1">1</w:ActiveWritingStyle>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>0</w:DisplayVerticalDrawingGridEvery>
+  <w:UseMarginsForDrawingGridOrigin/>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<STYLE>@font-face {
+	font-family: Lucida Console;
+}
+@font-face {
+	font-family: Mead Bold;
+}
+@page Section1 {size: 8.5in 11.0in; margin: 1.0in 1.25in 1.0in 1.25in; mso-header-margin: .5in; mso-footer-margin: .5in; mso-paper-source: 0; }
+P.MsoNormal {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoNormal {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoNormal {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+H1 {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-style-next: Normal; mso-outline-level: 1; mso-font-kerning: 0pt; mso-bidi-font-weight: normal
+}
+H2 {
+	FONT-WEIGHT: normal; FONT-SIZE: 14pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-bidi-font-size: 10.0pt; mso-pagination: widow-orphan; mso-style-next: Normal; mso-outline-level: 2
+}
+H3 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; MARGIN: 0in 0in 3pt; FONT-FAMILY: "Times New Roman"; mso-bidi-font-size: 10.0pt; mso-pagination: widow-orphan; mso-style-next: Normal; mso-outline-level: 3; mso-font-kerning: 14.0pt; mso-layout-grid-align: none; punctuation-wrap: simple
+}
+H4 {
+	FONT-WEIGHT: normal; FONT-SIZE: 12pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-bidi-font-size: 11.0pt; mso-pagination: widow-orphan; mso-style-next: Normal; mso-outline-level: 4
+}
+H5 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: center; mso-bidi-font-size: 10.0pt; mso-pagination: widow-orphan; mso-style-next: Normal; mso-outline-level: 5
+}
+P.MsoCommentText {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-font-kerning: 14.0pt; mso-layout-grid-align: none; punctuation-wrap: simple
+}
+LI.MsoCommentText {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-font-kerning: 14.0pt; mso-layout-grid-align: none; punctuation-wrap: simple
+}
+DIV.MsoCommentText {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-font-kerning: 14.0pt; mso-layout-grid-align: none; punctuation-wrap: simple
+}
+P.MsoCaption {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; MARGIN: 6pt 0in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-style-next: Normal
+}
+LI.MsoCaption {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; MARGIN: 6pt 0in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-style-next: Normal
+}
+DIV.MsoCaption {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; MARGIN: 6pt 0in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-style-next: Normal
+}
+P.MsoTitle {
+	FONT-SIZE: 14pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: center; mso-bidi-font-size: 10.0pt; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoTitle {
+	FONT-SIZE: 14pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: center; mso-bidi-font-size: 10.0pt; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoTitle {
+	FONT-SIZE: 14pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: center; mso-bidi-font-size: 10.0pt; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+P.MsoBodyText {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoBodyText {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoBodyText {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+P.MsoBodyText2 {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: justify; mso-bidi-font-size: 10.0pt; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoBodyText2 {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: justify; mso-bidi-font-size: 10.0pt; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoBodyText2 {
+	FONT-SIZE: 12pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: justify; mso-bidi-font-size: 10.0pt; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+P.MsoBodyText3 {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-font-kerning: 14.0pt; mso-layout-grid-align: none; punctuation-wrap: simple
+}
+LI.MsoBodyText3 {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-font-kerning: 14.0pt; mso-layout-grid-align: none; punctuation-wrap: simple
+}
+DIV.MsoBodyText3 {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-font-kerning: 14.0pt; mso-layout-grid-align: none; punctuation-wrap: simple
+}
+A:link {
+	COLOR: blue; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlink {
+	COLOR: blue; TEXT-DECORATION: underline; text-underline: single
+}
+A:visited {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlinkFollowed {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+P.MsoAutoSig {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoAutoSig {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoAutoSig {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+P {
+	FONT-SIZE: 12pt; MARGIN-LEFT: 0in; MARGIN-RIGHT: 0in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto
+}
+PRE {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Courier New"; mso-pagination: widow-orphan; mso-fareast-font-family: "Courier New"; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; mso-bidi-font-family: "Times New Roman"
+}
+P.C-Code {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; TEXT-INDENT: 0.5in; FONT-FAMILY: "Lucida Console"; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-family: "Times New Roman"; mso-style-name: C-Code
+}
+LI.C-Code {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; TEXT-INDENT: 0.5in; FONT-FAMILY: "Lucida Console"; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-family: "Times New Roman"; mso-style-name: C-Code
+}
+DIV.C-Code {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; TEXT-INDENT: 0.5in; FONT-FAMILY: "Lucida Console"; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-family: "Times New Roman"; mso-style-name: C-Code
+}
+P.Table {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: center; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-font-kerning: 14.0pt; mso-layout-grid-align: none; punctuation-wrap: simple; mso-style-name: Table
+}
+LI.Table {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: center; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-font-kerning: 14.0pt; mso-layout-grid-align: none; punctuation-wrap: simple; mso-style-name: Table
+}
+DIV.Table {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: center; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-font-kerning: 14.0pt; mso-layout-grid-align: none; punctuation-wrap: simple; mso-style-name: Table
+}
+DIV.Section1 {
+	page: Section1
+}
+</STYLE>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+  <o:regrouptable v:ext="edit">
+   <o:entry new="1" old="0"/>
+  </o:regrouptable>
+ </o:shapelayout></xml><![endif]--></HEAD>
+<BODY lang=EN-US style="tab-interval: .5in" vLink=purple link=blue>
+<DIV class=Section1>
+<H2 style="TEXT-ALIGN: center" align=center><B><SPAN 
+style="FONT-SIZE: 16pt; mso-bidi-font-size: 10.0pt">Interview:<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>All About the 
+DDK<o:p></o:p></SPAN></B></H2>
+<P style="TEXT-ALIGN: center" align=center><I><SPAN 
+style="FONT-FAMILY: Symbol">Ó</SPAN> 2000 OSR Open Systems Resources, 
+Inc.<o:p></o:p></I></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">When you develop systems 
+software for Windows NT/2000, much of how you do your job is defined by the 
+DDK.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>We here at OSR have always 
+wondered how the DDK got built, and who decides what sample drivers are in it. 
+<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">To find out more about the 
+DDK, <I>The NT Insider</I> put questions to Jean Valentine, the Microsoft 
+program manager responsible for both the DDK and the IFS kit.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Jean has been the one who has helped 
+motivate and organize many of the positive changes that we’ve seen in the DDK 
+over the past couple of years.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>But 
+we’ll let her tell you all about the DDK in her own words:<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></B></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">The NT Insider: 
+</SPAN></B><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">Let's start 
+from the beginning: What's your job at Microsoft?<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">Jean Valentine: 
+</SPAN></B><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">I'm the 
+Program Manager responsible for kernel mode development kits - the DDKs, IFS 
+Kit, and HAL Kits.<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><BR></SPAN><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">NT 
+Insider:</SPAN></B><B><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"> 
+</SPAN></B><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">So 
+<I>you're</I> the one who actually decides what manuals and code examples 
+comprise the Win2K DDK?<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">JeanVal:</SPAN></B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"> Well, not exactly.&nbsp; I 
+work closely with the development, test, program management, developer support, 
+and developer documentation teams to define the content of the DDK.&nbsp; With 
+the sheer number of technologies, new hardware features, and operating system 
+initiatives, there is no way I could keep up with the breadth and depth on my 
+own.&nbsp; The Win2K DDK was a joint effort from many 
+teams.&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><SPAN 
+style="mso-spacerun: yes">&nbsp;</SPAN><o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">NT Insider:</SPAN></B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"> OK, but who actually builds 
+it?<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>Who defines the general look 
+and feel?<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">The DDK Core team, which I 
+lead, provides the infrastructure.&nbsp; Everything from the setup program to 
+the build environment to distribution channels to the 
+http://www.microsoft.com/ddk/ web site.&nbsp; We are responsible for defining 
+the direction of the DDK.<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">NT 
+Insider:</SPAN></B><B><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"> 
+</SPAN></B><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">How do you 
+decide to include a particular driver example on the kit? How do you decide what 
+source code that the driver group has that shouldn't be in the 
+kit?<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">JeanVal:</SPAN></B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"> The major concern is that 
+the code is well written and can provide high quality, relevant information that 
+would be useful to the majority of developers writing drivers of that 
+type.&nbsp; We realize that driver developers will cut-and-paste the driver 
+sample code into their drivers and use this code as "documentation" for their 
+development efforts.&nbsp; This is the basis of any decision to put sample code 
+into the DDK.<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><BR></SPAN><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">NT 
+Insider:</SPAN></B><B><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"> 
+</SPAN></B><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">What's your 
+goal for the DDK?<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><SPAN 
+style="mso-spacerun: yes">&nbsp;</SPAN><o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">JeanVal:</SPAN></B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Wow.&nbsp; That's an essay, not a short 
+question. For the Win2K DDK we had a number of key goals.&nbsp; First, we 
+incorporated the DDK builds into the Win2K daily builds and began using "live" 
+driver samples.&nbsp; Many of the driver samples in the Win2K DDK are the actual 
+drivers shipping the Win2K CD.&nbsp;&nbsp;This was a very different model 
+from&nbsp;previous DDKs, which have contained templates, skeleton drivers, code 
+snippets, but rarely included full drivers.&nbsp; The complete 
+drivers&nbsp;quickly become very complex, so moving to this model was a 
+significant change.&nbsp;&nbsp;&nbsp;The work was an incremental process, and a 
+learning experience.<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">The goal was to provide the 
+means for developers to begin with a working driver, and then be able to add 
+their modifications.&nbsp;&nbsp;We wanted&nbsp;driver developers to be able to 
+get an existing piece of hardware, build the driver from the DDK, and have it 
+function.&nbsp; This would allow&nbsp;a developer to modify&nbsp;a working 
+driver to better understand the impact of his changes and provide the ability to 
+test the code we ship to verify the quality of the sample drivers - an important 
+concern, when we expect developers&nbsp;would copy it into their drivers.&nbsp; 
+<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">We quickly realized that 
+although we now had drivers that built clean (getting to 0 errors and 0 warnings 
+for the full DDK build was an experience in itself), we had no way to get them 
+installed.&nbsp; So, we began work on getting an .inf for each driver 
+sample.&nbsp; Almost at once, we had a problem.&nbsp; The DDK documentation on 
+.inf files was sketchy, and an .inf file could not easily be debugged.&nbsp; 
+When loaded, it might fail, but even if it loads, how do you tell if it's 
+correct?&nbsp; So, the senior Plug-n-Play DDK writer took on the documentation 
+and a developer on the DDK Core team began work on what became 
+<B>ChkINF</B>.&nbsp; We brought the problem to the Plug-n-Play Development team, 
+and they began work from the OS end.&nbsp; And this is only one of the issues we 
+worked through.<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">NT Insider:</SPAN></B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"> Cool!<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>In other words, by actually trying the 
+DDK components more or less from “our” perspective (that is, the perspective of 
+non-Microsoft users) you actually found and filled many of the potholes before 
+the final release of the DDK.<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">And what’s been happening 
+with the DDK for Whistler?<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>Have 
+you-all continued to try to use the DDK internally?<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">JeanVal:</SPAN></B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>For Whistler, the&nbsp;foundation had 
+been laid, and we began to&nbsp;build on it.&nbsp; Whistler driver development 
+work has been "dogfooding"&nbsp;the DDK since February.&nbsp; The drivers that 
+will ship on the Whistler operating system CD are being developed out of the 
+DDK.&nbsp; There is now a Developer's edition for&nbsp;the Whistler Beta 
+program.&nbsp; By the time Whistler releases, the DDK will have been in use for 
+over a year.&nbsp; <o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">NT 
+Insider:</SPAN></B><B><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"> 
+</SPAN></B><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">Suppose 
+people need code examples that aren't presently in the DDK. Is there any way for 
+them to request additional code samples?<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">JeanVal:</SPAN></B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"> Often, this type of request 
+comes through the DDK Developer Support team.&nbsp; When they get a number of 
+calls from developers needing similar information, we begin looking at the 
+issue.&nbsp; Do we need to provide documentation? Sample code? A tool to 
+validate or test?&nbsp; <o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">Currently, the feedback 
+mechanism we get the most requests from is the Whistler Beta bug reporting tools 
+and the Whistler Beta DDK newsgroups.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><BR></SPAN><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">NT 
+Insider:</SPAN></B><B><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"> 
+</SPAN></B><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">You 
+mentioned the DDK Developer Support team.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>How does your job relate to what those folks do?<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Are you in the same group?<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Do you work closely together?<BR><SPAN 
+style="mso-spacerun: yes">&nbsp;</SPAN><o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">JeanVal:</SPAN></B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"> The Microsoft product teams 
+and the support teams are separate divisions, but we have a close working 
+relationship.&nbsp; The product team's current focus is Whistler, and future 
+development.&nbsp; The PSS Developer Support&nbsp;Teams for the DDK focus on 
+released operating systems.&nbsp; But, this crosses over in many places.&nbsp; 
+In fact, the instructional driver samples shipped in the Win2K DDK were created 
+by the Developer Support team engineers.&nbsp; These engineers also do 
+supportability reviews on the DDK.&nbsp; They look for everything from driver 
+sample bugs to missing documentation - anything where their experience leads 
+them to believe that driver developers could have a problem.&nbsp; 
+<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">NT 
+Insider:</SPAN></B><B><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"> 
+</SPAN></B><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">Many of the 
+students in our Driver Seminars say that they find the DDK difficult to use as a 
+tutorial or initial learning tool. We frequently say that the Kernel Mode Driver 
+Design Guide, for example, is excellent... once you know how to write Win2K 
+Drivers. What do <I>you</I> hear?<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">JeanVal:</SPAN></B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"> Drivers are hard.&nbsp; 
+Period.&nbsp; This is not an endeavor for a novice developer. Anyone writing a 
+Win2K driver is expected to be able to&nbsp;write concurrent, re-entrant code, 
+understand&nbsp;the Win2K architecture, and be able to do kernel 
+debugging.&nbsp;&nbsp;And that's before we get to the hard 
+stuff.&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><SPAN 
+style="mso-spacerun: yes">&nbsp;</SPAN>&nbsp;&nbsp; <o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">But, that said, I 
+agree.&nbsp;The DDK is geared to an intermediate level user.&nbsp; We’re working 
+on a new “Guide to the DDK and driver development” overview type documentation, 
+to help developers find information, but the initial content won’t appear in the 
+DDK for a while yet. <o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">NT 
+Insider:</SPAN></B><B><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"> 
+</SPAN></B><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">I also know 
+that you've re-introduced printed versions of the DDK Documentation. Lots of 
+folks I know (including us here at OSR) have been asking for these for a long 
+time. What's the story behind finally getting hardcopies of these documents 
+available?<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">JeanVal:</SPAN></B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"> Well, that's an interesting 
+one.&nbsp; I had been looking for a way to get the documentation printed, and 
+having trouble finding the right people at Microsoft Press to pick up the 
+project.&nbsp; Since there is such a small audience for this information, 
+compared to, say, the Office developers book, I was not having much 
+success.&nbsp; The expected sales for the book, combined with the size, made it 
+cost prohibitive.&nbsp; Believe it or not, I was at WinHEC&nbsp;last year, and 
+met someone from Press at the conference.&nbsp; I spoke to him about printing 
+the DDK documentation, and asked him to spend part of his time talking to 
+conference attendees about it.&nbsp; It convinced him.&nbsp; With key Windows 
+backing, like Lou Perazzoli, we were able to push this through as a strategic 
+investment for MS.&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">NT Insider:</SPAN></B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"> Do you have any opinion as 
+to whether driver development is getting easier or harder on NT? In other words, 
+do you think the changes introduced with Win2K and WDM make driver writing more 
+difficult or more straight-forward for folks?<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">JeanVal:</SPAN></B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"> Overall, I think it is 
+getting more complex.&nbsp; Adding Power Management, Plug-n-Play, and WMI is 
+putting more requirements into the driver.&nbsp; Although WDM provides the basis 
+for writing cross platform drivers, the minor behavior variations between 
+platforms and versions brings its own set of complexities.&nbsp; 
+<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">The class drivers or the 
+port/mini-port models handle quite a bit this functionality, so I don't think 
+that every driver is getting more complex.&nbsp; <o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><BR></SPAN><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">NT Insider:</SPAN></B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"> Any big changes coming up 
+in Whistler/Blackcomb that will impact us driver writers?<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt">JeanVal:</SPAN></B><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"> 64-bit.&nbsp; Consumer OS 
+built from Windows NT code base.&nbsp; Driver Verifier expansion.&nbsp; Ask me 
+again in 6 months, after the new technologies are no longer under NDA, and I'll 
+tell you more.<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="FONT-SIZE: 12pt; FONT-FAMILY: 'Mead Bold'; mso-bidi-font-size: 10.0pt">[<I>The 
+NT Insider</I> is grateful to Jean Valentine for taking the time for this 
+interview.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>Look for more 
+interesting interviews in future issues of The NT Insider with other influential 
+people in the driver development community.]<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="mso-bidi-font-size: 12.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P 
+class=MsoBodyText2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P></DIV></BODY></HTML>

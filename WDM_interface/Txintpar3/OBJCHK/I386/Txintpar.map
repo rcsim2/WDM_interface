@@ -1,0 +1,543 @@
+ Txintpar
+
+ Timestamp is 3d951955 (Fri Sep 27 19:52:05 2002)
+
+ Preferred load address is 00010000
+
+ Start         Length     Name                   Class
+ 0001:00000000 000208ccH .text                   CODE
+ 0002:00000000 00000170H .idata$5                DATA
+ 0002:00000170 00000768H .rdata                  DATA
+ 0003:00000000 000007d4H .data                   DATA
+ 0003:000007d8 00000048H .bss                    DATA
+ 0004:00000000 0000043fH PAGEPARWMI0             CODE
+ 0005:00000000 0000003cH .idata$2                CODE
+ 0005:0000003c 00000014H .idata$3                CODE
+ 0005:00000050 00000170H .idata$4                CODE
+ 0005:000001c0 000007d0H .idata$6                CODE
+ 0006:00000000 000000a0H .rsrc$01                DATA
+ 0006:000000a0 00000490H .rsrc$02                DATA
+
+  Address         Publics by Value              Rva+Base     Lib:Object
+
+ 0001:00000043       _ParBecpExitReversePhase@4 00010323 f   becp.obj
+ 0001:00000225       _ParBecpRead@16            00010505 f   becp.obj
+ 0001:000003c4       _ParEnterBecpMode@8        000106a4 f   becp.obj
+ 0001:000005f0       _ParIsBecpSupported@4      000108d0 f   becp.obj
+ 0001:00000843       _ParTerminateBecpMode@4    00010b23 f   becp.obj
+ 0001:00000a72       _ParIsByteSupported@4      00010d52 f   byte.obj
+ 0001:00000cd7       _ParEnterByteMode@8        00010fb7 f   byte.obj
+ 0001:00000e91       _ParTerminateByteMode@4    00011171 f   byte.obj
+ 0001:000011de       _ParByteModeRead@16        000114be f   byte.obj
+ 0001:000015b8       _ParInitDebugLevel@4       00011898 f   debug.obj
+ 0001:0000179e       _ParAcquireRemoveLock@8    00011a7e f   debug.obj
+ 0001:000018b1       _ParReleaseRemoveLock@8    00011b91 f   debug.obj
+ 0001:00001a2d       _ParReleaseRemoveLockAndWait@8 00011d0d f   debug.obj
+ 0001:00001c5c       _ParDumpDevObjStructList@4 00011f3c f   debug.obj
+ 0001:00001e15       _ParDumpDevExtTable@0      000120f5 f   debug.obj
+ 0001:00002124       _ParMakeClassNameFromPortLptName@8 00012404 f   devobj.obj
+ 0001:000022c6       _ParIsPodo@4               000125a6 f   devobj.obj
+ 0001:00002461       _ParIsDuplicateInterfaceArrival@8 00012741 f   devobj.obj
+ 0001:0000286c       _ParPnpNotifyInterfaceChange@8 00012b4c f   devobj.obj
+ 0001:00002ace       _ParCreateLegacyPodo@8     00012dae f   devobj.obj
+ 0001:00002d40       _ParInitCommonDOPre@12     00013020 f   devobj.obj
+ 0001:00002e9e       _ParInitLegacyPodo@8       0001317e f   devobj.obj
+ 0001:00002fcc       _ParInitCommonDOPost@4     000132ac f   devobj.obj
+ 0001:0000301a       _ParDetectCreateEndOfChainPdo@4 000132fa f   devobj.obj
+ 0001:00003705       _ParDetectCreatePdo@12     000139e5 f   devobj.obj
+ 0001:00003dbe       _ParInitPdo@20             0001409e f   devobj.obj
+ 0001:0000402c       _ParGetPortLptName@4       0001430c f   devobj.obj
+ 0001:000040be       _ParGet1284_3DeviceCount@4 0001439e f   devobj.obj
+ 0001:0000421d       _ParBuildSendInternalIoctl@28 000144fd f   devobj.obj
+ 0001:000043ac       _ParSelect1284_3Device@8   0001468c f   devobj.obj
+ 0001:000043de       _ParDeselect1284_3Device@8 000146be f   devobj.obj
+ 0001:00004410       _ParEcpEnterForwardPhase@4 000146f0 f   ecp.obj
+ 0001:000045d5       _ParEcpEnterReversePhase@4 000148b5 f   ecp.obj
+ 0001:000047aa       _ParEcpHaveReadData@4      00014a8a f   ecp.obj
+ 0001:000048ce       _ParEcpSetupPhase@4        00014bae f   ecp.obj
+ 0001:00004aef       _ParEppSetAddress@8        00014dcf f   epp.obj
+ 0001:00004c9c       _ParLogError@48            00014f7c f   errlog.obj
+ 0001:00004d50       _ParExportedDetermineIeeeModes@4 00015030 f   exports.obj
+ 0001:00004d72       _ParExportedIeeeFwdToRevMode@4 00015052 f   exports.obj
+ 0001:00004d82       _ParExportedIeeeRevToFwdMode@4 00015062 f   exports.obj
+ 0001:00004f8c       _ParExportedNegotiateIeeeMode@20 0001526c f   exports.obj
+ 0001:0000529f       _ParExportedTerminateIeeeMode@4 0001557f f   exports.obj
+ 0001:000053c8       _ParExportedParallelRead@20 000156a8 f   exports.obj
+ 0001:00005448       _ParExportedParallelWrite@20 00015728 f   exports.obj
+ 0001:000054a4       _ParCleanupHwEcpPort@4     00015784 f   hwecp.obj
+ 0001:000055cc       _ParEcpHwDrainShadowBuffer@16 000158ac f   hwecp.obj
+ 0001:00005713       _ParEcpHwEmptyFIFO@4       000159f3 f   hwecp.obj
+ 0001:00005857       _ParEcpHwExitForwardPhase@4 00015b37 f   hwecp.obj
+ 0001:00005b63       _ParEcpHwEnterReversePhase@4 00015e43 f   hwecp.obj
+ 0001:00005f45       _ParEcpHwExitReversePhase@4 00016225 f   hwecp.obj
+ 0001:00006122       _ParEcpHwHaveReadData@4    00016402 f   hwecp.obj
+ 0001:0000631a       _ParEcpHwHostRecoveryPhase@4 000165fa f   hwecp.obj
+ 0001:000066af       _ParEcpHwRead@16           0001698f f   hwecp.obj
+ 0001:00006ac0       _ParEcpHwRecoverPort@8     00016da0 f   hwecp.obj
+ 0001:00006d71       _ParEcpHwSetAddress@8      00017051 f   hwecp.obj
+ 0001:00006fe8       _ParEcpHwSetupPhase@4      000172c8 f   hwecp.obj
+ 0001:0000710d       _ParEcpHwWaitForEmptyFIFO@4 000173ed f   hwecp.obj
+ 0001:0000745d       _ParEcpHwWrite@16          0001773d f   hwecp.obj
+ 0001:000078e0       _ParEnterEcpHwMode@8       00017bc0 f   hwecp.obj
+ 0001:000079a8       _ParIsEcpHwSupported@4     00017c88 f   hwecp.obj
+ 0001:00007b65       _ParTerminateHwEcpMode@4   00017e45 f   hwecp.obj
+ 0001:00007e26       _ParIsEppHwSupported@4     00018106 f   hwepp.obj
+ 0001:00008124       _ParEnterEppHwMode@8       00018404 f   hwepp.obj
+ 0001:00008318       _ParTerminateEppHwMode@4   000185f8 f   hwepp.obj
+ 0001:00008414       _ParEppHwWrite@16          000186f4 f   hwepp.obj
+ 0001:00008515       _ParEppHwRead@16           000187f5 f   hwepp.obj
+ 0001:000086f7       _IeeeTerminate1284Mode@4   000189d7 f   ieee1284.obj
+ 0001:00008a4f       _IeeeEnter1284Mode@8       00018d2f f   ieee1284.obj
+ 0001:00008c18       _IeeeDetermineSupportedProtocols@4 00018ef8 f   ieee1284.obj
+ 0001:00008d7c       _IeeeNegotiateBestMode@12  0001905c f   ieee1284.obj
+ 0001:0000909b       _IeeeNegotiateMode@12      0001937b f   ieee1284.obj
+ 0001:00009374       _DriverEntry@8             00019654 f   initunld.obj
+ 0001:000095f5       _ParUnload@4               000198d5 f   initunld.obj
+ 0001:000098b6       _ParpIoctlThreadLockPort@4 00019b96 f   ioctl.obj
+ 0001:00009b36       _ParpIoctlThreadUnlockPort@4 00019e16 f   ioctl.obj
+ 0001:00009fec       _ParDeviceControl@8        0001a2cc f   ioctl.obj
+ 0001:0000a8b7       _ParInternalDeviceControl@8 0001ab97 f   ioctl.obj
+ 0001:0000b03c       _ParDeviceIo@4             0001b31c f   ioctl.obj
+ 0001:0000b866       _ParIsNibbleSupported@4    0001bb46 f   nibble.obj
+ 0001:0000ba8d       _ParIsChannelizedNibbleSupported@4 0001bd6d f   nibble.obj
+ 0001:0000bc95       _ParEnterNibbleMode@8      0001bf75 f   nibble.obj
+ 0001:0000bef6       _ParEnterChannelizedNibbleMode@8 0001c1d6 f   nibble.obj
+ 0001:0000c08d       _ParTerminateNibbleMode@4  0001c36d f   nibble.obj
+ 0001:0000c48e       _ParNibbleModeRead@16      0001c76e f   nibble.obj
+ 0001:0000cad2       _ParCreateOpen@8           0001cdb2 f   openclos.obj
+ 0001:0000ccdf       _ParCleanup@8              0001cfbf f   openclos.obj
+ 0001:0000cded       _ParClose@8                0001d0cd f   openclos.obj
+ 0001:0000d5fb       _ParDot3Connect@4          0001d8db f   p12843dl.obj
+ 0001:0000defb       _ParDot3CreateObject@12    0001e1db f   p12843dl.obj
+ 0001:0000e267       _ParDot4CreateObject@8     0001e547 f   p12843dl.obj
+ 0001:0000e4eb       _ParMLCCreateObject@8      0001e7cb f   p12843dl.obj
+ 0001:0000e568       _ParDot3DestroyObject@4    0001e848 f   p12843dl.obj
+ 0001:0000e57a       _ParDot3Disconnect@4       0001e85a f   p12843dl.obj
+ 0001:0000e6ab       _ParDot3ParseModes@8       0001e98b f   p12843dl.obj
+ 0001:0000ea30       _ParDot3Read@16            0001ed10 f   p12843dl.obj
+ 0001:0000ed54       _ParDot3Write@16           0001f034 f   p12843dl.obj
+ 0001:0000f00b       _ParMLCCompatReset@4       0001f2eb f   p12843dl.obj
+ 0001:0000f2e1       _ParMLCECPReset@4          0001f5c1 f   p12843dl.obj
+ 0001:0000f50c       _ParSelectDevice@8         0001f7ec f   par12843.obj
+ 0001:0000f720       _ParDeselectDevice@8       0001fa00 f   par12843.obj
+ 0001:0000f91c       _ParInitializeDevice@4     0001fbfc f   parclass.obj
+ 0001:0000fc20       _ParNotInitError@8         0001ff00 f   parclass.obj
+ 0001:0000fdef       _ParCancelRequest@8        000200cf f   parclass.obj
+ 0001:0000fe70       _ParQueryInformationFile@8 00020150 f   parclass.obj
+ 0001:0000ff0c       _ParSetInformationFile@8   000201ec f   parclass.obj
+ 0001:0000ffd0       _ParCompleteRequest@8      000202b0 f   parclass.obj
+ 0001:00010010       _ParCallDriver@8           000202f0 f   parclass.obj
+ 0001:00010024       _SppWriteLoop@12           00020304 f   parloop.obj
+ 0001:0001003c       _ParStlCheckIfStl@8        0002031c f   parstl.obj
+ 0001:0001008e       _ParStlCheckIfNon1284_3Present@4 0002036e f   parstl.obj
+ 0001:00010174       _ParStlCheckIfStl1284_3@12 00020454 f   parstl.obj
+ 0001:000102e4       _ParStlCheckIfStlProductId@8 000205c4 f   parstl.obj
+ 0001:000104c5       _ParStlQueryStlDeviceId@20 000207a5 f   parstl.obj
+ 0001:000106d4       _ParBuildStlDeviceId@4     000209b4 f   parstl.obj
+ 0001:00010786       _ParStlGetDeviceType       00020a66 f   parstl.obj
+ 0001:00010950       _ParStlWaitForMicroSeconds@4 00020c30 f   parstl.obj
+ 0001:00010960       _ParStlCheckCardInsertionStatus@4 00020c40 f   parstl.obj
+ 0001:000109a6       _ParStlSelectAdapterSocket@8 00020c86 f   parstl.obj
+ 0001:00010a72       _ParStlCheckIfAtaAtapiDevice@8 00020d52 f   parstl.obj
+ 0001:00010a9c       _ParStlCheckIfAtapiDevice@8 00020d7c f   parstl.obj
+ 0001:00010aae       _ParStlCheckIfAtaDevice@8  00020d8e f   parstl.obj
+ 0001:00010ac0       _ParStlCheckDrivePresent@8 00020da0 f   parstl.obj
+ 0001:00010c30       _ParStlAtapiInitialize@8   00020f10 f   parstl.obj
+ 0001:00010d7a       _ParStlAtaInitialize@8     0002105a f   parstl.obj
+ 0001:00010e20       _ParStlWaitForBusyToClear@8 00021100 f   parstl.obj
+ 0001:00010e5a       _ParStlWaitForDrq@4        0002113a f   parstl.obj
+ 0001:00010e94       _ParStlWaitForIrq@4        00021174 f   parstl.obj
+ 0001:00010ece       _ParStlSet16BitOperation@4 000211ae f   parstl.obj
+ 0001:00010efa       _ParStlCheckIfEppDevice@4  000211da f   parstl.obj
+ 0001:00010f2a       _ParStlCheckPersonalityForEppDevice@4 0002120a f   parstl.obj
+ 0001:00010f5c       _ParStlCheckIfFlash@4      0002123c f   parstl.obj
+ 0001:00010faa       _ParStlCheckFlashPersonality@4 0002128a f   parstl.obj
+ 0001:00010fee       _ParStlCheckIfDazzle@4     000212ce f   parstl.obj
+ 0001:0001103c       _ParStlCheckIfHiFD@4       0002131c f   parstl.obj
+ 0001:00011078       _ParStlHIFDCheckIfControllerReady@4 00021358 f   parstl.obj
+ 0001:00011118       _ParStlHIFDCheckSMCController@4 000213f8 f   parstl.obj
+ 0001:0001118e       _ParStlGetImpactDeviceType@12 0002146e f   parstl.obj
+ 0001:00011286       _ParStlGetImpactSDeviceType@12 00021566 f   parstl.obj
+ 0001:00011372       _ParStlCheckIfLS120@4      00021652 f   parstl.obj
+ 0001:000113b7       _ParStlCheckIfImpactLS120@8 00021697 f   parstl.obj
+ 0001:00011418       _ParStlCheckIfMMC@8        000216f8 f   parstl.obj
+ 0001:00011456       _ParStlIsMMCEnginePresent@4 00021736 f   parstl.obj
+ 0001:00011528       _ParStlCheckIfScsiDevice@4 00021808 f   parstl.obj
+ 0001:00011550       _ParStlCheckIfSSFDC@4      00021830 f   parstl.obj
+ 0001:000115ca       _ParStlAssertIdleState@4   000218aa f   parstl.obj
+ 0001:0001160a       _ParStlCheckAvisionScannerPresence@4 000218ea f   parstl.obj
+ 0001:000116d2       _ParStlCheckUMAXScannerPresence@4 000219b2 f   parstl.obj
+ 0001:0001179e       _ParStlSetEPPMode@4        00021a7e f   parstl.obj
+ 0001:000118ba       _ParStlEPPWrite@8          00021b9a f   parstl.obj
+ 0001:0001191e       _ParStlEPPRead@4           00021bfe f   parstl.obj
+ 0001:0001197e       _ParStlReadReg             00021c5e f   parstl.obj
+ 0001:000119f8       _ParStlWriteReg            00021cd8 f   parstl.obj
+ 0001:00011a4e       _ParStlReceiveData         00021d2e f   parstl.obj
+ 0001:00011b88       _ParStlReadIoPort          00021e68 f   parstl.obj
+ 0001:00011bb2       _ParStlWriteIoPort         00021e92 f   parstl.obj
+ 0001:00011be0       _ParStlGetMemorySize       00021ec0 f   parstl.obj
+ 0001:00011d40       _ParRegisterForParportRemovalRelations@4 00022020 f   pnp.obj
+ 0001:00011d8a       _ParUnregisterForParportRemovalRelations@4 0002206a f   pnp.obj
+ 0001:000120bb       _Par3QueryDeviceId@24      0002239b f   pnp.obj
+ 0001:00012430       _ParCheckParameters@4      00022710 f   pnp.obj
+ 0001:0001269c       _String2Num@12             0002297c f   pnp.obj
+ 0001:00012844       _StringCountValues@8       00022b24 f   pnp.obj
+ 0001:00012878       _StringChr@8               00022b58 f   pnp.obj
+ 0001:00012896       _StringSubst@16            00022b76 f   pnp.obj
+ 0001:000128c0       _ParFixupDeviceId@4        00022ba0 f   pnp.obj
+ 0001:000129e5       _ParDetectDot3DataLink@8   00022cc5 f   pnp.obj
+ 0001:00012b81       _ParDot3ParseDevId@24      00022e61 f   pnp.obj
+ 0001:00012e26       _ParKillDeviceObject@4     00023106 f   pnp.obj
+ 0001:00013177       _ParDeviceExists@8         00023457 f   pnp.obj
+ 0001:00013394       _ParPnpGetId@16            00023674 f   pnp.obj
+ 0001:00013578       _ParPnpFindDeviceIdKeys@28 00023858 f   pnp.obj
+ 0001:000136f8       _GetCheckSum@12            000239d8 f   pnp.obj
+ 0001:00013875       _ParParallelPnp@8          00023b55 f   pnp.obj
+ 0001:000138d6       _ParAcquirePort@8          00023bb6 f   pnp.obj
+ 0001:00013918       _ParReleasePort@4          00023bf8 f   pnp.obj
+ 0001:00013934       _ParInit1284_3Bus@4        00023c14 f   pnp.obj
+ 0001:000139eb       _ParMarkPdoHardwareGone@4  00023ccb f   pnp.obj
+ 0001:00013e70       _ParPnpNotifyTargetDeviceChange@8 00024150 f   pnp.obj
+ 0001:000141f8       _ParMakeClassNameFromNumber@8 000244d8 f   pnp.obj
+ 0001:0001431c       _ParMakeDotClassNameFromBaseClassName@12 000245fc f   pnp.obj
+ 0001:00014450       _ParAcquireListMutexAndKillDeviceObject@8 00024730 f   pnp.obj
+ 0001:000144ea       _ParAddDevObjToFdoList@4   000247ca f   pnp.obj
+ 0001:00014596       _ParPnpNotifyHwProfileChange@8 00024876 f   pnpfdo.obj
+ 0001:0001474b       _ParPnpFdoStartDevice@8    00024a2b f   pnpfdo.obj
+ 0001:00014c31       _ParFdoParallelPnp@8       00024f11 f   pnpfdo.obj
+ 0001:0001529a       _ParPnpAddDevice@8         0002557a f   pnpfdo.obj
+ 0001:00015b8c       _ParPdoParallelPnp@8       00025e6c f   pnppdo.obj
+ 0001:000166c6       _ParGetPortInfoFromPortDevice@4 000269a6 f   port.obj
+ 0001:00016938       _ParReleasePortInfoToPortDevice@4 00026c18 f   port.obj
+ 0001:000169de       _ParFreePort@4             00026cbe f   port.obj
+ 0001:00016a54       _ParSynchCompletionRoutine@12 00026d34 f   port.obj
+ 0001:00016a54       _ParAllocPortCompletionRoutine@12 00026d34 f   port.obj
+ 0001:00016b45       _ParAllocPort@4            00026e25 f   port.obj
+ 0001:00016ca0       _ParPower@8                00026f80 f   power.obj
+ 0001:00016d25       _ParPdoPower@8             00027005 f   power.obj
+ 0001:00016f4c       _ParPowerComplete@12       0002722c f   power.obj
+ 0001:00017136       _ParFdoPower@8             00027416 f   power.obj
+ 0001:000175c2       _ParCheckEnableLegacyZipFlag@0 000278a2 f   ppa3x.obj
+ 0001:000177ec       _ParBuildLegacyZipDeviceId@0 00027acc f   ppa3x.obj
+ 0001:00017826       _Par3QueryLegacyZipDeviceId@20 00027b06 f   ppa3x.obj
+ 0001:00017fe9       _ParCreateLegacyZipPdo@8   000282c9 f   ppa3x.obj
+ 0001:00018662       _ParCreateAddLegacyZipPdo@4 00028942 f   ppa3x.obj
+ 0001:000186f4       _ParSelectLegacyZip@4      000289d4 f   ppa3x.obj
+ 0001:000187e4       _ParDeselectLegacyZip@4    00028ac4 f   ppa3x.obj
+ 0001:0001885e       _ParZipPresent@4           00028b3e f   ppa3x.obj
+ 0001:000189e9       _ParRescanLegacyZip@4      00028cc9 f   ppa3x.obj
+ 0001:00018b29       _Queue_Create@8            00028e09 f   queue.obj
+ 0001:00018b7c       _Queue_Delete@4            00028e5c f   queue.obj
+ 0001:00018bce       _Queue_Dequeue@8           00028eae f   queue.obj
+ 0001:00018c39       _Queue_Enqueue@8           00028f19 f   queue.obj
+ 0001:00018c9b       _Queue_GarbageCollect@4    00028f7b f   queue.obj
+ 0001:00018d3c       _Queue_IsEmpty@4           0002901c f   queue.obj
+ 0001:00018dc3       _Queue_IsFull@4            000290a3 f   queue.obj
+ 0001:00018fe7       _ParForwardToReverse@4     000292c7 f   readwrit.obj
+ 0001:00019240       _ParHaveReadData@4         00029520 f   readwrit.obj
+ 0001:000192be       _ParPing@4                 0002959e f   readwrit.obj
+ 0001:000192c8       _ParReadWrite@8            000295a8 f   readwrit.obj
+ 0001:00019614       _ParRead@16                000298f4 f   readwrit.obj
+ 0001:000198af       _ParReadIrp@4              00029b8f f   readwrit.obj
+ 0001:00019aeb       _ParReverseToForward@4     00029dcb f   readwrit.obj
+ 0001:00019e3f       _ParSetFwdAddress@4        0002a11f f   readwrit.obj
+ 0001:00019f90       _ParTerminate@4            0002a270 f   readwrit.obj
+ 0001:0001a2a7       _ParWrite@16               0002a587 f   readwrit.obj
+ 0001:0001a4f0       _ParWriteIrp@4             0002a7d0 f   readwrit.obj
+ 0001:0001a51c       _ParLockPortDeviceObjects@4 0002a7fc f   rescan.obj
+ 0001:0001a588       _ParUnlockPortDeviceObjects@4 0002a868 f   rescan.obj
+ 0001:0001a7a6       _Par3Get1284InfString@8    0002aa86 f   rescan.obj
+ 0001:0001ae43       _dot3rescan@4              0002b123 f   rescan.obj
+ 0001:0001b58a       _ParPnpFdoQueryDeviceRelationsBusRelations@8 0002b86a f   rescan.obj
+ 0001:0001bbba       _ParBuildDevObjStructList@4 0002be9a f   rescan.obj
+ 0001:0001bda8       _ParAddPodoToDevObjStruct@8 0002c088 f   rescan.obj
+ 0001:0001bdcc       _ParAddEndOfChainPdoToDevObjStruct@8 0002c0ac f   rescan.obj
+ 0001:0001be36       _ParAddLegacyZipPdoToDevObjStruct@8 0002c116 f   rescan.obj
+ 0001:0001be86       _ParAddDot3PdoToDevObjStruct@8 0002c166 f   rescan.obj
+ 0001:0001bfdf       _ParFindCreateDevObjStruct@8 0002c2bf f   rescan.obj
+ 0001:0001c0dc       _ParDestroyDevObjStructList@4 0002c3bc f   rescan.obj
+ 0001:0001c216       _ParDoParallelBusRescan@4  0002c4f6 f   rescan.obj
+ 0001:0001c466       _ParRescanEndOfChain@4     0002c746 f   rescan.obj
+ 0001:0001c64e       _ParEnterSppMode@8         0002c92e f   spp.obj
+ 0001:0001c736       _SppWriteLoopPI@16         0002ca16 f   spp.obj
+ 0001:0001c89a       _SppCheckBusyDelay@12      0002cb7a f   spp.obj
+ 0001:0001cf52       _SppWrite@16               0002d232 f   spp.obj
+ 0001:0001d76e       _SppQueryDeviceId@20       0002da4e f   spp.obj
+ 0001:0001d878       _ParTerminateSppMode@4     0002db58 f   spp.obj
+ 0001:0001d8b0       _SppIeeeWrite@16           0002db90 f   sppieee.obj
+ 0001:0001d9a6       _ParIsEcpSwWriteSupported@4 0002dc86 f   swecp.obj
+ 0001:0001d9e8       _ParIsEcpSwReadSupported@4 0002dcc8 f   swecp.obj
+ 0001:0001da62       _ParEnterEcpSwMode@8       0002dd42 f   swecp.obj
+ 0001:0001dac4       _ParCleanupSwEcpPort@4     0002dda4 f   swecp.obj
+ 0001:0001db1c       _ParTerminateEcpMode@4     0002ddfc f   swecp.obj
+ 0001:0001dc4b       _ParEcpSetAddress@8        0002df2b f   swecp.obj
+ 0001:0001de65       _ParEcpSwWrite@16          0002e145 f   swecp.obj
+ 0001:0001e174       _ParEcpSwRead@16           0002e454 f   swecp.obj
+ 0001:0001e363       _ParEcpForwardToReverse@4  0002e643 f   swecp.obj
+ 0001:0001e4fb       _ParEcpReverseToForward@4  0002e7db f   swecp.obj
+ 0001:0001e7ba       _ParIsEppSwWriteSupported@4 0002ea9a f   swepp.obj
+ 0001:0001e995       _ParIsEppSwReadSupported@4 0002ec75 f   swepp.obj
+ 0001:0001ebee       _ParEnterEppSwMode@8       0002eece f   swepp.obj
+ 0001:0001edc0       _ParTerminateEppSwMode@4   0002f0a0 f   swepp.obj
+ 0001:0001ef6e       _ParEppSwWrite@16          0002f24e f   swepp.obj
+ 0001:0001f1ed       _ParEppSwRead@16           0002f4cd f   swepp.obj
+ 0001:0001f5e0       _ParallelThread@4          0002f8c0 f   thread.obj
+ 0001:0001f9ba       _ParCreateSystemThread@4   0002fc9a f   thread.obj
+ 0001:0001fbac       _ParStartIo@4              0002fe8c f   thread.obj
+ 0001:0001fdc1       _CheckPort@16              000300a1 f   util.obj
+ 0001:0001ff4c       _CheckTwoPorts@28          0003022c f   util.obj
+ 0001:00020036       _ParCreateWideStringFromUnicodeString@4 00030316 f   util.obj
+ 0001:0002007a       _ParCreateDevice@28        0003035a f   util.obj
+ 0001:000200a0       _ParInitializeExtension1284Info@4 00030380 f   util.obj
+ 0001:00020336       _ParGetDriverParameterDword@12 00030616 f   util.obj
+ 0001:0002070c       _ParWMIRegistrationControl@8 000309ec f   wmipdo.obj
+ 0001:000208a8       _DbgPrint                  00030b88 f   ntoskrnl:ntoskrnl.exe
+ 0001:000208ae       __allmul                   00030b8e f   ntoskrnl:ntoskrnl.exe
+ 0001:000208b4       _DbgBreakPoint@0           00030b94 f   ntoskrnl:ntoskrnl.exe
+ 0001:000208ba       __alldiv                   00030b9a f   ntoskrnl:ntoskrnl.exe
+ 0001:000208c0       _WmiSystemControl@16       00030ba0 f   wmilib:WMILIB.SYS
+ 0001:000208c6       _WmiCompleteRequest@20     00030ba6 f   wmilib:WMILIB.SYS
+ 0002:00000000       __imp__READ_PORT_BUFFER_ULONG@12 00030bc0     hal:HAL.dll
+ 0002:00000004       __imp__KeQueryPerformanceCounter@4 00030bc4     hal:HAL.dll
+ 0002:00000008       __imp_@KfRaiseIrql@4       00030bc8     hal:HAL.dll
+ 0002:0000000c       __imp_@KfLowerIrql@4       00030bcc     hal:HAL.dll
+ 0002:00000010       __imp_@ExAcquireFastMutex@4 00030bd0     hal:HAL.dll
+ 0002:00000014       __imp_@ExReleaseFastMutex@4 00030bd4     hal:HAL.dll
+ 0002:00000018       __imp__READ_PORT_UCHAR@4   00030bd8     hal:HAL.dll
+ 0002:0000001c       __imp__WRITE_PORT_BUFFER_ULONG@12 00030bdc     hal:HAL.dll
+ 0002:00000020       __imp__WRITE_PORT_BUFFER_UCHAR@12 00030be0     hal:HAL.dll
+ 0002:00000024       __imp__KeStallExecutionProcessor@4 00030be4     hal:HAL.dll
+ 0002:00000028       __imp__KeGetCurrentIrql@0  00030be8     hal:HAL.dll
+ 0002:0000002c       __imp__WRITE_PORT_UCHAR@8  00030bec     hal:HAL.dll
+ 0002:00000030       __imp__READ_PORT_BUFFER_UCHAR@12 00030bf0     hal:HAL.dll
+ 0002:00000034       \177HAL_NULL_THUNK_DATA    00030bf4     hal:HAL.dll
+ 0002:00000038       __imp__WmiCompleteRequest@20 00030bf8     wmilib:WMILIB.SYS
+ 0002:0000003c       __imp__WmiSystemControl@16 00030bfc     wmilib:WMILIB.SYS
+ 0002:00000040       \177WMILIB_NULL_THUNK_DATA 00030c00     wmilib:WMILIB.SYS
+ 0002:00000044       __imp__IoCreateUnprotectedSymbolicLink@8 00030c04     ntoskrnl:ntoskrnl.exe
+ 0002:00000048       __imp__RtlFreeUnicodeString@4 00030c08     ntoskrnl:ntoskrnl.exe
+ 0002:0000004c       __imp__KeInitializeSemaphore@12 00030c0c     ntoskrnl:ntoskrnl.exe
+ 0002:00000050       __imp__KeInitializeEvent@12 00030c10     ntoskrnl:ntoskrnl.exe
+ 0002:00000054       __imp__RtlWriteRegistryValue@24 00030c14     ntoskrnl:ntoskrnl.exe
+ 0002:00000058       __imp__IoRegisterPlugPlayNotification@28 00030c18     ntoskrnl:ntoskrnl.exe
+ 0002:0000005c       __imp__RtlAppendUnicodeStringToString@8 00030c1c     ntoskrnl:ntoskrnl.exe
+ 0002:00000060       __imp__RtlIntegerToUnicodeString@12 00030c20     ntoskrnl:ntoskrnl.exe
+ 0002:00000064       __imp__IoFreeIrp@4         00030c24     ntoskrnl:ntoskrnl.exe
+ 0002:00000068       __imp__IoCancelIrp@4       00030c28     ntoskrnl:ntoskrnl.exe
+ 0002:0000006c       __imp__KeWaitForSingleObject@20 00030c2c     ntoskrnl:ntoskrnl.exe
+ 0002:00000070       __imp__IoAllocateIrp@8     00030c30     ntoskrnl:ntoskrnl.exe
+ 0002:00000074       __imp__IoWriteErrorLogEntry@4 00030c34     ntoskrnl:ntoskrnl.exe
+ 0002:00000078       __imp__RtlCopyUnicodeString@8 00030c38     ntoskrnl:ntoskrnl.exe
+ 0002:0000007c       __imp__IoAllocateErrorLogEntry@8 00030c3c     ntoskrnl:ntoskrnl.exe
+ 0002:00000080       __imp__KeQueryTimeIncrement@0 00030c40     ntoskrnl:ntoskrnl.exe
+ 0002:00000084       __imp___allmul             00030c44     ntoskrnl:ntoskrnl.exe
+ 0002:00000088       __imp__DbgBreakPoint@0     00030c48     ntoskrnl:ntoskrnl.exe
+ 0002:0000008c       __imp__KeReleaseSemaphore@16 00030c4c     ntoskrnl:ntoskrnl.exe
+ 0002:00000090       __imp_@InterlockedExchange@8 00030c50     ntoskrnl:ntoskrnl.exe
+ 0002:00000094       __imp__IoReleaseCancelSpinLock@4 00030c54     ntoskrnl:ntoskrnl.exe
+ 0002:00000098       __imp__IoAcquireCancelSpinLock@4 00030c58     ntoskrnl:ntoskrnl.exe
+ 0002:0000009c       __imp_@InterlockedDecrement@4 00030c5c     ntoskrnl:ntoskrnl.exe
+ 0002:000000a0       __imp_@InterlockedIncrement@4 00030c60     ntoskrnl:ntoskrnl.exe
+ 0002:000000a4       __imp__RtlAnsiStringToUnicodeString@12 00030c64     ntoskrnl:ntoskrnl.exe
+ 0002:000000a8       __imp__RtlInitAnsiString@8 00030c68     ntoskrnl:ntoskrnl.exe
+ 0002:000000ac       __imp__RtlAppendUnicodeToString@8 00030c6c     ntoskrnl:ntoskrnl.exe
+ 0002:000000b0       __imp_@IofCompleteRequest@8 00030c70     ntoskrnl:ntoskrnl.exe
+ 0002:000000b4       __imp_@IofCallDriver@8     00030c74     ntoskrnl:ntoskrnl.exe
+ 0002:000000b8       __imp__KeTickCount         00030c78     ntoskrnl:ntoskrnl.exe
+ 0002:000000b8       _KeTickCount               00030c78     ntoskrnl:ntoskrnl.exe
+ 0002:000000bc       __imp__IoUnregisterPlugPlayNotification@4 00030c7c     ntoskrnl:ntoskrnl.exe
+ 0002:000000c0       __imp__KeDelayExecutionThread@12 00030c80     ntoskrnl:ntoskrnl.exe
+ 0002:000000c4       __imp__ZwClose@4           00030c84     ntoskrnl:ntoskrnl.exe
+ 0002:000000c8       __imp__IoOpenDeviceRegistryKey@16 00030c88     ntoskrnl:ntoskrnl.exe
+ 0002:000000cc       __imp__RtlCompareMemory@12 00030c8c     ntoskrnl:ntoskrnl.exe
+ 0002:000000d0       __imp__IoDeleteDevice@4    00030c90     ntoskrnl:ntoskrnl.exe
+ 0002:000000d4       __imp__IoInvalidateDeviceRelations@8 00030c94     ntoskrnl:ntoskrnl.exe
+ 0002:000000d8       __imp__RtlDeleteRegistryValue@12 00030c98     ntoskrnl:ntoskrnl.exe
+ 0002:000000dc       __imp__IoDeleteSymbolicLink@4 00030c9c     ntoskrnl:ntoskrnl.exe
+ 0002:000000e0       __imp__IoDetachDevice@4    00030ca0     ntoskrnl:ntoskrnl.exe
+ 0002:000000e4       __imp__IoAttachDeviceToDeviceStack@8 00030ca4     ntoskrnl:ntoskrnl.exe
+ 0002:000000e8       __imp__IoInitializeRemoveLockEx@20 00030ca8     ntoskrnl:ntoskrnl.exe
+ 0002:000000ec       __imp__ZwSetValueKey@24    00030cac     ntoskrnl:ntoskrnl.exe
+ 0002:000000f0       __imp__KeClearEvent@4      00030cb0     ntoskrnl:ntoskrnl.exe
+ 0002:000000f4       __imp__IoBuildDeviceIoControlRequest@36 00030cb4     ntoskrnl:ntoskrnl.exe
+ 0002:000000f8       __imp__PoStartNextPowerIrp@4 00030cb8     ntoskrnl:ntoskrnl.exe
+ 0002:000000fc       __imp__PoSetPowerState@12  00030cbc     ntoskrnl:ntoskrnl.exe
+ 0002:00000100       __imp__PoRequestPowerIrp@24 00030cc0     ntoskrnl:ntoskrnl.exe
+ 0002:00000104       __imp__PoCallDriver@8      00030cc4     ntoskrnl:ntoskrnl.exe
+ 0002:00000108       __imp__wcslen              00030cc8     ntoskrnl:ntoskrnl.exe
+ 0002:0000010c       __imp__ObReferenceObjectByPointer@16 00030ccc     ntoskrnl:ntoskrnl.exe
+ 0002:00000110       __imp___alldiv             00030cd0     ntoskrnl:ntoskrnl.exe
+ 0002:00000114       __imp__PsTerminateSystemThread@4 00030cd4     ntoskrnl:ntoskrnl.exe
+ 0002:00000118       __imp__ObReferenceObjectByHandle@24 00030cd8     ntoskrnl:ntoskrnl.exe
+ 0002:0000011c       __imp__PsCreateSystemThread@28 00030cdc     ntoskrnl:ntoskrnl.exe
+ 0002:00000120       __imp__IoCreateDevice@28   00030ce0     ntoskrnl:ntoskrnl.exe
+ 0002:00000124       __imp__IoWMIRegistrationControl@8 00030ce4     ntoskrnl:ntoskrnl.exe
+ 0002:00000128       __imp__RtlAssert@16        00030ce8     ntoskrnl:ntoskrnl.exe
+ 0002:0000012c       __imp__RtlEqualUnicodeString@12 00030cec     ntoskrnl:ntoskrnl.exe
+ 0002:00000130       __imp__IoGetDeviceObjectPointer@16 00030cf0     ntoskrnl:ntoskrnl.exe
+ 0002:00000134       __imp_@ObfDereferenceObject@4 00030cf4     ntoskrnl:ntoskrnl.exe
+ 0002:00000138       __imp__RtlInitUnicodeString@8 00030cf8     ntoskrnl:ntoskrnl.exe
+ 0002:0000013c       __imp__RtlUnicodeStringToInteger@12 00030cfc     ntoskrnl:ntoskrnl.exe
+ 0002:00000140       __imp__IoReleaseRemoveLockAndWaitEx@12 00030d00     ntoskrnl:ntoskrnl.exe
+ 0002:00000144       __imp__IoReleaseRemoveLockEx@12 00030d04     ntoskrnl:ntoskrnl.exe
+ 0002:00000148       __imp__IoAcquireRemoveLockEx@20 00030d08     ntoskrnl:ntoskrnl.exe
+ 0002:0000014c       __imp__ExAllocatePoolWithTag@12 00030d0c     ntoskrnl:ntoskrnl.exe
+ 0002:00000150       __imp__memmove             00030d10     ntoskrnl:ntoskrnl.exe
+ 0002:00000154       __imp__RtlQueryRegistryValues@20 00030d14     ntoskrnl:ntoskrnl.exe
+ 0002:00000158       __imp__ExFreePool@4        00030d18     ntoskrnl:ntoskrnl.exe
+ 0002:0000015c       __imp__KeSetEvent@12       00030d1c     ntoskrnl:ntoskrnl.exe
+ 0002:00000160       __imp__strstr              00030d20     ntoskrnl:ntoskrnl.exe
+ 0002:00000164       __imp__DbgPrint            00030d24     ntoskrnl:ntoskrnl.exe
+ 0002:00000168       __imp__sprintf             00030d28     ntoskrnl:ntoskrnl.exe
+ 0002:0000016c       \177ntoskrnl_NULL_THUNK_DATA 00030d2c     ntoskrnl:ntoskrnl.exe
+ 0002:000001c4       ??_C@_0BG@DFFM@ExtensionSignatureEnd?$AA@ 00030d84     debug.obj
+ 0002:000001dc       ??_C@_0CC@HDOA@HwProfileChangeNotificationHandl@ 00030d9c     debug.obj
+ 0002:00000200       ??_C@_0L@CCAE@RemoveLock?$AA@ 00030dc0     debug.obj
+ 0002:0000020c       ??_C@_05PNMN@dummy?$AA@    00030dcc     debug.obj
+ 0002:00000214       ??_C@_0BC@HBDN@DeviceDescription?$AA@ 00030dd4     debug.obj
+ 0002:00000228       ??_C@_0P@HBID@DeviceIdString?$AA@ 00030de8     debug.obj
+ 0002:00000238       ??_C@_0BF@PCAD@WmiRegistrationCount?$AA@ 00030df8     debug.obj
+ 0002:00000250       ??_C@_0O@NFDE@WmiLibContext?$AA@ 00030e10     debug.obj
+ 0002:00000260       ??_C@_03BGKD@log?$AA@      00030e20     debug.obj
+ 0002:00000264       ??_C@_08KCA@P12843DL?$AA@  00030e24     debug.obj
+ 0002:00000270       ??_C@_0L@GDCH@IsCritical?$AA@ 00030e30     debug.obj
+ 0002:0000027c       ??_C@_0BC@FMPG@IsIeeeTerminateOk?$AA@ 00030e3c     debug.obj
+ 0002:00000290       ??_C@_0L@EHIN@ModeSafety?$AA@ 00030e50     debug.obj
+ 0002:0000029c       ??_C@_0BB@EDBO@BadProtocolModes?$AA@ 00030e5c     debug.obj
+ 0002:000002b0       ??_C@_0BH@HFBG@ProtocolModesSupported?$AA@ 00030e70     debug.obj
+ 0002:000002c8       ??_C@_0L@MKGC@PauseEvent?$AA@ 00030e88     debug.obj
+ 0002:000002d4       ??_C@_0BI@JOMD@bIsHostRecoverSupported?$AA@ 00030e94     debug.obj
+ 0002:000002ec       ??_C@_0BC@EKAK@bFirstByteTimeout?$AA@ 00030eac     debug.obj
+ 0002:00000300       ??_C@_0N@OEMA@bSynchWrites?$AA@ 00030ec0     debug.obj
+ 0002:00000310       ??_C@_06JJDH@spare3?$AA@   00030ed0     debug.obj
+ 0002:00000318       ??_C@_0N@FPCJ@ShadowBuffer?$AA@ 00030ed8     debug.obj
+ 0002:00000328       ??_C@_0O@ILDF@bShadowBuffer?$AA@ 00030ee8     debug.obj
+ 0002:00000338       ??_C@_06DDKA@spare2?$AA@   00030ef8     debug.obj
+ 0002:00000340       ??_C@_0M@INEG@SystemState?$AA@ 00030f00     debug.obj
+ 0002:0000034c       ??_C@_0M@CHDH@DeviceState?$AA@ 00030f0c     debug.obj
+ 0002:00000358       ??_C@_0O@KBIF@LockPortMutex?$AA@ 00030f18     debug.obj
+ 0002:00000368       ??_C@_0BC@JLCB@SetReverseAddress?$AA@ 00030f28     debug.obj
+ 0002:0000037c       ??_C@_0BC@BKIL@SetForwardAddress?$AA@ 00030f3c     debug.obj
+ 0002:00000390       ??_C@_0BI@GGLP@ReverseInterfaceAddress?$AA@ 00030f50     debug.obj
+ 0002:000003a8       ??_C@_0BI@EOHI@ForwardInterfaceAddress?$AA@ 00030f68     debug.obj
+ 0002:000003c0       ??_C@_0N@OEKI@ProtocolData?$AA@ 00030f80     debug.obj
+ 0002:000003d0       ??_C@_0M@LINH@IdleTimeout?$AA@ 00030f90     debug.obj
+ 0002:000003dc       ??_C@_07KLBH@fnWrite?$AA@  00030f9c     debug.obj
+ 0002:000003e4       ??_C@_06MPNE@fnRead?$AA@   00030fa4     debug.obj
+ 0002:000003ec       ??_C@_06MMNC@spare4?$AA@   00030fac     debug.obj
+ 0002:000003f4       ??_C@_0BE@LBDN@AllocatedByLockPort?$AA@ 00030fb4     debug.obj
+ 0002:00000408       ??_C@_09PHGC@Connected?$AA@ 00030fc8     debug.obj
+ 0002:00000414       ??_C@_09OKFG@OneSecond?$AA@ 00030fd4     debug.obj
+ 0002:00000420       ??_C@_0BC@MCBA@AbsoluteOneSecond?$AA@ 00030fe0     debug.obj
+ 0002:00000434       ??_C@_0BG@NPLB@InitializationTimeout?$AA@ 00030ff4     debug.obj
+ 0002:0000044c       ??_C@_0BA@PALH@UseNT35Priority?$AA@ 0003100c     debug.obj
+ 0002:0000045c       ??_C@_0BG@KLFG@TimeToTerminateThread?$AA@ 0003101c     debug.obj
+ 0002:00000474       ??_C@_0BB@MGAP@DeferredWorkItem?$AA@ 00031034     debug.obj
+ 0002:00000488       ??_C@_0BE@FAKA@BusyDelayDetermined?$AA@ 00031048     debug.obj
+ 0002:0000049c       ??_C@_09LAKJ@BusyDelay?$AA@ 0003105c     debug.obj
+ 0002:000004a8       ??_C@_0L@POCO@bAllocated?$AA@ 00031068     debug.obj
+ 0002:000004b4       ??_C@_09OIOM@FifoWidth?$AA@ 00031074     debug.obj
+ 0002:000004c0       ??_C@_09NMDO@FifoDepth?$AA@ 00031080     debug.obj
+ 0002:000004cc       ??_C@_0P@JAFO@DeselectDevice?$AA@ 0003108c     debug.obj
+ 0002:000004dc       ??_C@_0BA@LDEF@TrySelectDevice?$AA@ 0003109c     debug.obj
+ 0002:000004ec       ??_C@_0O@DHMP@ClearChipMode?$AA@ 000310ac     debug.obj
+ 0002:000004fc       ??_C@_0P@PNLM@TrySetChipMode?$AA@ 000310bc     debug.obj
+ 0002:0000050c       ??_C@_0BF@KMMN@HardwareCapabilities?$AA@ 000310cc     debug.obj
+ 0002:00000524       ??_C@_0M@DBJI@PortContext?$AA@ 000310e4     debug.obj
+ 0002:00000530       ??_C@_0BA@JJNF@QueryNumWaiters?$AA@ 000310f0     debug.obj
+ 0002:00000540       ??_C@_08GOIE@FreePort?$AA@ 00031100     debug.obj
+ 0002:0000054c       ??_C@_0BA@OLLK@TryAllocatePort?$AA@ 0003110c     debug.obj
+ 0002:0000055c       ??_C@_0BB@HPEH@SpanOfController?$AA@ 0003111c     debug.obj
+ 0002:00000570       ??_C@_0O@CLLG@EcrController?$AA@ 00031130     debug.obj
+ 0002:00000580       ??_C@_0L@JKDA@Controller?$AA@ 00031140     debug.obj
+ 0002:0000058c       ??_C@_0BD@NBCP@OriginalController?$AA@ 0003114c     debug.obj
+ 0002:000005a0       ??_C@_0BB@NCPA@RequestSemaphore?$AA@ 00031160     debug.obj
+ 0002:000005b4       ??_C@_0BE@PNJM@ThreadObjectPointer?$AA@ 00031174     debug.obj
+ 0002:000005c8       ??_C@_09IBKE@WorkQueue?$AA@ 00031188     debug.obj
+ 0002:000005d4       ??_C@_0BA@FHCI@DevObjListMutex?$AA@ 00031194     debug.obj
+ 0002:000005e4       ??_C@_0P@JCJN@OpenCloseMutex?$AA@ 000311a4     debug.obj
+ 0002:000005f4       ??_C@_0L@OJPD@PortHWMode?$AA@ 000311b4     debug.obj
+ 0002:00000600       ??_C@_0N@IHKK@CurrentPhase?$AA@ 000311c0     debug.obj
+ 0002:00000610       ??_C@_0N@NNFC@CurrentEvent?$AA@ 000311d0     debug.obj
+ 0002:00000620       ??_C@_0BD@HJLN@IdxReverseProtocol?$AA@ 000311e0     debug.obj
+ 0002:00000634       ??_C@_0BD@IBDM@IdxForwardProtocol?$AA@ 000311f4     debug.obj
+ 0002:00000648       ??_C@_06MMBJ@spare1?$AA@   00031208     debug.obj
+ 0002:00000650       ??_C@_0BK@EDKO@RegForPptRemovalRelations?$AA@ 00031210     debug.obj
+ 0002:0000066c       ??_C@_0BC@JEEN@ParPortDeviceGone?$AA@ 0003122c     debug.obj
+ 0002:00000680       ??_C@_0BC@BLG@OpenCloseRefCount?$AA@ 00031240     debug.obj
+ 0002:00000694       ??_C@_0N@KKGC@Initializing?$AA@ 00031254     debug.obj
+ 0002:000006a4       ??_C@_0M@EJGN@Initialized?$AA@ 00031264     debug.obj
+ 0002:000006b0       ??_C@_0P@HGMN@UsePIWriteLoop?$AA@ 00031270     debug.obj
+ 0002:000006c0       ??_C@_0BE@EGLM@CreatedSymbolicLink?$AA@ 00031280     debug.obj
+ 0002:000006d4       ??_C@_0L@NNNB@TimerStart?$AA@ 00031294     debug.obj
+ 0002:000006e0       ??_C@_0BB@MFAO@SymbolicLinkName?$AA@ 000312a0     debug.obj
+ 0002:000006f4       ??_C@_09HANA@ClassName?$AA@ 000312b4     debug.obj
+ 0002:00000700       ??_C@_0BD@LFNE@NotificationHandle?$AA@ 000312c0     debug.obj
+ 0002:00000714       ??_C@_0N@PGOP@CurrentOpIrp?$AA@ 000312d4     debug.obj
+ 0002:00000724       ??_C@_0BD@IHDM@ParentDeviceObject?$AA@ 000312e4     debug.obj
+ 0002:00000738       ??_C@_0BF@FPIP@PhysicalDeviceObject?$AA@ 000312f8     debug.obj
+ 0002:00000750       ??_C@_0BF@OBJK@PortSymbolicLinkName?$AA@ 00031310     debug.obj
+ 0002:00000768       ??_C@_0BF@JGJI@PortDeviceFileObject?$AA@ 00031328     debug.obj
+ 0002:00000780       ??_C@_0BB@LAFE@PortDeviceObject?$AA@ 00031340     debug.obj
+ 0002:00000794       ??_C@_0N@GMH@DeviceObject?$AA@ 00031354     debug.obj
+ 0002:000007a4       ??_C@_04CIMM@Next?$AA@     00031364     debug.obj
+ 0002:000007ac       ??_C@_0M@IIGB@ParClassPdo?$AA@ 0003136c     debug.obj
+ 0002:000007b8       ??_C@_0M@EFHM@ParClassFdo?$AA@ 00031378     debug.obj
+ 0002:000007c4       ??_C@_0O@FPC@PodoRegForWMI?$AA@ 00031384     debug.obj
+ 0002:000007d4       ??_C@_0L@LLGN@EndOfChain?$AA@ 00031394     debug.obj
+ 0002:000007e0       ??_C@_05BLKL@IsPdo?$AA@    000313a0     debug.obj
+ 0002:000007e8       ??_C@_0BD@KNFD@Ieee1284_3DeviceId?$AA@ 000313a8     debug.obj
+ 0002:000007fc       ??_C@_0BB@MDOE@DeviceStateFlags?$AA@ 000313bc     debug.obj
+ 0002:00000810       ??_C@_0L@NDCM@DeviceType?$AA@ 000313d0     debug.obj
+ 0002:0000081c       ??_C@_0BD@LMLJ@ExtensionSignature?$AA@ 000313dc     debug.obj
+ 0002:00000830       _PhysicalZero              000313f0     parclass.obj
+ 0002:00000838       ??_C@_0DO@JPMD@MFG?3IMG?$DLCMD?3?$DLMDL?3VP0?$DLCLS?3SCSIADA@ 000313f8     parclass.obj
+ 0002:00000878       _GUID_TARGET_DEVICE_REMOVE_COMPLETE 00031438     parclass.obj
+ 0002:00000888       _GUID_TARGET_DEVICE_REMOVE_CANCELLED 00031448     parclass.obj
+ 0002:00000898       _GUID_TARGET_DEVICE_QUERY_REMOVE 00031458     parclass.obj
+ 0002:000008a8       _GUID_DEVICE_INTERFACE_ARRIVAL 00031468     parclass.obj
+ 0002:000008b8       _GUID_HWPROFILE_CHANGE_COMPLETE 00031478     parclass.obj
+ 0002:000008c8       _GUID_PARALLEL_DEVICE      00031488     parclass.obj
+ 0003:000003d8       _afpForward                00031878     ieee1284.obj
+ 0003:000004d8       _arpReverse                00031978     ieee1284.obj
+ 0003:0000067c       _Dot3_StartOfFrame1        00031b1c     p12843dl.obj
+ 0003:00000680       _Dot3_StartOfFrame2        00031b20     p12843dl.obj
+ 0003:00000684       _Dot3_EndOfFrame2          00031b24     p12843dl.obj
+ 0003:000006a0       _ParDebugLevel             00031b40     parclass.obj
+ 0003:000006a4       _ParLegacyZipPseudoId      00031b44     parclass.obj
+ 0003:000006a8       _tdev1                     00031b48     parclass.obj
+ 0003:000006ac       _OpenCloseReferenceCount   00031b4c     parclass.obj
+ 0003:000006e8       _ParInt2Wchar              00031b88     pnp.obj
+ 0003:00000750       _gsuc                      00031bf0     rescan.obj
+ 0003:000007b8       _ParWmiPdoBytesTransferredGuid 00031c58     wmipdo.obj
+ 0003:000007c8       _ParWmiPdoGuidList         00031c68     wmipdo.obj
+ 0003:000007d8       _Dot3_EndOfFrame1          00031c78     p12843dl.obj
+ 0003:000007dc       _ParBreakOn                00031c7c     parclass.obj
+ 0003:000007e0       _ParUseAsserts             00031c80     parclass.obj
+ 0003:000007e4       _ParEnableLegacyZip        00031c84     parclass.obj
+ 0003:000007e8       _DumpDevExtTable           00031c88     parclass.obj
+ 0003:000007ec       _SppNoRaiseIrql            00031c8c     parclass.obj
+ 0003:000007f0       _DefaultModes              00031c90     parclass.obj
+ 0003:000007f4       _gSppLoopDelay             00031c94     parclass.obj
+ 0003:000007f8       _gSppLoopBytesPerDelay     00031c98     parclass.obj
+ 0003:000007fc       _tdev2                     00031c9c     parclass.obj
+ 0003:00000800       _OpenCloseMutex            00031ca0     parclass.obj
+ 0003:00000808       _g_NumPorts                00031ca8     pnp.obj
+ 0003:00000810       _RegistryPath              00031cb0     pnp.obj
+ 0003:00000818       _AcquirePortTimeout        00031cb8     <common>
+ 0004:0000003a       _ParWmiPdoInitWmi@4        00031cfa f   wmipdo.obj
+ 0004:000000f4       _ParWmiPdoSystemControlDispatch@8 00031db4 f   wmipdo.obj
+ 0004:00000224       _ParWmiPdoQueryWmiRegInfo@24 00031ee4 f   wmipdo.obj
+ 0004:00000395       _ParWmiPdoQueryWmiDataBlock@32 00032055 f   wmipdo.obj
+ 0005:00000000       __IMPORT_DESCRIPTOR_ntoskrnl 00032100     ntoskrnl:ntoskrnl.exe
+ 0005:00000014       __IMPORT_DESCRIPTOR_HAL    00032114     hal:HAL.dll
+ 0005:00000028       __IMPORT_DESCRIPTOR_WMILIB 00032128     wmilib:WMILIB.SYS
+ 0005:0000003c       __NULL_IMPORT_DESCRIPTOR   0003213c     ntoskrnl:ntoskrnl.exe
+
+ entry point at        0001:00009374
+
+ Static symbols
+
+
+ 25 bytes saved through ICF
+

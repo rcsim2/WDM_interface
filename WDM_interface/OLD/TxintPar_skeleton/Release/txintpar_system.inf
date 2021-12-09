@@ -1,0 +1,42 @@
+[Version]
+Signature=$CHICAGO$
+Class=UNKNOWN
+Provider="Black Sphere Corp."
+
+[Manufacturer]
+"Black Sphere Corp."=WCO
+
+[DestinationDirs]
+DefaultDestDir=10,System
+
+[SourceDiskFiles]
+TxintPar.sys=1
+
+[SourceDiskNames]
+1="Install disk",disk1
+
+[WCO]
+"WDM Parallel Port Tx Interface Driver"=TxintParInstall,*WCO1234
+
+[TxintParInstall]
+AddReg=TxintPar.AddReg
+CopyFiles=TxintPar.CopyFiles
+
+[TxintPar.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,TxintPar.sys
+
+[TxintPar.CopyFiles]
+TxintPar.sys,,,2
+
+[TxintParInstall.NT]
+CopyFiles=TxintPar.CopyFiles
+
+[TxintParInstall.NT.Services]
+AddService=TxintPar,2,TxintParService
+
+[TxintParService]
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%10%\System\TxintPar.sys

@@ -1,0 +1,135 @@
+BODY {
+	FONT-FAMILY: Arial, helvetica, sans-serif
+}
+A:link {
+	COLOR: #333399; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #996699; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #663366; TEXT-DECORATION: none
+}
+.text {
+	FONT-SIZE: 9pt; COLOR: #000000; LINE-HEIGHT: 11pt; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.textp {
+	FONT-WEIGHT: bold; FONT-SIZE: 9pt; COLOR: #8080c0; LINE-HEIGHT: 11pt; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.texti {
+	FONT-SIZE: 9pt; COLOR: #000000; LINE-HEIGHT: 11pt; FONT-STYLE: italic; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.textsmall_b {
+	FONT-WEIGHT: bold; FONT-SIZE: 7pt; COLOR: #000000; LINE-HEIGHT: 12pt; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.textred {
+	FONT-SIZE: 10pt; COLOR: #cc3333; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.texta {
+	FONT-SIZE: 8pt; COLOR: #000000; LINE-HEIGHT: 9pt; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.textaa {
+	FONT-SIZE: 8pt; COLOR: #000000; LINE-HEIGHT: 9pt; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.textace {
+	FONT-SIZE: 8pt; COLOR: #663366; LINE-HEIGHT: 9pt; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.h1p {
+	FONT-WEIGHT: bold; FONT-SIZE: 18pt; COLOR: #8080c0; FONT-FAMILY: times new roman, times, serif
+}
+.h1b {
+	FONT-WEIGHT: bold; FONT-SIZE: 18pt; COLOR: #000000; FONT-FAMILY: times new roman, times, serif
+}
+.h1m {
+	FONT-WEIGHT: bold; FONT-SIZE: 18pt; COLOR: #669999; FONT-FAMILY: times new roman, times, serif
+}
+.h2d {
+	FONT-WEIGHT: bold; FONT-SIZE: 14pt; COLOR: #996699; FONT-FAMILY: times new roman, times, serif
+}
+.h2p {
+	FONT-WEIGHT: bold; FONT-SIZE: 14pt; COLOR: #8080c0; FONT-FAMILY: times new roman, times, serif
+}
+.h2o {
+	FONT-WEIGHT: bold; FONT-SIZE: 14pt; COLOR: #ff6633; FONT-FAMILY: times new roman, times, serif
+}
+.h2r {
+	FONT-WEIGHT: bold; FONT-SIZE: 14pt; COLOR: #cc3333; FONT-FAMILY: times new roman, times, serif
+}
+.h2c {
+	FONT-WEIGHT: bold; FONT-SIZE: 14pt; COLOR: #cc9933; FONT-FAMILY: times new roman, times, serif
+}
+.h2g {
+	FONT-WEIGHT: bold; FONT-SIZE: 14pt; COLOR: #999999; FONT-FAMILY: times new roman, times, serif
+}
+.h2cd {
+	FONT-WEIGHT: bold; FONT-SIZE: 14pt; COLOR: #996699; FONT-FAMILY: times new roman, times, serif
+}
+.h2m {
+	FONT-WEIGHT: bold; FONT-SIZE: 14pt; COLOR: #669999; FONT-FAMILY: times new roman, times, serif
+}
+.h2b {
+	FONT-WEIGHT: bold; FONT-SIZE: 14pt; COLOR: #996666; FONT-FAMILY: times new roman, times, serif
+}
+.h2bl {
+	FONT-WEIGHT: bold; FONT-SIZE: 14pt; COLOR: #000000; FONT-FAMILY: times new roman, times, serif
+}
+.h3p {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; COLOR: #8080c0; FONT-FAMILY: times new roman, times, serif
+}
+.h3bl {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; COLOR: #000000; FONT-FAMILY: times new roman, times, serif
+}
+.h2gr {
+	FONT-WEIGHT: bold; FONT-SIZE: 14pt; COLOR: #663366; FONT-FAMILY: times new roman, times, serif
+}
+.textbold {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.textboldcp {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #8080c0; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.textboldcg {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #663366; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.textboldcb {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #996666; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.textboldcd {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #996699; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.textboldcgi {
+	FONT-SIZE: 10pt; COLOR: #663366; FONT-STYLE: italic; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.textboldcgr {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #666666; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.textboldcw {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #ffffff; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.textboldcr {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #ff0000; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.textboldgr {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #999999; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.textboldred {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #cc3333; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.textlargecg {
+	FONT-WEIGHT: bold; FONT-SIZE: 25pt; COLOR: #cccccc; FONT-FAMILY: times new roman, times, serif
+}
+.textmediumcg {
+	FONT-WEIGHT: bold; FONT-SIZE: 18pt; COLOR: #999999; FONT-FAMILY: times new roman, times, serif
+}
+.calloutcg {
+	FONT-WEIGHT: bold; FONT-SIZE: 13pt; COLOR: #996699; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.calloutcp {
+	FONT-WEIGHT: bold; FONT-SIZE: 13pt; COLOR: #8080c0; FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.gray {
+	FONT-FAMILY: Arial, helvetica, sans-serif
+}
+.gray {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #333333
+}

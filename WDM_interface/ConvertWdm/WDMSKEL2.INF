@@ -1,0 +1,42 @@
+[Version]
+Signature=$CHICAGO$
+Class=UNKNOWN
+Provider="Walter Oney Software"
+
+[Manufacturer]
+"Walter Oney Software"=WCO
+
+[DestinationDirs]
+DefaultDestDir=10,System32\Drivers
+
+[SourceDiskFiles]
+WdmSkel.sys=1
+
+[SourceDiskNames]
+1="Install disk",disk1
+
+[WCO]
+"WDM Skeleton Driver"=WdmSkelInstall,*WCO1234
+
+[WdmSkelInstall]
+AddReg=WdmSkel.AddReg
+CopyFiles=WdmSkel.CopyFiles
+
+[WdmSkel.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,WdmSkel.sys
+
+[WdmSkel.CopyFiles]
+WdmSkel.sys,,,2
+
+[WdmSkelInstall.NT]
+CopyFiles=WdmSkel.CopyFiles
+
+[WdmSkelInstall.NT.Services]
+AddService=WdmSkel,2,WdmSkelService
+
+[WdmSkelService]
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%10%\system32\drivers\WdmSkel.sys

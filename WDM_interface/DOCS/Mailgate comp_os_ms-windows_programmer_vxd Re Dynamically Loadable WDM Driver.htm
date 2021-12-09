@@ -1,0 +1,167 @@
+<!--X-Subject: Re: Dynamically Loadable WDM Driver -->
+<!--X-From: Walter Oney <waltoney@oneysoft.com> -->
+<!--X-Date: Sun, 06 May 2001 09:01:29 &#45;0400 -->
+<!--X-Message-Id: 3AF54B29.2A12334A@oneysoft.com -->
+<!--X-Content-Type: text/plain -->
+<!--X-Reference: 001101c0d59a$b446e9c0$c5443b3e@qcomp2 -->
+<!--X-Head-End-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Mailgate: comp.os.ms-windows.programmer.vxd: Re: Dynamically Loadable WDM Driver</TITLE>
+<META NAME="description" CONTENT="Mailgate.ORG Web Server: newsgroup comp.os.ms-windows.programmer.vxd: Re: Dynamically Loadable WDM Driver by waltoney@oneysoft.com (Walter Oney)">
+<META NAME="keywords" CONTENT="comp.os.ms-windows.programmer.vxd, Re: Dynamically Loadable WDM Driver, COMPUTER, Mailgate, waltoney@oneysoft.com, Walter Oney, Usenet, Newsgroup, Gateway, Big-8">
+<META NAME="author" CONTENT="Walter Oney">
+<META NAME="from" CONTENT="waltoney@oneysoft.com">
+<META NAME="subject" CONTENT="Re: Dynamically Loadable WDM Driver">
+<META NAME="message-id" CONTENT="3AF54B29.2A12334A@oneysoft.com">
+<LINK REL="stylesheet" TYPE="text/css" HREF="http://www.mailgate.org/server/message.css">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+  var time = new Date();
+  ordval= (time.getTime());
+//-->
+</SCRIPT>
+</HEAD>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<BODY BGCOLOR="White" BACKGROUND="/images/background.gif" BGPROPERTIES="fixed">
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<CENTER>
+<TABLE WIDTH="468" BORDER="0" CELLPADDING="0" CELLSPACING="8">
+<TR><TD>
+<A HREF="/index.html" TARGET="_top"><IMG BORDER="0" ALIGN="right" SRC="/images/minilogo.gif" ALT="Mailgate.ORG Web Server"></A>
+<A HREF="msg02874.html"><IMG BORDER="0" SRC="/images/prv.gif" ALT="[Previous]"></A>
+<A HREF="msg02876.html"><IMG BORDER="0" SRC="/images/nxt.gif" ALT="[Next]"></A>
+
+<A HREF="mailto:comp.os.ms-windows.programmer.vxd@mailgate.org?Subject=Re: Re: Dynamically Loadable WDM Driver&References=<3AF54B29.2A12334A@oneysoft.com>"><IMG BORDER="0" SRC="/images/rpl.gif" ALT="[Reply]"></A>
+<A HREF="index.html#02875"><IMG BORDER="0" SRC="/images/idx.gif" ALT="[Index]"></A>
+<A HREF="/comp/index.html#comp.os.ms-windows.programmer.vxd"><IMG BORDER="0" SRC="/images/hme.gif" ALT="[Home]"></A>
+<A HREF="http://search.mailgate.org/comp/comp.os.ms-windows.programmer.vxd"><IMG BORDER="0" SRC="/images/fnd.gif" ALT="[Find]"></A>
+</TD></TR>
+<TR HEIGHT="60"><TD>
+<!--Start-AdSpace-468x60-->
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+ document.write ('<ILAYER ID="layer1" VISIBILITY="hidden" WIDTH="468" HEIGHT="60"></ILAYER>');
+ document.write ('<NOLAYER>');
+ document.write ('<IFRAME SRC="http://ad.sma.punto.net/adi/www.mailgate.org/comp.os.ms-windows.programmer.vxd;sz=468x60;tile=1;ord='+ordval+'?" WIDTH="468" HEIGHT="60" MARGINWIDTH="0" MARGINHEIGHT="0" HSPACE="0" VSPACE="0" FRAMEBORDER="0" SCROLLING="no">');
+ document.write ('<A HREF="http://ad.sma.punto.net/jump/www.mailgate.org/comp.os.ms-windows.programmer.vxd;abr=!ie4;abr=!ie5;sz=468x60;tile=1;ord='+ordval+'?">');
+ document.write ('<IMG SRC="http://ad.sma.punto.net/ad/www.mailgate.org/comp.os.ms-windows.programmer.vxd;abr=!ie4;abr=!ie5;sz=468x60;tile=1;ord='+ordval+'?" BORDER="0" WIDTH="468" HEIGHT="60"></A></IFRAME>');
+ document.write ('</NOLAYER>'); 
+//-->
+</SCRIPT>
+<NOSCRIPT>
+ <A HREF="http://ad.sma.punto.net/jump/www.mailgate.org/comp.os.ms-windows.programmer.vxd;abr=!NN2;sz=468x60;tile=1;ord=496029995?">
+ <IMG SRC="http://ad.sma.punto.net/ad/www.mailgate.org/comp.os.ms-windows.programmer.vxd;abr=!NN2;sz=468x60;tile=1;ord=496029995?" BORDER="0" WIDTH="468" HEIGHT="60"></A>
+</NOSCRIPT>
+<!--End-AdSpace-468x60-->
+</TD></TR>
+</TABLE>
+</CENTER>
+
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<UL>
+<LI><strong>Newsgroups</strong>: comp.os.ms-windows.programmer.vxd</LI>
+<LI><strong>From</strong>: Walter Oney &lt;<A HREF="mailto:waltoney@oneysoft.com">waltoney@oneysoft.com</A>&gt;</LI>
+<LI><strong>Subject</strong>: Re: Dynamically Loadable WDM Driver</LI>
+<LI><strong>Date</strong>: Sun, 06 May 2001 09:01:29 -0400</LI>
+<LI><strong>Organization</strong>: Walter Oney Software</LI>
+</UL>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<HR>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<PRE>
+"Rik G." wrote:
+&gt; Could anyone please tell me what's the equivalent of dynamically loadable
+&gt; VxD's (CreateFile/DeleteFile) in the WDM?
+
+This is one thing you can't do with WDM drivers in Win98. In Win2K, you
+can use the service control manager to load and unload drivers, but
+Win98 doesn't have such a beast. The reason for this restriction is
+basically that WDM drivers are intended just for hardware. To get
+kernel-mode support for an application, you should continue to use a
+VxD.
+
+--
+Walter Oney
+<A  HREF="http://www.oneysoft.com">http://www.oneysoft.com</A>
+</PRE>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<HR>
+<SPAN CLASS="medium-red">Mailgate Follow-Ups:</SPAN>
+<BR>
+<DIV CLASS="list">
+<IMG BORDER="0" SRC="/images/text.gif" ALT=""><A NAME="02876" HREF="msg02876.html">Re: Dynamically Loadable WDM Driver</A>, Martin Maurer<BR>
+</DIV>
+<HR SIZE="1">
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<SPAN CLASS="medium-red">Mailgate References:</SPAN>
+<BR>
+<DIV CLASS="list">
+<IMG BORDER="0" SRC="/images/text.gif" ALT=""><A NAME="02868" HREF="msg02868.html">Dynamically Loadable WDM Driver</A>, Rik G.<BR>
+</DIV>
+<HR SIZE="1">
+<!--X-References-End-->
+<!--X-BotPNI-->
+<CENTER>
+<TABLE WIDTH="468" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+<TR><TD>
+<A HREF="msg02874.html"><IMG BORDER="0" SRC="/images/prv.gif" ALT="[Previous]"></A>
+<A HREF="msg02876.html"><IMG BORDER="0" SRC="/images/nxt.gif" ALT="[Next]"></A>
+
+<A HREF="mailto:comp.os.ms-windows.programmer.vxd@mailgate.org?Subject=Re: Re: Dynamically Loadable WDM Driver&References=<3AF54B29.2A12334A@oneysoft.com>"><IMG BORDER="0" SRC="/images/rpl.gif" ALT="[Reply]"></A>
+<A HREF="index.html#02875"><IMG BORDER="0" SRC="/images/idx.gif" ALT="[Index]"></A>
+<A HREF="/comp/index.html#comp.os.ms-windows.programmer.vxd"><IMG BORDER="0" SRC="/images/hme.gif" ALT="[Home]"></A>
+<A HREF="http://search.mailgate.org/comp/comp.os.ms-windows.programmer.vxd"><IMG BORDER="0" SRC="/images/fnd.gif" ALT="[Find]"></A>
+</TD>
+<TD ROWSPAN="2" WIDTH="120" HEIGHT="60">
+<!--Start-AdSpace-120x60-->
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+ document.write ('<ILAYER ID="layer3" VISIBILITY="hidden" WIDTH="120" HEIGHT="60"></ILAYER>');
+ document.write ('<NOLAYER>');
+ document.write ('<IFRAME SRC="http://ad.sma.punto.net/adi/www.mailgate.org/comp.os.ms-windows.programmer.vxd;sz=120x60;tile=3;ord='+ordval+'?" WIDTH="120" HEIGHT="60" MARGINWIDTH="0" MARGINHEIGHT="0" HSPACE="0" VSPACE="0" FRAMEBORDER="0" SCROLLING="no">');
+ document.write ('<A HREF="http://ad.sma.punto.net/jump/www.mailgate.org/comp.os.ms-windows.programmer.vxd;abr=!ie4;abr=!ie5;sz=120x60;tile=3;ord='+ordval+'?">');
+ document.write ('<IMG SRC="http://ad.sma.punto.net/ad/www.mailgate.org/comp.os.ms-windows.programmer.vxd;abr=!ie4;abr=!ie5;sz=120x60;tile=3;ord='+ordval+'?" BORDER="0" WIDTH="120" HEIGHT="60"></A></IFRAME>');
+ document.write ('</NOLAYER>'); 
+//-->
+</SCRIPT>
+<NOSCRIPT>
+ <A HREF="http://ad.sma.punto.net/jump/www.mailgate.org/comp.os.ms-windows.programmer.vxd;abr=!NN2;sz=120x60;tile=3;ord=966180578?">
+ <IMG SRC="http://ad.sma.punto.net/ad/www.mailgate.org/comp.os.ms-windows.programmer.vxd;abr=!NN2;sz=120x60;tile=3;ord=966180578?" BORDER="0" WIDTH="120" HEIGHT="60"></A>
+</NOSCRIPT>
+<!--End-AdSpace-120x60-->
+</TD></TR>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<TR><TD CLASS="small">
+<A HREF="http://www.mailgate.org/index.html" TARGET="_top">Mailgate.ORG</A> is maintained online by
+<A HREF="mailto:webmaster@mailgate.org">Dario Centofanti</A>
+</TD></TR>
+</TABLE>
+</CENTER>
+<!--Start-AdLayer-->
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+document.writeln ('<LAYER SRC="http://ad.sma.punto.net/adl/www.mailgate.org/comp.os.ms-windows.programmer.vxd;sz=468x60;tile=1;ord='+ordval+'?" VISIBILITY="hidden" WIDTH="468" HEIGHT="60" ONLOAD="moveToAbsolute(layer1.pageX,layer1.pageY);clip.height=60;clip.width=468;visibility=\'show\';"></LAYER>');
+document.writeln ('<LAYER SRC="http://ad.sma.punto.net/adl/www.mailgate.org/comp.os.ms-windows.programmer.vxd;sz=120x60;tile=3;ord='+ordval+'?" VISIBILITY="hidden" WIDTH="120" HEIGHT="60" ONLOAD="moveToAbsolute(layer3.pageX,layer3.pageY);clip.height=60;clip.width=120;visibility=\'show\';"></LAYER>');
+//-->
+</SCRIPT>
+<!--End-AdLayer-->
+<!--X-User-Footer-End-->
+</BODY>
+</HTML>

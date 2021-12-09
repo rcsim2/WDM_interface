@@ -1,0 +1,83 @@
+Return-Path: <mfeigin@jemtex.com>
+Received: from relay1.zonnet.nl ([10.170.1.1]) by
+          mail2.zonnet.nl (Netscape Messaging Server 4.15) with ESMTP id
+          GPMHX200.BUC for <rgosens2@zonnet.nl>; Tue, 8 Jan 2002 15:07:51 +0100 
+Received: from mail02.zonnet.nl ([10.170.1.44]) by
+          relay1.zonnet.nl (Netscape Messaging Server 4.15) with ESMTP id
+          GPMHPW01.K0O for <rgosens2@zonnet.nl>; Tue, 8 Jan 2002 15:03:32 +0100 
+Received: from jemtex.com (unknown [192.116.231.53])
+	by mail02.zonnet.nl (Postfix) with ESMTP id 07C4A3766
+	for <rgosens2@zonnet.nl>; Tue,  8 Jan 2002 14:56:56 +0100 (MET)
+Received: from stork by jemtex.com
+	with SMTP (MDaemon.v2.84.R)
+	for <rgosens2@zonnet.nl>; Tue, 08 Jan 2002 15:56:06 +0200
+Message-ID: <002501c1984c$3a501db0$3b00a8c0@stork>
+From: "Michael Feigin" <mfeigin@jemtex.com>
+To: "Rik G." <rgosens2@zonnet.nl>
+References: <M7oZ7.45627$sl6.127282@zonnet-reader-1>
+Subject: Re: Sending IOCTL_INTERNAL_PARALLEL_CONNECT_INTERRUPT to LPT1
+Date: Tue, 8 Jan 2002 15:56:10 +0200
+MIME-Version: 1.0
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook Express 6.00.2600.0000
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2600.0000
+X-MDaemon-Deliver-To: rgosens2@zonnet.nl
+X-Return-Path: mfeigin@jemtex.com
+
+ // obtain pointer to device object LPT1
+#define NT_DEVICE_NAME L"\\Device\\ParallelPort0"
+
+ UNICODE_STRING deviceName;
+ RtlInitUnicodeString(&deviceName, NT_DEVICE_NAME);
+
+ PFILE_OBJECT ParPortFileObject = NULL;
+ NTSTATUS status = IoGetDeviceObjectPointer(&deviceName,
+  FILE_ALL_ACCESS,
+  &ParPortFileObject,
+  &dx->PortDeviceObject);
+
+ if (!NT_SUCCESS(status))
+ {
+  DebugPrint("IoGetDeviceObjectPointer \\Device\\ParallelPort0 failed %x",
+status);
+  return status;
+ }
+
+
+ // Close file object
+ ObDereferenceObject(ParPortFileObject);
+
+Best regards,
+Mike
+
+----- Original Message -----
+From: "Rik G." <rgosens2@zonnet.nl>
+Newsgroups: comp.os.ms-windows.programmer.nt.kernel-mode
+Sent: Friday, January 04, 2002 10:21 PM
+Subject: Sending IOCTL_INTERNAL_PARALLEL_CONNECT_INTERRUPT to LPT1
+
+
+> I'm trying to connect an ISR to the parallel port. In
+> IoBuildDeviceIoControlRequest() and IoCallDriver() I need a
+PDEVICE_OBJECT.
+> What should this PDEVICE_OBJECT be for LPT1?
+> Can I get it with IoGetDeviceObjectPointer()? And if so, what should be
+the
+> first argument of IoGetDeviceObjectPointer()? The port's symbolic link
+name?
+> Where can I get that?
+>
+> Regards
+>
+> Rik
+>
+> PS Yes, I know there should be some info in the NT4 DDK Parsimp example.
+I'm
+> downloading this DDK at the moment, but I'm on 56K...
+>
+>
+

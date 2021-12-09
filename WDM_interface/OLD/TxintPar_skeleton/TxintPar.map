@@ -1,0 +1,80 @@
+ TxintPar
+
+ Timestamp is 3b4f2e62 (Fri Jul 13 19:22:42 2001)
+
+ Preferred load address is 00010000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00000047H init                    CODE
+ 0002:00000000 00000921H page                    CODE
+ 0003:00000000 00000058H .idata$5                CODE
+ 0003:00000058 00000084H .rdata                  CODE
+ 0003:000000e0 00000232H .text                   CODE
+ 0004:00000000 00000004H .data                   DATA
+ 0005:00000000 00000028H .idata$2                CODE
+ 0005:00000028 00000014H .idata$3                CODE
+ 0005:0000003c 00000058H .idata$4                CODE
+ 0005:00000094 0000019cH .idata$6                CODE
+ 0006:00000000 00000058H .rsrc$01                DATA
+ 0006:00000060 00000324H .rsrc$02                DATA
+
+  Address         Publics by Value              Rva+Base   Lib:Object
+
+ 0001:00000000       _DriverEntry@8             000102a0 f DriverEntry.obj
+ 0002:0000005a       ?TxintPar_DriverUnload@@YGXPAU_DRIVER_OBJECT@@@Z 0001035a f DriverEntry.obj
+ 0002:00000195       ?TxintPar_AddDevice@@YGJPAU_DRIVER_OBJECT@@PAU_DEVICE_OBJECT@@@Z 00010495 f DriverEntry.obj
+ 0002:0000049a       ?TxP_ForwardAndWait@@YGJPAU_DEVICE_OBJECT@@PAU_IRP@@@Z 0001079a f DriverEntry.obj
+ 0002:00000662       ?TxintPar_DispatchPower@@YGJPAU_DEVICE_OBJECT@@PAU_IRP@@@Z 00010962 f Power.obj
+ 0002:00000700       ?TxP_StartDevice@@YGJPAU_DEVICE_OBJECT@@PAU_CM_PARTIAL_RESOURCE_LIST@@1@Z 00010a00 f ReadWrite.obj
+ 0002:000007b2       ?TxintPar_DispatchPnp@@YGJPAU_DEVICE_OBJECT@@PAU_IRP@@@Z 00010ab2 f PnP.obj
+ 0003:00000000       __imp__KeGetCurrentIrql@0  00010c40   wdm:HAL.DLL
+ 0003:00000004       \177HAL_NULL_THUNK_DATA    00010c44   wdm:HAL.DLL
+ 0003:00000008       __imp__IoDeleteDevice@4    00010c48   wdm:NTOSKRNL.EXE
+ 0003:0000000c       __imp__RtlFreeUnicodeString@4 00010c4c   wdm:NTOSKRNL.EXE
+ 0003:00000010       __imp__DbgPrint            00010c50   wdm:NTOSKRNL.EXE
+ 0003:00000014       __imp__IoAttachDeviceToDeviceStack@8 00010c54   wdm:NTOSKRNL.EXE
+ 0003:00000018       __imp__RtlCopyUnicodeString@8 00010c58   wdm:NTOSKRNL.EXE
+ 0003:0000001c       __imp__ExAllocatePoolWithTag@12 00010c5c   wdm:NTOSKRNL.EXE
+ 0003:00000020       __imp__IoCreateDevice@28   00010c60   wdm:NTOSKRNL.EXE
+ 0003:00000024       __imp__RtlInitUnicodeString@8 00010c64   wdm:NTOSKRNL.EXE
+ 0003:00000028       __imp___snwprintf          00010c68   wdm:NTOSKRNL.EXE
+ 0003:0000002c       __imp__RtlAssert@16        00010c6c   wdm:NTOSKRNL.EXE
+ 0003:00000030       __imp_@IofCompleteRequest@8 00010c70   wdm:NTOSKRNL.EXE
+ 0003:00000034       __imp__KeWaitForSingleObject@20 00010c74   wdm:NTOSKRNL.EXE
+ 0003:00000038       __imp_@IofCallDriver@8     00010c78   wdm:NTOSKRNL.EXE
+ 0003:0000003c       __imp__KeInitializeEvent@12 00010c7c   wdm:NTOSKRNL.EXE
+ 0003:00000040       __imp__KeSetEvent@12       00010c80   wdm:NTOSKRNL.EXE
+ 0003:00000044       __imp__PoCallDriver@8      00010c84   wdm:NTOSKRNL.EXE
+ 0003:00000048       __imp__PoStartNextPowerIrp@4 00010c88   wdm:NTOSKRNL.EXE
+ 0003:0000004c       __imp_@InterlockedIncrement@4 00010c8c   wdm:NTOSKRNL.EXE
+ 0003:00000050       __imp__RtlUnwind@16        00010c90   wdm:NTOSKRNL.EXE
+ 0003:00000054       \177NTOSKRNL_NULL_THUNK_DATA 00010c94   wdm:NTOSKRNL.EXE
+ 0003:000000e0       ?TxP_CompleteRequest@@YGJPAU_IRP@@JK@Z 00010d20 f DriverEntry.obj
+ 0003:00000110       ?TxP_OnRequestComplete@@YGJPAU_DEVICE_OBJECT@@PAU_IRP@@PAU_KEVENT@@@Z 00010d50 f DriverEntry.obj
+ 0003:00000130       ?TxintPar_DispatchWmi@@YGJPAU_DEVICE_OBJECT@@PAU_IRP@@@Z 00010d70 f Wmi.obj
+ 0003:00000170       _DbgPrint                  00010db0 f wdm:NTOSKRNL.EXE
+ 0003:00000180       __except_handler3          00010dc0 f wdm:exsup3.obj
+ 0003:0000022e       __seh_longjmp_unwind@4     00010e6e f wdm:exsup3.obj
+ 0003:0000024c       __global_unwind2           00010e8c f wdm:exsup.obj
+ 0003:0000028e       __local_unwind2            00010ece f wdm:exsup.obj
+ 0003:000002e8       __abnormal_termination     00010f28 f wdm:exsup.obj
+ 0003:0000030c       _RtlUnwind@16              00010f4c f wdm:NTOSKRNL.EXE
+ 0005:00000000       __IMPORT_DESCRIPTOR_NTOSKRNL 00010f80   wdm:NTOSKRNL.EXE
+ 0005:00000014       __IMPORT_DESCRIPTOR_HAL    00010f94   wdm:HAL.DLL
+ 0005:00000028       __NULL_IMPORT_DESCRIPTOR   00010fa8   wdm:NTOSKRNL.EXE
+
+ entry point at        0001:00000000
+
+ Static symbols
+
+ 0003:0000024c       $$$00001                   00010e8c f wdm:exsup.obj
+ 0003:0000026c       $$$00003                   00010eac f wdm:exsup.obj
+ 0003:0000026c       __unwind_handler           00010eac f wdm:exsup.obj
+ 0003:0000028e       $$$00005                   00010ece f wdm:exsup.obj
+ 0003:000002e8       $$$00007                   00010f28 f wdm:exsup.obj
+ 0003:0000030b       $$$00009                   00010f4b f wdm:exsup.obj
+ 0003:00000180       $$$00001                   00010dc0 f wdm:exsup3.obj
+ 0003:00000249       $$$00004                   00010e89 f wdm:exsup3.obj
+
+FIXUPS: ada 6f 1d 5e 12 12 fffffda0 fffff9f7 15b 7f 6c 222 6b9 ffffff77
+FIXUPS: e24 35 25

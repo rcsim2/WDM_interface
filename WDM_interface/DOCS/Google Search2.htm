@@ -1,0 +1,105 @@
+<html>
+<head><META HTTP-EQUIV="content-type" CONTENT="text/html; charset=ISO-8859-1">
+<title>Google Search:  </title>
+<style><!--
+body {font-family: arial,sans-serif}
+div.nav {margin-top: 1ex}
+div.nav A {font-size: 10pt; font-family: arial,sans-serif}
+span.nav {font-size: 10pt; font-family: arial,sans-serif; font-weight: bold}
+div.nav A,span.big {font-size: 12pt; color: #0000cc}
+div.nav A {font-size: 10pt; color: black}
+A.l:link {color: #6f6f6f}
+A.u:link {color: green}
+//-->
+</style>
+</head>
+<body bgcolor=#ffffff text=#000000 link=#0000cc vlink=#551A8B alink=#ff0000 onLoad="document.forms[0].reset()">
+<form method=GET action=/groups><table border=0 cellpadding=0 cellspacing=0><tr><td rowspan=2 valign=top><a href=/><img border=0 src=/images/groups_logo.gif width=200 height=78 alt="Google "></a>&nbsp;&nbsp;&nbsp;&nbsp;</td><td align=left nowrap><table cellpadding=0 cellspacing=0 border=0><tr><td nowrap><INPUT type=text name=q size=25 maxlength=256 value=""> <INPUT TYPE=hidden name=hl value=en><INPUT TYPE=hidden name=lr value=><INPUT TYPE=hidden name=safe value=off><INPUT type=submit name=btnG VALUE="Google Search">  </td><td><table cellpadding=0 cellspacing=0 border=0><tr><td nowrap><font face=arial,sans-serif size=-1> &nbsp;<a href=/advanced_group_search?hl=en&lr=&safe=off&th=6d1bf40f605679f4,2>Advanced Groups Search</a><br> &nbsp;<a href=/googlegroups/help.html>Groups Help</A></font></td></tr></table></td></tr></table></td></tr><tr>  <td align=left valign=top nowrap><font face=arial,sans-serif size=-1>&nbsp;
+<INPUT type=radio name=meta value="site=groups" checked> Search all groups&nbsp;
+<INPUT type=radio name=meta value="site=search"> Search the Web</font></form>
+</td></tr></table>
+<font color=#6f6f6f face=arial,sans-serif size=-1><center><a href=/googlegroups/help.html>Click here</a> for information about upcoming improvements to this beta version of Google's Usenet search.</center></font><br><table width=100%% cellpadding=2 cellspacing=0 border=0><tr><td bgcolor=#009933 nowrap><font face=arial,sans-serif size=-1 color=white><b>Messages</b> from the thread &quot;<b>VxD -&gt; WDM ?</b>&quot; &nbsp; </font></td><td bgcolor=#009933 align=right nowrap><font face=arial,sans-serif size=-1 color=white>Messages <b>1 - 2</b> of <b>2</b>.  </font></td></tr></table><br clear=all>
+<a name=p>
+<table width=100% bgcolor=#e0e0e0 cellpadding=2 cellspacing=0 border=0><tr><td><font face=arial,sans-serif>
+
+<table bgcolor=#ffff66 cellpadding=0 cellspacing=0 border=0 align=right><tr><td><font face=arial,sans-serif>Message 1 in thread</font></td></tr></table>
+From: <a href=/groups?hl=en&lr=&safe=off&q=author:maurerm%40informatik.tu-muenchen.de+>Martin Maurer</a> (<a href=mailto:maurerm%40informatik.tu-muenchen.de>maurerm@informatik.tu-muenchen.de</a>)<br>Subject: VxD -&gt; WDM ? <br>Newsgroups: <a href=/groups?hl=en&lr=&safe=off&group=comp.os.ms-windows.programmer.vxd>comp.os.ms-windows.programmer.vxd</a><br>Date: 2000/01/11
+<br></font></td></tr></table><p>
+<pre><font>
+Hello,
+
+first: is there a newsgroup for WDM related questions ?
+
+I want to port a VxD to WDM because of Win2000. I already read in 
+various Websites, but without great success. I bought Walter Oneys
+WDM-Book (seems to be great), but still have problems with my
+work.
+
+1) Till now i load my vxd dynamically. Is this still possible ?
+2) Can my new WDM still access parallel port (LPT1) ?
+3) Are there any changes with interrupts ? So can i use my
+   old functions inside new WDM ?
+
+4) Are there any new great features for kernel programming ?
+   New functions worth mentioning ?
+
+Many thanks,
+
+    Martin Maurer (capiman@exit.de)
+
+   
+
+</font></pre> 
+
+<table width=100% bgcolor=#e0e0e0 cellpadding=2 cellspacing=0 border=0><tr><td><font face=arial,sans-serif>
+
+<table cellpadding=0 cellspacing=0 border=0 align=right><tr><td><font face=arial,sans-serif>Message 2 in thread</font></td></tr></table>
+From: <a href=/groups?hl=en&lr=&safe=off&q=author:waltoney%40oneysoft.com+>Walter Oney</a> (<a href=mailto:waltoney%40oneysoft.com>waltoney@oneysoft.com</a>)<br>Subject: Re: VxD -&gt; WDM ? <br>Newsgroups: <a href=/groups?hl=en&lr=&safe=off&group=comp.os.ms-windows.programmer.vxd>comp.os.ms-windows.programmer.vxd</a><br>Date: 2000/01/11
+<br></font></td></tr></table><p>
+<pre><font>
+Martin Maurer wrote:</font>
+<font color="#660066">&gt; first: is there a newsgroup for WDM related questions ?</font>
+<font>
+comp.os.ms-windows.programmer.nt.kernel-mode is read by more people
+famiiliar with WDM than this one.
+</font>
+<font color="#660066">&gt; I want to port a VxD to WDM because of Win2000. I already read in
+&gt; various Websites, but without great success. I bought Walter Oneys
+&gt; WDM-Book (seems to be great), but still have problems with my
+&gt; work.
+&gt; 
+&gt; 1) Till now i load my vxd dynamically. Is this still possible ?</font>
+<font>
+If your &quot;driver&quot; is really a kernel-mode extension of an application,
+you can use service manager calls to dynamically load and unload it in
+Win2K. Check out the PNPMON sample in my book. If it's actually a driver
+for hardware, you don't want to be loading and unloading it yourself --
+it's better to let the PnP Manager do that (in both OS's)
+</font>
+<font color="#660066">&gt; 2) Can my new WDM still access parallel port (LPT1) ?</font>
+<font>
+Yes, but not &quot;legally&quot; in the sense that you're not supposed to muck
+with ports that belong to another driver.
+</font>
+<font color="#660066">&gt; 3) Are there any changes with interrupts ? So can i use my
+&gt;    old functions inside new WDM ?</font>
+<font>
+Can you be more specific about your needs here? Interrupts work very
+differently at the software level in all versions of NT than they do in
+Windows, and hardware access also works differently because of the
+Hardware Abstraction Layer. Chances are, none of your code will port
+very well without major rewrite.
+</font>
+<font color="#660066">&gt; 4) Are there any new great features for kernel programming ?
+&gt;    New functions worth mentioning ?</font>
+<font>
+Hundreds of them, actually. Vielleicht sollen Sie am nächsten April in
+meinem WDM Seminar teilnehmen...
+</font>
+<font color="#007777">-- 
+Walter Oney
+<a href="http://www.oneysoft.com">http://www.oneysoft.com</a>
+</font>
+</pre> 
+<br><center><table border=0 cellpadding=3 cellspacing=0><tr><td nowrap>
+<form method=GET action=/groups><center><font face=arial,sans-serif><small><INPUT type=text name=q size=31 maxlength=256 value=""> <INPUT type=submit name=btnG VALUE="Google Search"><INPUT TYPE=hidden name=hl value=en><INPUT TYPE=hidden name=lr value=><INPUT TYPE=hidden name=safe value=off></small></font></form></td></tr></table></center><p><center><table width=100% cellpadding=2 cellspacing=0 border=0><tr><td width=100% bgcolor=#009933><font face=arial,sans-serif color=white><font size=-1><center><a href=http://directory.google.com><font color=white>Google&nbsp;Web&nbsp;Directory</font></a> - <a href="/jobs/"><font color=white>Cool&nbsp;Jobs</font></a> - <a href="/ads/"><font color=white>Advertise&nbsp;with&nbsp;Us</font></a> - <a href="/services/"><font color=white>Add&nbsp;Google&nbsp;to&nbsp;Your&nbsp;Site</font></a> - <a href="/language.html"><font color=white>Google&nbsp;in&nbsp;your&nbsp;Language</font></a> - <b><a href="/about.html"><font color=white>All&nbsp;About&nbsp;Google</font></a></b></center></font></font></td></tr></table><br><font size=-1 color=#6f6f6f>&copy;2001 Google</font></center></body></html>

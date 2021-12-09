@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0109)http://groups.google.com/groups?hl=en&frame=right&th=af8e902584dde09e&seekm=8749la%243dim0%241%40fu-berlin.de -->
+<HTML><HEAD><TITLE>Google Groups: View Thread</TITLE>
+<META content="text/html; charset=ISO-8859-1" http-equiv=content-type>
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff onload=window.focus();>
+<TABLE bgColor=#ffcc33 border=0 cellPadding=2 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><FONT face=arial,sans-serif>All messages from 
+      thread</FONT></TD></TR></TBODY></TABLE><A name=link1></A><A name=s></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 1 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:aschmitt%40wibu.com+" 
+      target=_top>Alexander Schmitt</A> (<A 
+      href="mailto:aschmitt@wibu.com">aschmitt@wibu.com</A>)<BR>Subject: Bug in 
+      INF-File interpretation on W95/98 ??? <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=8749la%243dim0%241%40fu-berlin.de" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 2000/01/31 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Hello,
+
+my INF-File has the following section:
+
+[DeviceInstall.nt.LogConfigOverride]
+LogConfig=DeviceW2K.LogConfigW2K
+
+[DeviceW2K.LogConfigW2K]
+ConfigPriority=NORMAL
+MemConfig=2000@0-FFFFFFFF%FFFFF000(RW)
+PcCardConfig=1:(A)
+
+On W2K this section should be interpreted, but on W9x
+it should be ignored. But on my W98 machine the device
+will not be found if the this section is part of my INF-File.
+If the section is not in the INF-File evrything is working
+all right. The DDKW2K said, if I used the extension "nt"
+only W2K will use this section.
+Any hints ????
+
+Thanks
+Alex</PRE><A name=link2></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 2 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:ajm%40virata.com+" 
+      target=_top>Andy Moreton</A> (<A 
+      href="mailto:ajm@virata.com">ajm@virata.com</A>)<BR>Subject: Re: Bug in 
+      INF-File interpretation on W95/98 ??? <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=874c87%24207s_002%40virata.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 2000/01/31 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>In article &lt;8749la$3dim0$1@fu-berlin.de&gt;, "Alexander Schmitt" &lt;aschmitt@wibu.com&gt; wrote:
+<FONT color=#660066>&gt;Hello,
+&gt;
+&gt;my INF-File has the following section:
+&gt;
+&gt;[DeviceInstall.nt.LogConfigOverride]
+&gt;LogConfig=DeviceW2K.LogConfigW2K
+&gt;
+&gt;[DeviceW2K.LogConfigW2K]
+&gt;ConfigPriority=NORMAL
+&gt;MemConfig=2000@0-FFFFFFFF%FFFFF000(RW)
+&gt;PcCardConfig=1:(A)
+&gt;
+&gt;On W2K this section should be interpreted, but on W9x
+&gt;it should be ignored. But on my W98 machine the device
+&gt;will not be found if the this section is part of my INF-File.
+&gt;If the section is not in the INF-File evrything is working
+&gt;all right. The DDKW2K said, if I used the extension "nt"
+&gt;only W2K will use this section.
+&gt;Any hints ????</FONT>
+
+The INF parser in Win9x has a fixed limit 31 character for the length of 
+section names (look in SETUPX.H in the Win9x DDK). I suspect that it may be 
+barfing on your INF file becuase the section name is too long...
+
+The Win2K INF parser does not suffer from this limitation.
+
+        AndyM
+
+<FONT color=#007777>-- 
+Andy Moreton
+Virata Ltd                            <A href="http://www.virata.com/" target=_top>http://www.virata.com/</A>
+Mount Pleasant House, Huntingdon Road, Cambridge CB3 0BL, UK
+Tel: +44 1223 566919  Fax: +44 1223 566915
+
+
+</FONT></PRE><A name=link3></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 3 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:aschmitt%40wibu.com+" 
+      target=_top>Alexander Schmitt</A> (<A 
+      href="mailto:aschmitt@wibu.com">aschmitt@wibu.com</A>)<BR>Subject: Re: Bug 
+      in INF-File interpretation on W95/98 ??? <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=874ics%243ama4%241%40fu-berlin.de" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 2000/01/31 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE><FONT color=#660066>&gt;
+&gt; The INF parser in Win9x has a fixed limit 31 character for the length of
+&gt; section names (look in SETUPX.H in the Win9x DDK). I suspect that it may be
+&gt; barfing on your INF file becuase the section name is too long...
+&gt;</FONT>
+
+
+Indeed the Section name was too long.
+Thank you very much.
+Alex
+
+<FONT color=#660066>&gt; The Win2K INF parser does not suffer from this limitation.
+&gt;
+&gt;         AndyM
+&gt;
+&gt; --
+&gt; Andy Moreton
+&gt; Virata Ltd                            <A href="http://www.virata.com/" target=_top>http://www.virata.com/</A>
+&gt; Mount Pleasant House, Huntingdon Road, Cambridge CB3 0BL, UK
+&gt; Tel: +44 1223 566919  Fax: +44 1223 566915
+&gt;
+&gt;</FONT></PRE>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><IMG alt="" height=3 
+      src="groups(1)_bestanden/cleardot.gif"></TD></TR></TBODY></TABLE><BR>
+<CENTER><FONT size=-1>©2001 Google</FONT></CENTER></BODY></HTML>

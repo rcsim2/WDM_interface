@@ -1,0 +1,1184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0043)http://www.osr.com/resources_getstart.shtml -->
+<HTML><HEAD><TITLE>Getting Started with Windows NT/2000/XP/.NET Drivers</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content=document name=resource-type>
+<META 
+content="Downloads -- Windows 2000 System Software Resources, The Windows NT device driver and file systems experts.  Custom developmentworldwide public private training seminars consulting." 
+name=description>
+<META 
+content="Windows NT, NT, windows 2000, windows xp, xp, drivers, file systems, seminar, seminars, training, class, classes, course, courses, Windows, device, Windows NT device drivers, file systems, Windows NT file systems, consulting, internals, systems, programming, consultants, The NT Insider, filter drivers, file system filter drivers, IFS kit, FSDK, FDDK" 
+name=keywords>
+<META content=Global name=distribution>
+<META content="2001 OSR Open Systems Resources, Inc." name=copyright>
+<META content="OSR Open Systems Resources, Inc." name=author>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=All name=robots>
+<META content=General name=rating>
+<SCRIPT language=JavaScript type=text/javascript>
+<!--
+curPage=1;
+//-->
+</SCRIPT>
+
+<SCRIPT language=JavaScript type=text/javascript>
+<!--Netscape Layer Fix -->
+<!--//tmtC_NNresizeFix
+if (document.layers) {
+origWidth = innerWidth;
+origHeight = innerHeight;}
+function reDo() {
+if (innerWidth != origWidth || innerHeight != origHeight)
+location.reload();}
+if (document.layers) onresize = reDo;
+//tmtC_NNresizeFixEnd//-->
+<!--End Netscape Layer Fix -->
+
+<!--Begin JavaScript for cascading menu-->
+<!--
+
+     NS4 = (document.layers);
+     IE4 = (document.all);
+    ver4 = (NS4 || IE4);
+     IE5 = (IE4 && navigator.appVersion.indexOf("5.")!=-1);
+   isMac = (navigator.appVersion.indexOf("Mac") != -1);
+  isMenu = (NS4 || (IE4 && !isMac) || (IE5 && isMac));
+
+function popUp(){return};
+function popDown(){return};
+
+if (!ver4) event = null;
+
+//-->
+</SCRIPT>
+
+<SCRIPT language=JavaScript1.2 type=text/javascript>
+<!--
+	if (isMenu) {
+	menuVersion = 3;
+          menuWidth = 120;
+       childOverlap = 50;
+        childOffset = 5;
+        perCentOver = null;
+     secondsVisible = .5;
+             fntCol = "blue";
+             fntSiz = "10";
+            fntBold = false;
+            fntItal = false;
+             fntFam = "sans-serif";
+            backCol = "#DDDDDD";
+            overCol = "#FFCCCC";
+            overFnt = "purple";
+             borWid = 2;
+             borCol = "black";
+             borSty = "solid";
+            itemPad = 3;
+             imgSrc = "graphics_osr/tri.gif";
+             imgSiz = 10;
+          separator = 1;
+       separatorCol = "red";
+           isFrames = false;      // <-- IMPORTANT for full window
+           navFrLoc = "left";     // <-- display. see below
+         keepHilite = true;
+         NSfontOver = true;
+         clickStart = false;
+          clickKill = false;
+}
+//-->
+</SCRIPT>
+
+<SCRIPT language=JavaScript1.2 type=text/javascript>
+<!--
+if (isMenu) {
+document.write("<SCRIPT LANGUAGE='JavaScript1.2' SRC='hierArrays_inc.js'><\/SCRIPT>");
+document.write("<SCRIPT LANGUAGE='JavaScript1.2' SRC='hierMenus.js'><\/SCRIPT>");
+}
+//-->
+</SCRIPT>
+<!--Begin JavaScript for cascading menu mouseovers-->
+<SCRIPT language=JavaScript type=text/javascript>
+
+<!-- hide from antiquated browsers
+
+window.onerror=null;
+browserName = navigator.appName;
+browserVer = parseInt(navigator.appVersion);
+
+function imgOn(imgName) {
+  if (ver == "yes")  {
+  document[imgName].src = eval(imgName + "on.src");
+  }
+}
+
+function imgOff(imgName) {
+  if (ver == "yes")  {
+  document[imgName].src = eval(imgName + "off.src");
+  }
+}
+
+if((browserName=="Netscape" && browserVer >= 3) ||
+   (browserName=="Microsoft Internet Explorer" && browserVer >= 4)) ver = "yes";
+else ver = "no";
+if(ver == "yes") {
+
+  img1on=new Image();
+  img1on.src="http://www.osr.com/graphics_osr/graphics_osrhome/osrhome_arrow_mo.gif";
+
+  img1off=new Image();
+  img1off.src="http://www.osr.com/graphics_osr/home.gif";
+
+  img2on=new Image();
+  img2on.src="http://www.osr.com/graphics_osr/graphics_aboutosr/aboutosr_arrow_mo.gif";
+
+  img2off=new Image();
+  img2off.src="http://www.osr.com/graphics_osr/aboutosr.gif";
+
+  img3on=new Image();
+  img3on.src="http://www.osr.com/graphics_osr/graphics_services/services_arrow_mo.gif";
+
+  img3off=new Image();
+  img3off.src="http://www.osr.com/graphics_osr/services.gif";
+
+  img4on=new Image();
+  img4on.src="http://www.osr.com/graphics_osr/graphics_toolkits/toolkits_arrow_mo.gif";
+
+  img4off=new Image();
+  img4off.src="http://www.osr.com/graphics_osr/toolkits.gif";
+
+  img5on=new Image();
+  img5on.src="http://www.osr.com/graphics_osr/graphics_seminars/seminars_arrow_mo.gif";
+
+  img5off=new Image();
+  img5off.src="http://www.osr.com/graphics_osr/seminars.gif";
+
+  img6on=new Image();
+  img6on.src="http://www.osr.com/graphics_osr/graphics_publications/publications_arrow_mo.gif";
+
+  img6off=new Image();
+  img6off.src="http://www.osr.com/graphics_osr/publications.gif";
+
+  img7on=new Image();
+  img7on.src="http://www.osr.com/graphics_osr/graphics_resources/resources_arrow_mo.gif";
+
+  img7off=new Image();
+  img7off.src="http://www.osr.com/graphics_osr/resources.gif";
+
+  img8on=new Image();
+  img8on.src="http://www.osr.com/graphics_osr/graphics_store/store_arrow_mo.gif";
+
+  img8off=new Image();
+  img8off.src="http://www.osr.com/graphics_osr/store.gif";
+
+  img9on=new Image();
+  img9on.src="http://www.osr.com/graphics_osr/graphics_listserver/listserver_arrow_mo.gif";
+
+  img9off=new Image();
+  img9off.src="http://www.osr.com/graphics_osr/listserver.gif";
+
+  img10on=new Image();
+  img10on.src="http://www.osr.com/graphics_osr/graphics_contactus/contactus_arrow_mo.gif";
+
+  img10off=new Image();
+  img10off.src="http://www.osr.com/graphics_osr/contactus.gif";
+
+  img11on=new Image();
+  img11on.src="http://www.osr.com/graphics_osr/graphics_search/search_arrow_mo.gif";
+
+  img11off=new Image();
+  img11off.src="http://www.osr.com/graphics_osr/search.gif";
+  
+}
+
+// end hiding -->
+
+</SCRIPT>
+<!--End JavaScript for cascading menu mouseovers--><!--End Javascript for cascading menu--><!--Begin timeline for menu items that scroll in from right-->
+<SCRIPT language=JavaScript type=text/javascript>
+<!--
+<!--
+function MM_timelinePlay(tmLnName, myID) { //v1.2
+  //Copyright 1997 Macromedia, Inc. All rights reserved.
+  var i,j,tmLn,props,keyFrm,sprite,numKeyFr,firstKeyFr,propNum,theObj,firstTime=false;
+  if (document.MM_Time == null) MM_initTimelines(); //if *very* 1st time
+  tmLn = document.MM_Time[tmLnName];
+  if (myID == null) { myID = ++tmLn.ID; firstTime=true;}//if new call, incr ID
+  if (myID == tmLn.ID) { //if Im newest
+    setTimeout('MM_timelinePlay("'+tmLnName+'",'+myID+')',tmLn.delay);
+    fNew = ++tmLn.curFrame;
+    for (i=0; i<tmLn.length; i++) {
+      sprite = tmLn[i];
+      if (sprite.charAt(0) == 's') {
+        if (sprite.obj) {
+          numKeyFr = sprite.keyFrames.length; firstKeyFr = sprite.keyFrames[0];
+          if (fNew >= firstKeyFr && fNew <= sprite.keyFrames[numKeyFr-1]) {//in range
+            keyFrm=1;
+            for (j=0; j<sprite.values.length; j++) {
+              props = sprite.values[j];
+              if (numKeyFr != props.length) {
+                if (props.prop2 == null) sprite.obj[props.prop] = props[fNew-firstKeyFr];
+                else        sprite.obj[props.prop2][props.prop] = props[fNew-firstKeyFr];
+              } else {
+                while (keyFrm<numKeyFr && fNew>=sprite.keyFrames[keyFrm]) keyFrm++;
+                if (firstTime || fNew==sprite.keyFrames[keyFrm-1]) {
+                  if (props.prop2 == null) sprite.obj[props.prop] = props[keyFrm-1];
+                  else        sprite.obj[props.prop2][props.prop] = props[keyFrm-1];
+        } } } } }
+      } else if (sprite.charAt(0)=='b' && fNew == sprite.frame) eval(sprite.value);
+      if (fNew > tmLn.lastFrame) tmLn.ID = 0;
+  } }
+}
+
+function MM_preloadImages() { //v2.0
+  if (document.images) {
+    var imgFiles = MM_preloadImages.arguments;
+    if (document.preloadArray==null) document.preloadArray = new Array();
+    var i = document.preloadArray.length;
+    with (document) for (var j=0; j<imgFiles.length; j++) if (imgFiles[j].charAt(0)!="#"){
+      preloadArray[i] = new Image;
+      preloadArray[i++].src = imgFiles[j];
+  } }
+}
+
+function MM_swapImgRestore() { //v2.0
+  if (document.MM_swapImgData != null)
+    for (var i=0; i<(document.MM_swapImgData.length-1); i+=2)
+      document.MM_swapImgData[i].src = document.MM_swapImgData[i+1];
+}
+
+function MM_swapImage() { //v2.0
+  var i,j=0,objStr,obj,swapArray=new Array,oldArray=document.MM_swapImgData;
+  for (i=0; i < (MM_swapImage.arguments.length-2); i+=3) {
+    objStr = MM_swapImage.arguments[(navigator.appName == 'Netscape')?i:i+1];
+    if ((objStr.indexOf('document.layers[')==0 && document.layers==null) ||
+        (objStr.indexOf('document.all[')   ==0 && document.all   ==null))
+      objStr = 'document'+objStr.substring(objStr.lastIndexOf('.'),objStr.length);
+    obj = eval(objStr);
+    if (obj != null) {
+      swapArray[j++] = obj;
+      swapArray[j++] = (oldArray==null || oldArray[j-1]!=obj)?obj.src:oldArray[j];
+      obj.src = MM_swapImage.arguments[i+2];
+  } }
+  document.MM_swapImgData = swapArray; //used for restore
+}
+
+//-->
+<!--End timeline for menu items that scroll in from right-->
+
+function MM_initTimelines() {
+    //MM_initTimelines() Copyright 1997 Macromedia, Inc. All rights reserved.
+    var ns = navigator.appName == "Netscape";
+    document.MM_Time = new Array(1);
+    document.MM_Time[0] = new Array(4);
+    document.MM_Time["Timeline1"] = document.MM_Time[0];
+    document.MM_Time[0].MM_Name = "Timeline1";
+    document.MM_Time[0].fps = 15;
+    document.MM_Time[0][0] = new String("sprite");
+    document.MM_Time[0][0].slot = 1;
+    if (ns)
+        document.MM_Time[0][0].obj = document["Layer8"];
+    else
+        document.MM_Time[0][0].obj = document.all ? document.all["Layer8"] : null;
+    document.MM_Time[0][0].keyFrames = new Array(1, 13, 14, 15);
+    document.MM_Time[0][0].values = new Array(2);
+    document.MM_Time[0][0].values[0] = new Array(650,604,557,511,464,418,373,330,292,256,223,193,165,170,165);
+    document.MM_Time[0][0].values[0].prop = "left";
+    document.MM_Time[0][0].values[1] = new Array(0,6,13,19,26,32,38,44,49,54,59,63,67,67,67);
+    document.MM_Time[0][0].values[1].prop = "top";
+    if (!ns) {
+        document.MM_Time[0][0].values[0].prop2 = "style";
+        document.MM_Time[0][0].values[1].prop2 = "style";
+    }
+    document.MM_Time[0][1] = new String("sprite");
+    document.MM_Time[0][1].slot = 2;
+    if (ns)
+        document.MM_Time[0][1].obj = document["Layer9"];
+    else
+        document.MM_Time[0][1].obj = document.all ? document.all["Layer9"] : null;
+    document.MM_Time[0][1].keyFrames = new Array(15, 28, 29, 30);
+    document.MM_Time[0][1].values = new Array(2);
+    document.MM_Time[0][1].values[0] = new Array(650,614,578,541,505,469,433,399,367,338,310,285,262,240,245,240);
+    document.MM_Time[0][1].values[0].prop = "left";
+    document.MM_Time[0][1].values[1] = new Array(0,6,12,18,24,30,35,41,46,51,55,60,63,67,67,67);
+    document.MM_Time[0][1].values[1].prop = "top";
+    if (!ns) {
+        document.MM_Time[0][1].values[0].prop2 = "style";
+        document.MM_Time[0][1].values[1].prop2 = "style";
+    }
+    document.MM_Time[0][2] = new String("sprite");
+    document.MM_Time[0][2].slot = 1;
+    if (ns)
+        document.MM_Time[0][2].obj = document["Layer10"];
+    else
+        document.MM_Time[0][2].obj = document.all ? document.all["Layer10"] : null;
+    document.MM_Time[0][2].keyFrames = new Array(30, 43, 44, 45);
+    document.MM_Time[0][2].values = new Array(2);
+    document.MM_Time[0][2].values[0] = new Array(650,624,597,571,544,518,492,467,444,422,402,384,367,351,356,351);
+    document.MM_Time[0][2].values[0].prop = "left";
+    document.MM_Time[0][2].values[1] = new Array(0,6,12,18,24,29,35,41,46,51,55,60,63,67,67,67);
+    document.MM_Time[0][2].values[1].prop = "top";
+    if (!ns) {
+        document.MM_Time[0][2].values[0].prop2 = "style";
+        document.MM_Time[0][2].values[1].prop2 = "style";
+    }
+    document.MM_Time[0][3] = new String("sprite");
+    document.MM_Time[0][3].slot = 2;
+    if (ns)
+        document.MM_Time[0][3].obj = document["Layer11"];
+    else
+        document.MM_Time[0][3].obj = document.all ? document.all["Layer11"] : null;
+    document.MM_Time[0][3].keyFrames = new Array(45, 58, 59, 60);
+    document.MM_Time[0][3].values = new Array(2);
+    document.MM_Time[0][3].values[0] = new Array(650,635,619,604,588,573,557,543,529,517,505,494,484,475,480,475);
+    document.MM_Time[0][3].values[0].prop = "left";
+    document.MM_Time[0][3].values[1] = new Array(0,6,12,18,24,29,35,41,46,51,55,60,63,67,67,67);
+    document.MM_Time[0][3].values[1].prop = "top";
+    if (!ns) {
+        document.MM_Time[0][3].values[0].prop2 = "style";
+        document.MM_Time[0][3].values[1].prop2 = "style";
+    }
+    document.MM_Time[0].lastFrame = 60;
+    for (i=0; i<document.MM_Time.length; i++) {
+        document.MM_Time[i].ID = null;
+        document.MM_Time[i].curFrame = 0;
+        document.MM_Time[i].delay = 1000/document.MM_Time[i].fps;
+    }
+}
+//-->
+</SCRIPT>
+<LINK 
+href="Getting Started with Windows NT-2000-XP-_NET Drivers_files/styles.css" 
+rel=stylesheet></HEAD>
+<BODY text=#000000 vLink=#663366 aLink=#669999 link=#8080c0 bgColor=#ffffff 
+leftMargin=0 
+background="Getting Started with Windows NT-2000-XP-_NET Drivers_files/background.gif" 
+topMargin=0 
+onload="MM_timelinePlay('Timeline1');startIt();MM_preloadImages('graphics_osr/graphics_resources/downloads_mint.gif','#951500276330');MM_preloadImages('graphics_osr/graphics_resources/downloads_gray.gif','#951500347632');MM_preloadImages('graphics_osr/graphics_resources/downloads_black.gif','#951500386699');MM_preloadImages('graphics_osr/graphics_resources/online_mint.gif','#951500484589');MM_preloadImages('graphics_osr/graphics_resources/online_gray.gif','#951500541771');MM_preloadImages('graphics_osr/graphics_resources/online_black.gif','#951500567048');MM_preloadImages('graphics_osr/graphics_resources/microsoft_mint.gif','#951500663737');MM_preloadImages('graphics_osr/graphics_resources/microsoft_gray.gif','#951500706298');MM_preloadImages('graphics_osr/graphics_resources/microsoft_black.gif','#951500751573');MM_preloadImages('graphics_osr/graphics_resources/links_mint.gif','#951500835924');MM_preloadImages('graphics_osr/graphics_resources/links_gray.gif','#951500860530');MM_preloadImages('graphics_osr/graphics_resources/links_black.gif','#951500883613')" marginheight="0" 
+marginwidth="0">
+<DIV id=Layer1 
+style="Z-INDEX: 14; LEFT: 0px; WIDTH: 165px; POSITION: absolute; TOP: 0px; HEIGHT: 150px"><A 
+name=TOP><IMG height=150 
+src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/logo_topleft.gif" 
+width=165></A></DIV>
+<DIV id=Layer2 
+style="Z-INDEX: 18; LEFT: 165px; WIDTH: 114px; POSITION: absolute; TOP: 0px; HEIGHT: 65px"><IMG 
+height=67 
+src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/clouds.gif" 
+width=411></DIV>
+<DIV id=Layer3 
+style="Z-INDEX: 17; LEFT: 576px; WIDTH: 224px; POSITION: absolute; TOP: 0px; HEIGHT: 31px"><IMG 
+height=31 
+src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/topright_fade.gif" 
+width=224></DIV>
+<DIV id=Layer4 
+style="Z-INDEX: 16; LEFT: 576px; WIDTH: 224px; POSITION: absolute; TOP: 31px; HEIGHT: 23px"><IMG 
+height=28 
+src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/midright.gif" 
+width=224></DIV>
+<DIV id=Layer5 
+style="Z-INDEX: 15; LEFT: 576px; WIDTH: 224px; POSITION: absolute; TOP: 59px; HEIGHT: 8px"><IMG 
+height=8 
+src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/rightline_fade.gif" 
+width=224></DIV>
+<DIV id=Layer6 
+style="Z-INDEX: 12; LEFT: 165px; WIDTH: 270px; POSITION: absolute; TOP: 95px; HEIGHT: 35px"><IMG 
+height=35 
+src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/resources_head.gif" 
+width=270></DIV>
+<DIV id=Layer9 
+style="Z-INDEX: 8; LEFT: 650px; WIDTH: 111px; POSITION: absolute; TOP: 0px; HEIGHT: 25px"><A 
+onmousedown="MM_swapImage('document.layers[\'Layer9\'].document.online','document.online','graphics_osr/graphics_resources/online_mint.gif','#951500484589')" 
+onmouseover="MM_swapImage('document.layers[\'Layer9\'].document.online','document.online','graphics_osr/graphics_resources/online_black.gif','#951500567048')" 
+onmouseout="MM_swapImage('document.layers[\'Layer9\'].document.online','document.online','graphics_osr/graphics_resources/online_gray.gif','#951500541771')" 
+href="http://www.osr.com/resources_online.shtml"><IMG height=25 
+src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/online_gray.gif" 
+width=111 border=0 name=online></A></DIV>
+<DIV id=Layer8 
+style="Z-INDEX: 5; LEFT: 650px; WIDTH: 75px; POSITION: absolute; TOP: 0px; HEIGHT: 25px"><A 
+onmousedown="MM_swapImage('document.layers[\'Layer8\'].document.downloads','document.downloads','graphics_osr/graphics_resources/downloads_mint.gif','#951500276330')" 
+onmouseover="MM_swapImage('document.layers[\'Layer8\'].document.downloads','document.downloads','graphics_osr/graphics_resources/downloads_black.gif','#951500386699')" 
+onmouseout="MM_swapImage('document.layers[\'Layer8\'].document.downloads','document.downloads','graphics_osr/graphics_resources/downloads_gray.gif','#951500347632')" 
+href="http://www.osr.com/resources_downloads.shtml"><IMG height=25 
+src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/downloads_gray.gif" 
+width=75 border=0 name=downloads></A></DIV>
+<DIV id=Layer11 
+style="Z-INDEX: 11; LEFT: 650px; WIDTH: 43px; POSITION: absolute; TOP: 0px; HEIGHT: 25px"><A 
+onmousedown="MM_swapImage('document.layers[\'Layer11\'].document.links','document.links','graphics_osr/graphics_resources/links_mint.gif','#951500835924')" 
+onmouseover="MM_swapImage('document.layers[\'Layer11\'].document.links','document.links','graphics_osr/graphics_resources/links_black.gif','#951500883613')" 
+onmouseout="MM_swapImage('document.layers[\'Layer11\'].document.links','document.links','graphics_osr/graphics_resources/links_gray.gif','#951500860530')" 
+href="http://www.osr.com/resources_links.shtml"><IMG height=25 
+src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/links_gray.gif" 
+width=43 border=0 name=links></A></DIV>
+<DIV id=Layer10 
+style="Z-INDEX: 10; LEFT: 650px; WIDTH: 124px; POSITION: absolute; TOP: 0px; HEIGHT: 25px"><A 
+onmousedown="MM_swapImage('document.layers[\'Layer10\'].document.microsolft','document.microsolft','graphics_osr/graphics_resources/microsoft_mint.gif','#951500663737')" 
+onmouseover="MM_swapImage('document.layers[\'Layer10\'].document.microsolft','document.microsolft','graphics_osr/graphics_resources/microsoft_black.gif','#951500751573')" 
+onmouseout="MM_swapImage('document.layers[\'Layer10\'].document.microsolft','document.microsolft','graphics_osr/graphics_resources/microsoft_gray.gif','#951500706298')" 
+href="http://www.osr.com/resources_msarticles.shtml"><IMG height=25 
+src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/microsoft_gray.gif" 
+width=124 border=0 name=microsolft></A></DIV>&nbsp;<IMG height=142 
+src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/1pixel.gif" 
+width=1>&nbsp; <!-- Begin Table 1 (contains nested tables) -->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width=150 height=283><IMG height=32 alt=osr.com 
+      src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/osr_com_left.gif" 
+      width=150 border=0><BR><A 
+      onmouseover="imgOn('img1'); popUp('elMenu1',event); return false;" 
+      onmouseout="imgOff('img1'); popDown('elMenu1');" 
+      href="http://www.osr.com/default.shtml"><IMG height=25 alt="" 
+      src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/home.gif" 
+      width=150 border=0 name=img1></A><BR><A 
+      onmouseover="imgOn('img2'); popUp('elMenu2',event); return false;" 
+      onmouseout="imgOff('img2'); popDown('elMenu2');" 
+      href="http://www.osr.com/aboutosr_main.shtml"><IMG height=25 alt="" 
+      src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/aboutosr.gif" 
+      width=150 border=0 name=img2></A><BR><A 
+      onmouseover="imgOn('img3'); popUp('elMenu3',event); return false;" 
+      onmouseout="imgOff('img3'); popDown('elMenu3');" 
+      href="http://www.osr.com/services_main.shtml"><IMG height=25 alt="" 
+      src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/services.gif" 
+      width=150 border=0 name=img3></A><BR><A 
+      onmouseover="imgOn('img4'); popUp('elMenu4',event); return false;" 
+      onmouseout="imgOff('img4'); popDown('elMenu4');" 
+      href="http://www.osr.com/toolkits_main.shtml"><IMG height=25 alt="" 
+      src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/toolkits.gif" 
+      width=150 border=0 name=img4></A><BR><A 
+      onmouseover="imgOn('img5'); popUp('elMenu5',event); return false;" 
+      onmouseout="imgOff('img5'); popDown('elMenu5');" 
+      href="http://www.osr.com/seminars_main.shtml"><IMG height=25 alt="" 
+      src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/seminars.gif" 
+      width=150 border=0 name=img5></A><BR><A 
+      onmouseover="imgOn('img6'); popUp('elMenu6',event); return false;" 
+      onmouseout="imgOff('img6'); popDown('elMenu6');" 
+      href="http://www.osr.com/publications_main.shtml"><IMG height=25 alt="" 
+      src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/publications.gif" 
+      width=150 border=0 name=img6></A><BR><A 
+      onmouseover="imgOn('img7'); popUp('elMenu7',event); return false;" 
+      onmouseout="imgOff('img7'); popDown('elMenu7');" 
+      href="http://www.osr.com/resources_main.shtml"><IMG height=25 alt="" 
+      src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/resources.gif" 
+      width=150 border=0 name=img7></A><BR><A 
+      onmouseover="imgOn('img8'); popUp('elMenu8',event); return false;" 
+      onmouseout="imgOff('img8'); popDown('elMenu8');" 
+      href="http://www.osr.com/store_main.shtml"><IMG height=25 alt="" 
+      src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/store.gif" 
+      width=150 border=0 name=img8></A><BR><A 
+      onmouseover="imgOn('img9'); popUp('elMenu9',event); return false;" 
+      onmouseout="imgOff('img9'); popDown('elMenu9');" 
+      href="http://www.osr.com/listserver_main.htm"><IMG height=25 alt="" 
+      src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/listserver.gif" 
+      width=150 border=0 name=img9></A><BR><A 
+      onmouseover="imgOn('img10'); popUp('elMenu10',event); return false;" 
+      onmouseout="imgOff('img10'); popDown('elMenu10');" 
+      href="http://www.osr.com/contactus_main.shtml"><IMG height=25 alt="" 
+      src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/contactus.gif" 
+      width=150 border=0 name=img10></A><BR><A 
+      onmouseover="imgOn('img11'); popUp('elMenu11',event); return false;" 
+      onmouseout="imgOff('img11'); popDown('elMenu11')" 
+      href="http://www.osr.com/search_main.shtml"><IMG height=25 alt="" 
+      src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/search.gif" 
+      width=150 border=0 name=img11></A><BR></TD>
+    <TD vAlign=top width=25 height=283><IMG height=25 alt="" 
+      src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/1pixel.gif" 
+      width=25></TD>
+    <TD vAlign=top align=left width="100%"><!--  Begin Intro Table for IFS FAQ -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3><SPAN class=h1p>Getting Started with Windows 
+            NT/2000/XP/.NET Drivers</SPAN><BR><BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>So you want to learn how to write Windows device 
+            drivers but you're not sure where to start? Having assisted 
+            thousands of developers to get up to speed on writing drivers, we 
+            figured it was about time that we offered some "getting started" 
+            resources to newbie driver writers. While not intended to be a 
+            driver writer FAQ, the list below is a compilation of common 
+            questions (and answers of course!) we hear from those new to the 
+            driver space. <BR><BR>If you have a question you'd like to see added 
+            to this "Getting Started with Windows Drivers" list, send it to <A 
+            href="mailto:ntinsider@osr.com"><STRONG>ntinsider@osr.com, 
+            </STRONG></A>put the words "Getting Started" in the subject of your 
+            email. <BR><BR></SPAN></P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  End Intro Table for IFS FAQ --><!--  Begin Table for - Questions -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q1">How Do I Learn 
+            How To Write A Driver for Windows NT V4/2K/XP/.NET?</A><BR><BR><SPAN 
+            class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q2">What Tools Do 
+            I Need To Write NT/Win2K/XP/.NET Drivers?</A><BR><BR><SPAN 
+            class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q3">What Language 
+            Can I Write Drivers In?</A><BR><BR><SPAN class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q4">Do I have to 
+            use Microsoft's Compiler?</A><BR><BR><SPAN class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q5">Where Can I 
+            Get Help?</A><BR><BR><SPAN class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q6">Suppose I Want 
+            To Pay for Help?</A><BR><BR><SPAN class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q7">There Are Many 
+            Different Driver Models -- How Do I Know What KIND Of Driver I 
+            Should Write?</A><BR><BR><SPAN class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q8">How Do I Start 
+            Cranking Code?</A><BR><BR><SPAN class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q9">Where Can I 
+            Get Driver Samples?</A><BR><BR><SPAN class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q10">What Is 
+            WDM?</A><BR><BR><SPAN class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q11">After I Write 
+            It, How Do I Install It?</A><BR><BR><SPAN class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q12">Do I Include 
+            WDM.H or NTDDK.H?</A><BR><BR><SPAN class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q13">Do I Have To 
+            Support PnP In My Driver?</A><BR><BR><SPAN class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q14">Do I Have To 
+            Support PnP, Even If My Device Can Never Be Removed From The 
+            System?</A><BR><BR><SPAN class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q15">Can I Write 
+            My Driver First, and Add PnP Later?</A><BR><BR><SPAN class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q16">Do I Have To 
+            Support Power Management In My Driver?</A><BR><BR><SPAN 
+            class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q17">I Want to 
+            Change The Way A Standard Driver Works - Can I Modify The DDK Sample 
+            and Just Replace The Standard Windows Driver?</A><BR><BR><SPAN 
+            class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q18">What Is 
+            Windows File Protection?</A><BR><BR><SPAN class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q19">What 
+            Debuggers Can Be Used for Driver Debugging?</A><BR><BR><SPAN 
+            class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q20">What's This 
+            "Checked Build" Stuff?</A><BR><BR><SPAN class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q21">What Testing 
+            Tools Are Available?</A><BR><BR><SPAN class=text><A 
+            href="http://www.osr.com/resources_getstart.shtml#Q22">Are There 
+            Other Test Tools, Besides 
+            Verifier?</A><BR><BR></SPAN></SPAN></SPAN></SPAN></SPAN></SPAN></SPAN></SPAN></SPAN></SPAN></SPAN></SPAN></SPAN></SPAN></SPAN></SPAN></SPAN></SPAN></SPAN></SPAN></SPAN></SPAN></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%"></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  End table for - Questions --><A 
+      name=Q1></A><!--  Begin Table for - Q1 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>How Do I Learn How To Write A Driver for 
+            Windows NT V4/2K/XP/.NET?</SPAN> <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>If you've written drivers for VMS or one of the 
+            many UNIX variants, and you're familiar with NT O/S concepts, you 
+            might be able to learn what you need to know by reading the 
+            documentation provided with the Windows Driver Development Kit 
+            (DDK). Get the most recent version of the DDK (see later question), 
+            and read the section entitled Getting Started with Windows Drivers. 
+            This documentation is surprising good, and covers a very broad range 
+            of topics. This is particularly true of the DDK starting with 
+            Windows XP.<BR><BR>If you're new to drivers, or if tackling the DDK 
+            straight off seems like a bit more than you want to handle, you can 
+            augment your sources with some of the technical books that are 
+            available. We recommend:<BR><BR>
+            <UL>
+              <LI><SPAN class=text><EM>Inside Windows 2000</EM>, by Solomon and 
+              Russinovich, Microsoft Press. Good overall introduction to Win2K 
+              o/s architecture.</SPAN></LI></UL>
+            <UL>
+              <LI><SPAN class=text><EM>Windows NT Device Driver 
+              Development</EM>, by Viscarola and Mason, published by New Riders. 
+              Written by OSR's consulting partners, this book contains the 
+              details about the NT I/O subsystem. The only disadvantage of this 
+              book is that it was written in the NT V4 timeframe, before Win2K 
+              and therefore before the introduction of Plug and Play support. No 
+              matter, it's still the most solid architectural reference 
+              around.</SPAN></LI></UL>
+            <UL>
+              <LI><SPAN class=text><EM>Programming the Microsoft Windows Driver 
+              Model</EM>, by Walter Oney. This is a solid book that covers the 
+              details of Plug and Play.</SPAN></LI></UL>Probably the best way to 
+            come up to speed on NT/2K/XP/.NET drivers fast is to take a seminar 
+            on the topic. Don't be too quick to dismiss this option, even if you 
+            consider yourself pretty smart. Sure, it costs some money. But NT 
+            drivers are both complicated and confusing enough that it can be 
+            extremely helpful to have somebody brain-dump you with just the 
+            required information. Also, if the person teaching the class has 
+            real hands-on knowledge, they can probably save you lots of time by 
+            helping you avoid some of the better-known "gotchas" that lurk in 
+            this space.<BR><BR>If you do opt to take a seminar, do not take one 
+            from a "local" company. There are three seminar companies to 
+            consider that offer seminars world-wide: OSR (www.osr.com), Azius 
+            (www.azius.com) and OneySoft (www.oneysoft.com). Each of these 
+            companies offer either lecture-only or lecture-plus-lab seminars, 
+            lasting from 3 days to a week in duration. Almost nobody, even 
+            experienced NT driver writers, takes one of these seminars and says 
+            it was a waste of time. </SPAN></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  End Table for - Q1 Answer --></TD></TR></TBODY></TABLE><!-- End Table 1 --><!-- Begin Table 2 (contains nested tables) -->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width=150><IMG height=1 alt="" 
+      src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/1pixel.gif" 
+      width=150></TD>
+    <TD vAlign=top width=25><IMG height=25 alt="" 
+      src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/1pixel.gif" 
+      width=25></TD>
+    <TD vAlign=top align=left width="100%"><A name=Q2></A><!--  Begin Table for - Q2 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>What Tools Do I Need To Write NT/Win2K/XP/.NET 
+            Drivers?</SPAN> <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>For NT V4 and Win2K, you need Microsoft's Visual 
+            C++ (VC++), the platform Software Development Kit (SDK), and the 
+            Driver Development Kit (DDK). These are all available via 
+            subscription from Microsoft Developer Network (MSDN). If you already 
+            have the compiler and SDK, you can download the NT and Win2K DDK 
+            from the web at www.microsoft.com/ddk.<BR><BR>For Windows XP and 
+            Windows .NET Server, the DDK contains everything you need. It has 
+            the compiler, header files, and everything else. Because of 
+            licensing issues, you cannot download this DDK from the web unless 
+            you are an MSDN subscriber (in which case you download it from the 
+            MSDN site). However, you can get Microsoft to send you the DDK on 
+            CD, for nothing more than shipping and handling changes. Check out 
+            www.microsoft.com/ddk for more information. The XP DDK is also part 
+            of MSDN. </SPAN></P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  Enb Table for - Q2 Answer --><A 
+      name=Q3></A><!--  Begin Table for - Q3 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>What Language Can I Write Drivers In?</SPAN> 
+            <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>You write drivers for NT/Win2K/XP/.NET in either 
+            C or C++. Support for using C++ is tenuous, but it can be done. 
+            Don't even think about trying to use another language. All the 
+            functions and data types are only defined in C/C++ header files. 
+            There are no assembly language definitions provided, so you can't 
+            use assembly language either.<BR><BR>Further, it seems that the 
+            Microsoft Visual C++ compiler is a lot more rigorous in terms of 
+            catching ordinary errors than the MSVC compiler. So, even though 
+            it's probably best for most people to write drivers in "plain C", 
+            it's also probably a good idea to name your files *.cpp, to gain the 
+            added rigor that the C++ compiler provides. </SPAN></P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  Enb Table for - Q3 Answer --><A 
+      name=Q4></A><!--  Begin Table for - Q4 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>Do I have to use Microsoft's Compiler?</SPAN> 
+            <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>Face it: There is very little that you really 
+            have to do in this world, besides breathe and die. Strictly 
+            speaking, you do not have to use the MS VC++ compiler. A few brave 
+            souls over the past years have used other compilers. But trying to 
+            use another compiler is best described as an exquisitely painful 
+            exercise. The DDK header files use a significant number of Microsoft 
+            specific features (such as language extensions, pragmas, and the 
+            like). Writing drivers is hard enough. Trying to write drivers using 
+            something other than the Microsoft compiler is really not something 
+            that you want to try.</SPAN> </P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  Enb Table for - Q4 Answer --><A 
+      name=Q5></A><!--  Begin Table for - Q5 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>Where Can I Get Help?</SPAN> <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>You mean where can you get free help, right? If 
+            you subscribe to MSDN, you automatically get the privilege of 
+            calling DDK Developer Support once or twice with problems. These 
+            folks are generally very helpful. Do not expect them to write your 
+            driver for you.<BR><BR>There are a surprising number of peer help 
+            forums. Check out the NTDEV (for driver developers), NTFSD (for file 
+            system developers), and WINDBG (for WinDbg debugger users) lists on 
+            www.osr.com/lists. You must subscribe to contribute. Note that you 
+            can choose to join these groups either as traditional list server 
+            mailing lists, or you can view these groups like private usenet news 
+            groups. To do the latter, point your news reader to lists.osr.com. 
+            You will be required to log in to these groups by providing your 
+            username and password (that you specified when you joined) in order 
+            to post to the group.<BR><BR>Another fairly good usenet news group 
+            is comps.os.ms-windows.programmer.nt.kernel-mode.<BR><BR>The people 
+            in all these forums are generally very helpful. Surprisingly often, 
+            the MS support folks or developers informally answer questions on 
+            all these lists. All the lists expect you to do your homework: Check 
+            the DDK documentation and the Microsoft Knowledge Base, and be sure 
+            to read the group archives before asking your question. Don't expect 
+            people in these groups to write your driver for you.<BR><BR>A very 
+            useful publication is The NT Insider, published every two months by 
+            OSR. One of the best things about it is that it's free. Visit 
+            www.osr.com for your free subscription. </SPAN></P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  Enb Table for - Q5 Answer --><A 
+      name=Q6></A><!--  Begin Table for - Q6 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>Suppose I Want To Pay for Help?</SPAN> 
+          <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>One option is per-incident support from 
+            Microsoft's DDK Developer Support group. It's relatively 
+            inexpensive, and the support people are typically very helpful and 
+            know what they're doing.<BR><BR>There are also a significant number 
+            of companies that provide services ranging from per-incident 
+            consulting to per-project design/build/test pricing. The costs range 
+            from pretty inexpensive to stratospheric, depending on who you 
+            choose. In general (assuming you want to write the driver yourself), 
+            we advise you to first exhaust the (free) peer-support options and 
+            all possibility of help from Microsoft DDK Developer Support before 
+            even considering paying anybody else for assistance.<BR><BR>Question 
+            any company carefully as to their real hands-on skills and 
+            experience in your specific type of driver before forking over your 
+            money. Don't pay somebody who develops printer drivers for a living 
+            to help you with your driver for a mass storage device. These two 
+            types of drivers have fundamentally nothing in common. On the other 
+            hand, don't engage a high-end expert firm to help you with your 
+            garden variety simple driver. This is a bit like taking your Ford to 
+            a Ferrari mechanic for a tune up. He can do it, but you'll wind up 
+            paying Ferrari prices.<BR><BR></SPAN></P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  Enb Table for - Q6 Answer --><A 
+      name=Q7></A><!--  Begin Table for - Q7 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>There Are Many Different Driver Models -- How 
+            Do I Know What KIND Of Driver I Should Write?</SPAN> <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>This is a much harder question than it might at 
+            first appear. Basically, get the latest DDK. Look at the Table of 
+            Contents. It has a list of major sections, one per class of device. 
+            For example, the DDK that I'm looking as I write this has:<BR><BR>· 
+            Battery Devices<BR><BR>· Display and Print Devices<BR><BR>· IEEE 
+            1284.4 Devices<BR><BR>· Modem Devices<BR><BR>· Multifunction 
+            Devices<BR><BR>· Network Devices<BR><BR>· Parallel Ports and 
+            Devices<BR><BR>· Serial Ports and Devices<BR><BR>· Smart Card 
+            Devices<BR><BR>· Storage Devices<BR><BR>· Streaming Devices (Video 
+            and Audio)<BR><BR>· Other Devices<BR><BR>· System Support For 
+            Buses<BR><BR>If your device type doesn't jump out at you right away 
+            above, be sure to look under "System Support for Buses." If you need 
+            to support, for example, a SCSI adapter, that's where you'd 
+            look.<BR><BR>If your device falls into one of the categories 
+            described (not including "Other Devices"), you're all set. This is 
+            good, because NT/Win2K/XP/.NET provide shortcut models for writing 
+            drivers for common types of adapters (some of these shortcut 
+            approaches are called "mini-drivers" or "mini-ports"). Unless you 
+            need to do something very unusual, you can save a ton of time using 
+            one of these custom tailored driver environments.<BR><BR>On the 
+            other hand, maybe you're trying to write a device driver for a 
+            battleship or something that's not in the list. In this case, you'll 
+            be writing what's known as a "Standard Kernel Mode Driver." Refer to 
+            the DDK section named "Kernel-Mode Driver Architecture" and go from 
+            there. This is also the type of driver that you'd write if, for some 
+            strange reason, you can't use the typical mini-port or mini-driver 
+            model for a well known device type. </SPAN></P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  Enb Table for - Q7 Answer --><A 
+      name=Q8></A><!--  Begin Table for - Q8 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>How Do I Start Cranking Code?</SPAN> 
+        <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>Get the source code sample driver for a device 
+            of similar type to the one that you need to support. Assuming your 
+            license allows it, start by modifying this driver.</SPAN> </P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  Enb Table for - Q8 Answer --><A 
+      name=Q9></A><!--  Begin Table for - Q9 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>Where Can I Get Driver Samples?</SPAN> 
+          <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>The DDK is a good place to start. There are a 
+            bunch of example drivers that are provided, under the src directory. 
+            These drivers are often the source code for the actual drivers that 
+            ship with the operating system. The DDK's license specifically 
+            allows you to start with these drivers as a base for your own 
+            driver, so go for it.<BR><BR>If you take a seminar, especially a lab 
+            seminar, you'll undoubtedly walk away with one or more sample 
+            drivers.<BR><BR>If you don't see a sample that's similar to the type 
+            of driver you need to write, ask one of the sources listed in "Where 
+            Do I Get Help".<BR><BR></SPAN></P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  Enb Table for - Q9 Answer --><A 
+      name=Q10></A><!--  Begin Table for - Q10 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>What Is WDM?</SPAN> <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>WDM stands for Windows Driver Model. There's 
+            been a number of changes in the meaning of this term over the years, 
+            so almost everybody is confused about exactly what it means. 
+            However, as of Windows XP, WDM is the "forward moving" model by 
+            which drivers are built. If it's not in WDM, it's probably a legacy 
+            driver type or function, and you should probably stay away from 
+            it.</SPAN> </P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  Enb Table for - Q10 Answer --><A 
+      name=Q11></A><!--  Begin Table for - Q11 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>After I Write It, How Do I Install It?</SPAN> 
+            <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>You'll need to create an installation control 
+            file (AKA a ".inf file") to get your driver installed in the system. 
+            The .INF file is used by the setup program, which is invoked from 
+            the "Add/Remove Hardware" option in Control Panel. Yes, even if 
+            you're writing a driver that isn't directly associated with any 
+            hardware, it's still installed from "Add/Remove Hardware." Of 
+            course, if you want to get really fancy, you could write an 
+            attractive GUI program that invokes your inf file to do the 
+            installation.</SPAN> </P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  Enb Table for - Q11 Answer --><A 
+      name=Q12></A><!--  Begin Table for - Q12 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>Do I Include WDM.H or NTDDK.H?</SPAN> 
+          <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>You want to include WDM.H. Though the definition 
+            has changed over the years, this header contains all the definitions 
+            for the Windows Driver Model. WDM is the "forward moving" model by 
+            which drivers are built. If it's not in WDM, it's probably a legacy 
+            driver type or function, and you should probably stay away from 
+            it.</SPAN> </P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  Enb Table for - Q12 Answer --><A 
+      name=Q13></A><!--  Begin Table for - Q13 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>Do I Have To Support PnP In My Driver?</SPAN> 
+            <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>If you're writing a driver for Windows 2000 or 
+            later, the answer is (effectively) "YES". There are some weird types 
+            of drivers that strictly speaking do not fall into the Plug and Play 
+            category (like file systems, or some specific pseudo drivers), but 
+            in general your driver has to support PnP.</SPAN> </P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  Enb Table for - Q13 Answer --><A 
+      name=Q14></A><!--  Begin Table for - Q14 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>Do I Have To Support PnP, Even If My Device Can 
+            Never Be Removed From The System?</SPAN> <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>Yes. PnP is the basic process by which Win2K and 
+            later finds devices.</SPAN> </P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  Enb Table for - Q14 Answer --><A 
+      name=Q15></A><!--  Begin Table for - Q15 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>Can I Write My Driver First, and Add PnP 
+            Later?</SPAN> <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>Yes, but you can also remove your own lung with 
+            a steak knife while watching Survivor on TV. But, it would hurt a 
+            lot, you'd probably be sorry later, and you'd miss almost anything 
+            else that was going on at the time.<BR><BR>So, the real, effective, 
+            answer is "no". You could do it, but it would make things harder 
+            than just implementing PnP in the first place. Sorry, the bottom 
+            line is you have to implement PnP. </SPAN></P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  Enb Table for - Q15 Answer --><A 
+      name=Q16></A><!--  Begin Table for - Q16 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>Do I Have To Support Power Management In My 
+            Driver?</SPAN> <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>Strictly speaking, no, but you want to. Really. 
+            The reason is that if your driver does not support power management, 
+            the entire system on which your driver is running will not support 
+            power management. Worse, if the system tries to suspend, and it 
+            can't because your driver doesn't support power management, a little 
+            message box pops up saying something like "Attempt to suspend failed 
+            because the xyz driver does not support power management". So, 
+            Win2K/XP/.NET shames you into needing to support power management, 
+            even if you weren't so inclined out of goodness.</SPAN> </P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  Enb Table for - Q16 Answer --><A 
+      name=Q17></A><!--  Begin Table for - Q17 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>I Want to Change The Way A Standard Driver 
+            Works - Can I Modify The DDK Sample and Just Replace The Standard 
+            Windows Driver?</SPAN> <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>No! A million times no. This causes nothing but 
+            trouble. Plus, Windows File Protection (otherwise known as System 
+            File Protection) will probably "get" you in the end (see related 
+            questions).<BR><BR>The right way to modify the behavior of a 
+            standard Windows driver is to write a filter driver. This driver can 
+            sit either above or below the standard driver, and modify its 
+            behavior. You can even use this approach to provide additional 
+            functionality. </SPAN></P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  Enb Table for - Q17 Answer --><A 
+      name=Q18></A><!--  Begin Table for - Q18 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>What Is Windows File Protection?</SPAN> 
+          <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>This is also called System File Protection. It 
+            is the mechanism by which Windows ensures that standard system files 
+            (files in %systemroot% and below) are not modified. If you attempt 
+            to delete or change one of the files in your Windows system 
+            directory, such as a standard driver or standard DLL, Windows File 
+            Protection will simply overwrite the your changed file with the 
+            original. It's very effective. Microsoft does not allow you to turn 
+            it off on your customer's machines, so forget about it.</SPAN> 
+          </P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  Enb Table for - Q18 Answer --><A 
+      name=Q19></A><!--  Begin Table for - Q19 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>What Debuggers Can Be Used for Driver 
+            Debugging?</SPAN> <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>WinDbg, Microsoft's standard kernel mode 
+            debugger, comes with the DDK. You can also download the latest 
+            version from www.microsoft.com/ddk/debug. In general, WinDbg is a 
+            powerful and reliable tool.<BR><BR>If you're just starting out in 
+            the world of drivers, you probably should use WinDbg. You'll hear 
+            lots of whining and carping about WinDbg from some of the "old 
+            hands" that have been doing NT driver development for years. While 
+            WinDbg is quite reliable now, this has not always been the 
+            case.<BR><BR>An alternative to using WinDbg is the use of 
+            Compuware's NuMega Labs SoftICE (www.numega.com). This debugger 
+            gained fame for its speed and reliability debugging Windows 95 
+            drivers. Even under Windows NT/2K/XP/.NET, SoftICE has a loyal 
+            developer following.<BR><BR>Whichever debugger you choose, be sure 
+            to read the documentation. WinDbg, especially, has very considerable 
+            documentation that describes everything from how to set up the 
+            debugger to how to configure its many 
+features.<BR><BR></SPAN></P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  Enb Table for - Q19 Answer --><A 
+      name=Q20></A><!--  Begin Table for - Q20 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>What's This "Checked Build" Stuff?</SPAN> 
+            <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>Windows comes in two basic flavors: (a) The 
+            normal distribution kit that everybody uses, and (b) A special build 
+            that has debugging information in it. The build with debugging 
+            information is for use by driver writers, and for diagnosing serious 
+            system problems. This debug build is called the "Checked 
+            Build".<BR><BR>See the XP DDK's Getting Started section, Guide to 
+            Using the Free and Checked Builds for a full run-down on what the 
+            checked build is, where you get it, and how to make use of it. 
+            </SPAN></P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  Enb Table for - Q20 Answer --><A 
+      name=Q21></A><!--  Begin Table for - Q21 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>What Testing Tools Are Available?</SPAN> 
+            <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>The Windows operating system contains the most 
+            powerful testing tool available. It is Driver 
+            Verifier.<BR><BR>Driver Verifier is available starting with Windows 
+            2000. Its features are very much enhanced in Windows XP and Windows 
+            .NET Server.<BR><BR>Driver Verifier (usually, referred to as just 
+            "Verifier") comprises special set of modules in the operating system 
+            that carefully monitor the execution of specific drivers. If 
+            Verifier detects an inconsistency, or any incorrect operation, it 
+            will display a diagnostic message in the debugger and then crash the 
+            system.<BR><BR>Driver Verifier is setup and controlled using the 
+            utility verifier.exe, located in the Windows system directory. Using 
+            verifier.exe, you can configure Driver Verifier to monitor specific 
+            drivers (such as a driver that you are writing) for 
+            problems.<BR><BR>Driver Verifier is best when it's used throughout 
+            your entire debugging process. That is, always have Verifier enabled 
+            for your driver on your test machine. As you go through the process 
+            of adding functionality to or modifying your driver, Driver Verifier 
+            will be there to watch your driver's actions.<BR><BR>It's important 
+            to realize that Driver Verifier is essentially a passive monitor. 
+            That means that while it might occasionally modify the information 
+            sent to your driver, it mostly just watches what your driver does. 
+            Driver Verifier itself is not a tester. It doesn't send any I/O 
+            requests to your driver. Therefore, in order to make use of Driver 
+            Verifier, you will have to send the broadest range of both valid and 
+            invalid I/O requests to your driver. This will allow Driver Verifier 
+            to monitor your driver's behavior in the broadest possible set of 
+            conditions. </SPAN></P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  Enb Table for - Q21 Answer --><A 
+      name=Q22></A><!--  Begin Table for - Q22 Answer -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD colSpan=3>
+            <HR SIZE=1>
+            <SPAN class=textbold>Are There Other Test Tools, Besides 
+            Verifier?</SPAN> <BR><BR></TD></TR>
+        <TR>
+          <TD vAlign=top align=middle width="20%">&nbsp;</TD>
+          <TD width="5%">&nbsp;</TD>
+          <TD vAlign=top align=left width="60%">
+            <P><SPAN class=text>Absolutely. Check the \tools directory in the 
+            DDK. With each new release of the DDK, more tools are added. Some of 
+            these tools are exceptionally powerful and useful. We'll provide a 
+            more comprehensive list later.</SPAN> </P></TD>
+          <TD vAlign=top width="10%">&nbsp;</TD></TR></TBODY></TABLE><!--  Enb Table for - Q22 Answer --></TD></TR></TBODY></TABLE><!-- End Table 3 --><!-- Begin Table 4 Copyright Information and Footer Menu -->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width=150><IMG height=1 alt="" 
+      src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/1pixel.gif" 
+      width=150></TD>
+    <TD vAlign=top width=25><IMG height=25 alt="" 
+      src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/1pixel.gif" 
+      width=25></TD>
+    <TD vAlign=top align=left width="100%">
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top width="85%" height=80><!--Begin main menu located at the bottom of each page--><BR>
+            <HR SIZE=1>
+            <A class=topnavlink 
+            href="http://www.osr.com/resources_getstart.shtml#TOP"><IMG 
+            height=12 alt="Top of Page" 
+            src="Getting Started with Windows NT-2000-XP-_NET Drivers_files/resources_arrow2.gif" 
+            width=22 border=0></A> <!-- Begin main menu located at the bottom of each page -->
+            <DIV align=center><STRONG><FONT face="Arial, Helvetica, sans-serif" 
+            size=-2><A href="http://www.osr.com/default.shtml">Home</A> | <A 
+            href="http://www.osr.com/aboutosr_main.shtml">About OSR</A> | <A 
+            href="http://www.osr.com/services_main.shtml">Services</A> | <A 
+            href="http://www.osr.com/toolkits_main.shtml">Toolkits</A> | <A 
+            href="http://www.osr.com/seminars_main.shtml">Seminars</A> | <A 
+            href="http://www.osr.com/publications_main.shtml">Publications</A> | 
+            <A href="http://www.osr.com/resources_main.shtml">Resources</A> | <A 
+            href="http://www.osr.com/store_main.shtml">Store</A> | <A 
+            href="http://www.osr.com/listserver_main.htm">List Server</A> | <A 
+            href="http://www.osr.com/contactus_main.shtml">Contact Us </A>| <A 
+            href="http://www.osr.com/search_main.shtml">Search</A> 
+            </FONT></STRONG><BR><BR><!-- End main menu located at the bottom of each page --><!-- Begin copyright information located at the bottom of each page --><STRONG><FONT 
+            face="Arial, Helvetica, sans-serif" size=-2>©2001 OSR Opens Systems 
+            Resources, Inc, ALL RIGHTS RESERVED - Running on Win2K new server 
+            </FONT></STRONG></DIV><!-- End copyright information located at the bottom of each page --></TD>
+          <TD vAlign=top 
+width="10%">&nbsp;</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!--End Table 4 Copyright Information and Footer Menu --></BODY></HTML>

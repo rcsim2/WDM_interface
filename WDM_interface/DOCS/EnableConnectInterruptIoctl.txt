@@ -1,0 +1,19 @@
+Subject: Re: EnableConnectInterruptIoctl setting: where?
+Date: Tue, 10 Sep 2002 16:01:08 +0200
+From: Lucvdv <replace_name@null.net>
+Organization: .
+Newsgroups: microsoft.public.win32.programmer.kernel
+
+I wrote:
+
+> Or should the EnableConnectInterruptIoctl value be created in its
+> parent or in one of its subkeys?  I searched the web and found a site
+> that says it shouldn't, but you never know ;-)
+
+Took the rough approach -- created the value at 5 places at once,
+found it working, and then started deleting them one by one until it
+failed again.
+
+It's the 'Device Parameters' subkey.  Not illogical of course, but the
+docs might have mentioned it instead of just saying "under the Plug
+and Play registry key for the parallel port" ;-)

@@ -1,0 +1,9 @@
+What Language Can I Write Drivers In? 
+
+ 
+    You write drivers for NT/Win2K/XP/.NET in either C or C++. Support for using C++ is tenuous, but it can be done. Don't even think about trying to use another language. All the functions and data types are only defined in C/C++ header files. There are no assembly language definitions provided, so you can't use assembly language either.
+
+Further, it seems that the Microsoft Visual C++ compiler is a lot more rigorous in terms of catching ordinary errors than the MSVC compiler. So, even though it's probably best for most people to write drivers in "plain C", it's also probably a good idea to name your files *.cpp, to gain the added rigor that the C++ compiler provides. 
+ 
+
+ 

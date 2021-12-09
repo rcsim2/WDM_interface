@@ -1,0 +1,330 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0108)http://groups.google.com/groups?hl=en&frame=right&th=3f3915274fe291a1&seekm=VA.000002c4.004425dd%40mobile800 -->
+<HTML><HEAD><TITLE>Google Groups: View Thread</TITLE>
+<META content="text/html; charset=ISO-8859-1" http-equiv=content-type>
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff onload=window.focus();>
+<TABLE bgColor=#ffcc33 border=0 cellPadding=2 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><FONT face=arial,sans-serif>All messages from 
+      thread</FONT></TD></TR></TBODY></TABLE><A name=link1></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 1 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:paul%40hed.de+" 
+      target=_top>Paul Hoepping</A> (<A 
+      href="mailto:paul@hed.de">paul@hed.de</A>)<BR>Subject: Parallel port IRQ 
+      <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=VA.000002c3.06a65c13%40mobile800" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/08/21 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Hi,
+how can I check and configure the IRQs for the parallel ports?
+
+Yes, I know an IRQ is not needed for printing and printer port IRQs do 
+not appear in the NT diagnostics. Therefore, wrong IRQ assignments 
+usually cause no problem. 
+
+My case is different. I have developed a hardware device that connects 
+to the printer port. Its driver needs the parallel port IRQ. 
+The parallel port IRQ is assigned to the port by the Microsoft Windows 
+NT driver parport.sys. Drivers that want to use the parallel port 
+allocate the devices created by parport. From parport they get the IO 
+address and the IRQ of the port.
+
+The driver works fine if all parallel ports are assigned an IRQ, and if 
+it is the same IRQ that is actually used by the hardware. Interrupt 
+conflicts are logged in the NT system event log.
+
+Question: How does Windows NT determin what IRQ is to be used for which 
+parallel port ???
+
+I have asked this question before. ShowwaveRaider has tried to help me 
+(thank you!) but could not find the right answere.
+
+Mit freundlichen Gruessen, / With best regards,
+-----------------------------------------------------------------------
+---
+Paul Hoepping - Hoepping Elektronik Design
+<A href="http://www.hed.de/" target=_top>http://www.hed.de/</A>
+Tel: 0201 843331, Fax +49 201 471918</PRE><A name=link2></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 2 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:maxim__s%40mtu-net.ru+" 
+      target=_top>Maxim S. Shatskih</A> (<A 
+      href="mailto:maxim__s@mtu-net.ru">maxim__s@mtu-net.ru</A>)<BR>Subject: Re: 
+      Parallel port IRQ <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=7pmuel%24he8%2410%40ns.mtu.ru" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/08/21 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE><FONT color=#660066>&gt; Question: How does Windows NT determin what IRQ is to be used for which
+&gt; parallel port ???</FONT>
+
+If you mean NT4 - looks like NTDETECT.COM detects it &amp; prepares this
+information in the registry Hardware tree for later use by the NT kernel &amp;
+drivers.
+As about NT5 - looks like this is done in the same way as other PnP stuff.
+(BTW - is it not NTDETECT.COM which replaces the Win98's "Plug &amp; Plays
+BIOS" enumerator in w2k?)
+
+    Max</PRE><A name=link3></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 3 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:paul%40hed.de+" 
+      target=_top>Paul Hoepping</A> (<A 
+      href="mailto:paul@hed.de">paul@hed.de</A>)<BR>Subject: Re: Parallel port 
+      IRQ <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=VA.000002c5.004cae88%40mobile800" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/08/22 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Hi Max,
+yes, this seems to be the case. Problem: How does NT "detect" the IRQ used 
+by a parallel port on an adapter card? As far as I know the hardware 
+concerned, there is no safe way to do that. All adapter cards with parallel 
+ports I have seen are configured using jumpers for the IO address, the mode 
+and the IRQ to be used. Theoretically it should be possible to build a plug 
+and play compatible parallel port adapter card, but I have not seen one yet. 
+
+<FONT color=#007777>&gt; &gt; Question: How does Windows NT determin what IRQ is to be used for which
+&gt; &gt; parallel port ???</FONT>
+<FONT color=#660066>&gt; 
+&gt; If you mean NT4 - looks like NTDETECT.COM detects it &amp; prepares this
+&gt; information in the registry Hardware tree for later use by the NT kernel &amp;
+&gt; drivers.</FONT>
+
+Mit freundlichen Gruessen, / With best regards,
+--------------------------------------------------------------------------
+Paul Hoepping - Hoepping Elektronik Design
+<A href="http://www.hed.de/" target=_top>http://www.hed.de/</A>
+Tel: 0201 843331, Fax +49 201 471918</PRE><A name=link4></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 4 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:maxim__s%40mtu-net.ru+" 
+      target=_top>Maxim S. Shatskih</A> (<A 
+      href="mailto:maxim__s@mtu-net.ru">maxim__s@mtu-net.ru</A>)<BR>Subject: Re: 
+      Parallel port IRQ <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=7ppalp%2436h%247%40ns.mtu.ru" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/08/22 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE><FONT color=#660066>&gt; yes, this seems to be the case. Problem: How does NT "detect" the IRQ used
+&gt; by a parallel port on an adapter card? As far as I know the hardware</FONT>
+
+Don't know this. On modern machines this information seem to present in
+CMOS.
+After all - you can override COM port settings using Control Panel/Ports.
+(I have 3 COM ports with very odd hardware resource assignments on my
+machine - for mouse, for modem &amp; for WinDbg. All them are working
+simultaneously.)
+Maybe it is too possible with LPT ports?
+
+Looks like parport.sys sources are necessary to discover the answer :-).
+
+    Max</PRE><A name=link5></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 5 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:gregm%40northernembedded.com.nospam+" 
+      target=_top>Greg Miller</A> (<A 
+      href="mailto:gregm@northernembedded.com.nospam">gregm@northernembedded.com.nospam</A>)<BR>Subject: 
+      Re: Parallel port IRQ <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=KYFv3.2057%2436.279559%40typhoon-sf.snfc21.pbi.net" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/08/21 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Paul Hoepping &lt;paul@hed.de&gt; wrote in message <A href="http://groups.google.com/groups?selm=VA.000002c3.06a65c13%40mobile800" target=_top>news:VA.000002c3.06a65c13@mobile800</A>...
+<FONT color=#660066>&gt; Therefore, wrong IRQ assignments usually cause no problem.</FONT>
+
+Let me ensure that I'm reading you correctly -- you're finding situations where the
+OS is incorrectly assigning an IRQ value to a given parallel port?
+
+<FONT color=#660066>&gt; The driver works fine if all parallel ports are assigned an IRQ, and if
+&gt; it is the same IRQ that is actually used by the hardware. Interrupt
+&gt; conflicts are logged in the NT system event log.</FONT>
+
+If you're talking about NT4, I'd suggest taking a look at the parport driver's
+source itself.  The source for the driver is included in the DDK.
+
+If you're talking about NT5, there's more involved than that.
+IOCTL_INTERNAL_PARALLEL_CONNECT_INTERRUPT requires two things to function
+correctly under NT5 (Win 2000):
+
+ - The user must have declared the parallel port as having an interrupt.
+   Apparently since almost all parallel ports in use are used for printers, and
+   therefore need no IRQ, W2K defaults to not assigning any interrupt
+   to it.  The user must select:
+
+   Control Panel/Administrative Tools/System Tools/Device Manager/Ports
+
+   Then select the individual parallel port in question, then select
+   'properties' (right mouse button on the port, select 'properties' from
+   the menu).
+
+   Then select the 'Port Settings' tab.
+
+   Then select 'Use any interrupt assigned to the Port'.
+
+ - Secondly, and I can see no user method of selecting this, the parallel port
+   driver requires a registry key before permitting the given IOCTL to function:
+
+   First, the location of the given key on my machine is:
+
+   LocalMachine/System/CurrentControlSet/Enum/Root/*PNP0400
+
+   I don't know, however, how this key is intended to be located.  I suspect it has
+   to do with the PNP mechanism, which I know little of.  Fortunately, the key location
+   has been constant on all of the machines I've seen -- but as Microsoft has yet to
+   document this (as far as I've seen), YMMV.
+
+   Each named key under *PNP0400 represents a parallel port.  For instance, you might
+   find:
+
+   LocalMachine/System/CurrentControlSet/Enum/Root/*PNP0400/PnPBIOS_14</PRE>
+<P><I><A 
+href="http://groups.google.com/groups?hl=en&amp;rnum=5&amp;selm=KYFv3.2057%2436.279559%40typhoon-sf.snfc21.pbi.net" 
+target=_top>Read the rest of this message...</A> (23 more lines)</I>
+<P><A name=link6></A><A name=s></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 6 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:paul%40hed.de+" 
+      target=_top>Paul Hoepping</A> (<A 
+      href="mailto:paul@hed.de">paul@hed.de</A>)<BR>Subject: Re: Parallel port 
+      IRQ <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=VA.000002c4.004425dd%40mobile800" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/08/22 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Hi Greg,
+thank you for your reply.
+ 
+<FONT color=#660066>&gt; Paul Hoepping &lt;paul@hed.de&gt; wrote in message <A href="http://groups.google.com/groups?selm=VA.000002c3.06a65c13%40mobile800" target=_top>news:VA.000002c3.06a65c13@mobile800</A>...</FONT>
+<FONT color=#007777>&gt; &gt; Therefore, wrong IRQ assignments usually cause no problem.</FONT>
+<FONT color=#660066>&gt; 
+&gt; Let me ensure that I'm reading you correctly -- you're finding situations where the
+&gt; OS is incorrectly assigning an IRQ value to a given parallel port?</FONT>
+
+Yes. As far as it concerns the built-in port, I can imagin some way how the hardware 
+detection might query the bios for the assigned interrupt. For additional adapter cards 
+with jumpers I do not see that possibility. I found that NT assigns IRQ7 to the first 
+port and IRQ5 to the second. 
+
+<FONT color=#007777>&gt; &gt; The driver works fine if all parallel ports are assigned an IRQ, and if
+&gt; &gt; it is the same IRQ that is actually used by the hardware. Interrupt
+&gt; &gt; conflicts are logged in the NT system event log.</FONT>
+<FONT color=#660066>&gt; 
+&gt; If you're talking about NT4, I'd suggest taking a look at the parport driver's
+&gt; source itself.  The source for the driver is included in the DDK.</FONT>
+
+I did. But I did not understand the source text in all its details. From that I gathered, 
+that the driver queries NT for the information produced by the hardware detection. The 
+IRQ seems to by part of the information returned. In the comments it is also described 
+that it should be possible to configure ports using the registry. This is intended for 
+ports not detected automatically. In the code I could not find any routines that query 
+the registry and I found no description what registry entries have to be made for a new 
+parallel port. 
+
+<FONT color=#660066>&gt; If you're talking about NT5, there's more involved than that.
+&gt; IOCTL_INTERNAL_PARALLEL_CONNECT_INTERRUPT requires two things to function
+&gt; correctly under NT5 (Win 2000):</FONT>
+
+In my driver I use IOCTL_INTERNAL_GET_MORE_PARALLEL_PORT_INFO to fetch the information 
+what IRQ is used for a port. Then I allocate the IRQ directly as a resource. I had some 
+trouble with IOCTL_INTERNAL_PARALLEL_CONNECT_INTERRUPT. In my (early) experiments the 
+driver started without fault but my IRQ service routine never got called. Because of this 
+and because my driver has some time critical processing in its IRQ service routine I 
+decided to allocate the IRQ directly as a resource. 
+
+<FONT color=#660066>&gt; 
+&gt;  - The user must have declared the parallel port as having an interrupt.
+&gt;    Apparently since almost all parallel ports in use are used for printers, and
+&gt;    therefore need no IRQ, W2K defaults to not assigning any interrupt
+&gt;    to it.  The user must select:
+&gt; 
+&gt;    Control Panel/Administrative Tools/System Tools/Device Manager/Ports
+&gt; 
+&gt;    Then select the individual parallel port in question, then select
+</FONT></PRE>
+<P><I><A 
+href="http://groups.google.com/groups?hl=en&amp;rnum=6&amp;selm=VA.000002c4.004425dd%40mobile800" 
+target=_top>Read the rest of this message...</A> (42 more lines)</I>
+<P>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><IMG alt="" height=3 
+      src="groups(1)_bestanden/cleardot.gif"></TD></TR></TBODY></TABLE><BR>
+<CENTER><FONT size=-1>©2002 Google</FONT></CENTER></BODY></HTML>

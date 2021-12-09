@@ -1,0 +1,116 @@
+;
+; Transmitter Interface Parallel Port Driver Install INF file
+; (C) 2002 Black Sphere Corp.
+;
+
+;******************************************************************************
+; Version Section
+;------------------------------------------------------------------------------
+[Version]
+Signature="$Windows NT$"
+Class = Ports
+ClassGuid = {4d36e978-e325-11ce-bfc1-08002be10318} 
+Provider=%S_Provider%
+DriverVer=10/07/1999
+
+
+;******************************************************************************
+; Default Install Section
+; will be executed if "Install" is selected from the context menu of the INF file
+;------------------------------------------------------------------------------
+[DefaultInstall.ntx86]
+CopyFiles=_Files_sys, _Files_inf
+AddReg=_AddReg_txp_drv,  _AddReg_UnInstall
+Reboot
+
+
+;******************************************************************************
+; UnInstall Section
+;------------------------------------------------------------------------------
+[UnInstall]
+DelFiles=_Files_sys, _Files_inf
+DelReg=_DelReg_all
+
+
+;******************************************************************************
+; files sections
+;------------------------------------------------------------------------------
+
+; driver binaries
+[_Files_sys]
+Txintpar.sys
+
+; inf file
+[_Files_inf]
+Txintpar.inf
+
+
+;******************************************************************************
+; Destination Directories
+;------------------------------------------------------------------------------
+[DestinationDirs]
+DefaultDestDir  = 11		; System32 directory
+_Files_sys = 10,System32\Drivers
+_Files_inf = 17		; INF dir
+
+
+;******************************************************************************
+; Disk Layout
+;------------------------------------------------------------------------------
+[SourceDisksNames]
+1=%S_DiskName%,"",1
+
+[SourceDisksFiles]
+Txintpar.sys=1
+Txintpar.inf=1
+
+
+;******************************************************************************
+; Registry sections
+;------------------------------------------------------------------------------
+
+; uparport_DRV
+[_AddReg_txp_drv]
+; service key
+HKLM,%S_TXP_DRV_ServiceKey%,Start,0x10001,1
+HKLM,%S_TXP_DRV_ServiceKey%,Type,0x10001,1
+HKLM,%S_TXP_DRV_ServiceKey%,ErrorControl,0x10001,1
+HKLM,%S_TXP_DRV_ServiceKey%,ImagePath,0x20000,"\SystemRoot\System32\Drivers\Txintpar.sys"
+HKLM,%S_TXP_DRV_ServiceKey%,DisplayName,0x00000,%S_TXP_DRV_DisplayName%
+HKLM,%S_TXP_DRV_ServiceKey%,Group,,"Base"
+; event log
+HKLM,%S_TXP_DRV_EventLogKey%,EventMessageFile,0x20000,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\Drivers\Txintpar.sys"
+HKLM,%S_TXP_DRV_EventLogKey%,TypesStxported,0x10001,7
+
+;parameters
+
+; uninstall entry
+[_AddReg_UnInstall]
+HKLM,%S_UnInstallKey%,DisplayName,,%S_UnInstallDisplayName%
+HKLM,%S_UnInstallKey%,UninstallString,,"rundll32 setupapi.dll,InstallHinfSection UnInstall 4 %17%\Txintpar.inf"
+
+
+; delete all registry entries
+[_DelReg_all]
+HKLM,%S_TXP_DRV_ServiceKey%
+HKLM,%S_TXP_DRV_EventLogKey%
+HKLM,%S_UnInstallKey%
+
+
+
+;******************************************************************************
+; Localizable Strings
+;------------------------------------------------------------------------------
+[Strings]
+S_Provider="Black Sphere Corp."
+S_DiskName="Transmitter Interface Parallel Port Driver Disk"
+
+S_TXP_DRV_ServiceKey="System\CurrentControlSet\Services\Txintpar"
+S_TXP_DRV_ParamKey="System\CurrentControlSet\Services\Txintpar\Parameters"
+
+S_TXP_DRV_EventLogKey="System\CurrentControlSet\Services\EventLog\System\Txintpar"
+S_TXP_DRV_DisplayName="Transmitter Interface Parallel Port Driver"
+
+S_UnInstallKey="Software\Microsoft\Windows\CurrentVersion\Uninstall\Txintpar"
+S_UnInstallDisplayName="Black Sphere Corp.: Transmitter Interface Parallel Port Driver"
+

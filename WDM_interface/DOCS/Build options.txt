@@ -1,0 +1,56 @@
+
+BUILD: Version 4.03.2134
+
+Usage: BUILD [-?] display this message
+	[-3] same as -Z but will add a third pass zero pass
+	[-a] allows synchronized blocks and drains during link pass
+	[-b] displays full error message text (doesn't truncate)
+	[-c] deletes all object files
+	[-C] deletes all .lib files only
+	[-D] check dependencies before building (on by default if BUILD_PRODUCT != NT)
+	[-e] generates build.log, build.wrn & build.err files
+	[-E] always keep the log/wrn/err files (use with -z)
+	[-f] force rescan of all source and include files
+	[-F] when displaying errors/warnings to stdout, print the full path
+	[-G] enables target specific dirs files iff one target
+	[-i] ignore extraneous compiler warning messages
+	[-I] do not display thread index if multiprocessor build
+	[-k] keep (don't delete) out-of-date targets
+	[-l] link only, no compiles
+	[-L] compile only, no link phase
+	[-m] run build in the idle priority class
+	[-M [n]] Multiprocessor build (for MP machines)
+	[-o] display out-of-date files
+	[-O] generate obj\_objects.mac file for current directory
+	[-p] pause' before compile and link phases
+	[-P] Print elapsed time after every directory
+	[-q] query only, don't run NMAKE
+	[-r dirPath] restarts clean build at specified directory path
+	[-s] display status line at top of display
+	[-S] display status line with include file line counts
+	[-t] display the first level of the dependency tree
+	[-T] display the complete dependency tree
+	[-$] display the complete dependency tree hierarchically
+	[-u] display unused BUILD_OPTIONS
+	[-v] enable include file version checking
+	[-w] show warnings on screen
+	[-y] show files scanned
+	[-z] no dependency checking or scanning of source files -
+		one pass compile/link
+	[-Z] no dependency checking or scanning of source files -
+		two passes
+	[-why] list reasons for building targets
+
+	[-all] same as -386, -axp64, -alpha, and -ia64
+	[-alpha] build targets for alpha
+	[-axp64] build targets for axp64
+	[-386] build targets for i386
+	[-ia64] build targets for IA64
+
+	[-x filename] exclude include file from dependency checks
+	[-j filename] use 'filename' as the name for log files
+	[-nmake arg] argument to pass to NMAKE
+	[-clean] equivalent to '-nmake clean'
+	Non-switch parameters specify additional source directories
+BUILD: Done
+

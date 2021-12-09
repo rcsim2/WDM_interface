@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0116)http://groups.google.com/groups?hl=en&frame=right&th=603fa8533dfb3eb1&seekm=78nkjf%24ou7%241%40news1.cableinet.co.uk -->
+<HTML><HEAD><TITLE>Google Groups: View Thread</TITLE>
+<META content="text/html; charset=ISO-8859-1" http-equiv=content-type>
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff onload=window.focus();>
+<TABLE bgColor=#ffcc33 border=0 cellPadding=2 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><FONT face=arial,sans-serif>All messages from 
+      thread</FONT></TD></TR></TBODY></TABLE><A name=link1></A><A name=s></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 1 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:lbpartnership%40cableinet.co.uk+" 
+      target=_top>Bill Burey</A> (<A 
+      href="mailto:lbpartnership@cableinet.co.uk">lbpartnership@cableinet.co.uk</A>)<BR>Subject: 
+      In/OUT Data in NT Drivers, re DeviceIoControl <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=78nkjf%24ou7%241%40news1.cableinet.co.uk" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/01/27 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>I Have developed a Windows 95 VXD. Information is passed to and from
+using DeviceIOControl.
+
+I have worked out how to Get the Input Data, Input Buffer Length, Output
+Buffer Length but I Cannot pass data back to my driver.
+
+I Need to pass one string in the Input Buffer and receive data in the output
+buffer.
+
+I have read the info in the DDK and followed some examples but all appear to
+either create no end result or end up in a blue screen
+
+I Am using Irp-&gt;AssociatedIrp.SystemBuffer to pass input data and from what
+I have read should be able to pass data back in this way.
+
+Can anyone please offer me some advice or a sample of code.
+
+Kind Regards
+
+
+Bill Burey</PRE><A name=link2></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 2 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:eliyasy%40microsoft.com+" 
+      target=_top>Eliyas Yakub</A> (<A 
+      href="mailto:eliyasy@microsoft.com">eliyasy@microsoft.com</A>)<BR>Subject: 
+      Re: In/OUT Data in NT Drivers, re DeviceIoControl <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=78o225%24lhb%40news.dns.microsoft.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/01/27 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Take a look at this sample.
+
+<A href="http://support.microsoft.com/download/support/mslfiles/ioctl.exe" target=_top>http://support.microsoft.com/download/support/mslfiles/ioctl.exe</A>
+
+Bill Burey wrote in message &lt;78nkjf$ou7$1@news1.cableinet.co.uk&gt;...
+<FONT color=#660066>&gt;I Have developed a Windows 95 VXD. Information is passed to and from
+&gt;using DeviceIOControl.
+&gt;
+&gt;I have worked out how to Get the Input Data, Input Buffer Length, Output
+&gt;Buffer Length but I Cannot pass data back to my driver.
+&gt;
+&gt;I Need to pass one string in the Input Buffer and receive data in the output
+&gt;buffer.
+&gt;
+&gt;I have read the info in the DDK and followed some examples but all appear to
+&gt;either create no end result or end up in a blue screen
+&gt;
+&gt;I Am using Irp-&gt;AssociatedIrp.SystemBuffer to pass input data and from what
+&gt;I have read should be able to pass data back in this way.
+&gt;
+&gt;Can anyone please offer me some advice or a sample of code.
+&gt;
+&gt;Kind Regards
+&gt;
+&gt;
+&gt;Bill Burey
+&gt;
+&gt;
+&gt;
+&gt;
+&gt;</FONT></PRE><A name=link3></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 3 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:phat.to%40cas.honeywell.com+" 
+      target=_top>Phat To</A> (<A 
+      href="mailto:phat.to@cas.honeywell.com">phat.to@cas.honeywell.com</A>)<BR>Subject: 
+      Re: In/OUT Data in NT Drivers, re DeviceIoControl <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=36B2377D.C27726E3%40cas.honeywell.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/01/29 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>If this is your first driver, you should start out with something simple.
+Define your IOCTL, that's your IO control code using METHOD_BUFFERED.
+
+You should be able to send information down to the driver through the
+Irp-&gt;AssociatedIrp.SystemBuffer pointer.
+
+And receive information from the driver with Irp-&gt;UserBuffer.
+
+Irp-&gt;UserBuffer is define to be a PVOID.
+
+So if you want to pass back an integer do the following:
+
+*((PLONG) Irp-&gt;UserBuffer) = whatever;
+
+Phat
+Honeywell, Inc.
+
+
+Bill Burey wrote:
+
+<FONT color=#660066>&gt; I Have developed a Windows 95 VXD. Information is passed to and from
+&gt; using DeviceIOControl.
+&gt;
+&gt; I have worked out how to Get the Input Data, Input Buffer Length, Output
+&gt; Buffer Length but I Cannot pass data back to my driver.
+&gt;
+&gt; I Need to pass one string in the Input Buffer and receive data in the output
+&gt; buffer.
+&gt;
+&gt; I have read the info in the DDK and followed some examples but all appear to
+&gt; either create no end result or end up in a blue screen
+&gt;
+&gt; I Am using Irp-&gt;AssociatedIrp.SystemBuffer to pass input data and from what
+&gt; I have read should be able to pass data back in this way.
+&gt;
+&gt; Can anyone please offer me some advice or a sample of code.
+&gt;
+&gt; Kind Regards
+&gt;
+&gt; Bill Burey</FONT></PRE>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><IMG alt="" height=3 
+      src="groups(1)_bestanden/cleardot.gif"></TD></TR></TBODY></TABLE><BR>
+<CENTER><FONT size=-1>©2001 Google</FONT></CENTER></BODY></HTML>

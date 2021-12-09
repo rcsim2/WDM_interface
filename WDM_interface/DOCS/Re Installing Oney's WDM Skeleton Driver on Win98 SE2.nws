@@ -1,0 +1,32 @@
+Path: zonnet-reader-1!zonnet-feed!news-feed1.eu.concert.net!skynet.be!skynet.be!newsfeed00.sul.t-online.de!newsfeed01.sul.t-online.de!t-online.de!newsfeed.hanau.net!news-fra1.dfn.de!news.tele.dk!small.news.tele.dk!204.71.34.15!news-out.cwix.com!newsfeed.cwix.com!feed2.news.rcn.net!feed1.news.rcn.net!rcn!not-for-mail
+From: Walter Oney <waltoney@oneysoft.com>
+Newsgroups: comp.os.ms-windows.programmer.nt.kernel-mode
+Subject: Re: Installing Oney's WDM Skeleton Driver on Win98 SE
+Date: Tue, 18 Dec 2001 04:45:42 -0500
+Organization: Walter Oney Software
+Lines: 13
+Message-ID: <3C1F1046.E41FF645@oneysoft.com>
+References: <OlxT7.10739$sl6.34818@zonnet-reader-1> <35rt1ukl3kaimd1b45j9t3u5qfvc2t5948@4ax.com>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+X-Trace: UmFuZG9tSVY3n10J4+rTCbpmjTbws0XXEx+FFvyCiuHyRb6sWv9vChgoE6zkAsyd
+X-Complaints-To: abuse@rcn.com
+NNTP-Posting-Date: 18 Dec 2001 09:43:28 GMT
+X-Mailer:  Mozilla 4.7 [en] (Win95; I)
+X-Accept-Language:  en
+Xref: zonnet-feed comp.os.ms-windows.programmer.nt.kernel-mode:24967
+
+Tim Roberts wrote:
+> When the installer goes to install from an INF not in the Windows INF
+> directories, it ALWAYS puts up the "show me the path" dialog.  As far as I
+> know, it's an annoyance you have to live with.  Many companies use a
+> co-installer to copy their INF files into the Windows INF directories in
+> order to avoid this annoyance.
+
+Actually, the problem is that two of the section names in the INF are
+misspelled. It should be SourceDisksNames and SourceDisksFiles. SATC.
+
+--
+Walter Oney
+http://www.oneysoft.com

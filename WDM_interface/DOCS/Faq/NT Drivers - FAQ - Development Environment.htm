@@ -1,0 +1,690 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0032)http://www.cmkrnl.com/faq03.html -->
+<HTML><HEAD><TITLE>NT Drivers - FAQ - Development Environment</TITLE>
+<META content="text/html; charset=iso-8859-1" http-equiv=Content-Type><LINK 
+href="NT Drivers - FAQ - Development Environment_bestanden/nsfaq.css" 
+rel=stylesheet type=text/css><LINK disabled 
+href="NT Drivers - FAQ - Development Environment_bestanden/iefaq.css" id=sheet1 
+rel=stylesheet type=text/css><!-------------------- BEGIN COPYING THE JAVASCRIPT SECTION HERE -------------------->
+<SCRIPT language=JavaScript>
+<!-- hide this script from non-javascript-enabled browsers
+if (document.images) {
+Iinternal_02_07 = new Image(68, 60);Iinternal_02_07.src = 'images/internal_title_01.gif';
+Iinternal_02_07o = new Image(68, 60);Iinternal_02_07o.src = 'images/internal_title_01_over.gif';
+Iinternal_03_02 = new Image(117, 25);Iinternal_03_02.src = 'images/internal_nav_up.gif';
+Iinternal_03_02o = new Image(117, 25);Iinternal_03_02o.src = 'images/internal_nav_up_over.gif';
+Iinternal_03_03 = new Image(116, 25);Iinternal_03_03.src = 'images/internal_nav_prev.gif';
+Iinternal_03_03o = new Image(116, 25);Iinternal_03_03o.src = 'images/internal_nav_prev_over.gif';
+Iinternal_03_04 = new Image(99, 25);Iinternal_03_04.src = 'images/internal_nav_next.gif';
+Iinternal_03_04o = new Image(99, 25);Iinternal_03_04o.src = 'images/internal_nav_next_over.gif';
+Iinternal_03_05 = new Image(100, 25);Iinternal_03_05.src = 'images/internal_nav_faq.gif';
+Iinternal_03_05o = new Image(100, 25);Iinternal_03_05o.src = 'images/internal_nav_faq_over.gif';
+Iinternal_03_06 = new Image(100, 25);Iinternal_03_06.src = 'images/internal_nav_map.gif';
+Iinternal_03_06o = new Image(100, 25);Iinternal_03_06o.src = 'images/internal_nav_map_over.gif';
+}
+function di(id,name){
+  if (document.images) {document.images[id].src=eval(name+".src"); }
+}
+
+// function that displays status bar message
+
+function dm(msgStr) {
+  document.returnValue = false;
+  if (document.images) { 
+     window.status = msgStr;
+     document.returnValue = true;
+  }
+}
+var showMsg = navigator.userAgent != "Mozilla/4.0 (compatible; MSIE 4.0; Mac_PowerPC)";
+function dmim(msgStr) {
+  document.returnValue = false;
+  if (showMsg) { 
+    window.status = msgStr;
+    document.returnValue = true;
+  }
+}
+
+// stop hiding -->
+</SCRIPT>
+
+<SCRIPT language=JavaScript>
+var browser, version, br;
+browser = navigator.appName;
+version = navigator.appVersion;
+br = "";
+if ((browser.indexOf("Explorer") >= 0) && (version.indexOf('4.0') >=0 ) ) {
+//  alert("MSIE 4.0 is present");
+  links = document.all.tags("link");
+  links[0].disabled=true;
+  links[1].disabled=false;
+br = "ie4";
+}
+else if ((browser.indexOf("Netscape") >= 0) && (version.indexOf('4.0') >=0) ) {
+//  alert("You are using Netscape ver.4.x,. \n\n" );
+  br = "nn4";
+}
+</SCRIPT>
+<!------------------------- STOP COPYING THE JAVASCRIPT HERE ------------------------><!-- <LINK REL=stylesheet HREF="faqs.css" TYPE="text/css" TITLE="Style FAQ"> -->
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY aLink=#ffffcc bgColor=#333333 link=#990000 text=#333333 vLink=#666666>
+<CENTER>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width=640>
+  <TBODY>
+  <TR align=left vAlign=top><!-- spacing row, 0 height. -->
+    <TD><A name=top><IMG border=0 height=1 
+      src="NT Drivers - FAQ - Development Environment_bestanden/internal_00.gif" 
+      width=18></A></TD>
+    <TD><IMG border=0 height=1 
+      src="NT Drivers - FAQ - Development Environment_bestanden/internal_00.gif" 
+      width=117></TD>
+    <TD><IMG border=0 height=1 
+      src="NT Drivers - FAQ - Development Environment_bestanden/internal_00.gif" 
+      width=116></TD>
+    <TD><IMG border=0 height=1 
+      src="NT Drivers - FAQ - Development Environment_bestanden/internal_00.gif" 
+      width=99></TD>
+    <TD><IMG border=0 height=1 
+      src="NT Drivers - FAQ - Development Environment_bestanden/internal_00.gif" 
+      width=100></TD>
+    <TD><IMG border=0 height=1 
+      src="NT Drivers - FAQ - Development Environment_bestanden/internal_00.gif" 
+      width=100></TD>
+    <TD><IMG border=0 height=1 
+      src="NT Drivers - FAQ - Development Environment_bestanden/internal_00.gif" 
+      width=68></TD>
+    <TD><IMG border=0 height=1 
+      src="NT Drivers - FAQ - Development Environment_bestanden/internal_00.gif" 
+      width=22></TD></TR>
+  <TR><!-- row 01 -->
+    <TD bgColor=#ffffff rowSpan=3><IMG border=0 height=427 
+      name=Ninternal_02_01 
+      src="NT Drivers - FAQ - Development Environment_bestanden/internal_02_01.gif" 
+      width=18></TD>
+    <TD colSpan=5><IMG border=0 height=60 name=Ninternal_02_02 
+      src="NT Drivers - FAQ - Development Environment_bestanden/internal_title_00.gif" 
+      width=532></TD>
+    <TD><A href="http://www.cmkrnl.com/index.html" 
+      onmouseout="di('Ninternal_02_07','Iinternal_02_07');dm(''); return true;" 
+      onmouseover="di('Ninternal_02_07','Iinternal_02_07o');dm('Return to Homepage'); return true;"><IMG 
+      border=0 height=60 name=Ninternal_02_07 
+      src="NT Drivers - FAQ - Development Environment_bestanden/internal_title_01.gif" 
+      width=68></A></TD>
+    <TD bgColor=#ffffff rowSpan=3><IMG border=0 height=427 
+      name=Ninternal_02_08 
+      src="NT Drivers - FAQ - Development Environment_bestanden/internal_02_08.gif" 
+      width=22></TD>
+    <TD><IMG border=0 height=60 
+      src="NT Drivers - FAQ - Development Environment_bestanden/internal_00.gif" 
+      width=1></TD></TR>
+  <TR><!-- row 02 -->
+    <TD><A href="http://www.cmkrnl.com/faq.html" 
+      onmouseout="di('Ninternal_03_02','Iinternal_03_02');return false;" 
+      onmouseover="di('Ninternal_03_02','Iinternal_03_02o');return false;"><IMG 
+      border=0 height=25 name=Ninternal_03_02 
+      src="NT Drivers - FAQ - Development Environment_bestanden/internal_nav_up.gif" 
+      width=117></A></TD>
+    <TD><A href="http://www.cmkrnl.com/faq02.html" 
+      onmouseout="di('Ninternal_03_03','Iinternal_03_03');return false;" 
+      onmouseover="di('Ninternal_03_03','Iinternal_03_03o');return false;"><IMG 
+      border=0 height=25 name=Ninternal_03_03 
+      src="NT Drivers - FAQ - Development Environment_bestanden/internal_nav_prev.gif" 
+      width=116></A></TD>
+    <TD><A href="http://www.cmkrnl.com/faq04.html" 
+      onmouseout="di('Ninternal_03_04','Iinternal_03_04');return false;" 
+      onmouseover="di('Ninternal_03_04','Iinternal_03_04o');return false;"><IMG 
+      border=0 height=25 name=Ninternal_03_04 
+      src="NT Drivers - FAQ - Development Environment_bestanden/internal_nav_next.gif" 
+      width=99></A></TD>
+    <TD><IMG border=0 height=25 name=Ninternal_03_05 
+      src="NT Drivers - FAQ - Development Environment_bestanden/internal_nav_faq_over.gif" 
+      width=100></TD>
+    <TD><A href="http://www.cmkrnl.com/map.html" 
+      onmouseout="di('Ninternal_03_06','Iinternal_03_06');return true;" 
+      onmouseover="di('Ninternal_03_06','Iinternal_03_06o');dm('Site Map'); return true;"><IMG 
+      border=0 height=25 name=Ninternal_03_06 
+      src="NT Drivers - FAQ - Development Environment_bestanden/internal_nav_map.gif" 
+      width=100></A></TD>
+    <TD><IMG border=0 height=25 name=Ninternal_03_07 
+      src="NT Drivers - FAQ - Development Environment_bestanden/internal_grayspace.gif" 
+      width=68></TD>
+    <TD><IMG border=0 height=25 
+      src="NT Drivers - FAQ - Development Environment_bestanden/internal_00.gif" 
+      width=1></TD></TR>
+  <TR><!-- row 03 -->
+    <TD align=left bgColor=#ffffff colSpan=6 vAlign=top>
+      <DIV class=body><BR>
+      <H1>3 Driver Development Environment</H1>
+      <H2><A name=3.1>3.1</A> What hardware do I need to develop Windows NT 
+      (WNT) Kernel Mode Drivers (KMDs)? </H2>
+      <P class=first>If you're using the Microsoft debuggers, then you need two 
+      systems running WNT, one to exercise the driver and one to run the kernel 
+      debugger UI. They are referred to as the target and host systems, 
+      respectively. As far as the debugger is concerned, these need not be the 
+      same processor architecture (Intel, Alpha, etc.). </P>
+      <P><I>NuMega Technologies</I> has a product, <I>SoftICE for NT</I>, that 
+      offers a single-machine kernel debugging environment, for x86 systems 
+      only. (See the <A href="http://www.cmkrnl.com/links03.html">Related 
+      Products</A> links.) If you use that exclusively, you can get away with 
+      just one NT system, unless you're also targetting the Alpha as well as 
+      x86. </P>
+      <P>The driver must be compiled and linked on a WNT system of the same 
+      processor architecture as that on which it is to run, as there are no 
+      cross-compilers available. In other words, if you're building a driver for 
+      an Alpha, you have to do the compile and link on an Alpha. This may be the 
+      target system or any other system of the same processor architecture, 
+      including the debug host if it is of the same architecture of the target. 
+      </P>
+      <P>In the two-machine debugging environment it is easiest if you build the 
+      drivers on the host system (the one where you'll run the debugger UI). 
+      This requires however that the two machines be the same architecture. </P>
+      <H3><A name=3.1.1>3.1.1</A> I'm confused about this "host" and "target" 
+      stuff. </H3>
+      <P class=first>Ok, let's describe the two most common scenarios: </P>
+      <UL>
+        <LI>Compile and link the driver on the host system. Copy the resulting 
+        driver executable to the target system. Start the debugger UI on the 
+        host. Load and exercise the driver (perhaps by running test programs) on 
+        the target. Interact with the debugger on the host. 
+        <LI>Compile and link the driver on the target system. Copy the driver 
+        executable <I>and source files</I> to the host system, as the debugger 
+        needs both of these. Start the debugger UI on the host. Load and 
+        exercise the driver (perhaps by running test programs) on the target. 
+        Interact with the debugger on the host. </LI></UL>
+      <P class=first>The debugger will work cross-platform (that is, host and 
+      target can be different architectures), but the compiler and linker won't. 
+      If you're developing for Alpha as well as x86, the absolute bare minimum 
+      would be one Alpha and one x86 system; you can use each as a debugger host 
+      for the other. </P>
+      <H3><A name=3.1.2>3.1.2</A> I thought I heard somewhere that you could use 
+      a Windows 9x system as the host for the debugger. </H3>
+      <P class=first>Not today. Some time ago, Microsoft unofficially stated 
+      that Windows 9x might be usable in the then-near future, but as of this 
+      writing the kernel debugger is dependent not just on Windows NT but on the 
+      specific version of Windows NT under which the target system is running. 
+      </P>
+      <P>Update: Someone has claimed to have gotten the debugger UI working on 
+      Windows 95 by copying the file <CODE>imagehlp.dll</CODE> from the NT 
+      system to the Win9x system. </P>
+      <H3><A name=3.1.3>3.1.3</A> I thought I heard somewhere that you could use 
+      a serial terminal for the debugger UI. </H3>
+      <P class=first>Nope. </P>
+      <H2><A name=3.2>3.2</A> What software tools do I need to develop 
+KMDs?</H2>
+      <UL type=circle>
+        <LI>Windows NT free build 
+        <LI>Windows NT checked build 
+        <LI>Software Development Kit (SDK) 
+        <LI>Windows NT Device Driver Kit (DDK) 
+        <LI>Visual Studio (VS) (sometimes called VC++) </LI></UL>
+      <H3>3.2.1 Where do I get all this stuff?</H3>
+      <DL>
+        <DT>NT free build 
+        <DD>Purchase as retail product, or Microsoft Developer Network (MSDN) 
+        "Professional" subscription or above 
+        <DT>NT checked build 
+        <DD>MSDN "Professional" subscription or above 
+        <DT>Platform SDK, DDK 
+        <DD>MSDN "Professional" subscription or above, or download free (except 
+        for network charges) from the Microsoft web site. The CD-ROM is labelled 
+        "Platform SDK" (formerly "Win32 SDK"). 
+        <DT>DDK 
+        <DD>MSDN "Professional" subscription or above, or download free (except 
+        for network charges) from the Microsoft web site. 
+        <DT>Visual Studio 
+        <DD>Retail, or MSDN "Universal" subscription or above. </DD></DL>
+      <H3><A name=3.2.2>3.2.2 Can't I use someone else's 32-bit C compiler?</H3>
+      <P class=first>Maybe. As long as it generates essentially the same output 
+      from the same input, and takes all of the same command line options as the 
+      MS compiler, it should work fine. If not, you'll have some work ahead of 
+      you. Same for the linker. </P>
+      <P>Opinion: VS is part of the driver build environment supported by 
+      Microsoft, and is furthermore tested nightly by Microsoft on literally 
+      tens of millions of lines of NT code. Without a compelling reason to do 
+      otherwise, it seems to me to be far easier, not to mention safer, to stick 
+      to the supported build environments. </P>
+      <H3><A name=3.2.3>3.2.3</A> What about other languages like assembler or 
+      Pascal?</H3>
+      <P class=first>In theory, as long as you adhere to C calling conventions, 
+      don't use too much stack space, etc., you should be fine. In practice, 
+      there are several tens of thousands of lines of header files in 
+      <CODE>\ddk\inc</CODE> that you will have to translate to your language of 
+      choice, and this is another of those "unsupported environments" that I 
+      worry so much about. Suffice it to say that the productivity gain of the 
+      other language would have to be <I>huge</I> before such a project was a 
+      net win. </P>
+      <P>As for assembly language, NT drivers are supposed to be source-portable 
+      between processor architectures (x86 vs. Alpha). However, there are of 
+      course sometimes good reasons for writing the occasional driver routine in 
+      assembly language. </P>
+      <H3><A name=3.2.4>3.2.4</A><A name=cppprev> </A>What's all this about C++ 
+      and drivers?</H3>
+      <P class=first>The NT kernel team originally shunned C++ and to this day, 
+      many people from Microsoft, including the DDK support team (the folks you 
+      talk to during DDK support calls), strongly recommend that drivers be 
+      written in pure C. However, it is difficult to find an official, 
+      unequivocal quote from MS to this effect. As a result, C++'s suitability 
+      for KMDs is the subject of a rather spirited ongoing debate. On one side 
+      are Microsoft (at least by reputation) and those who (like me) prefer 
+      sticking to MS-recommended environments. On the other side are those who 
+      feel that the benefits of C++ outweigh the risks of using an unsupported, 
+      disrecommended environment. <A 
+      href="http://www.cmkrnl.com/faqcpp.html">Here</A> is what I hope is a fair 
+      presentation of the arguments on both sides. </P>
+      <H3><A name=3.2.5>3.2.5</A><A name=cppnext> </A>Why are you so (cautious, 
+      cowardly, unimaginative) about using MS-recommended tools and 
+      techniques?</H3>
+      <P class=first>Look, I love a good kernel hack as much as anyone. But 
+      considering how important it is to get drivers exactly, precisely, 
+      positively right, I am reluctant to experiment with other compilers, other 
+      languages or language dialects, or anything else that MS does not 
+      recommend... especially when I'm shipping a driver to a client. MS's tools 
+      may be buggy and their recommendations may be wrong, but at least if I 
+      adhere to them I can point back to MS as the culprit. If I ignore MS's 
+      recommendations, problems are solely on my head. </P>
+      <H2><A name=3.3>3.3</A> Installing the driver build environment </H2>
+      <H3><A name=3.3.1>3.3.1</A> How do I install all this stuff? </H3>
+      <P class=first>On your "build system" (the one on which you will build the 
+      driver), you should have the Free Build of WNT 4.0, Service Pack 3 or 
+      later installed. Then install the following packages in this sequence: 
+</P>
+      <OL>
+        <LI>Visual C++. Note that VC often gets very unhappy, sometimes failing 
+        to complete the installation, if you try to override its default 
+        installation directory. 
+        <LI>Platform SDK. If disk space is at a premium, <STRIKE>get more disk 
+        space! It's cheap enough</STRIKE> you may choose only the "Build 
+        environment" and "Tools" subsets. <BR><BR>Be sure to check the "Yes, 
+        update environment variables as part of setup" and "Yes, update Visual 
+        C++ directory settings as part of setup" options during the SDK install. 
+
+        <LI>Windows NT DDK. Install it all, it's only 100&nbsp;MB, and the 
+        installation seems to go considerably faster if you don't try to subset 
+        it. </LI></OL>
+      <H3><A name=3.3.2>3.3.2</A> Exactly what is the "Platform SDK" and why do 
+      we need it? </H3>
+      <P class=first>This question often arises because the SDK seems to have a 
+      lot of overlap with the Win32 development environment in Visual Studio, 
+      particularly in documentation, header files, libraries, tools, and example 
+      sources. </P>
+      <P>The stock answer is: "Without the SDK installed, the DDK 
+      <CODE>build</CODE> environment won't work," but it is possible to "fake 
+      out" the DDK <CODE>build</CODE> environment so as to build drivers without 
+      having the SDK present (the result is of course an unsupported build 
+      environment). </P>
+      <P><CODE>WinDbg</CODE>, the MS-supplied GUI debugger for kernel mode 
+      drivers, is also part of the SDK, though recent versions of the Beta DDKs 
+      for Windows 2000 have included it. </P>
+      <P>What else? Well, in the early days of WNT, there was no separate 32-bit 
+      C compiler product. The Windows NT SDK provided the compiler and rest of 
+      the environment necessary for building Win32 apps. Ever since the 32-bit 
+      VC/VS products started shipping, the SDK has been less important. </P>
+      <P>However, there are still some good reasons to install the SDK on top of 
+      Visual Studio, even if you're "only" doing application development. WNT 
+      Service Packs often add APIs to the system, and support for these will 
+      first show up in the libraries and header files of the SDK, because the 
+      SDK is updated far more often than is the Visual Studio product. </P>
+      <P>The SDK also includes some some sample applications in source form, and 
+      some tools such as the "Process Walker" and <CODE>WinObj</CODE>, that are 
+      not present in Visual Studio. </P>
+      <H3><A name=3.3.3>3.3.3</A> Do we use the VS IDE to build drivers? </H3>
+      <P class=first>There are ways to make it work, but not "out of the box." 
+      Instead you build drivers using the command line based <CODE>build</CODE> 
+      utility that comes with the DDK. You do end up using the compiler binaries 
+      that are part of VS, but you invoke them via <CODE>build</CODE>&nbsp;. The 
+      methods for using the IDE are described <A 
+      href="http://www.cmkrnl.com/faq03.html#ide">later</A> on this page, but if 
+      you're new to the DDK I <I>strongly</I> recommend that you get the 
+      standard DDK <CODE>build</CODE> environment working first. </P>
+      <H2><A name=3.4>3.4</A> Building some sample drivers </H2>
+      <H3><A name=3.4.1>3.4.1</A> Ok, I installed all this stuff. Now what? 
+</H3>
+      <P class=first>The DDK install has created a <CODE>\ddk</CODE> directory. 
+      Browse around <CODE>\ddk\src</CODE> and you will find many subdirectories 
+      full of sample driver source files. In the following steps we will build a 
+      subset of these, just to verify that everything's installed correctly. 
+      (You can build them all if you like, but it will take a while.) </P>
+      <OL>
+        <LI>Go to your Start menu, find the "Windows NT DDK" program group, and 
+        click on the shortcut "Checked build environment". The result should be 
+        a command window with its default drive and directory set to 
+        <CODE>\ddk</CODE>. 
+        <LI>Set the default directory in this command window to a subdirectory 
+        under <CODE>\ddk\src</CODE>&nbsp;. I usually use 
+        <CODE>\ddk\src\comm</CODE> (serial and parallel port drivers) for 
+        demonstration purposes. 
+        <LI>Type the word <CODE>build</CODE> at the command prompt. </LI></OL>
+      <P class=first>Results: </P>
+      <UL>
+        <LI>At the end of the run, there should be a report of some number of 
+        source files compiled and a smaller number of links performed. 
+        <LI>You should find the latter number of new <CODE>.sys</CODE> files in 
+        the directory <CODE>\ddk\lib\i386\checked</CODE> (or 
+        <CODE>\ddk\lib\alpha\checked</CODE> if you're on an Alpha). 
+        <LI>You should find a file called <CODE>build.log</CODE> in the 
+        directory from which you invoked <CODE>build</CODE>. 
+        <LI>You should <I>not</I> find files called <CODE>build.err</CODE> (hard 
+        errors reported by the compiler or linker) or <CODE>build.wrn</CODE> 
+        (warnings reported by the compiler or linker). </LI></UL>
+      <H3><A name=3.4.2>3.4.2</A> (Assuming it worked) What just happened? </H3>
+      <P class=first><CODE>build</CODE> looks for text files called 
+      <CODE>dirs.</CODE> and <CODE>sources.</CODE>in the current directory. 
+      There's a <CODE>dirs.</CODE> file in each non-leaf node of the tree, and a 
+      <CODE>sources.</CODE> file in each leaf node. The <CODE>dirs.</CODE> file 
+      is a simple text file that defines the branches of the tree under each 
+      non-leaf node; the <CODE>sources.</CODE> file defines the driver to be 
+      built from the source files in its leaf node. This definition is in the 
+      form of <CODE>nmake</CODE>-style macro definitions for macros of 
+      predefined names such as <CODE>SOURCES</CODE>, <CODE>INCLUDES</CODE>, and 
+      so on. </P>
+      <P>Wherever <CODE>build</CODE> finds a <CODE>sources.</CODE> file, it 
+      invokes <CODE>nmake</CODE>, with the default directory set to that of the 
+      current <CODE>sources.</CODE> file, and with <CODE>nmake</CODE> macros 
+      defined by the <CODE>sources.</CODE> file in effect for that invocation of 
+      <CODE>nmake</CODE>&nbsp;. </P>
+      <P>In each directory where there's a <CODE>sources.</CODE> file there 
+      should also be a file called <CODE>makefile.</CODE> This file is the same 
+      for every driver; it simply includes the standard DDK makefile, 
+      <CODE>\ddk\inc\makefile.def</CODE>&nbsp;. 
+      <CODE>\ddk\inc\makefile.def</CODE> is quite large and complex and should 
+      not be modified by the driver writer. It is written in terms of the macros 
+      that you can define in your <CODE>sources.</CODE> file, and for most 
+      drivers, the <CODE>sources.</CODE> file allows you to completely describe 
+      your driver. </P>
+      <P><CODE>build</CODE> is further described in the DDK documentation, 
+      <I>Driver Writer's Guide</I>, Chapter 3, "Building Windows NT Drivers". A 
+      complete description of the possible contents of a <CODE>sources.</CODE> 
+      file can be found in <CODE>\ddk\doc\sources.tpl</CODE>&nbsp;. </P>
+      <H3><A name=3.4.3>3.4.3</A> What's the "checked" vs. "free" build 
+      environment? </H3>
+      <P class=first>You use the two "build environment" program items to create 
+      console windows in which to run the <CODE>build</CODE> utility to build 
+      drivers. Each of these invokes <CODE>\ddk\bin\setenv.bat</CODE>, which in 
+      turn invokes <CODE>\mssdk\bin\setenv.bat</CODE>, with command line options 
+      that cause these batch scripts to create environment variables that in 
+      turn are use by <CODE>build</CODE> to control various compiler and linker 
+      options. </P>
+      <P>The result is that if you build a driver under the "checked build 
+      environment", the compiler is invoked with most optimizations turned off, 
+      full symbolic debugging information in the driver binary, and so on. This 
+      is usually what you want to use if you're going to debug the driver in 
+      question. </P>
+      <P>The compile-time symbol <CODE>DBG</CODE> is also defined in this 
+      environment, so that code within blocks such as <BR><BR><CODE>#ifdef 
+      DBG<BR>&nbsp;&nbsp;&nbsp;// tests for errors that should never 
+      happen<BR>#endif<BR></CODE><BR><!-- <P class="first"> -->will be included 
+      in the generated code. </P>
+      <P>On the other hand, if you build a driver under the "free build 
+      environment", most compiler optimizations are turned on, only very limited 
+      symbolic debugging information is generated, and the symbol 
+      <CODE>DBG</CODE> is undefined. This is usually how you build the version 
+      of the driver that will undergo long-duration stress testing and, if it 
+      passes, will be shipped to users. </P>
+      <H3><A name=3.4.4>3.4.4</A> Does <CODE>build</CODE> have any other 
+      options, modes, etc.? </H3>
+      <P class=first>It sure does. Use the command <BR><BR><CODE>build 
+      -?<BR></CODE><BR>to see them all. </P>
+      <H2><A name=3.5>3.5</A> Problems with <CODE>build</CODE></H2>
+      <H3><A name=3.5.1>3.5.1</A> I saw some error messages, and the drivers 
+      din't build. </H3>
+      <DL>
+        <DT>"nmake rc=2" 
+        <DD>That's "reason code 2" being reported by nmake. Briefly, it can't 
+        find the compiler or linker in your path. You're probably trying to 
+        invoke build in an ordinary "command prompt" window instead of a window 
+        created by the "Free build environment" or "Checked build environment" 
+        shortcuts. 
+        <DT>"Invalid command format" when opening "Build environment" command 
+        window 
+        <DD><CODE>setenv.bat</CODE> in the later versions of the SDK uses a 
+        comment format that is not understood by <CODE>cmd.exe</CODE> prior to 
+        NT4 Service Pack 3. (Or maybe prior to SP2; I haven't gone back and 
+        checked, but I do know that it doesn't work under SP1, but does under 
+        SP3.) The right thing is to upgrade your build system to SP3 (at least). 
+        If you insist on not doing that, you can delete the leading block of 
+        comments (lines that begin with <CODE>;;</CODE>) from 
+        <CODE>\mssdk\bin\setenv.bat</CODE>&nbsp;. 
+        <DT>"Last line incomplete" for various header files 
+        <DD>These messages are benign. They are caused by header files whose 
+        last visible character is followed by &lt;EOF&gt; instead of 
+        &lt;NEWLINE&gt;&lt;EOF&gt;. 
+        <P>If you want, you can get rid of these by running <I>LastLine</I>, 
+        which you can download free from <A 
+        href="http://www.numega.com/products/driver/util.shtml" 
+        target=new>NuMega's web site</A>. </P>
+        <DT>"Cannot find include file" for various header files 
+        <DD>Strange as it may seem, these are benign too. (Notice that they come 
+        from <CODE>build</CODE>, not from the compiler, and that the compilation 
+        proceeds anyway.) <CODE>build</CODE> does its own dependency scan of 
+        source files and the header files they reference to try to figure out 
+        what's changed and therefore what needs to be built. The trouble is that 
+        it is not very smart about following the path defined by the 
+        <CODE>include</CODE> environment variable, so the header files in 
+        <CODE>\ddk\inc</CODE> aren't found. But the compiler will find them 
+        properly. Furthermore <CODE>build</CODE> does not understand conditional 
+        compilation directives, so it tries to look at a lot of header files 
+        that the compiler won't actually see. 
+        <P>In any case, these errors reported by <CODE>build</CODE> will not 
+        affect the compilation. If you want to get rid of the messages, add 
+        <BR><BR><CODE>;$(BASEDIR)\inc</CODE> <BR><BR>to the tail of the 
+        <CODE>INCLUDES</CODE> directory list in your <CODE>sources.</CODE> file. 
+        </P></DD></DL>
+      <H2><A name=3.6>3.6</A> Building <I>your</I> drivers</H2>
+      <H3><A name=3.6.1>3.6.1</A> Ok, so how do I set up a build environment for 
+      my driver? </H3>
+      <P class=first>Create a directory anywhere on your system (it need not be 
+      under <CODE>\ddk\src</CODE>, unless you are using OSR's 
+      <CODE>ddkbuild.bat</CODE>, described <A 
+      href="http://www.cmkrnl.com/faq03.html#ide">below</A>) and place in it 
+      your driver source file(s), a <CODE>sources.</CODE>&nbsp; file describing 
+      your source file(s), and a copy of <CODE>makefile.</CODE>&nbsp; from 
+      literally anywhere under <CODE>\ddk\src</CODE>&nbsp;. </P>
+      <P>Or, "copy what works:" Copy all the files from one of the "leaf nodes" 
+      under <CODE>\ddk\src</CODE> into a directory of your own, change the file 
+      name(s) for the driver source(s) to your taste, and edit the 
+      <CODE>sources.</CODE> file accordingly. </P>
+      <H3><A name=3.6.2>3.6.2</A> I need to define some additional rules in the 
+      <CODE>makefile</CODE>&nbsp;. </H3>
+      <P class=first>It is possible to add your own rules to those provided in 
+      <CODE>\ddk\inc\makefile.def</CODE>&nbsp;. You do this by defining macros 
+      in your <CODE>sources.</CODE> file with names of the form 
+      <CODE>NTTARGETFILE<I>n</I></CODE>&nbsp;. Any such macros cause 
+      <CODE>makefile.def</CODE> to look for <CODE>makefile.inc</CODE> in the 
+      directory containing the <CODE>sources.</CODE> file. 
+      <CODE>makefile.inc</CODE> can specify dependency rules for files that 
+      would not otherwise be built in the standard environment. Several examples 
+      of <CODE>makefile.inc</CODE> files can be found under 
+      <CODE>\ddk\src\...</CODE>&nbsp; examine the corresponding 
+      <CODE>sources.</CODE> files to see how they are used. </P>
+      <H3><A name=3.6.3>3.6.3</A> <A name=ide>I</A> don't like using 
+      <CODE>build</CODE>&nbsp;. </H3>
+      <P class=first>You have a lot of company. There are two easy ways and a 
+      hard way around it: 
+      <UL>
+        <LI>Go to OSR's web site for their <A 
+        href="http://www.osr.com/insider/1996/IntegBuild.htm" 
+        target=new>article</A> describing <CODE>ddkbuild.bat</CODE> and how to 
+        set it up. This is just a batch script that you set up as the "custom 
+        build command" in VS. You are still using <CODE>build</CODE> and a 
+        <CODE>sources.</CODE> file; VS invokes OSR's the batch script, which in 
+        turn runs <CODE>SETENV.BAT</CODE> and then invokes 
+        <CODE>build</CODE>&nbsp;. This is probably as close as you can get to 
+        the "real" <CODE>build</CODE> environment while still staying in the VS 
+        IDE. 
+        <LI>Fetch the <I>SrcToDsp</I> tool from <A 
+        href="http://www.numega.com/products/driver/util.shtml" 
+        target=new>NuMega's web site</A>. This parses your <CODE>sources.</CODE> 
+        file and generates a VS project file that references all your source and 
+        header files and sets up the proper compiler and linker options. 
+        <LI>(The hard way) Read the <CODE>build.log</CODE> file that's generated 
+        when you use <CODE>build</CODE> the regular way, figure out all the 
+        compiler options that were used, and manually tweak the compiler options 
+        in the VS IDE to match. I don't recommend this. </LI></UL>
+      <P class=first>I still recommend that you use the standard 
+      <CODE>build</CODE> utility, in its pure form, when you're generating the 
+      final retail version of the driver---the one you subject to long-duration 
+      stress testing and then ship if it passes. "Just to be sure." But for the 
+      development cycle, the IDE has a lot of advantages. </P>
+      <H3><A name=3.6.4>3.6.4</A> I want separate intermediate files for the 
+      "checked" vs. "free" build environments. </H3>
+      <P class=first>Right. Although <CODE>build</CODE> generates the final 
+      build targets (<CODE>driver.SYS</CODE> files) in separate directories for 
+      the "checked" vs. "free" build environments, the intermediate object files 
+      always go in single <CODE>obj/</CODE> subdirectory under the directory 
+      that contains the respective <CODE>sources.</CODE> file, regardless of 
+      whether you're in the "free" or "checked" build environment. This can lead 
+      to <CODE>nmake</CODE> thinking that object files are up to date when 
+      they're really not, at least not for the type of build you want. </P>
+      <P>For example: Suppose you've recently built the free version of your 
+      driver and then you go to the "checked build environment". 
+      <CODE>nmake</CODE> will find that the driver object files but not the 
+      <CODE>.sys</CODE> file are up to date, and so will do a link but not a new 
+      compilation. The result will be a <CODE>driver.SYS</CODE> file built from 
+      the free object files but with the linker options from the checked build 
+      environment. This is not what you want for debugging. </P>
+      <P>A trivial but annoying workaround is to invoke <CODE>build</CODE> with 
+      the <CODE>-c</CODE> option (clean up all target files before building) for 
+      the first <CODE>build</CODE> after you change environments. </P>
+      <P>Much more convenient is to define a different subdirectory for the 
+      object files for the free vs. checked build environments. This is easy to 
+      do; simply put the following line in your <CODE>sources</CODE> file: 
+      <BR><BR><CODE>CHECKED_ALT_DIR=1<BR></CODE><BR>You may have to create the 
+      checked object directory, called <CODE>objd\</CODE>&nbsp;, under under 
+      each such source root directory. Now the object files built under the 
+      "checked build environment" will go in the new <CODE>objd\</CODE> 
+      directory, while object files built under the "free build environment" 
+      will be put in <CODE>obj\</CODE> as usual. </P>
+      <H2><A name=3.7>3.7</A> Using the Checked Build</H2>
+      <H3><A name=3.7.1>3.7.1</A> What is the Windows NT checked build?</H3>
+      <P class=first>It's also known as the "debug build" and it's analagous to 
+      the checked version of your driver. In other words, it's built from the 
+      same sources as is the "Free" or "Retail" build of NT, but with most 
+      compiler optimizations turned off. Also, the compile-time symbol 
+      <CODE>DBG</CODE> is defined during the compilation of the checked build, 
+      so that code of the form <BR><BR><CODE>#ifdef DBG<BR>&nbsp;&nbsp;&nbsp;// 
+      tests for errors that should never happen<BR>#endif<BR></CODE><BR>will be 
+      included in the generated code. </P>
+      <P>There is a great deal of such "debug code" in the NT sources, mostly 
+      argument validation and other consistency checks on work done within 
+      kernel mode. </P>
+      <P>Another interesting difference is that there is no uniprocessor version 
+      of the checked build; when you install the checked built you always get 
+      the multiprocessor kernel, even on a machine with just one CPU. The result 
+      is that the checked build "goes through the motions" of acquiring and 
+      releasing spinlocks and performing other serialization that are actually 
+      necessary only on a multiprocessor system, and which the free build on a 
+      uniprocessor system avoids. </P>
+      <H3><A name=3.7.2>3.7.2</A> What is the role of the NT checked build in 
+      driver development and debugging?</H3>
+      <P class=first>All drivers should be exercised under the checked build, to 
+      the extent of traversing all code paths at least once. </P>
+      <P>Final long-duration stress testing should be done with the target 
+      system running under the free build. Do this under the checked build also 
+      if you like, but you must do it at least under the free build, since that 
+      is the usual environment on customer systems. </P>
+      <P>Driver debugging may be done with the target system running under 
+      either the free or the checked build. Personally, I use the free build 
+      most of the time, simply because it is noticeably faster. </P>
+      <H4>So I don't need to be running the checked build on a system if I want 
+      to use it as a debug target?</H4>
+      <P class=first>No. </P>
+      <H4>What about the host system?</H4>
+      <P class=first>There is no reason as far as driver development is 
+      concerned to run the host system under anything except the free build. 
+</P>
+      <H3><A name=3.7.3>3.7.3</A> Is there ever a reason to test applications 
+      under the NT checked build?</H3>
+      <P class=first>That's an interesting question. In theory, nothing an 
+      application should be able to do should bring out any of the problems the 
+      checked build is designed to catch; all of the additional tests in the 
+      checked build are there to catch mistakes made from kernel mode. </P>
+      <P>In practice, however, NT isn't perfect, and it is possible that there 
+      are things you can do from user mode that could bring out some of its 
+      bugs, and that running under the checked build will bring them out sooner. 
+      </P>
+      <P>Then the question becomes, "so my app crashes NT checked build but not 
+      the NT free build. It's correct Win32 code, so what do I do about it?" 
+      Well, you can probably isolate the Win32 calls that are causing the 
+      problems, and then try things like changing the arguments, changing the 
+      frequency with which you make the offending calls, or redesigning to avoid 
+      them completely. </P>
+      <H3><A name=3.7.4>3.7.4</A> How do I install the checked build?</H3>
+      <P class=first>You start an install from the "NT Workstation Checked 
+      Build" CD-ROM, just as you'd start an install from any other NT 
+      distribution CD-ROM. If this is a system that already has a version of NT 
+      on it, it will offer to upgrade your existing NT system. You don't want to 
+      do that; instead, tell it you want a new installation, specifing a 
+      different directory and/or partition (I usually use 
+      <CODE>\winntchk</CODE>). </P>
+      <H4>Editing the boot.ini</H4>
+      <P class=first>The checked build installation will create a new pair of 
+      boot options in your <CODE>boot.ini</CODE> (or, for Alphas, in the console 
+      firmware). Alas it will not put "Checked Build" or anything like that in 
+      the descriptive text; you will have change the boot menu later to put 
+      meaningful descriptions into the text of the options that select the 
+      checked build installation. (When editing the options, you can tell which 
+      is which by the directory names.) You'll probably also want to create a 
+      third "checked" boot menu option that will act as a debugger target. 
+      Finally, you'll probably want to make the boot options for the checked 
+      build <I>not</I> the default. (Whatever you installed last becomes the 
+      default.) </P>
+      <H4>Maintenance</H4>
+      <P class=first>The checked installation is a completely separate NT 
+      installation---the only thing it has in common with the original is your 
+      <CODE>boot.ini</CODE> file, <CODE>ntdetect.exe</CODE>, and so on, in your 
+      system partition's root directory. The files under 
+      <CODE>%systemroot%</CODE>, registries, etc., etc., are completely 
+      separate, so any changes you make to one install won't affect the other. 
+      So all maintenance, such as adding accounts, installing applications, 
+      installing NT service packs, etc., has to be done to both systems. </P>
+      <H4>So I've just doubled my maintenance work?</H4>
+      <P class=first>Not really; usually you don't install all the apps, create 
+      all the user accounts, etc., on the checked install of NT. </P>
+      <H4>Can they share the same paging file?</H4>
+      <P class=first>Yes. </P>
+      <H4>What about service packs for the checked build?</H4>
+      <P class=first>Microsoft has been somewhat lax in getting out checked 
+      versions of the service packs. However, recent MSDN shipments have 
+      included these for NT4&nbsp;SP3 and&nbsp;SP4. These have also been 
+      available for download from the Microsoft web site. </P>
+      <H4>Can I somehow boot my regular NT installation with the checked 
+      kernel?</H4>
+      <P class=first>Yes. First, go ahead and install the checked build as a 
+      separate boot option. Then copy <CODE>ntoskrnl.exe</CODE> and 
+      <CODE>hal.dll</CODE> from the checked installation's 
+      <CODE>%systemroot%\system32\</CODE> directory to the free installation, 
+      same directory, but under different names, such as 
+      <CODE>%systemroot%\system32\ntoschkd.exe</CODE> and 
+      <CODE>%systemroot%\system32\halchkd.dll</CODE>&nbsp;. Then create boot 
+      options (in your <CODE>boot.ini</CODE> (or, for Alphas, in the console 
+      firmware) that include <BR><BR><CODE>/kernel=ntoschkd.exe 
+      /hal=halchkd.dll<BR></CODE><BR>with appropriate descriptive text. You can 
+      now boot with the checked kernel and HAL, but free versions of everything 
+      else (like all the drivers), and you only have one installation to 
+      maintain. </P>
+      <P>Note that I'm recommending that you take these files from a checked 
+      installation, not from the "NT Workstation Checked Build" CD-ROM. The 
+      reason is the HALs; there are several on the CD; NT Setup picks the 
+      correct one and puts it on your hard drive under the name 
+      <CODE>hal.dll</CODE>&nbsp;. You want to be sure to get the correct checked 
+      HAL for your motherboard. If you don't mind a little more risk, you can 
+      pick up the right files yourself from the Checked Build CD; read the 
+      Microsoft Knowledge Base (MSKB) article <A 
+      href="http://support.microsoft.com/support/kb/articles/q156/3/58.asp">Q156358</A> 
+      to identify which HAL is the correct one. </P>
+      <P>For <CODE>ntoskrnl.exe</CODE> you can copy <I>either</I> 
+      <CODE>ntoskrnl.exe</CODE> or <CODE>ntkrnlmp.exe</CODE> from the "NT 
+      Workstation Checked Build" CD-ROM to <CODE>ntoschkd.exe</CODE> on your 
+      free installation; part of the point of the checked build is that these 
+      two files are identical---when you're running the checked build, you're 
+      always running the MP executive and kernel, even on a single-CPU system. 
+      </P><BR>
+      <HR>
+
+      <P class=bottomnav><A href="http://www.cmkrnl.com/faq03.html#top">top of 
+      page</A> | <A href="http://www.cmkrnl.com/faq.html">up</A> | <A 
+      href="http://www.cmkrnl.com/faq02.html">previous</A> | <A 
+      href="http://www.cmkrnl.com/faq04.html">next</A> | <A 
+      href="http://www.cmkrnl.com/index.html">home</A> </P></DIV></TD>
+    <TD><IMG border=0 height=342 
+      src="NT Drivers - FAQ - Development Environment_bestanden/internal_00.gif" 
+      width=1></TD></TR></TBODY></TABLE></CENTER></BODY></HTML>

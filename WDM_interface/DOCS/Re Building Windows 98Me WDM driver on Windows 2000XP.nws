@@ -1,0 +1,63 @@
+From: Tim Roberts <timr@probo.com>
+Newsgroups: comp.os.ms-windows.programmer.nt.kernel-mode,comp.os.ms-windows.programmer.drivers
+Subject: Re: Building Windows 98/Me WDM driver on Windows 2000/XP
+Date: Sat, 05 Jan 2002 18:09:21 -0800
+Message-ID: <kubf3ucuho1tmslq5c0mfd6en19qp3p273@4ax.com>
+References: <3C34B9EC.D3E33A7E@attbi.com> <a12iaj$29n6$1@gavrilo.mtu.ru> <3C34D33D.44D3F3CF@attbi.com> <3C34D77D.4BFDABA@oneysoft.com> <a17eea$ugb$05$1@news.t-online.com>
+X-Newsreader: Forte Agent 1.8/32.548
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+Lines: 42
+X-Authenticated-User: timrprobocom
+X-Comments: This message was posted through Spamkiller.Newsfeeds.com
+X-Comments2: IMPORTANT: Newsfeeds.com does not condone, nor support,  spam or any illegal or copyrighted postings.
+X-Comments3: IMPORTANT: Under NO circumstances will postings containing illegal or copyrighted material through this service be tolerated!!
+X-Report: Please report illegal or inappropriate use to <abuse@newsfeeds.com> You may also use our online abuse reporting from: http://www.newsfeeds.com/abuseform.htm
+X-Abuse-Info: Please be sure to forward a copy of ALL headers, INCLUDING the body (DO NOT SEND ATTACHMENTS)
+Organization: Newsfeeds.com http://www.newsfeeds.com 73,000+ UNCENSORED Newsgroups.
+Path: zonnet-reader-1!zonnet-feed!news-feed1.eu.concert.net!newsfeed.direct.ca!look.ca!hub1.nntpserver.com!news-out.spamkiller.net!propagator-la!news-in-la.newsfeeds.com!spamkiller.newsgroups.com
+Xref: zonnet-feed comp.os.ms-windows.programmer.nt.kernel-mode:25433
+
+"Martin Maurer" <capiman@clibb.de> wrote:
+
+>> Doing it the *other* way (building a WDM driver on Win98 and then trying
+>> to run it on Win2K) may fail due to a bug in the way the Win98 version
+>> of the image helper DLL calculates the checksum, but I've never heard of
+>> a problem with what you're describing before.
+>
+>Nice remark ! Do you know any workaround for the problem ? Can i recalculate
+>and patch this checksum ? Can you give me a few more details about the
+>problem ? In which DLL is the error ?
+
+Depending on your point of view, the problem is either in Windows 9X or in
+IMAGEHLP.DLL.
+
+The linker uses the function CheckSumMappedFile in IMAGEHLP.DLL to compute
+the PE checksum field.  If you disassemble this function (which I did when
+investigating this problem), you find that the algorithm computes the
+checksum a word at a time, and it does not special case the final word of
+the file.  Thus, if the file has an odd number of bytes, it actually sums
+one byte BEYOND the end of the file.
+
+On the NT-based systems, when you create a file mapping, the bytes between
+the end of the file and the next page boundary are cleared to zero.  On
+95/98/ME, the operating system does NOT automatically clear those bytes.
+You get whatever trash happened to be in memory before (or it might be that
+the garbage is present in the physical disk sector; I don't know).  If your
+file happens to have an odd number of bytes, IMAGEHLP picks up a byte of
+garbage in the last word and computes the wrong checksum.  Windows 9x never
+checks the PE checksums, so no failure occurs.  The NT-based systems DO
+check the checksum on kernel modules.  BOOM.
+
+I eventually wrote a standalone checksum fixer and inserted it into our
+build routines.  Problem solved.  If you search the web, you can find a PE
+checksum tool that re-implements the algorithm in C.  That's what I used as
+a basis.
+
+Some versions of Visual C++ (or perhaps some options to VC++) always
+produce EXEs with an even number of bytes.  Some do not.  I never
+determined the exact recipe for this.
+--
+- Tim Roberts, timr@probo.com
+  Providenza & Boekelheide, Inc.

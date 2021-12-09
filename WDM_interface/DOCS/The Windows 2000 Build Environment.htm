@@ -1,0 +1,540 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0044)http://www.osr.com/ntinsider/1999/taming.htm -->
+<HTML xmlns="http://www.w3.org/TR/REC-html40" xmlns:v = 
+"urn:schemas-microsoft-com:vml" xmlns:o = 
+"urn:schemas-microsoft-com:office:office" xmlns:w = 
+"urn:schemas-microsoft-com:office:word"><HEAD><TITLE>The Windows 2000 Build Environment</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content=Word.Document name=ProgId>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content="Microsoft Word 9" name=Originator><LINK 
+href="./Taming%20the%20Beast2_files/filelist.xml" rel=File-List><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Peter G. Viscarola</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Daniel D. Root</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>288</o:TotalTime>
+  <o:Created>2001-02-15T15:04:00Z</o:Created>
+  <o:LastSaved>2001-02-15T15:07:00Z</o:LastSaved>
+  <o:Pages>4</o:Pages>
+  <o:Words>1570</o:Words>
+  <o:Characters>8949</o:Characters>
+  <o:Company>OSR Open Systems Resources, Inc.</o:Company>
+  <o:Lines>74</o:Lines>
+  <o:Paragraphs>17</o:Paragraphs>
+  <o:CharactersWithSpaces>10990</o:CharactersWithSpaces>
+  <o:Version>9.3821</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:ActiveWritingStyle Lang="EN-US" VendorID="64" DLLVersion="131077"
+   NLCheck="1">1</w:ActiveWritingStyle>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>0</w:DisplayVerticalDrawingGridEvery>
+  <w:UseMarginsForDrawingGridOrigin/>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<STYLE>@font-face {
+	font-family: Lucida Console;
+}
+@page Section1 {size: 8.5in 11.0in; margin: 1.0in 1.25in 1.0in 1.25in; mso-header-margin: .5in; mso-footer-margin: .5in; mso-paper-source: 0; }
+P.MsoNormal {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoNormal {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoNormal {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+H1 {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-style-next: Normal; mso-outline-level: 1; mso-font-kerning: 0pt; mso-bidi-font-weight: normal
+}
+H2 {
+	FONT-WEIGHT: normal; FONT-SIZE: 14pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-bidi-font-size: 10.0pt; mso-pagination: widow-orphan; mso-style-next: Normal; mso-outline-level: 2
+}
+H3 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; MARGIN: 0in 0in 3pt; FONT-FAMILY: "Times New Roman"; mso-bidi-font-size: 10.0pt; mso-pagination: widow-orphan; mso-style-next: Normal; mso-outline-level: 3; mso-font-kerning: 14.0pt; mso-layout-grid-align: none; punctuation-wrap: simple
+}
+H4 {
+	FONT-WEIGHT: normal; FONT-SIZE: 12pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-bidi-font-size: 11.0pt; mso-pagination: widow-orphan; mso-style-next: Normal; mso-outline-level: 4
+}
+P.MsoCaption {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; MARGIN: 6pt 0in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-style-next: Normal
+}
+LI.MsoCaption {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; MARGIN: 6pt 0in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-style-next: Normal
+}
+DIV.MsoCaption {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; MARGIN: 6pt 0in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-style-next: Normal
+}
+P.MsoTitle {
+	FONT-SIZE: 14pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: center; mso-bidi-font-size: 10.0pt; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoTitle {
+	FONT-SIZE: 14pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: center; mso-bidi-font-size: 10.0pt; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoTitle {
+	FONT-SIZE: 14pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: center; mso-bidi-font-size: 10.0pt; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+P.MsoBodyText {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoBodyText {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoBodyText {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+A:link {
+	COLOR: blue; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlink {
+	COLOR: blue; TEXT-DECORATION: underline; text-underline: single
+}
+A:visited {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+SPAN.MsoHyperlinkFollowed {
+	COLOR: purple; TEXT-DECORATION: underline; text-underline: single
+}
+P.MsoAutoSig {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoAutoSig {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoAutoSig {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+P {
+	FONT-SIZE: 12pt; MARGIN-LEFT: 0in; MARGIN-RIGHT: 0in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-margin-top-alt: auto; mso-margin-bottom-alt: auto
+}
+PRE {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Courier New"; mso-pagination: widow-orphan; mso-fareast-font-family: "Courier New"; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt; mso-bidi-font-family: "Times New Roman"
+}
+P.C-Code {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; TEXT-INDENT: 0.5in; FONT-FAMILY: "Lucida Console"; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-family: "Times New Roman"; mso-style-name: C-Code
+}
+LI.C-Code {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; TEXT-INDENT: 0.5in; FONT-FAMILY: "Lucida Console"; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-family: "Times New Roman"; mso-style-name: C-Code
+}
+DIV.C-Code {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; TEXT-INDENT: 0.5in; FONT-FAMILY: "Lucida Console"; TEXT-ALIGN: justify; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-bidi-font-family: "Times New Roman"; mso-style-name: C-Code
+}
+P.Table {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: center; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-font-kerning: 14.0pt; mso-layout-grid-align: none; punctuation-wrap: simple; mso-style-name: Table
+}
+LI.Table {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: center; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-font-kerning: 14.0pt; mso-layout-grid-align: none; punctuation-wrap: simple; mso-style-name: Table
+}
+DIV.Table {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; TEXT-ALIGN: center; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-font-kerning: 14.0pt; mso-layout-grid-align: none; punctuation-wrap: simple; mso-style-name: Table
+}
+DIV.Section1 {
+	page: Section1
+}
+OL {
+	MARGIN-BOTTOM: 0in
+}
+UL {
+	MARGIN-BOTTOM: 0in
+}
+</STYLE>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+  <o:regrouptable v:ext="edit">
+   <o:entry new="1" old="0"/>
+  </o:regrouptable>
+ </o:shapelayout></xml><![endif]--></HEAD>
+<BODY lang=EN-US style="tab-interval: .5in" vLink=purple link=blue>
+<DIV class=Section1>
+<H2 style="TEXT-ALIGN: center" align=center><B><SPAN 
+style="FONT-SIZE: 16pt; mso-bidi-font-size: 10.0pt">Taming the 
+Beast<o:p></o:p></SPAN></B></H2>
+<P style="TEXT-ALIGN: center" align=center><I><SPAN 
+style="FONT-FAMILY: Symbol">Ó</SPAN> 1999 OSR Open Systems Resources, 
+Inc.<o:p></o:p></I></P>
+<P class=MsoNormal>&nbsp;</P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">The 
+Windows 2000 build environment is a wild animal that must be 
+tamed.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">If 
+you try to feed an NT V4.0 (orV3.51) <B>SOURCES</B> file to the Win2K build 
+environment, it will throw up and refuse to build your driver.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>If you eventually manage to make your 
+<B>SOURCES</B> file palatable, you may have to search for the location where the 
+build environment hid your target files.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Once you get your changes to work, you are likely to discover that your 
+new <B>SOURCES</B> file is no longer appetizing to the old 4.0 or 3.51 build 
+procedure.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">This article will explain 
+how to solve these problems.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Additionally, the article will present a number of ways to make the build 
+environment a friendlier, mellower, sort of beast. When you’re through, you’ll 
+have the tools necessary to tame the wild Windows 2000 build environment for 
+yourself.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><B><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></B></P>
+<H3>Writing a Universal SOURCES File</H3>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">Those of you who have been 
+developing Windows NT 4.0 or 3.51 drivers will probably feel disoriented the 
+first time you try to build your driver for Win2K.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>The directory structure of the Win2K DDK 
+has changed from the NT 4.0 DDK.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Consequently, your old <B>SOURCES</B> files, which depend on the 
+structure of the NT 4.0 DDK, will not successfully build your drivers for 
+Win2K.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>This particularly affects 
+those of us in file system land where not enough of the infrastructure above the 
+storage stack has changed to warrant maintaining separate source code bases for 
+Win2K and NT 4.0.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">There are several obstacles 
+you must overcome to write a <B>SOURCES</B> file that works for both NT 4.0 and 
+Win2K.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>For example, your 
+<B>TARGETPATH</B> must be specified differently for Win2K and NT 4.0.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>The old DDK insists on appending a path 
+such as <B>i386\free</B> to your <B>TARGETPATH</B>.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>The new DDK insists on appending a path 
+such as <B>i386</B>.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>Accordingly, 
+portions of the Win2K DDK directory tree are inverted from the NT 4.0 DDK 
+directory tree.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>The new library 
+tree is an example of this inversion.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">Libraries no longer reside 
+in familiar locations such as <B>\DDK\lib\i386\free</B>.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Now they inhabit alien directories such 
+as <B>\DDK\libfre\i386</B>.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>As a 
+result, libraries must be specified differently in your <B>SOURCES</B> 
+file.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>For example, the old DDK 
+samples specified library paths similar to 
+<B>$(BASEDIR)\lib\*\$(DDKBUILDENV)\class.lib</B>.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>The new DDK samples specify library 
+paths like <B>$(DDK_LIB_PATH)\classpnp.lib</B>.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">What can you do about these 
+changes if you need to maintain a common source code base for Win2K and NT 
+4.0?<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>A time-honored technique for 
+dealing with seemingly arbitrary changes is to insulate yourself from them.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>By adding an additional layer of 
+abstraction, you can write a <B>SOURCES</B> file that allows you to build NT 4.0 
+as well as Win2K drivers.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>That 
+layer of abstraction, <B>MYSOURCES.DEF</B>, appears in <I>Figure 1</I>.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Using <B>MYSOURCES.DEF</B> results in a 
+simplified <B>SOURCES</B> file that appears in <I>Figure 2</I>.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>When using this <B>SOURCES</B> file to 
+build your driver, Win2K target files are output to a directory such as 
+<B>C:\mybin\50\checked\i386</B>.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Windows NT 4.0 target files are generated in a directory such as 
+<B>C:\mybin\40\i386\checked</B>.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Lastly, if you still support it, Windows NT 3.51 target files are 
+deposited in a directory like 
+<B>C:\mybin\351\i386\checked</B>.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoBodyText>MAJORCOMP= ntos<o:p></o:p></P>
+<P class=MsoBodyText>MINORCOMP= osr<o:p></o:p></P>
+<P class=MsoBodyText>NT_UP=<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>0<o:p></o:p></P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyText>#<o:p></o:p></P>
+<P class=MsoBodyText># determine DDK version:<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>351, 40, or 50<o:p></o:p></P>
+<P class=MsoBodyText>#<o:p></o:p></P>
+<P class=MsoBodyText>!if "$(MIDL_OPTIMIZATION_NT5)" != ""<o:p></o:p></P>
+<P class=MsoBodyText>DDKVER= 50<o:p></o:p></P>
+<P class=MsoBodyText>!elseif "$(NEW_CRTS)" != ""<o:p></o:p></P>
+<P class=MsoBodyText>DDKVER= 40<o:p></o:p></P>
+<P class=MsoBodyText>!else<o:p></o:p></P>
+<P class=MsoBodyText>DDKVER= 351<o:p></o:p></P>
+<P class=MsoBodyText>!endif<o:p></o:p></P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyText>TARGETPATH= c:\mybin\$(DDKVER)<o:p></o:p></P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyText>!if $(DDKVER) == 50<o:p></o:p></P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyText>TARGETPATH= $(TARGETPATH)\$(DDKBUILDENV)<o:p></o:p></P>
+<P class=MsoBodyText>MYLIBS=<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>$(TARGETPATH)\$(CPU)<o:p></o:p></P>
+<P class=MsoBodyText>DDKLIBS=<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>$(DDK_LIB_PATH)<o:p></o:p></P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyText>!else<o:p></o:p></P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyText>MYLIBS=<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>$(TARGETPATH)\$(CPU)\$(DDKBUILDENV)<o:p></o:p></P>
+<P class=MsoBodyText>DDKLIBS=<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>$(BASEDIR)\lib\$(CPU)\$(DDKBUILDENV)<o:p></o:p></P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyText>!endif<o:p></o:p></P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyText>#<o:p></o:p></P>
+<P class=MsoBodyText># create output directory if it does not 
+exist<o:p></o:p></P>
+<P class=MsoBodyText>#<o:p></o:p></P>
+<P class=MsoBodyText>!if [mkdir $(MYLIBS)] &gt; 1<o:p></o:p></P>
+<P class=MsoBodyText>!error Failed to create directory 
+"$(MYLIBS)."<o:p></o:p></P>
+<P class=MsoBodyText>!endif</P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=C-Code><SPAN style="FONT-SIZE: 6pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=Table style="TEXT-ALIGN: left" align=left>Figure 1 — 
+MYSOURCES.DEF<o:p></o:p></P>
+<P class=Table><SPAN 
+style="FONT-WEIGHT: normal; mso-bidi-font-size: 12.0pt; mso-font-kerning: 0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">Now 
+that your <B>SOURCES</B> problems are solved, we will discuss how to further 
+domesticate the build environment.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>There are several behaviors you may desire to eliminate.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>For example, when you open a Win2K build 
+window, the system thrashes wildly for a number of seconds.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>When you specify a start directory for 
+your build window shortcut, the build window opens with its current working 
+directory set to the root of the DDK.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Moreover, every time a build window is opened, the build environment 
+searches for an updated compiler.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>If it finds one, it updates itself to use the latest compiler without 
+asking for your approval.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Fortunately, there are effective solutions to all of these 
+problems.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoBodyText>!INCLUDE c:\MYSOURCES.DEF<o:p></o:p></P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyText>TARGETNAME=<SPAN style="mso-tab-count: 1"> 
+</SPAN>mydriver<o:p></o:p></P>
+<P class=MsoBodyText>TARGETTYPE=<SPAN style="mso-tab-count: 1">&nbsp;&nbsp; 
+</SPAN>DRIVER<o:p></o:p></P>
+<P class=MsoBodyText>TARGETLIBS=<SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>$(MYLIBS)\my.lib 
+$(DDKLIBS)\libcntpr.lib<o:p></o:p></P>
+<P class=MsoBodyText>INCLUDES=<SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>$(BASEDIR)\inc<o:p></o:p></P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyText>SOURCES=<SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>$(SOURCES) driver.cpp</P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=C-Code><SPAN style="FONT-SIZE: 6pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=Table style="TEXT-ALIGN: left" align=left>Figure 2 — 
+SOURCES<o:p></o:p></P>
+<P class=Table><SPAN 
+style="FONT-WEIGHT: normal; mso-bidi-font-size: 12.0pt; mso-font-kerning: 0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<H3>Eliminating Thrashing</H3>
+<P class=MsoNormal><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">The 
+first thing you notice when opening up a Win2K build windows is a distinct pause 
+while the system grinds away at the disk.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>This is more noticeable for people with slower processors and disks.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>One way to eliminate this annoyance, of 
+course, is to acquire an expensive new computer for building your drivers.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>However, if you are not trying to 
+finagle a better system out of your boss, there is a cheaper 
+alternative.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">The 
+root of this evil thrashing is a new addition to the DDK named 
+<B>VcCheck</B>.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>Every time you open 
+a Win2K build window, <B>VcCheck</B> is invoked with the parameter 
+"<B>/d</B>."<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>When invoked with the 
+"<B>/d</B>" option, <B>VcCheck</B> walks the <B>src</B> subdirectory of your DDK 
+installation generating all the <B>dirs</B> files in the <B>src</B> tree.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Unless you are constantly adding new 
+sample source code to the <B>src</B> subdirectory of the DDK, there is no reason 
+these files need to be written every time you open a build 
+window.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">To 
+disable this thrashing, find the last occurrence of <B>VcCheck</B> in your 
+<B>SETENV.BAT</B> file in the <B>bin</B> directory of the DDK, and insert 
+<B>rem</B> at the beginning of the line.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Refer to <I>Figure 3</I> for a snapshot of what this portion of the file 
+should look like.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>If you add new 
+samples to your DDK's <B>src</B> directory after making this change, you can run 
+<B>VcCheck</B> manually from the build environment to regenerate the <B>dirs</B> 
+files.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoBodyText>set 
+CRT_LIB_PATH=%BASEDIR%\lib%BUILD_ALT_DIR%\*<o:p></o:p></P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyText>set 
+COFFBASE_TXT_FILE=%BASEDIR%\bin\coffbase.txt<o:p></o:p></P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyText>rem Disable writing of "dirs" files<o:p></o:p></P>
+<P class=MsoBodyText>rem %1\bin\vccheck /p %1 /d<o:p></o:p></P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyText>if "%OS%" == "Windows_NT" goto WinNT</P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=C-Code><SPAN style="FONT-SIZE: 6pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=Table style="TEXT-ALIGN: left" align=left>Figure 3 — SETENV.BAT 
+Modified to Eliminate Thrashing<o:p></o:p></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<H3><SPAN style="mso-bidi-font-size: 11.0pt">Specifying a 
+Compiler/SDK<o:p></o:p></SPAN></H3>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">Another new feature of the 
+Win2K DDK you cannot miss is the DDK searching for the latest version of the 
+compiler on your workstation every time you open a build window.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>This feature does not wait for the Win2K 
+developers to adopt the compiler before updating your build environment to use 
+the latest compiler (well, at least as far as we know!).<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Moreover, this feature does not wait for 
+Windbg to support the latest compiler's symbol format.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>For these reasons, you may want to 
+disable this feature.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">Yet 
+again, the root of the evil is our friend <B>VcCheck</B>, with slightly 
+different parameters than before.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>When <B>VcCheck</B> is invoked with the "<B>/e</B>" option, 
+<B>VcCheck</B> inspects a few values in the registry to determine what directory 
+contains the latest version of the compiler.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Once <B>VcCheck</B> has this 
+information, it writes the file <B>DDKVARS.BAT</B>.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><B>SETENV.BAT</B> in turn invokes 
+<B>DDKVARS.BAT</B> to insert the compiler's directories into your build 
+environment.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">Again, disabling this 
+feature entails modifying <B>SETENV.BAT</B>.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>With the addition of a few lines to 
+<B>SETENV.BAT</B>, you can specify a compiler and SDK as well as bypass 
+<B>DDKVARS.BAT</B> and <B>VcCheck</B>.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Refer to <I>Figure 4</I>.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoBodyText>@echo off<o:p></o:p></P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyText>if "%1"=="/?" goto usage<o:p></o:p></P>
+<P class=MsoBodyText>if "%1"=="-?" goto usage<o:p></o:p></P>
+<P class=MsoBodyText>if "%1"=="\?" goto usage<o:p></o:p></P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyText>if "%1"=="" goto usage<o:p></o:p></P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyText>rem Explicitly specify compiler then jump past VcCheck and 
+DDKVARS.BAT.<o:p></o:p></P>
+<P class=MsoBodyText>rem Note, you may have installed your compiler in a 
+directory other than "vs."<o:p></o:p></P>
+<P class=MsoBodyText>call e:\vs\vc98\bin\VCVARS32.BAT x86<o:p></o:p></P>
+<P class=MsoBodyText>call e:\mssdk\setenv e:\mssdk<o:p></o:p></P>
+<P class=MsoBodyText>goto testbasedir<o:p></o:p></P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyText>rem Check for new or updated install of MSVC<o:p></o:p></P>
+<P class=MsoBodyText>%1\bin\vccheck /p %1 /e<o:p></o:p></P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyText>if NOT EXIST %1\bin\ddkvars.bat goto devdir<o:p></o:p></P>
+<P class=MsoBodyText>call %1\bin\ddkvars.bat<o:p></o:p></P>
+<P class=MsoBodyText>if "%MSVCDIR%"=="" set MSVCDIR=%MSDEVDIR%<o:p></o:p></P>
+<P class=MsoBodyText>goto testbasedir</P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=C-Code><SPAN style="FONT-SIZE: 6pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=Table style="TEXT-ALIGN: left" align=left>Figure 4 — SETENV.BAT 
+Modified to Specify Compiler/SDK<o:p></o:p></P>
+<P class=Table><SPAN 
+style="FONT-WEIGHT: normal; mso-bidi-font-size: 12.0pt; mso-font-kerning: 0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<H3>Specifying a Start Directory</H3>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">If 
+you are working on multiple driver projects, you may find it convenient to have 
+multiple build icons that open build environments in specific projects' 
+directories.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>The obvious solution 
+to this problem is to copy the build environment shortcut and change the 
+shortcut's start directory on the Shortcut tab of the shortcut's property 
+page.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>If you have tried this, then 
+you know this does not work.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>The 
+build environment persists in opening with the current working directory set to 
+the root of the DDK.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>While this may 
+be convenient for the DDK team, it is likely to be rather inconvenient for 
+almost everyone else.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">Fortunately, there is an 
+easy solution to this problem.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>The 
+secret is to find the line in <B>SETENV.BAT</B> that sets the current directory 
+to the root of the DDK and insert <B>rem</B> at the beginning of the line.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>This portion of your <B>SETENV.BAT</B> 
+should look like <I>Figure 5</I>.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>After making this change, each of your build windows will open with their 
+current working directory set to the start directory specified in the property 
+page of the build window's shortcut.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoBodyText>:WinNT<o:p></o:p></P>
+<P class=MsoBodyText>rem cd /d %BASEDIR%<o:p></o:p></P>
+<P class=MsoBodyText>doskey /macrofile=%BASEDIR%\bin\generic.mac<o:p></o:p></P>
+<P class=MsoBodyText>doskey /macrofile=%BASEDIR%\bin\ddktree.mac</P>
+<P class=MsoBodyText><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=C-Code><SPAN style="FONT-SIZE: 6pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=C-Code><SPAN style="FONT-SIZE: 6pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=Table style="TEXT-ALIGN: left" align=left>Figure 5 — SETENV.BAT 
+Modified to Open Build Window in Specified Directory<o:p></o:p></P>
+<P class=Table><SPAN 
+style="FONT-WEIGHT: normal; mso-bidi-font-size: 12.0pt; mso-font-kerning: 0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<H3>Miscellaneous Win2K DDK Problems</H3>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">Although this will not 
+affect most driver writers, an incompatibility exists between the Windows NT 
+3.51 DDK and the Win2K DDK.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Specifically, the format of the <B>_objects.mac</B> file generated by 
+either of the two build environments is not suitable for the other build 
+environment.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>This problem manifests 
+itself as <B>NMAKE</B> claiming it does not know how to make any of your object 
+files.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>One possible solution is to 
+delete <B>_objects.mac</B> when switching build environments.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>The build process will magically 
+regenerate <B>_objects.mac</B> in a format suitable for the current build 
+environment.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">You 
+may have observed that specifying <B>$(BASEDIR)\inc\ddk</B> as part of your 
+<B>INCLUDES</B> in your <B>SOURCES</B> file is optional when including 
+<B>ntddk.h</B>.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>Unfortunately, this 
+is not optional when building DDK libraries.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>Failing to specify this as part of your 
+<B>INCLUDES</B> causes the library build process to die with an error message 
+indicating <B>ntddk.h</B> was not found.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<H3>In Summary</H3>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 11.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">Although the Win2K build 
+environment seems like an untamable beast, it is highly trainable.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>The build environment is robust and 
+responds well to modifications.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Developers often avoid modifying their build environments for fear of 
+breaking them or wasting valuable time.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Yet, if you apply some of the customizations presented in this article, 
+you will find the rewards of customizing the DDK's build environment outweigh 
+the risks.<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P></DIV></BODY></HTML>

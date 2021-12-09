@@ -1,0 +1,11 @@
+TARGETNAME=WDMSKEL
+TARGETTYPE=DRIVER
+TARGETPATH=.
+INCLUDES=$(BASEDIR)\INC
+C_DEFINES=-DDRIVER
+SOURCES= \
+    DriverEntry.cpp \
+	PlugPlay.cpp \
+	Power.cpp \
+	ReadWrite.cpp \
+	Wmi.cpp

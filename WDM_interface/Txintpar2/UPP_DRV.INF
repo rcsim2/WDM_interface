@@ -1,0 +1,116 @@
+;
+;	UPP Driver Install INF file
+; (c) 1999, Thesycon GmbH, Ilmenau, Germany
+;
+
+;******************************************************************************
+; Version Section
+;------------------------------------------------------------------------------
+[Version]
+Signature="$Windows NT$"
+Class = Ports
+ClassGuid = {4d36e978-e325-11ce-bfc1-08002be10318} 
+Provider=%S_Provider%
+DriverVer=10/07/1999
+
+
+;******************************************************************************
+; Default Install Section
+; will be executed if "Install" is selected from the context menu of the INF file
+;------------------------------------------------------------------------------
+[DefaultInstall.ntx86]
+CopyFiles=_Files_sys, _Files_inf
+AddReg=_AddReg_upp_drv,  _AddReg_UnInstall
+Reboot
+
+
+;******************************************************************************
+; UnInstall Section
+;------------------------------------------------------------------------------
+[UnInstall]
+DelFiles=_Files_sys, _Files_inf
+DelReg=_DelReg_all
+
+
+;******************************************************************************
+; files sections
+;------------------------------------------------------------------------------
+
+; driver binaries
+[_Files_sys]
+uparport.sys
+
+; inf file
+[_Files_inf]
+upp_drv.inf
+
+
+;******************************************************************************
+; Destination Directories
+;------------------------------------------------------------------------------
+[DestinationDirs]
+DefaultDestDir  = 11		; System32 directory
+_Files_sys = 10,System32\Drivers
+_Files_inf = 17		; INF dir
+
+
+;******************************************************************************
+; Disk Layout
+;------------------------------------------------------------------------------
+[SourceDisksNames]
+1=%S_DiskName%,"",1
+
+[SourceDisksFiles]
+uparport.sys=1
+upp_drv.inf=1
+
+
+;******************************************************************************
+; Registry sections
+;------------------------------------------------------------------------------
+
+; uparport_DRV
+[_AddReg_upp_drv]
+; service key
+HKLM,%S_UPP_DRV_ServiceKey%,Start,0x10001,1
+HKLM,%S_UPP_DRV_ServiceKey%,Type,0x10001,1
+HKLM,%S_UPP_DRV_ServiceKey%,ErrorControl,0x10001,1
+HKLM,%S_UPP_DRV_ServiceKey%,ImagePath,0x20000,"\SystemRoot\System32\Drivers\uparport.sys"
+HKLM,%S_UPP_DRV_ServiceKey%,DisplayName,0x00000,%S_UPP_DRV_DisplayName%
+HKLM,%S_UPP_DRV_ServiceKey%,Group,,"Base"
+; event log
+HKLM,%S_UPP_DRV_EventLogKey%,EventMessageFile,0x20000,"%%SystemRoot%%\System32\IoLogMsg.dll;%%SystemRoot%%\System32\Drivers\uparport.sys"
+HKLM,%S_UPP_DRV_EventLogKey%,TypesSupported,0x10001,7
+
+;parameters
+
+; uninstall entry
+[_AddReg_UnInstall]
+HKLM,%S_UnInstallKey%,DisplayName,,%S_UnInstallDisplayName%
+HKLM,%S_UnInstallKey%,UninstallString,,"rundll32 setupapi.dll,InstallHinfSection UnInstall 4 %17%\upp_drv.inf"
+
+
+; delete all registry entries
+[_DelReg_all]
+HKLM,%S_UPP_DRV_ServiceKey%
+HKLM,%S_UPP_DRV_EventLogKey%
+HKLM,%S_UnInstallKey%
+
+
+
+;******************************************************************************
+; Localizable Strings
+;------------------------------------------------------------------------------
+[Strings]
+S_Provider="Thesycon GmbH - Germany"
+S_DiskName="UPP Driver Disk"
+
+S_UPP_DRV_ServiceKey="System\CurrentControlSet\Services\uparport"
+S_UPP_DRV_ParamKey="System\CurrentControlSet\Services\uparport\Parameters"
+
+S_UPP_DRV_EventLogKey="System\CurrentControlSet\Services\EventLog\System\uparport"
+S_UPP_DRV_DisplayName="Universal Parallel Port Driver"
+
+S_UnInstallKey="Software\Microsoft\Windows\CurrentVersion\Uninstall\uparport"
+S_UnInstallDisplayName="Thesycon: Universal Parallel Port Driver"
+

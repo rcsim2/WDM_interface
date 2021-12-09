@@ -1,0 +1,531 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0032)http://www.osr.com/default.shtml -->
+<HTML><HEAD><TITLE>OSR Open Systems Resources, Inc. - Seminars - Development - Consulting - Training</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<META content=document name=resource-type>
+<META 
+content="OSR Open Systems Resources, Inc. The Windows NT, Windows 2000 and Windows XP device driver and file systems experts.  Seminars - Development - Consulting - Training" 
+name=description>
+<META 
+content="osr, windows 2000, device drivers, windows xp, ddk, windows ddk, driver seminars, driver training, fsdk, fddk, ksocks, windows nt, wdm drivers, windows 2000 seminars, windows 2000 device driver seminars, device driver seminars, wdm, windows drivers, windows device drivers, windows 2000 device driver training, wdm device drivers, windows 2000 file systems, win2k, windows 2000 device drivers, driver debugging, win2k drivers, driver development, debugging, drivers, file systems, redirectors, hal, ddk, seminar, seminars, training, class, classes, course, courses, windows, device, windows nt device drivers, file systems, windows nt file systems, consulting, internals, systems, programming, consultants, the nt insider, filter drivers, file system filter drivers, ifs kit" 
+name=keywords>
+<META content=Global name=distribution>
+<META content="2000 OSR Open Systems Resources, Inc." name=copyright>
+<META content="OSR Open Systems Resources, Inc." name=author>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content=All name=robots>
+<META content=General name=rating>
+<SCRIPT language=JavaScript type=text/javascript>
+<!--
+curPage=1;
+//-->
+</SCRIPT>
+
+<SCRIPT language=JavaScript type=text/javascript>
+<!--
+
+     NS4 = (document.layers);
+     IE4 = (document.all);
+    ver4 = (NS4 || IE4);
+     IE5 = (IE4 && navigator.appVersion.indexOf("5.")!=-1);
+   isMac = (navigator.appVersion.indexOf("Mac") != -1);
+  isMenu = (NS4 || (IE4 && !isMac) || (IE5 && isMac));
+
+function popUp(){return};
+function popDown(){return};
+
+if (!ver4) event = null;
+
+//-->
+
+//tmtC_NNresizeFix
+if (document.layers) {
+origWidth = innerWidth;
+origHeight = innerHeight;}
+function reDo() {
+if (innerWidth != origWidth || innerHeight != origHeight)
+location.reload();}
+if (document.layers) onresize = reDo;
+//tmtC_NNresizeFixEnd
+</SCRIPT>
+<!--Begin Javascript for cascading menu-->
+<SCRIPT language=JavaScript1.2 type=text/javascript>
+<!--
+	if (isMenu) {
+	menuVersion = 3;
+          menuWidth = 120;
+       childOverlap = 50;
+        childOffset = 5;
+        perCentOver = null;
+     secondsVisible = .5;
+             fntCol = "blue";
+             fntSiz = "10";
+            fntBold = false;
+            fntItal = false;
+             fntFam = "sans-serif";
+            backCol = "#DDDDDD";
+            overCol = "#FFCCCC";
+            overFnt = "purple";
+             borWid = 2;
+             borCol = "black";
+             borSty = "solid";
+            itemPad = 3;
+             imgSrc = "graphics_osr/tri.gif"; // "http://www.dhtmlab.com/hiermenus/tri.gif";
+             imgSiz = 10;
+          separator = 1;
+       separatorCol = "red";
+           isFrames = false;      // <-- IMPORTANT for full window
+           navFrLoc = "left";     // <-- display. see below
+         keepHilite = true;
+         NSfontOver = true;
+         clickStart = false;
+          clickKill = false;
+}
+//-->
+</SCRIPT>
+
+<SCRIPT language=JavaScript1.2 type=text/javascript>
+<!--
+var IE4 = (document.all) ? true : false;
+var NS4 = (document.layers) ? true : false;
+
+if (isMenu) {
+document.write("<SCRIPT LANGUAGE='JavaScript1.2' SRC='hierArrays_inc.js'><\/SCRIPT>");
+document.write("<SCRIPT LANGUAGE='JavaScript1.2' SRC='hierMenus.js'><\/SCRIPT>");
+}
+
+//-->
+</SCRIPT>
+<!--Begin JavaScript for cascading menu mouseovers-->
+<SCRIPT language=JavaScript type=text/javascript>
+
+<!-- hide from antiquated browsers
+
+window.onerror=null;
+browserName = navigator.appName;
+browserVer = parseInt(navigator.appVersion);
+
+function imgOn(imgName) {
+  if (ver == "yes")  {
+  document[imgName].src = eval(imgName + "on.src");
+  }
+}
+
+function imgOff(imgName) {
+  if (ver == "yes")  {
+  document[imgName].src = eval(imgName + "off.src");
+  }
+}
+
+if((browserName=="Netscape" && browserVer >= 3) ||
+   (browserName=="Microsoft Internet Explorer" && browserVer >= 4)) ver = "yes";
+else ver = "no";
+if(ver == "yes") {
+
+  img1on=new Image();
+  img1on.src="http://www.osr.com/graphics_osr/graphics_osrhome/osrhome_arrow_mo.gif";
+
+  img1off=new Image();
+  img1off.src="http://www.osr.com/graphics_osr/home.gif";
+
+  img2on=new Image();
+  img2on.src="http://www.osr.com/graphics_osr/graphics_aboutosr/aboutosr_arrow_mo.gif";
+
+  img2off=new Image();
+  img2off.src="http://www.osr.com/graphics_osr/aboutosr.gif";
+
+  img3on=new Image();
+  img3on.src="http://www.osr.com/graphics_osr/graphics_services/services_arrow_mo.gif";
+
+  img3off=new Image();
+  img3off.src="http://www.osr.com/graphics_osr/services.gif";
+
+  img4on=new Image();
+  img4on.src="http://www.osr.com/graphics_osr/graphics_toolkits/toolkits_arrow_mo.gif";
+
+  img4off=new Image();
+  img4off.src="http://www.osr.com/graphics_osr/toolkits.gif";
+
+  img5on=new Image();
+  img5on.src="http://www.osr.com/graphics_osr/graphics_seminars/seminars_arrow_mo.gif";
+
+  img5off=new Image();
+  img5off.src="http://www.osr.com/graphics_osr/seminars.gif";
+
+  img6on=new Image();
+  img6on.src="http://www.osr.com/graphics_osr/graphics_publications/publications_arrow_mo.gif";
+
+  img6off=new Image();
+  img6off.src="http://www.osr.com/graphics_osr/publications.gif";
+
+  img7on=new Image();
+  img7on.src="http://www.osr.com/graphics_osr/graphics_resources/resources_arrow_mo.gif";
+
+  img7off=new Image();
+  img7off.src="http://www.osr.com/graphics_osr/resources.gif";
+
+  img8on=new Image();
+  img8on.src="http://www.osr.com/graphics_osr/graphics_store/store_arrow_mo.gif";
+
+  img8off=new Image();
+  img8off.src="http://www.osr.com/graphics_osr/store.gif";
+
+  img9on=new Image();
+  img9on.src="http://www.osr.com/graphics_osr/graphics_listserver/listserver_arrow_mo.gif";
+
+  img9off=new Image();
+  img9off.src="http://www.osr.com/graphics_osr/listserver.gif";
+
+  img10on=new Image();
+  img10on.src="http://www.osr.com/graphics_osr/graphics_contactus/contactus_arrow_mo.gif";
+
+  img10off=new Image();
+  img10off.src="http://www.osr.com/graphics_osr/contactus.gif";
+
+  img11on=new Image();
+  img11on.src="http://www.osr.com/graphics_osr/graphics_search/search_arrow_mo.gif";
+
+  img11off=new Image();
+  img11off.src="http://www.osr.com/graphics_osr/search.gif";
+  
+}
+
+// end hiding -->
+
+</SCRIPT>
+<!--End JavaScript for cascading menu mouseovers--><!--End Javascript for cascading menu--><LINK 
+href="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/styles.css" 
+rel=stylesheet></HEAD>
+<BODY text=#000000 vLink=#663366 aLink=#996699 link=#666699 bgColor=#ffffff 
+leftMargin=0 
+background="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/background.gif" 
+topMargin=0 onload=startIt();>Windows 2000 device driver seminars Windows 2000 
+device driver training Windows 2000 file system development 
+<DIV id=Layer1 
+style="Z-INDEX: 8; LEFT: 0px; WIDTH: 165px; POSITION: absolute; TOP: 0px; HEIGHT: 150px"><A 
+name=TOP><IMG height=150 
+src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/logo_topleft.gif" 
+width=165></A></DIV>
+<DIV id=Layer2 
+style="Z-INDEX: 15; LEFT: 165px; WIDTH: 114px; POSITION: absolute; TOP: 0px; HEIGHT: 65px"><IMG 
+height=67 
+src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/clouds.gif" 
+width=411></DIV>
+<DIV id=Layer3 
+style="Z-INDEX: 14; LEFT: 576px; WIDTH: 224px; POSITION: absolute; TOP: 0px; HEIGHT: 31px"><IMG 
+height=31 
+src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/topright_fade.gif" 
+width=224></DIV>
+<DIV id=Layer4 
+style="Z-INDEX: 13; LEFT: 576px; WIDTH: 224px; POSITION: absolute; TOP: 31px; HEIGHT: 23px"><IMG 
+height=28 
+src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/midright.gif" 
+width=224></DIV>
+<DIV id=Layer5 
+style="Z-INDEX: 12; LEFT: 576px; WIDTH: 224px; POSITION: absolute; TOP: 59px; HEIGHT: 8px"><IMG 
+height=8 
+src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/rightline_fade.gif" 
+width=224></DIV>
+<DIV id=Layer6 
+style="Z-INDEX: 6; LEFT: 165px; WIDTH: 414px; POSITION: absolute; TOP: 95px; HEIGHT: 35px"><IMG 
+height=35 
+src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/osrhome_head.gif" 
+width=414></DIV>
+<P>&nbsp;<IMG height=125 alt="" 
+src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/1pixel.gif" 
+width=1>&nbsp;</P><!-- Begin Table 1 -->
+<TABLE cellSpacing=0 cellPadding=0 width="100%" align=left border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width=150><IMG height=32 alt=osr.com 
+      src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/osr_com_left.gif" 
+      width=150 border=0><BR><A 
+      onmouseover="imgOn('img1'); popUp('elMenu1',event); return false;" 
+      onmouseout="imgOff('img1'); popDown('elMenu1');" 
+      href="http://www.osr.com/default.shtml"><IMG height=25 alt="" 
+      src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/home.gif" 
+      width=150 border=0 name=img1></A><BR><A 
+      onmouseover="imgOn('img2'); popUp('elMenu2',event); return false;" 
+      onmouseout="imgOff('img2'); popDown('elMenu2');" 
+      href="http://www.osr.com/aboutosr_main.shtml"><IMG height=25 alt="" 
+      src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/aboutosr.gif" 
+      width=150 border=0 name=img2></A><BR><A 
+      onmouseover="imgOn('img3'); popUp('elMenu3',event); return false;" 
+      onmouseout="imgOff('img3'); popDown('elMenu3');" 
+      href="http://www.osr.com/services_main.shtml"><IMG height=25 alt="" 
+      src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/services.gif" 
+      width=150 border=0 name=img3></A><BR><A 
+      onmouseover="imgOn('img4'); popUp('elMenu4',event); return false;" 
+      onmouseout="imgOff('img4'); popDown('elMenu4');" 
+      href="http://www.osr.com/toolkits_main.shtml"><IMG height=25 alt="" 
+      src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/toolkits.gif" 
+      width=150 border=0 name=img4></A><BR><A 
+      onmouseover="imgOn('img5'); popUp('elMenu5',event); return false;" 
+      onmouseout="imgOff('img5'); popDown('elMenu5');" 
+      href="http://www.osr.com/seminars_main.shtml"><IMG height=25 alt="" 
+      src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/seminars.gif" 
+      width=150 border=0 name=img5></A><BR><A 
+      onmouseover="imgOn('img6'); popUp('elMenu6',event); return false;" 
+      onmouseout="imgOff('img6'); popDown('elMenu6');" 
+      href="http://www.osr.com/publications_main.shtml"><IMG height=25 alt="" 
+      src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/publications.gif" 
+      width=150 border=0 name=img6></A><BR><A 
+      onmouseover="imgOn('img7'); popUp('elMenu7',event); return false;" 
+      onmouseout="imgOff('img7'); popDown('elMenu7');" 
+      href="http://www.osr.com/resources_main.shtml"><IMG height=25 alt="" 
+      src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/resources.gif" 
+      width=150 border=0 name=img7></A><BR><A 
+      onmouseover="imgOn('img8'); popUp('elMenu8',event); return false;" 
+      onmouseout="imgOff('img8'); popDown('elMenu8');" 
+      href="http://www.osr.com/store_main.shtml"><IMG height=25 alt="" 
+      src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/store.gif" 
+      width=150 border=0 name=img8></A><BR><A 
+      onmouseover="imgOn('img9'); popUp('elMenu9',event); return false;" 
+      onmouseout="imgOff('img9'); popDown('elMenu9');" 
+      href="http://www.osr.com/listserver_main.htm"><IMG height=25 alt="" 
+      src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/listserver.gif" 
+      width=150 border=0 name=img9></A><BR><A 
+      onmouseover="imgOn('img10'); popUp('elMenu10',event); return false;" 
+      onmouseout="imgOff('img10'); popDown('elMenu10');" 
+      href="http://www.osr.com/contactus_main.shtml"><IMG height=25 alt="" 
+      src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/contactus.gif" 
+      width=150 border=0 name=img10></A><BR><A 
+      onmouseover="imgOn('img11'); popUp('elMenu11',event); return false;" 
+      onmouseout="imgOff('img11'); popDown('elMenu11')" 
+      href="http://www.osr.com/search_main.shtml"><IMG height=25 alt="" 
+      src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/search.gif" 
+      width=150 border=0 name=img11></A><BR></TD>
+    <TD vAlign=top align=left><!-- Begin Table 1A -->
+      <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=top width=25><IMG height=20 alt="" 
+            src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/1pixel.gif" 
+            width=25 border=0></TD>
+          <TD vAlign=top align=left><!-- Begin Table 1B -->
+            <TABLE cellSpacing=0 cellPadding=0 width="90%" border=0>
+              <TBODY>
+              <TR>
+                <TD vAlign=top>
+                  <DIV align=center><IMG height=225 alt="" 
+                  src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/bst002vw_home4.gif" 
+                  width=200> <BR><BR></DIV><!--
+*** this is the old stuff from the web site ***
+                  <DIV id="message" class="texti" align=left> <span class="texti">"Thanks again for all your work in making the seminar such a great experience for all of us.
+							This class was by far one of the best I've attended." 
+			</span><BR><br>
+                    <span class="text"><small>[Unsolicited email from an OSR seminar attendee, after a public
+					 presentation in Boston of the Win2k/WDM Drivers Seminar]</small>
+					</span> </DIV>
+
+--><!-- *** LOVE NOTES *** -->
+                  <SCRIPT language=JavaScript>
+<!-- Begin
+var beforeMsg = '<span class="texti">';
+var afterMsg = "</span>";
+var beforeAttrib = '<br><span class="text"><small>'
+var afterAttrib = "</span></small>"
+var msgRotateSpeed = 10000; // Rotate delay in milliseconds
+var textStr = new Array();
+var textAttrib = new Array();
+
+textStr[0] = "Thanks again for all your work in making the seminar such a great experience for all of us. This class was by far one of the best I've attended.";
+textAttrib[0] = "[Unsolicited email after attending public Win2K/WDM Drivers Seminar in Boston 2001]"
+
+textStr[1] = "One of the best instructors I have ever had.";
+textAttrib[1] = "[Unsolicited email from a Win2K/WDM Drivers Seminar attendee - Boston 2001]"
+
+textStr[2] = "The Instructor managed to pack an absolutely incredible amount of information into this course, and yet still keep it somewhat manageable for 'relative' novices to the subject.";
+textAttrib[2] = "[Course evaluation from Win2K/WDM Driver Lab attendee - Portland 2001]"
+
+textStr[3] = "After taking this course, I personally consider Peter to be one of the world's top authorities on the subject.  If I ever take a course on this subject again (for a newer version of Windows, or a more advanced course) then I will do my best to make certain that he is the instructor.  It is rare to find someone with as much up-to-date knowledge as Peter has, who is ALSO excellent at explaining what he knows.";
+textAttrib[3] = "[Course evaluation from Win2K/WDM Driver Lab attendee - Portland 2001]"
+
+textStr[4] = "Mark was very knowledgeable, very approachable, and did not falter in focus or energy level for the entire week. Entertaining, and kept my attention."
+textAttrib[4] = "[Course evaluation from Win2K/WDM Driver Lab attendee - Portland 2001]"
+
+textStr[5] = "Peter's valuable sense of humor kept the (potentially dry) topic alive.  He clearly is enthusiastic and well-versed in the subject, which builds confidence in the students."
+textAttrib[5] = "[Course evaluation from Win2K/WDM Driver Lab attendee - Portland 2001]"
+
+textStr[6] = "Tony was amazing.  Not only did he know just about everything anyone asked off the  top of his head, he was very interesting to listen to."
+textAttrib[6] = "[Unsolicited email after attending public Win2K File Systems Seminar - Boston 2001]"
+
+textStr[7] = "Mark has a good presentation style, interesting, he kept the class involved in the discussions. The pace was good and Mark's humor was good. He was very helpful in labs. He was very knowledgeable about the material, and has a strong real-world background."
+textAttrib[7] = "[Course evaluation from Win2K/XP WDM Driver Lab attendee - Portland 2001]"
+
+textStr[8] = "I must say that the course was really successful due to our instructor, Mark."
+textAttrib[8] = "[Course evaluation from Win2K/XP WDM Driver Lab attendee - Portland 2001]"
+
+textStr[9] = "If [my company] had a 'training group of the year' award, OSR would be the winner hands down."
+textAttrib[9] = "[Course evaluation from Win2K/XP Advanced Driver Seminar attendee at a private, on-site seminar in 2001]"
+
+<!-- Marketeers: DO NOT CHANGE THE QUOTE/ATTRIBUTION IN THE CODE BELOW -->
+
+if (document.getElementById) {
+document.write(beforeMsg + '<div id="message"style="position:relative;">Great Instructor!  I had a blast!</div>' + afterMsg);
+temp = 'document.getElementById("message").firstChild.nodeValue = textStr[i];';
+document.write(beforeAttrib + '<div id="attrib"style="position:relative;">[Unsolicited email from a Win2k/WDM Drivers Seminar attendee - Boston 2001</div>' + afterAttrib);
+temp2 = 'document.getElementById("attrib").firstChild.nodeValue = textAttrib[i++];';
+}
+else if (document.all) {
+document.write(beforeMsg + '<div id="message" style="position:relative;">Great Instructor!  I had a blast!</div>' + afterMsg);
+temp = 'message.innerHTML = textStr[i];';
+document.write(beforeAttrib + '<div id="attrib"style="position:relative;">[Unsolicited email from a Win2k/WDM Drivers Seminar attendee - Boston 2001</div>' + afterAttrib);
+temp2 = 'attrib.innerHTML = textAttrib[i++];';
+}
+
+var i = Math.floor(10*Math.random());
+if (i >= textStr.length) i = 0;
+
+function startBoth() {
+msgRotate();
+xxtimer=setInterval("msgRotate()", msgRotateSpeed);
+startIt();
+}
+
+function msgRotate() {
+eval(temp);
+eval(temp2);
+if (i == textStr.length) i = 0;
+}
+window.onload = startBoth;
+//  End -->
+</SCRIPT>
+                </TD>
+                <TD width="5%">&nbsp;</TD>
+                <TD vAlign=top align=left width="65%"><IMG height=25 alt="" 
+                  src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/ani_osr_home_opt.gif" 
+                  width=300> 
+                  <P><SPAN class=text>OSR dedicates its team of experts to serve 
+                  a worldwide client base that seeks knowledge and assistance 
+                  with the "guts" of the NT/Win2K/XP operating systems. We 
+                  specialize in Windows 2000/XP device driver and file system 
+                  training, development, and consulting. Check-out one of our 
+                  cutting-edge seminars coming soon to <STRONG>your</STRONG> 
+                  town. <BR><BR><STRONG>We at OSR are grieved and outraged by 
+                  the events of 11 September. We extend our most heartfelt 
+                  sympathy and solidarity to the family, friends, and co-workers 
+                  of the victims of this tragedy. We urge you to join us in 
+                  supporting <A href="http://www.helping.org/wtc/11th.adp">The 
+                  September 11th Fund</A> </STRONG></SPAN></P><!-- 
+
+**** YO!   If there's web trouble, change the note below, and remove
+****       the COMMENT indicators (left angle bracket, exclamation point
+****       dash dash through dash dash right angle bracket)...  Put some
+****       meaningful text in.  DON'T LEAVE THE WEB SERVER SCREWED UP
+****       WITHOUT PUTTING AN EXPLANATORY MESSAGE!
+*** COMMENT INDICATOR IMMEDIATELY BELOW  --><!--
+							<p><span class="textboldred">
+							The various problems we were experiencing with our web site seem to be fixed.
+							</span><span class="textred">
+							Thanks for putting up with the annoyance.
+                            As usual, please email our webmaster if you encounter web problems.  
+							</span>
+                 			</p>
+
+<!-- **** END COMMENT IMMEDIATELY ABOVE -->
+                  <P><IMG height=7 alt="" 
+                  src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/black_square.gif" 
+                  width=9> <A 
+                  href="http://www.osr.com/osrhome_ksockspr.shtml"><SPAN 
+                  class=textboldred>New! <U>Kernel Sockets</U> V2 
+                  Released!</SPAN></A> <BR></P>
+                  <P><IMG height=7 alt="" 
+                  src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/black_square.gif" 
+                  width=9> <A 
+                  href="http://www.osr.com/resources_ifsfaq.shtml"><SPAN 
+                  class=textboldred>New! FAQ for Windows NT/2000/XP IFS 
+                  Development</SPAN></A> <BR></P>
+                  <P><IMG height=7 alt="" 
+                  src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/black_square.gif" 
+                  width=9> <A 
+                  href="http://www.osr.com/resources_bugbash.shtml"><SPAN 
+                  class=textboldred>Find A Bug In The Windows DDK? Report 
+                  It!</SPAN></A> <BR></P>
+                  <P><IMG height=7 alt="" 
+                  src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/black_square.gif" 
+                  width=9> <A 
+                  href="http://www.osr.com/seminars_schedule.shtml"><SPAN 
+                  class=textboldred>OSR Seminars in <U>Portand, 
+                  OR</U></SPAN></A> <BR></P>
+                  <P><IMG height=7 alt="" 
+                  src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/black_square.gif" 
+                  width=9> <A 
+                  href="http://www.osr.com/osrhome_microsoft.shtml"><SPAN 
+                  class=textboldred>Microsoft Taps OSR Expertise For XP DDK/IFS 
+                  Enhancements and Training</SPAN></A> <BR></P>
+                  <P><IMG height=7 alt="" 
+                  src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/black_square.gif" 
+                  width=9> <A 
+                  href="http://www.osr.com/osrhome_projects.shtml"><SPAN 
+                  class=textboldred>We're Developers Who Teach, <U>Not</U> Just 
+                  Professional Trainers</SPAN></A> <BR></P>
+                  <P><IMG height=7 alt="" 
+                  src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/black_square.gif" 
+                  width=9> <A href="http://www.osr.com/ddk/ddk.htm"><SPAN 
+                  class=textboldred>Windows DDK Documentation 
+                  <U>On-line</U><BR>UPDATE: Now Final (RTM) Version</SPAN></A> 
+                  <BR></P>
+                  <P><IMG height=7 alt="" 
+                  src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/black_square.gif" 
+                  width=9> <A 
+                  href="http://www.osr.com/seminars_schedule.shtml"><SPAN 
+                  class=textboldred>Next Seminar Locations and Dates</SPAN></A> 
+                  <BR><BR><A 
+                  href="http://www.osr.com/seminars_schedule.shtml"><SPAN 
+                  class=textboldred><IMG height=7 alt="" 
+                  src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/1pixel.gif" 
+                  width=14 border=0>Portland, OR - 28 January 2002<BR><IMG 
+                  height=7 alt="" 
+                  src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/1pixel.gif" 
+                  width=14 border=0>Boston, MA - 25 February 2002<BR><IMG 
+                  height=7 alt="" 
+                  src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/1pixel.gif" 
+                  width=14 border=0>Boston, MA - 11 March 2002 
+</P></SPAN></A></TD>
+                <TD width="10%">&nbsp;</TD></TR>
+              <TR>
+                <TD colSpan=3 height=59>
+                  <HR SIZE=1>
+                  <A class=topnavlink 
+                  href="http://www.osr.com/default.shtml#TOP"><IMG height=12 
+                  alt="Top of Page" 
+                  src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/aboutosr_arrow2.gif" 
+                  width=22 border=0></A> <!-- Begin main menu located at the bottom of each page -->
+                  <DIV align=center><STRONG><FONT 
+                  face="Arial, Helvetica, sans-serif" size=-2><A 
+                  href="http://www.osr.com/default.shtml">Home</A> | <A 
+                  href="http://www.osr.com/aboutosr_main.shtml">About OSR</A> | 
+                  <A href="http://www.osr.com/services_main.shtml">Services</A> 
+                  | <A 
+                  href="http://www.osr.com/toolkits_main.shtml">Toolkits</A> | 
+                  <A href="http://www.osr.com/seminars_main.shtml">Seminars</A> 
+                  | <A 
+                  href="http://www.osr.com/publications_main.shtml">Publications</A> 
+                  | <A 
+                  href="http://www.osr.com/resources_main.shtml">Resources</A> | 
+                  <A href="http://www.osr.com/store_main.shtml">Store</A> | <A 
+                  href="http://www.osr.com/listserver_main.htm">List Server</A> 
+                  | <A href="http://www.osr.com/contactus_main.shtml">Contact Us 
+                  </A>| <A 
+                  href="http://www.osr.com/search_main.shtml">Search</A> 
+                  </FONT></STRONG><BR><BR><!-- End main menu located at the bottom of each page --><!-- Begin copyright information located at the bottom of each page --><STRONG><FONT 
+                  face="Arial, Helvetica, sans-serif" size=-2>©2001 OSR Opens 
+                  Systems Resources, Inc, ALL RIGHTS RESERVED - Running on Win2K 
+                  new server </FONT></STRONG></DIV><!-- End copyright information located at the bottom of each page -->
+                  <DIV align=center><STRONG><FONT 
+                  face="Arial, Helvetica, sans-serif" size=-2><A 
+                  href="http://www.osr.com/osrhome_lawyers.shtml">Stuff our 
+                  lawyers make us say</A> 
+              </FONT></STRONG><BR></DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE><!-- BEGIN HITOMETER TAG VERSION 2 -->
+<SCRIPT language=JavaScript1.1 type=text/javascript><!--
+d=document;c='<img WIDTH=1 HEIGHT=1 border=0 '+
+'src="http://i09.netscape.com/c.cgi?A1282709$1622291$';
+if(parseFloat(navigator.appVersion)>=4){x='x';s=screen;
+c+=s.width+x+s.height+x+s.pixelDepth+x+s.colorDepth;}
+d.writeln(c+'$'+d.referrer+'">'); // -->
+</SCRIPT>
+<NOSCRIPT><IMG height=1 alt=Hitometer 
+src="OSR Open Systems Resources, Inc_ - Seminars - Development - Consulting - Training_files/c.gif" 
+width=1 border=0></NOSCRIPT> 
+<!-- END HITOMETER TAG ( WWW.HITOMETER.COM ) --></BODY></HTML>

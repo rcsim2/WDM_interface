@@ -1,0 +1,25 @@
+!IF 0
+
+Copyright (C) Microsoft Corporation, 1993 - 1999
+
+Module Name:
+
+    sources.
+
+!ENDIF
+
+TARGETNAME=parsimp
+TARGETPATH=obj
+TARGETTYPE=DRIVER
+
+MSC_WARNING_LEVEL=-W3 -WX
+
+INCLUDES= ..\inc; ..\..\inc
+
+SOURCES= \
+        parsimp.cpp    \
+        parsimp.rc \
+        parlog.mc
+
+USE_MAPSYM=1
+

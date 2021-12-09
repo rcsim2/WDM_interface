@@ -1,0 +1,1471 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0044)http://www.osr.com/ntinsider/1999/global.htm -->
+<HTML xmlns="http://www.w3.org/TR/REC-html40" xmlns:v = 
+"urn:schemas-microsoft-com:vml" xmlns:o = 
+"urn:schemas-microsoft-com:office:office" xmlns:w = 
+"urn:schemas-microsoft-com:office:word"><HEAD><TITLE>Global Relief Effort: C++ Runtime Support For the NT DDK</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content=FrontPage.Editor.Document name=ProgId>
+<META content="MSHTML 6.00.2600.0" name=GENERATOR>
+<META content="Microsoft Word 9" name=Originator><LINK 
+href="./global_files/filelist.xml" rel=File-List><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Mark Roddy</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Daniel D. Root</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>11</o:TotalTime>
+  <o:LastPrinted>1999-04-14T17:29:00Z</o:LastPrinted>
+  <o:Created>1999-12-16T20:19:00Z</o:Created>
+  <o:LastSaved>1999-12-16T20:19:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>3171</o:Words>
+  <o:Characters>18076</o:Characters>
+  <o:Company>OSR</o:Company>
+  <o:Lines>150</o:Lines>
+  <o:Paragraphs>36</o:Paragraphs>
+  <o:CharactersWithSpaces>22198</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:ActiveWritingStyle Lang="EN-US" VendorID="8" DLLVersion="513" NLCheck="0">1</w:ActiveWritingStyle>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>0</w:DisplayVerticalDrawingGridEvery>
+  <w:UseMarginsForDrawingGridOrigin/>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<STYLE>@page Section1 {size: 8.5in 11.0in; margin: 1.0in 1.25in 1.0in 1.25in; mso-header-margin: .5in; mso-footer-margin: .5in; mso-paper-source: 0; }
+P.MsoNormal {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoNormal {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoNormal {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt; FONT-FAMILY: "Times New Roman"; mso-style-parent: ""; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+H1 {
+	FONT-SIZE: 14pt; MARGIN: 12pt 0in 3pt; FONT-FAMILY: Arial; mso-pagination: widow-orphan; mso-style-next: Normal; mso-outline-level: 1; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: "Times New Roman"; mso-font-kerning: 14.0pt; mso-bidi-font-weight: normal
+}
+H2 {
+	FONT-SIZE: 12pt; MARGIN: 12pt 0in 3pt; FONT-STYLE: italic; FONT-FAMILY: Arial; mso-pagination: widow-orphan; mso-style-next: Normal; mso-outline-level: 2; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: "Times New Roman"; mso-bidi-font-weight: normal; mso-bidi-font-style: normal
+}
+P.MsoNormalIndent {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 0.5in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoNormalIndent {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 0.5in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoNormalIndent {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 0.5in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+P.MsoList {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 0.25in; TEXT-INDENT: -0.25in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoList {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 0.25in; TEXT-INDENT: -0.25in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoList {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 0.25in; TEXT-INDENT: -0.25in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+P.MsoListBullet {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 0.25in; TEXT-INDENT: -0.25in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-style-update: auto; mso-list: l1 level1 lfo2; tab-stops: list .25in
+}
+LI.MsoListBullet {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 0.25in; TEXT-INDENT: -0.25in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-style-update: auto; mso-list: l1 level1 lfo2; tab-stops: list .25in
+}
+DIV.MsoListBullet {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 0.25in; TEXT-INDENT: -0.25in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-style-update: auto; mso-list: l1 level1 lfo2; tab-stops: list .25in
+}
+P.MsoListBullet2 {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 0.5in; TEXT-INDENT: -0.25in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-style-update: auto; mso-list: l0 level1 lfo3; tab-stops: list .5in
+}
+LI.MsoListBullet2 {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 0.5in; TEXT-INDENT: -0.25in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-style-update: auto; mso-list: l0 level1 lfo3; tab-stops: list .5in
+}
+DIV.MsoListBullet2 {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 0.5in; TEXT-INDENT: -0.25in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-style-update: auto; mso-list: l0 level1 lfo3; tab-stops: list .5in
+}
+P.MsoTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16pt; MARGIN: 12pt 0in 3pt; FONT-FAMILY: Arial; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-outline-level: 1; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: "Times New Roman"; mso-font-kerning: 14.0pt; mso-bidi-font-weight: normal
+}
+LI.MsoTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16pt; MARGIN: 12pt 0in 3pt; FONT-FAMILY: Arial; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-outline-level: 1; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: "Times New Roman"; mso-font-kerning: 14.0pt; mso-bidi-font-weight: normal
+}
+DIV.MsoTitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 16pt; MARGIN: 12pt 0in 3pt; FONT-FAMILY: Arial; TEXT-ALIGN: center; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-outline-level: 1; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: "Times New Roman"; mso-font-kerning: 14.0pt; mso-bidi-font-weight: normal
+}
+P.MsoClosing {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 3in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoClosing {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 3in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoClosing {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 3in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+P.MsoSignature {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 3in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoSignature {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 3in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoSignature {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 3in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+P.MsoBodyText {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 6pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoBodyText {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 6pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoBodyText {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 6pt; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+P.MsoBodyTextIndent {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 0.5in; TEXT-INDENT: -0.5in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+LI.MsoBodyTextIndent {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 0.5in; TEXT-INDENT: -0.5in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+DIV.MsoBodyTextIndent {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 0.5in; TEXT-INDENT: -0.5in; FONT-FAMILY: "Times New Roman"; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"
+}
+P.SignatureJobTitle {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 3in; FONT-FAMILY: "Times New Roman"; mso-style-parent: Signature; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-style-name: "Signature Job Title"
+}
+LI.SignatureJobTitle {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 3in; FONT-FAMILY: "Times New Roman"; mso-style-parent: Signature; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-style-name: "Signature Job Title"
+}
+DIV.SignatureJobTitle {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 3in; FONT-FAMILY: "Times New Roman"; mso-style-parent: Signature; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-style-name: "Signature Job Title"
+}
+P.SignatureCompany {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 3in; FONT-FAMILY: "Times New Roman"; mso-style-parent: Signature; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-style-name: "Signature Company"
+}
+LI.SignatureCompany {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 3in; FONT-FAMILY: "Times New Roman"; mso-style-parent: Signature; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-style-name: "Signature Company"
+}
+DIV.SignatureCompany {
+	FONT-SIZE: 10pt; MARGIN: 0in 0in 0pt 3in; FONT-FAMILY: "Times New Roman"; mso-style-parent: Signature; mso-pagination: widow-orphan; mso-fareast-font-family: "Times New Roman"; mso-style-name: "Signature Company"
+}
+DIV.Section1 {
+	page: Section1
+}
+OL {
+	MARGIN-BOTTOM: 0in
+}
+UL {
+	MARGIN-BOTTOM: 0in
+}
+</STYLE>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]--></HEAD>
+<BODY lang=EN-US style="tab-interval: .5in">
+<DIV class=Section1><FONT size=2><B>
+<P align=center></B></FONT><B><FONT size=5>C++ Runtime Support for the NT 
+DDK</FONT></B></P><FONT size=3>
+<P align=center><I><FONT face=Symbol>Ó</FONT> 1999 OSR Open Systems Resources, 
+Inc.</I></P></FONT>
+<H3>Introduction</H3>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>If you are addicted 
+to reading the usenet newsgroup for NT kernel programming, you may have noticed 
+that there is an interminable intermittent debate about the evil nature of C++ 
+code inside the Windows NT operating system. On one side you have those who dare 
+not speak the name of C++ inside the kernel lest the gods awaken, on the other 
+side you have fairly rational people who wonder why this is even an 
+issue.</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>While the arguments 
+against using C++ are basically emotional, there are a few minor technical 
+problems that present valid obstacles that have to be addressed:</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 0.25in; TEXT-INDENT: -0.25in; TEXT-ALIGN: justify; mso-list: l2 level1 lfo1; tab-stops: list .25in"><FONT 
+size=3><![if !supportLists]>1.<SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN><![endif]>There is no kernel C++ runtime library consequently there is no 
+global new, no global delete, no support for C++ exceptions, and no support for 
+initialization of global class objects.</FONT></P>
+<P class=MsoNormal 
+style="MARGIN-LEFT: 0.25in; TEXT-INDENT: -0.25in; TEXT-ALIGN: justify; mso-list: l2 level1 lfo1; tab-stops: list .25in"><FONT 
+size=3><![if !supportLists]>2.<SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN><![endif]>See (1).</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>This may seem like 
+bad news, and indeed it is. The good news is that supporting <I 
+style="mso-bidi-font-style: normal">new</I> and <I 
+style="mso-bidi-font-style: normal">delete</I> is trivial. The better news is 
+that supporting global class objects is not difficult at all. This article 
+examines the gory details of implementing a usable Kernel C++ Runtime 
+Library.</FONT></P>
+<H3 style="TEXT-ALIGN: justify">Supporting New and Delete</H3>
+<P class=MsoNormal style="TEXT-ALIGN: justify">Y<FONT size=3>ou can probably 
+live without using global class objects in your driver. However, if you do 
+intend to use C++ and you do intend to define classes that can be allocated out 
+of heap, then having a <I style="mso-bidi-font-style: normal">new</I> and <I 
+style="mso-bidi-font-style: normal">delete</I> operator available is a basic 
+requirement.</FONT></P>
+<P class=MsoNormal><FONT 
+size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoBodyTextIndent><FONT size=3>The function prototypes for the two 
+standard global new operators supported by VisualC are as follows:</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2>void * __cdecl operator new(size_t size);</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2>void * __cdecl operator new(size_t size, void *location);</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><B 
+style="mso-bidi-font-weight: normal"><FONT 
+size=2><![if !supportEmptyParas]>&nbsp;</FONT><![endif]><o:p></o:p></B></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>The __<B 
+style="mso-bidi-font-weight: normal">cdecl</B> part is Microsoft compiler 
+specific syntax, otherwise the declarations of these functions are standard. 
+(Note without the __<B style="mso-bidi-font-weight: normal">cdecl</B> 
+declaration the linker will not resolve explicit or implicit references to 
+operator new.)</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>The first version is 
+the normal <I style="mso-bidi-font-style: normal">new</I> operator used for heap 
+allocation, as in:</FONT></P>
+<P class=MsoNormal><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal><FONT size=2>Foo * foo = new Foo(blortz);</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2>Implementation is very simple:</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2>void * __cdecl operator new(size_t size)</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2>{</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2><SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>return 
+malloc(size, 'ppcO', NonPagedPool);</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2>}</FONT></P>
+<P class=MsoNormal><B style="mso-bidi-font-weight: normal"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></B></P>
+<P class=MsoBodyTextIndent 
+style="MARGIN-LEFT: 0in; TEXT-INDENT: 0in; TEXT-ALIGN: justify"><FONT size=3>Our 
+new operator simple defers to a standard <B 
+style="mso-bidi-font-weight: normal">malloc()</B> routine, well not quite 
+standard as it appears to have three arguments rather than the expected one, and 
+it looks suspiciously like it is going to call one of the standard DDK 
+allocation functions. We are forcing allocation into <B 
+style="mso-bidi-font-weight: normal">NonPagedPool()</B> for all uses of global 
+new.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>This behavior can easily be 
+modified by overloading the new operator with one of your own that allocates 
+from a specified pool, or by providing a class new operator for class specific 
+allocation.</FONT></P>
+<P class=MsoBodyTextIndent 
+style="MARGIN-LEFT: 0in; TEXT-INDENT: 0in; TEXT-ALIGN: justify"><FONT size=3>The 
+second <I style="mso-bidi-font-style: normal">new</I> operator is the standard 
+<I style="mso-bidi-font-style: normal">placement</I> version. It is invoked 
+as</FONT></P>
+<P class=MsoBodyTextIndent style="MARGIN-LEFT: 0in; TEXT-INDENT: 0in"><FONT 
+size=3><![if !supportEmptyParas]>&nbsp;</FONT><![endif]><o:p></o:p></P>
+<P class=MsoBodyTextIndent style="MARGIN-LEFT: 0in; TEXT-INDENT: 0in"><FONT 
+size=2>PUCHAR buffer[ABIGENUFFSIZE];</FONT></P>
+<P class=MsoBodyTextIndent style="MARGIN-LEFT: 0in; TEXT-INDENT: 0in"><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoBodyTextIndent style="MARGIN-LEFT: 0in; TEXT-INDENT: 0in"><FONT 
+size=2>Foo * foo = new(buffer) Foo(blortz);</FONT></P>
+<P class=MsoBodyTextIndent style="MARGIN-LEFT: 0in; TEXT-INDENT: 0in"><B 
+style="mso-bidi-font-weight: normal"><FONT size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></B></P>
+<P class=MsoNormal><FONT size=2>The implementation adds the new parameter after 
+the standard size parameter:</FONT></P>
+<P class=MsoBodyTextIndent><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2>void * __cdecl operator new(size_t size,<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>void *location)</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2>{</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2><SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>return 
+location;</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2>}</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><B 
+style="mso-bidi-font-weight: normal"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></B></P>
+<P class=MsoBodyTextIndent 
+style="MARGIN-LEFT: 0in; TEXT-INDENT: 0in; TEXT-ALIGN: justify"><FONT 
+size=3>This variation allows an object to be created in a preallocated location 
+(within a buffer for example.) You should of course not call <I 
+style="mso-bidi-font-style: normal">delete</I> on the returned buffer. (You can 
+define a <I style="mso-bidi-font-style: normal">placement</I> <I 
+style="mso-bidi-font-style: normal">delete</I> operator that corresponds to the 
+placement <I style="mso-bidi-font-style: normal">new</I>.)</FONT></P>
+<P class=MsoBodyTextIndent><FONT 
+size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=3>Oh yes, we should of course define the behavior of <B 
+style="mso-bidi-font-weight: normal">malloc()</B>:</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT size=3><![if !supportEmptyParas]>&nbsp;</FONT><![endif]><o:p></o:p></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2>PVOID __cdecl malloc(ULONG x,<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>ULONG id= 'ppcO', POOL_TYPE pool = NonPagedPool);</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2>PVOID __cdecl malloc(ULONG x,<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>ULONG id, POOL_TYPE pool)</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2>{</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2><SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>PVOID buffer = 
+ExAllocatePoolWithTag(pool, x, id);</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2><SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>if (buffer) 
+{</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>//</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>// 
+Always clear our buffers to zero!</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>//</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>RtlZeroMemory(buffer, x);</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2><SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>}</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2><SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>return 
+buffer;</FONT></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2>}</FONT> </P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><B 
+style="mso-bidi-font-weight: normal"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></B></P>
+<P class=MsoBodyTextIndent 
+style="MARGIN-LEFT: 0in; TEXT-INDENT: 0in; TEXT-ALIGN: justify"><FONT size=3>The 
+use of C++ default arguments in our <B 
+style="mso-bidi-font-weight: normal">malloc()</B> allows for the implementation 
+of the standard Unix C library <B 
+style="mso-bidi-font-weight: normal">malloc(size_t)</B> with full support for 
+the NT DDK <B style="mso-bidi-font-weight: normal">ExAllocatePool() 
+</B>functions, and represents some of the power and elegance of the C++ compiler 
+at its best.</FONT></P>
+<P class=MsoBodyTextIndent 
+style="MARGIN-LEFT: 0in; TEXT-INDENT: 0in; TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoBodyTextIndent 
+style="MARGIN-LEFT: 0in; TEXT-INDENT: 0in; TEXT-ALIGN: justify"><FONT 
+size=3>Hint: TAG ALL MEMORY ALLOCATIONS WITH UNIQUE PER-OBJECT TAGS.</FONT></P>
+<P class=MsoBodyTextIndent 
+style="MARGIN-LEFT: 0in; TEXT-INDENT: 0in; TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoBodyTextIndent 
+style="MARGIN-LEFT: 0in; TEXT-INDENT: 0in; TEXT-ALIGN: justify"><FONT 
+size=3>While the allocation mechanisms described above will supply a default 
+allocation tag (Ocpp) you really should overload each class you define with its 
+own unique tag. To be complete, we also support a tag and pool specific 
+placement new. Note that this placement <I 
+style="mso-bidi-font-style: normal">new</I><B 
+style="mso-bidi-font-weight: normal"> </B>uses the kernel heap allocator, 
+consequently you should of course use <I 
+style="mso-bidi-font-style: normal">delete</I> on the returned value. Strictly 
+speaking we should define a corresponding placement <I 
+style="mso-bidi-font-style: normal">delete</I> operator to go with 
+it.</FONT></P>
+<P class=MsoBodyTextIndent style="MARGIN-LEFT: 0in; TEXT-INDENT: 0in"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.5in"><FONT 
+size=2>void *__cdecl operator new( size_t size, ULONG tag, POOL_TYPE pool= 
+NonPagedPool);</FONT></P>
+<P class=MsoBodyTextIndent><FONT size=2><![if !supportEmptyParas]>&nbsp;</FONT><![endif]><o:p></o:p></P>
+<P class=MsoBodyTextIndent 
+style="MARGIN-LEFT: 0in; TEXT-INDENT: 0in; TEXT-ALIGN: justify"><FONT size=3>The 
+requirement for this non-standard variation on new is that you must specify a 
+tag value (we insist) but you get a default value for <B 
+style="mso-bidi-font-weight: normal">POOL_TYPE</B>.</FONT></P>
+<P class=MsoBodyTextIndent style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoBodyTextIndent style="TEXT-ALIGN: justify"><FONT size=3>As usual the 
+implementation is trivial:</FONT></P>
+<P 
+class=MsoBodyTextIndent><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyTextIndent><FONT size=2>void *__cdecl operator new( size_t size, 
+ULONG tag, POOL_TYPE pool)</FONT></P>
+<P class=MsoBodyTextIndent><FONT size=2>{</FONT></P>
+<P class=MsoBodyTextIndent><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>return malloc(size, tag, 
+pool);</FONT></P>
+<P class=MsoBodyTextIndent><FONT size=2>}</FONT></P>
+<P 
+class=MsoBodyTextIndent><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyTextIndent><FONT size=3>Note that there is no attempt here to 
+provide any sort of exception processing for allocation failures.</FONT></P>
+<P class=MsoBodyTextIndent><FONT 
+size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoBodyTextIndent><FONT size=3>Supporting <I 
+style="mso-bidi-font-style: normal">delete</I> is even easier than supporting <I 
+style="mso-bidi-font-style: normal">new</I>.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>A single version exists:</FONT></P>
+<P 
+class=MsoBodyTextIndent><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyTextIndent><FONT size=2>void __cdecl operator delete(void * 
+pVoid)</FONT></P>
+<P class=MsoBodyTextIndent><FONT size=2>{</FONT></P>
+<P class=MsoBodyTextIndent><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>free(pVoid);</FONT></P>
+<P class=MsoBodyTextIndent><FONT size=2>}</FONT></P>
+<P 
+class=MsoBodyTextIndent><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyTextIndent><FONT size=3>Of course if we are going to support <B 
+style="mso-bidi-font-weight: normal">malloc()</B> then we have to support <B 
+style="mso-bidi-font-weight: normal">free()</B>.</FONT><B 
+style="mso-bidi-font-weight: normal"><o:p></o:p></B></P>
+<P 
+class=MsoBodyTextIndent><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyTextIndent><FONT size=2>void __cdecl free(PVOID x)</FONT></P>
+<P class=MsoBodyTextIndent><FONT size=2>{</FONT></P>
+<P class=MsoBodyTextIndent><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>if (x != NULL) {</FONT></P>
+<P class=MsoBodyTextIndent><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoBodyTextIndent><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;</SPAN>ExFreePool(x);</FONT></P>
+<P class=MsoBodyTextIndent><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>}</FONT></P>
+<P class=MsoBodyTextIndent><FONT size=2>}</FONT></P>
+<P 
+class=MsoBodyTextIndent><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoBodyTextIndent 
+style="MARGIN-LEFT: 0in; TEXT-INDENT: 0in; TEXT-ALIGN: justify"><FONT 
+size=3>Note that conformance with C++ standards requires that delete <B 
+style="mso-bidi-font-weight: normal">NULL</B> works. Consequently the 
+implementation of free must test for a <B 
+style="mso-bidi-font-weight: normal">NULL</B> pointer value as <B 
+style="mso-bidi-font-weight: normal">ExFreePool()</B>will perform some 
+unspecified behavior if handed a <B 
+style="mso-bidi-font-weight: normal">NULL</B> pointer.</FONT></P>
+<P class=MsoBodyTextIndent 
+style="MARGIN-LEFT: 0in; TEXT-INDENT: 0in; TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoBodyTextIndent 
+style="MARGIN-LEFT: 0in; TEXT-INDENT: 0in; TEXT-ALIGN: justify"><FONT 
+size=3>Finally, the simplicity of the allocator implementation shown above 
+strongly suggests that all of these functions should be offered as inline 
+functions.</FONT></P>
+<H3 style="TEXT-ALIGN: justify">Supporting Global Objects</H3>
+<P class=MsoNormal 
+style="TEXT-ALIGN: justify"><![if !supportEmptyParas]>&nbsp;<FONT size=3>Now for 
+the tricky bit.</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><I 
+style="mso-bidi-font-style: normal">New</I><B 
+style="mso-bidi-font-weight: normal"> </B>and <I 
+style="mso-bidi-font-style: normal">delete</I> are easy, and if you are already 
+using C++ in your driver, then you have undoubtedly implemented functions 
+similar to the ones outlined above. However there remains yet to be addressed 
+the problem that there is no mechanism in the kernel to call the constructors 
+and destructors of class objects with global (external) scope. These objects are 
+either declared outside any function, declared as static inside a function, or 
+have a static constructor.</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>Up (or down, 
+depending on how you view the world) in user space, the VisualC Compiler and 
+library support global class objects. We are rather convinced that this support 
+is not magic, and that the compiler has no clue if the code it is compiling is a 
+user space DLL or a kernel DLL. The compiler is going to emit the same code 
+regardless of the intended use of the object files produced by the compiler. The 
+linker might know the difference between a kernel DLL (as in a driver) and a 
+user space DLL, but the compiler simply translates source code into object 
+files. The point being that whatever support there is for global objects is 1) 
+partially built into the compiler and 2) partially supported by the C++ runtime 
+libraries that come with the compiler.</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>One of the nice 
+things about VisualC is that it comes with the source code for both MFC and the 
+entire set of C/C++ runtime (CRT) libraries. (This is not the same as Open 
+Source. See the section <I style="mso-bidi-font-style: normal">Open Source? Open 
+Sores? </I>regarding our limitations on providing a kernel C++ runtime library.) 
+So really all that is required is to understand, by reading the <B 
+style="mso-bidi-font-weight: normal">CRT</B> source code, how the compiler and 
+the <B style="mso-bidi-font-weight: normal">CRT</B> libraries conspire to 
+support global constructors.</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>The goals are as 
+follows: for each class object at global scope, the compiler and the runtime 
+library must call the constructor of the class object before the entry point 
+function of the linkage unit is called. (So for an executable, this is before <B 
+style="mso-bidi-font-weight: normal">main()</B> or its equivalent. For a DLL 
+this is before <B style="mso-bidi-font-weight: normal">DllMain()</B> or its 
+equivalent. For a kernel driver, this would be before <B 
+style="mso-bidi-font-weight: normal">DriverEntry()</B>). The order that global 
+object constructors are called in is determined by the order of declaration 
+within compilation units and by the order in which object files are linked 
+together. (Note that this means that interdependencies between constructors at 
+global scope are a huge problem and should be avoided altogether). The order of 
+construction is the inverse of the order of destruction. The last constructed 
+object is the first object to have its destructor called on termination of the 
+linkage unit.</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>The VisualC compiler 
+and the <B style="mso-bidi-font-weight: normal">CRT</B> libraries have an 
+agreement between themselves that provides support for C++ global objects. The 
+compiler is going to emit sniglets of code, some rather oddly named functions, 
+that always have as a prototype:</FONT> </P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=2>void 
+Function(void);<B style="mso-bidi-font-weight: normal"> // </B>(a void function 
+with no parameters.)</FONT><B 
+style="mso-bidi-font-weight: normal"><o:p></o:p></B></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><B 
+style="mso-bidi-font-weight: normal"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></B></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>There is a standard 
+<B style="mso-bidi-font-weight: normal">CRT</B> data type defined as a pointer 
+to this sort of function:</FONT></P>
+<P class=MsoNormal><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal><FONT size=2>typedef (__cdecl *PVFV) (void) ;</FONT></P>
+<P class=MsoNormal><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><SPAN 
+style="mso-spacerun: yes">&nbsp;</SPAN><FONT size=3>A pointer to each of these 
+<B style="mso-bidi-font-weight: normal">PVFV</B> functions generated by the 
+compiler is going to be forced into a specific named linkage data segment by the 
+compiler, effectively building an array of <B 
+style="mso-bidi-font-weight: normal">PVFV</B> pointers. The <B 
+style="mso-bidi-font-weight: normal">CRT</B> libraries, understanding what the 
+compiler is doing, have built an empty array of <B 
+style="mso-bidi-font-weight: normal">PVFV</B> pointers at the start of the named 
+linkage data segment. By knowing the size of the named segment, the <B 
+style="mso-bidi-font-weight: normal">CRT</B> initialization routines can walk 
+this array, calling each pointer in turn.</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>The functions 
+generated by the compiler are all <B 
+style="mso-bidi-font-weight: normal">PVFV</B> functions. Within each of these 
+generated functions is the correct information to call a specific instance of a 
+class object constructor.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>If we 
+have a very simple class:</FONT></P>
+<P class=MsoNormal><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal><FONT size=2>class global<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>{</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>public:</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>global(int x);</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>virtual 
+~global();</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>int getX();</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>private:</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>int m_x;</FONT></P>
+<P class=MsoNormal><FONT size=2>};</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>global::global(int x)</FONT></P>
+<P class=MsoNormal><FONT size=2>{</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>m_x = x;</FONT></P>
+<P class=MsoNormal><FONT size=2>}</FONT></P>
+<P class=MsoNormal><B style="mso-bidi-font-weight: normal"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></B></P>
+<P class=MsoNormal><FONT size=3>And if we declare a global instance of class 
+global, such as:</FONT></P>
+<P class=MsoNormal><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal><FONT size=2>global one(1);</FONT></P>
+<P class=MsoNormal><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal><FONT size=3>The compiler is going to generate a <B 
+style="mso-bidi-font-weight: normal">PVFV</B> function something 
+like:</FONT></P>
+<P class=MsoNormal><FONT size=3><![if !supportEmptyParas]>&nbsp;</FONT><![endif]><o:p></o:p></P>
+<P class=MsoNormal><FONT size=2>void E1(void)</FONT></P>
+<P class=MsoNormal><FONT size=2>{</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>(theAddressOfglobal’sglobal)(&amp;one, 1);</FONT></P>
+<P class=MsoNormal><FONT size=2>}</FONT></P>
+<P class=MsoNormal><B style="mso-bidi-font-weight: normal"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></B></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>And the compiler is 
+going to create a pointer to E1 in a well-known named data segment.</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>Who is this <I 
+style="mso-bidi-font-style: normal">well-known named data segment</I>? It is of 
+course: <B style="mso-bidi-font-weight: normal">.CRT$XCA</B>. All <B 
+style="mso-bidi-font-weight: normal">CRT</B> libraries contain a data segment 
+named <B style="mso-bidi-font-weight: normal">.CRT$XCA</B>, and very near (and 
+dear) to <B style="mso-bidi-font-weight: normal">.CRT$XCA </B>is another data 
+segment named <B style="mso-bidi-font-weight: normal">.CRT$XCZ</B>. You can 
+verify this by creating a map file for a DLL or an executable. For example we 
+built a truly simple user (win32) DLL and it has the following linkage 
+segments:</FONT></P>
+<P class=MsoNormal><FONT size=3><![if !supportEmptyParas]>&nbsp;</FONT><![endif]><o:p></o:p></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: 'Courier New'; mso-bidi-font-family: 'Times New Roman'"><FONT 
+size=2>testcprt<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: 'Courier New'; mso-bidi-font-family: 'Times New Roman'"><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: 'Courier New'; mso-bidi-font-family: 'Times New Roman'"><FONT 
+size=2><SPAN style="mso-spacerun: yes">&nbsp;</SPAN>Timestamp is 371228a2 (Mon 
+Apr 12 13:08:50 1999)<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: 'Courier New'; mso-bidi-font-family: 'Times New Roman'"><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: 'Courier New'; mso-bidi-font-family: 'Times New Roman'"><FONT 
+size=2><SPAN style="mso-spacerun: yes">&nbsp;</SPAN>Preferred load address is 
+00400000<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: 'Courier New'; mso-bidi-font-family: 'Times New Roman'"><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman"><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN><SPAN 
+style="FONT-SIZE: 8pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'">Start<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>Length<SPAN style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>Name<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;</SPAN>Class<o:p></o:p></SPAN></SPAN></FONT></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0001:00000000 
+0000e468H .text<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>CODE<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0001:0000e468 
+00010008H .textbss<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>CODE<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0002:00000000 
+000013a9H .rdata<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DATA<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0002:000013a9 
+00000000H .edata<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DATA<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0003:00000000 
+00000104H .CRT$XCA<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DATA<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0003:00000104 
+00000104H .CRT$XCU<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DATA<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0003:00000208 
+00000104H .CRT$XCZ<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DATA<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0003:0000030c 
+00000104H .CRT$XIA<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DATA<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0003:00000410 
+0000010eH .CRT$XIC<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DATA<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0003:00000520 
+00000104H .CRT$XIZ<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DATA<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0003:00000624 
+00000104H .CRT$XPA<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DATA<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0003:00000728 
+00000104H .CRT$XPX<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DATA<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0003:0000082c 
+00000104H .CRT$XPZ<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DATA<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0003:00000930 
+00000104H .CRT$XTA<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DATA<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0003:00000a34 
+00000104H .CRT$XTZ<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DATA<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0003:00000b40 
+00000b89H .data<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DATA<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0003:000016cc 
+0000197cH .bss<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DATA<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0004:00000000 
+00000014H .idata$2<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DATA<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0004:00000014 
+00000014H .idata$3<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN>DATA<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0004:00000028 
+00000110H .idata$4<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DATA<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0004:00000138 
+00000110H .idata$5<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DATA<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-family: Times New Roman; mso-spacerun: yes">&nbsp;</SPAN>0004:00000248 
+000004afH .idata$6<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>DATA</FONT></SPAN><SPAN 
+style="FONT-SIZE: 8pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'"><o:p></o:p></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: 'Courier New'; mso-bidi-font-family: 'Times New Roman'"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></SPAN></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>Looking at the <B 
+style="mso-bidi-font-weight: normal">CRT</B> runtime library source files, one 
+can see that each version of the <B style="mso-bidi-font-weight: normal">CRT</B> 
+libraries allocates an empty <B style="mso-bidi-font-weight: normal">PVFV</B> 
+array in data segments <B style="mso-bidi-font-weight: normal">.CRT$XCA</B> and 
+<B style="mso-bidi-font-weight: normal">.CRT$XCZ</B>. The compiler, as we stated 
+earlier, conspires to allocate additional <B 
+style="mso-bidi-font-weight: normal">PVFV</B> objects in <B 
+style="mso-bidi-font-weight: normal">.CRT$XCA</B>, one for each global 
+constructor that needs to be called.</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>To make this a 
+little more explicit, the kernel runtime libraries need to declare some data 
+segments and allocate storage within those data segments as follows:</FONT></P>
+<P class=MsoNormal><FONT size=3><![if !supportEmptyParas]>&nbsp;</FONT><![endif]><o:p></o:p></P>
+<P class=MsoNormal><FONT size=2>#pragma data_seg(".CRT$XCA")</FONT></P>
+<P class=MsoNormal><FONT size=2>PVFV __crtXca[] = { NULL }; // c++</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>#pragma data_seg(".CRT$XCZ")</FONT></P>
+<P class=MsoNormal><FONT size=2>PVFV __crtXcz[] = { NULL };</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>#pragma data_seg()<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>// return control to the normal ddk 
+linkage process</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>//</FONT></P>
+<P class=MsoNormal><FONT size=2>// this may or may not be required</FONT></P>
+<P class=MsoNormal><FONT size=2>//</FONT></P>
+<P class=MsoNormal><FONT size=2>#pragma comment(linker, 
+"/merge:.CRT=.data")</FONT></P>
+<P class=MsoNormal><B style="mso-bidi-font-weight: normal"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></B></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>Having done that 
+there are only a few minor details to sort out.</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>First our kernel <B 
+style="mso-bidi-font-weight: normal">CRT</B> library needs to be the driver DLL 
+entry point. So we have to replace your <B 
+style="mso-bidi-font-weight: normal">DriverEntry()</B> with our own. The include 
+file provides a simple macro to accomplish this incredible feat of software 
+engineering:</FONT></P>
+<P class=MsoNormal><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal><FONT size=2>#define CPP_DRIVER_ENTRY(Do, Rp) extern "C" 
+NTSTATUS Cp_DriverEntry(Do, Rp)</FONT></P>
+<P class=MsoNormal><FONT size=2><![if !supportEmptyParas]>&nbsp;</FONT><![endif]><o:p></o:p></P>
+<P class=MsoNormal><FONT size=3>All you need to do is replace your <B 
+style="mso-bidi-font-weight: normal">DriverEntry()</B> with this macro. So your 
+<B style="mso-bidi-font-weight: normal">DriverEntry()</B> routine might look as 
+follows:</FONT></P>
+<P class=MsoNormal><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal><FONT size=2>CPP_DRIVER_ENTRY(PDRIVER_OBJECT 
+DriverObject,</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>PUNICODE_STRING RegistryPath)</FONT></P>
+<P class=MsoNormal><FONT size=2>{</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>DriverObject-&gt;DriverUnload = testUnload;</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><SPAN style="mso-spacerun: yes"><FONT 
+size=2>&nbsp;&nbsp;&nbsp;</FONT> </SPAN></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>return 
+STATUS_SUCCESS;</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>}</FONT></P>
+<P class=MsoNormal><B style="mso-bidi-font-weight: normal"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></B></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>Our library will of 
+course provide a function actually named <B 
+style="mso-bidi-font-weight: normal">DriverEntry()</B>, and will call your 
+function (real name is <B 
+style="mso-bidi-font-weight: normal">Cp_DriverEntry</B>,) after setting things 
+up correctly.</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>What does our <B 
+style="mso-bidi-font-weight: normal">DriverEntry()</B> do? Basically it just 
+calls each function in the array of functions at <B 
+style="mso-bidi-font-weight: normal">__crtXca. </B>It figures out how big <B 
+style="mso-bidi-font-weight: normal">__crtXca </B>is by using <B 
+style="mso-bidi-font-weight: normal">__crtXcz</B> as a terminator.</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>Things get a little 
+murkier now. We lied. Up above we provided pseudo code for what the compiler 
+might be emitting as these mysterious generated <B 
+style="mso-bidi-font-weight: normal">PVFV</B> functions. In addition to calling 
+the constructor, these generated functions also call another defined <B 
+style="mso-bidi-font-weight: normal">CRT</B> function: <B 
+style="mso-bidi-font-weight: normal">atexit()</B>.</FONT> </P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>In addition to 
+calling constructors, a <B style="mso-bidi-font-weight: normal">CRT</B> library 
+must also arrange to call the destructors for global objects on termination. 
+Registering a <B style="mso-bidi-font-weight: normal">PVFV</B> (what else,) 
+function to be called on termination does this. Of course the compiler is once 
+again generating these functions to invoke your destructors with the proper 
+parameter values.</FONT> </P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>What does <B 
+style="mso-bidi-font-weight: normal">atexit()</B> do? It takes as input a <B 
+style="mso-bidi-font-weight: normal">PVFV</B> function pointer. It then 
+allocates storage for the pointer and adds the pointer to a LIFO list of 
+terminator functions. When the linkage unit in question terminates, the LIFO 
+list is run, calling through each stored function pointer in turn.</FONT> </P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>But what the heck 
+does “linkage unit terminate” mean for a kernel driver? Our interpretation is 
+that this is what happens when your <B 
+style="mso-bidi-font-weight: normal">DriverObject()</B> <B 
+style="mso-bidi-font-weight: normal">DriverUnload()</B> vector gets invoked. So 
+our kernel <B style="mso-bidi-font-weight: normal">CRT</B> library, in its own 
+<B style="mso-bidi-font-weight: normal">DriverEntry()</B> routine, simply steals 
+your <B style="mso-bidi-font-weight: normal">DriverUnload()</B> vector. If you 
+set <B style="mso-bidi-font-weight: normal">DriverObject-&gt;DriverUnload</B>, 
+then, if your driver is unloaded, our unload routine gets called. Our unload 
+routine calls your unload routine, and then it unwinds the list of termination 
+functions setup by <B 
+style="mso-bidi-font-weight: normal">atexit()</B>.</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>Note that <B 
+style="mso-bidi-font-weight: normal">atexit()</B> is a defined external entry 
+point in our cpp runtime library. You can register your own termination 
+functions by calling this routine.</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>Note further that no 
+attempt is made to cleanup on system shutdown. It would be easy to provide a 
+callable interface to run the <B 
+style="mso-bidi-font-weight: normal">atexit()</B> created termination list. At 
+the moment our kernel C++ runtime library does not export the termination 
+interface function (<B style="mso-bidi-font-weight: normal">doexit()</B>) but 
+this could easily be fixed.</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<H3 style="TEXT-ALIGN: justify">Lets Go For a Test Drive</H3>
+<P class=MsoNormal 
+style="TEXT-ALIGN: justify"><![if !supportEmptyParas]>&nbsp;<FONT size=3>Don’t 
+take our word for it. Download our kernel <B 
+style="mso-bidi-font-weight: normal">CRT</B> library and try it yourself.&nbsp; 
+Here is a simple (very simple) device driver that demonstrates the functionality 
+present in the OSR kernel C++ Runtime Library.</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>First, the source 
+code:</FONT></P>
+<P class=MsoNormal><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal><FONT size=2>#include "osrcpp.h"</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>//</FONT></P>
+<P class=MsoNormal><FONT size=2>// define a very simple class 
+hierarchy</FONT></P>
+<P class=MsoNormal><FONT size=2>//</FONT></P>
+<P class=MsoNormal><FONT size=2>enum baseType { BIRD, PLANE, SUPERMAN, LLAMA 
+};</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>class base {</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>public:</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>base();</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>virtual ~base();</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>virtual baseType 
+isa()=0;</FONT></P>
+<P class=MsoNormal><FONT size=2>};</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>//</FONT></P>
+<P class=MsoNormal><FONT size=2>// global derives from base.</FONT></P>
+<P class=MsoNormal><FONT size=2>//</FONT></P>
+<P class=MsoNormal><FONT size=2>class global : public base {</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>public:</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>global(int x);</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>global();</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>virtual 
+~global();</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>int getX();</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>virtual baseType 
+isa();</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>private:</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>int m_x;</FONT></P>
+<P class=MsoNormal><FONT size=2>};</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>//</FONT></P>
+<P class=MsoNormal><FONT size=2>// declare the implementation code for these 
+classes</FONT></P>
+<P class=MsoNormal><FONT size=2>//</FONT></P>
+<P class=MsoNormal><FONT size=2>base::base()</FONT> </P>
+<P class=MsoNormal><FONT size=2>{</FONT></P>
+<P class=MsoNormal><FONT size=2>#if DBG</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>DbgPrint("base: this %x\n", 
+this);</FONT></P>
+<P class=MsoNormal><FONT size=2>#endif</FONT></P>
+<P class=MsoNormal><FONT size=2>}</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>base::~base()</FONT></P>
+<P class=MsoNormal><FONT size=2>{</FONT></P>
+<P class=MsoNormal><FONT size=2>#if DBG</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>DbgPrint("~base: this %x\n", 
+this);</FONT></P>
+<P class=MsoNormal><FONT size=2>#endif</FONT></P>
+<P class=MsoNormal><FONT size=2>}</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>global::global(int x)</FONT></P>
+<P class=MsoNormal><FONT size=2>{</FONT></P>
+<P class=MsoNormal><FONT size=2>#if DBG</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>DbgPrint("global( %x): this 
+%x\n", x, this);</FONT></P>
+<P class=MsoNormal><FONT size=2>#endif<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>m_x = x;</FONT></P>
+<P class=MsoNormal><FONT size=2>}</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>global::global()</FONT></P>
+<P class=MsoNormal><FONT size=2>{</FONT></P>
+<P class=MsoNormal><FONT size=2>#if DBG</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>DbgPrint("global: this 
+%x\n", this);</FONT></P>
+<P class=MsoNormal><FONT size=2>#endif<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>m_x = 0;</FONT></P>
+<P class=MsoNormal><FONT size=2>}</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>global::~global()</FONT></P>
+<P class=MsoNormal><FONT size=2>{</FONT></P>
+<P class=MsoNormal><FONT size=2>#if DBG</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>DbgPrint("~global: this 
+%x\n", this);</FONT></P>
+<P class=MsoNormal><FONT size=2>#endif<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>m_x = 0;</FONT></P>
+<P class=MsoNormal><FONT size=2>}</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>int global::getX()</FONT></P>
+<P class=MsoNormal><FONT size=2>{</FONT></P>
+<P class=MsoNormal><FONT size=2>#if DBG</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>DbgPrint("global::getX m_x 
+%x this %x\n", m_x, this);</FONT></P>
+<P class=MsoNormal><FONT size=2>#endif<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>return m_x;</FONT></P>
+<P class=MsoNormal><FONT size=2>}</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>baseType global::isa()</FONT></P>
+<P class=MsoNormal><FONT size=2>{</FONT></P>
+<P class=MsoNormal><FONT size=2>#if DBG</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>DbgPrint("global::isa this 
+%x\n", this);</FONT></P>
+<P class=MsoNormal><FONT size=2>#endif<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>return BIRD;</FONT></P>
+<P class=MsoNormal><FONT size=2>}</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>//</FONT></P>
+<P class=MsoNormal><FONT size=2>// define some global data for our 
+driver</FONT></P>
+<P class=MsoNormal><FONT size=2>//</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>global one(2);</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>global two;</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>global other(3);</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>//</FONT></P>
+<P class=MsoNormal><FONT size=2>// define the prototype for our driver unload 
+routine</FONT></P>
+<P class=MsoNormal><FONT size=2>//</FONT></P>
+<P class=MsoNormal><FONT size=2>extern "C" void</FONT></P>
+<P class=MsoNormal><FONT size=2>testUnload(PDRIVER_OBJECT 
+DriverObject);</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>//</FONT></P>
+<P class=MsoNormal><FONT size=2>// finally the driver entry routine.</FONT></P>
+<P class=MsoNormal><FONT size=2>//</FONT></P>
+<P class=MsoNormal><FONT size=2>// Use the CPP_DRIVER_ENTRY macro to construct 
+the</FONT></P>
+<P class=MsoNormal><FONT size=2>// linkage between osrcpp and your 
+driver.</FONT></P>
+<P class=MsoNormal><FONT size=2>//</FONT></P>
+<P class=MsoNormal><FONT size=2>CPP_DRIVER_ENTRY(PDRIVER_OBJECT 
+DriverObject,</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>PUNICODE_STRING RegistryPath)</FONT></P>
+<P class=MsoNormal><FONT size=2>{</FONT></P>
+<P class=MsoNormal><FONT size=2>#if DBG</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>DbgPrint("CPP_DRIVER_ENTRY\n");</FONT></P>
+<P class=MsoNormal><FONT size=2>#endif</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>DriverObject-&gt;DriverUnload = testUnload;</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>//</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>// test that our global 
+objects are initialized</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>//</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>if (one.getX() != 2) 
+{</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>return STATUS_UNSUCCESSFUL;</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>}</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>if (two.getX() != 0) 
+{</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>return STATUS_UNSUCCESSFUL;</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>}</FONT></P>
+<P class=MsoNormal><SPAN style="mso-spacerun: yes"><FONT 
+size=2>&nbsp;&nbsp;&nbsp;</FONT> </SPAN></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>// allocate a new 
+object.</FONT></P>
+<P class=MsoNormal><SPAN style="mso-spacerun: yes"><FONT 
+size=2>&nbsp;&nbsp;</FONT> </SPAN></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>global * three = new('vrdT') 
+global(4); // this is not global!</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>if (!three) {</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>//</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>// 
+allocation failure!</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>//</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>return STATUS_UNSUCCESSFUL;</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>}</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>if (other.getX() != 3) 
+{</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>return STATUS_UNSUCCESSFUL;</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>}</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>// declare a local 
+object</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>global 
+four(4444);</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>if (four.getX() != 4444) 
+{</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>delete three;</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>return STATUS_UNSUCCESSFUL;</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>}</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>// our allocated object has 
+to be explicitly deleted!</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>delete three;</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>return 
+STATUS_SUCCESS;</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>}</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2>//</FONT></P>
+<P class=MsoNormal><FONT size=2>// and of course we need an unload routine to 
+test delete!</FONT></P>
+<P class=MsoNormal><FONT size=2>//</FONT></P>
+<P class=MsoNormal><FONT size=2>void</FONT></P>
+<P class=MsoNormal><FONT size=2>testUnload(PDRIVER_OBJECT 
+DriverObject)</FONT></P>
+<P class=MsoNormal><FONT size=2>{</FONT></P>
+<P class=MsoNormal><FONT size=2>#if DBG</FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>DbgPrint("testUnload\n");</FONT></P>
+<P class=MsoNormal><FONT size=2>#endif</FONT></P>
+<P class=MsoNormal><FONT 
+size=2><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=2><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>return;</FONT></P>
+<P class=MsoNormal><FONT size=2>}</FONT></P>
+<P class=MsoNormal><B style="mso-bidi-font-weight: normal"><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></B></P>
+<P class=MsoNormal><B style="mso-bidi-font-weight: normal"><![if !supportEmptyParas]><FONT size=3><![endif]>&nbsp;<o:p></o:p></FONT></B></P>
+<P class=MsoNormal><FONT size=3>On startup, our test driver traces the following 
+information on the debug console:</FONT></P>
+<P class=MsoNormal><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>Module Load: TESTDRV.SYS<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>(symbol loading deferred)<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>file e:\ddk\src\osr\cpprun\cpplib\cpprun.cpp, line 96 
+DriverEntry<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>file e:\ddk\src\osr\cpprun\cpplib\cpprun.cpp, line 172 
+_initterm<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>base: this f85b6ec0<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>global( 2): this f85b6ec0<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>base: this f85b6ec8<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>global: this f85b6ec8<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>base: this f85b6eb8<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>global( 3): this f85b6eb8<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>CPP_DRIVER_ENTRY<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>global::getX m_x 2 this f85b6ec0<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>global::getX m_x 0 this f85b6ec8<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>base: this fd830888<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>global( 4): this fd830888<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>global::getX m_x 3 this f85b6eb8<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>base: this f842fe70<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>global( 115c): this f842fe70<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>global::getX m_x 115c this f842fe70<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>~global: this fd830888<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>~base: this fd830888<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>~global: this f842fe70<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>~base: this f842fe70 </FONT></SPAN><SPAN 
+style="FONT-SIZE: 8pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'"><o:p></o:p></SPAN></P>
+<P class=MsoNormal><![if !supportEmptyParas]><FONT 
+size=3><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=3>And on unload we can see the 
+following:</FONT></P>
+<P class=MsoNormal><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>file e:\ddk\src\osr\cpprun\cpplib\cpprun.cpp, line 131 
+_CppDriverUnload<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>testUnload<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>~global: this f85b6eb8<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>~base: this f85b6eb8<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>~global: this f85b6ec8<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>~base: this f85b6ec8<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>~global: this f85b6ec0<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>~base: this f85b6ec0<o:p></o:p></FONT></SPAN></P>
+<P class=MsoNormal><SPAN 
+style="FONT-FAMILY: Courier New; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: Times New Roman"><FONT 
+size=2>Module Unload: TESTDRV.SYS</FONT></SPAN><SPAN 
+style="FONT-SIZE: 8pt; FONT-FAMILY: 'Courier New'; mso-bidi-font-size: 10.0pt; mso-bidi-font-family: 'Times New Roman'"><o:p></o:p></SPAN></P>
+<H3 style="TEXT-ALIGN: justify">Open Source? Open Sores?</H3>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>We’d like to make 
+the source for our kernel C++ runtime library available to anyone under the GPL 
+(copyleft). Unfortunately portions are certainly derived from Microsoft’s <B 
+style="mso-bidi-font-weight: normal">CRT</B> source and include files, in 
+particular the definition of the linkage based segment data structures has to be 
+exactly as defined by the <B style="mso-bidi-font-weight: normal">CRT</B> 
+libraries or it simply isn’t going to work with the VisualC compiler. The <B 
+style="mso-bidi-font-weight: normal">CRT</B> software is all protected by a 
+standard copyright, and while our VisualC license allows us to distribute 
+derived binaries, it prohibits the distribution of directly derived source 
+code.</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>So we are a bit 
+stuck. The runtime library binary object file and the global include file can be 
+downloaded from our web site. The source code, other than the descriptions in 
+this article, cannot be made public. We are sure that there are lots of clever 
+people out there who could fix/enhance/re-write what we’ve done, but until 
+further notice, they will have to do so by sending us email suggestions.<![if !supportEmptyParas]>&nbsp;</FONT><![endif]><o:p></o:p></P>
+<H3 style="TEXT-ALIGN: justify">To Do List</H3>
+<P class=MsoNormal 
+style="TEXT-ALIGN: justify"><![if !supportEmptyParas]>&nbsp;<FONT size=3>This 
+library is not complete.</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>No support is 
+provided for C++ exception handling. Consequently the STL is unusable as it 
+relies heavily on exception processing. As Microsoft specific Structured 
+Exception Handling (SEH) and C++ exception handling are somewhat incompatible, 
+support in this area will take a bit more work than was involved in the current 
+runtime library.</FONT> </P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>There are a lot of 
+C++ hooks, such as <B style="mso-bidi-font-weight: normal">_set_new_handler</B> 
+that are not implemented.</FONT></P>
+<H3>Caveat Emptor: You gets what you paid for</H3>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>Download <B 
+style="mso-bidi-font-weight: normal">osrcpp.lib</B> and <B 
+style="mso-bidi-font-weight: normal">osrcpp.h</B> from our website and give it a 
+try. If you have problems, send us a bug report. However, this software is 
+provided as-is with no warranty of suitability for any purpose whatsoever. It 
+probably isn’t even safe to use the printed image of the include file as kitty 
+litter.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN></FONT></P>
+<P class=MsoNormal><FONT 
+size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal><FONT size=3>As the banner on <B 
+style="mso-bidi-font-weight: normal">osrcpp.h</B> says</FONT></P>
+<P class=MsoNormal><FONT 
+size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>“This sofware is 
+supplied for demonstration purposes only.</FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3><![if !supportEmptyParas]><![endif]>&nbsp;<o:p></o:p></FONT></P>
+<P class=MsoNormal style="TEXT-ALIGN: justify"><FONT size=3>OSR Open Systems 
+Resources, Inc. (OSR) expressly disclaims any warranty for this software.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>THIS SOFTWARE IS PROVIDED<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>“AS IS” WITHOUT WARRANTY OF ANY KIND, 
+EITHER EXPRESS OR IMPLIED, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES 
+OF MECHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>THE ENTIRE RISK ARISING FROM THE USE OF 
+THIS SOFTWARE REMAINS WITH YOU.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>OSR’s entire liability and your exclusive remedy shall not exceed the 
+price paid for this material.<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>In no 
+event shall OSR or its suppliers be liable for any damages whatsoever 
+(including, without limitation, damages for loss of business profit, business 
+interruption, loss of business information, or any other pecuniary loss) arising 
+out of the use or inability to use this software, even if OSR has been advised 
+of the possibility of such damages.<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>Because some states/ jurisdictions do not allow the exclusion or 
+limitation of liability for consequential or incidental damages, the above 
+limitation may not apply to you.”</FONT></P></DIV>
+<DIV class=Section1>
+<P class=MsoNormal>&nbsp;</P></DIV>
+<P><A href="http://www.osr.com/ntinsider_1999.shtml">NT Insider 1999 On-line 
+Articles</A></P></BODY></HTML>

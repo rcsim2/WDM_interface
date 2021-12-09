@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0138)http://groups.google.com/groups?hl=en&frame=right&th=3ff41e165d598d2c&seekm=Pine.LNX.3.95.990414135357.19120D-100000%40laurent.osgroup.com -->
+<HTML><HEAD><TITLE>Google Groups: View Thread</TITLE>
+<META content="text/html; charset=ISO-8859-1" http-equiv=content-type>
+<META content="MSHTML 5.00.2614.3500" name=GENERATOR></HEAD>
+<BODY bgColor=#ffffff onload=window.focus();>
+<TABLE bgColor=#ffcc33 border=0 cellPadding=2 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><FONT face=arial,sans-serif>All messages from 
+      thread</FONT></TD></TR></TBODY></TABLE><A name=link1></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 1 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:mayuhong%40unidui.uni-duisburg.de+" 
+      target=_top>Maer</A> (<A 
+      href="mailto:mayuhong@unidui.uni-duisburg.de">mayuhong@unidui.uni-duisburg.de</A>)<BR>Subject: 
+      Ask about the CreateFile() <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=7f1mtg%248ru%241%40news-hrz.uni-duisburg.de" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/04/14 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>Hello, all,
+does anybody know how can I use the CreateFile() to get the handle for a
+Device driver, I read the SDK documentation, but nothing there is about to
+get the driver handle through this function.
+
+Thanks for any helps.
+
+Best regards, Maer</PRE><A name=link2></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 2 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:someone%40nospam+" 
+      target=_top>someone</A> (<A 
+      href="mailto:someone@nospam">someone@nospam</A>)<BR>Subject: Re: Ask about 
+      the CreateFile() <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=37145dff.0%40news.interlinx.qc.ca" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/04/14 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>In a Win32 app. you can use the following code;
+
+    HANDLE  hDriver;
+
+    hDriver = CreateFile("\\\\.\\TheNameOfYourDeviceSymbolicName",
+                         GENERIC_READ | GENERIC_WRITE,
+                         0,
+                         NULL,
+                         OPEN_EXISTING,
+                         FILE_ATTRIBUTE_NORMAL,
+                         NULL
+                         );
+
+
+Maer wrote in message &lt;7f1mtg$8ru$1@news-hrz.uni-duisburg.de&gt;...
+<FONT color=#660066>&gt;Hello, all,
+&gt;does anybody know how can I use the CreateFile() to get the handle for a
+&gt;Device driver, I read the SDK documentation, but nothing there is about to
+&gt;get the driver handle through this function.
+&gt;
+&gt;Thanks for any helps.
+&gt;
+&gt;Best regards, Maer
+&gt;
+&gt;</FONT></PRE><A name=link3></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 3 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:Virgil%40Nomadics.com+" 
+      target=_top>Virgil Smith</A> (<A 
+      href="mailto:Virgil@Nomadics.com">Virgil@Nomadics.com</A>)<BR>Subject: Re: 
+      Ask about the CreateFile() <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=3714a3cd.1036040%40news.nstar.net" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/04/14 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE><FONT color=#660066>&gt;In a Win32 app. you can use the following code;
+&gt;
+&gt;    HANDLE  hDriver;
+&gt;
+&gt;    hDriver = CreateFile("\\\\.\\TheNameOfYourDeviceSymbolicName",
+&gt;                         GENERIC_READ | GENERIC_WRITE,
+&gt;                         0,
+&gt;                         NULL,
+&gt;                         OPEN_EXISTING,
+&gt;                         FILE_ATTRIBUTE_NORMAL,
+&gt;                         NULL
+&gt;                         );</FONT>
+Well that's really hDevice, but...
+
+BTW: for 95 it would be
+
+    HANDLE  hDriver;
+
+    hDriver = CreateFile("\\\\.\\MYVXD1.VXD",
+                         GENERIC_READ | GENERIC_WRITE,
+                         0,
+                         NULL,
+                         OPEN_ALWAYS,
+                         FILE_FLAG_DELETE_ON_CLOSE,
+                         NULL
+                         );
+
+And hDriver really would be hDriver, not hDevice.
+
+This is a not so subtle difference between 95 and NT that snares many
+driver writers moving from one system to the other.
+
+BTW: The above are in C/C++ so \\\\.\\ falls down to \\.\ in the
+actual strings.</PRE><A name=link4></A><A name=s></A>
+<TABLE bgColor=#e0e0e0 border=0 cellPadding=2 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD><FONT face=arial,sans-serif>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif>Message 4 in 
+        thread</FONT></TD></TR></TBODY></TABLE>From: <A 
+      href="http://groups.google.com/groups?hl=en&amp;q=author:stan%40laurent.osgroup.com+" 
+      target=_top>Stan Shkolnyy</A> (<A 
+      href="mailto:stan@laurent.osgroup.com">stan@laurent.osgroup.com</A>)<BR>Subject: 
+      Re: Ask about the CreateFile() <BR>Newsgroups: <A 
+      href="http://groups.google.com/groups?hl=en&amp;group=comp.os.ms-windows.programmer.nt.kernel-mode" 
+      target=_top>comp.os.ms-windows.programmer.nt.kernel-mode</A><BR>
+      <TABLE align=right border=0 cellPadding=0 cellSpacing=0>
+        <TBODY>
+        <TR>
+          <TD><FONT face=arial,sans-serif><A 
+            href="http://groups.google.com/groups?hl=en&amp;selm=Pine.LNX.3.95.990414135357.19120D-100000%40laurent.osgroup.com" 
+            target=_top>View this article 
+      only</A></FONT></TD></TR></TBODY></TABLE>Date: 1999/04/14 
+  <BR></FONT></TD></TR></TBODY></TABLE><PRE>On Wed, 14 Apr 1999, Maer wrote:
+
+<FONT color=#660066>&gt; Hello, all,
+&gt; does anybody know how can I use the CreateFile() to get the handle for a
+&gt; Device driver, I read the SDK documentation, but nothing there is about to
+&gt; get the driver handle through this function.</FONT>
+
+Actually, you can't get a handle "for a device driver". What you get is a
+handle for a file object that the system creates for you to represent a
+device object that the driver creates :-) Also, Win32 function CreateFile
+can only open devices for which their driver created a symbolic link under
+/DosDevices and you must "open" that link. My VC++ 4.2 help for CreateFile
+do tells about opening devices. Look at the text that tells about opening
+disk partitions. Of course, it doesn't say that you can open _any_ device
+that way, but you can. Also, make search for DeviceIoControl in the DDK
+and you will see how CreateFile is used before it.</PRE>
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD bgColor=#ffcc33><IMG alt="" height=3 
+      src="groups(1)_bestanden/cleardot.gif"></TD></TR></TBODY></TABLE><BR>
+<CENTER><FONT size=-1>©2001 Google</FONT></CENTER></BODY></HTML>
